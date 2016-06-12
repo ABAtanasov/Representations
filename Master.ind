@@ -1,10 +1,16 @@
 \begin{theindex}
 
-  \item Differential Forms, 9
+  \item Differential Form, 12
+    \subitem Exact, 14
+    \subitem One-Form, 13
+
+  \indexspace
+
+  \item Exterior Derivative, 13
 
   \indexspace
 
   \item Stokes' Theorem
-    \subitem General, 4
+    \subitem General, 6
 
 \end{theindex}

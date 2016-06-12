@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  8 JUN 2016 02:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  11 JUN 2016 19:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -285,37 +285,35 @@ No file Ch1ABA.tex.tex.
 \openout3 = `Master.idx'.
 
 Writing index file Master.idx
-\c@claim=\count115
-\c@lemma=\count116
-\c@corollary=\count117
+\c@theorem=\count115
 (./Master.aux)
 \openout1 = `Master.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
 
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count118
+\scratchcounter=\count116
 \scratchdimen=\dimen129
 \scratchbox=\box32
-\nofMPsegments=\count119
-\nofMParguments=\count120
+\nofMPsegments=\count117
+\nofMParguments=\count118
 \everyMPshowfont=\toks35
-\MPscratchCnt=\count121
+\MPscratchCnt=\count119
 \MPscratchDim=\dimen130
-\MPnumerator=\count122
-\makeMPintoPDFobject=\count123
+\MPnumerator=\count120
+\makeMPintoPDFobject=\count121
 \everyMPtoPDFconversion=\toks36
 ) (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -396,82 +394,138 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Chapter 0.
-[1
+(./chapters/Ch0ABA.tex
+LaTeX Font Info:    Try loading font information for U+msa on input line 11.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 11.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
 
 
 
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
 
-]
-Chapter 1.
-(./chapters/Ch1ABA.tex
-LaTeX Font Info:    Try loading font information for U+msa on input line 7.
+ []
 
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2]
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
+
+ []
+
+
+Package amsfonts Warning: Obsolete command \frak; \mathfrak should be used inst
+ead on input line 64.
+
+LaTeX Font Info:    Try loading font information for U+euf on input line 64.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 7.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [3] [4]
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 78--80
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
 
  []
 
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 104--105
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--67
 
  []
 
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 141--142
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--71
+
+ []
+
+) [4]
+Chapter 1.
+(./chapters/Ch1ABA.tex [5
+
+] [6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 88--91
 
  []
 
 [8]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
 
- [9])
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
+
+ []
+
 [10]
-Chapter 2.
-[11
+Underfull \hbox (badness 10000) in paragraph at lines 181--182
 
-] [12
+ []
+
+[11] [12]
+Overfull \hbox (5.69014pt too wide) in paragraph at lines 213--214
+[]\OT1/cmr/m/n/10.95 If we were ac-tu-ally \OT1/cmr/m/it/10.95 given \OT1/cmr/m
+/n/10.95 the changes in each of the co-or-di-nates $\OML/cmm/m/it/10.95 dx; dy;
+ dz$\OT1/cmr/m/n/10.95 ,
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 251--252
+
+ []
+
+[14] [15]) [16]
+Chapter 2.
+[17
+
+] [18
 
 ]
 Chapter 3.
-[13] [14
-
-]
-Chapter 4.
-[15] [16
-
-]
-Chapter 5.
-[17] [18
-
-]
-Chapter 6.
 [19] [20
 
 ]
+Chapter 4.
+[21] [22
+
+]
+Chapter 5.
+[23] [24
+
+]
+Chapter 6.
+[25] [26
+
+]
 Chapter 7.
-(./Master.ind [21] [22
+(./Master.ind [27] [28
 
 
 ]) (./Master.aux) ) 
 Here is how much of TeX's memory you used:
- 5185 strings out of 493089
- 69700 string characters out of 6134842
- 154825 words of memory out of 5000000
- 8552 multiletter control sequences out of 15000+600000
- 18886 words of font info for 71 fonts, out of 8000000 for 9000
+ 5221 strings out of 493089
+ 70262 string characters out of 6134842
+ 156002 words of memory out of 5000000
+ 8579 multiletter control sequences out of 15000+600000
+ 20774 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,10n,43p,977b,276s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,10n,43p,1172b,290s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
@@ -479,21 +533,23 @@ s/cm/cmbx9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmmi6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12
-.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.p
-fb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb>
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/l
-ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/lo
-cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/loca
-l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local
+mmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.p
+fb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr
+/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/loc
+al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
+l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/
+texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/t
+exlive/2015/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local
 /texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Master.pdf (22 pages, 222506 bytes).
+Output written on Master.pdf (28 pages, 270697 bytes).
 PDF statistics:
- 148 PDF objects out of 1000 (max. 8388607)
- 104 compressed objects within 2 object streams
+ 175 PDF objects out of 1000 (max. 8388607)
+ 123 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

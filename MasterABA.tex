@@ -47,9 +47,15 @@
 
 \makeindex
 
-\newtheorem{claim}{Claim}
-\newtheorem{lemma}{Lemma}
-\newtheorem{corollary}{Corollary}
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem*{nb}{Important Note}
+\newtheorem{condefn}[theorem]{Conceptual Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+
+
 
 % This will be the book itself, all .tex files compiled into one source. For simplicity, as well as to save space, we're going to have each chapter be a .tex on its own
 
@@ -79,6 +85,7 @@
 
 %Chapter 0: Philosophy (small chapter)
 \chapter{Philosophy}
+\subfile{chapters/Ch0ABA}
 
 %Chapter 1: Differential Geometry (large chapter)
 \chapter{Differential Geometry}

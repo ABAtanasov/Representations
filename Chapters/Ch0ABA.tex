@@ -1,0 +1,79 @@
+\documentclass[../master.tex]{subfiles}
+ 
+ 
+\begin{document}
+	
+	\section{The Cartesian Coordinate System} % (fold)
+	\label{sec:Cartesian}
+	
+	
+	
+	One of the most important revolutions in mathematics and physics was introduced by Descartes in the early seventeenth century. It was the idea that any point $p$ in the plane could be represented by a pair of numbers $(x,y)$. The numbers themselves represented distances along two perpendicular axes that met at a point $(0,0)$, called the origin. By introducing this concept, he had done something amazing. He had related the \emph{geometry} of the plane to the \emph{algebra} of variables and equations. Algebra could be \emph{represented} geometrically, and conversely geometric problems could be solved by going into the realm of algebra. 
+	
+	\textbf{Insert 2D Plane with Coordinates}
+	
+	This idea: the coordinate system, would then be heavily used by Newton in the development of his infinitesimal calculus, an invention that has ranked as one of the greatest of human accomplishments. Coordinates would become more than just pairs $(x,y)$, but would extend to 3D space, and arbitrarily high dimensions. They would subsequently be used to lay the foundations for modern physics and mathematics. Linear algebra, multivariable calculus, and all the connections between algebra and geometry begin with the concept of a coordinate.
+	
+	Coordinate systems have been used constantly by all physicists from Newton, through Maxwell and Einstein, to the physicists and engineers of today. In mathematics, Descarte's idea planted the roots for what would turn into the modern field of algebraic geometry. 
+	
+	When studying a geometric phenomenon in some $n$-dimensional space, say $\mathbb{R}^n$, we pick an origin and axes to form our coordinate system. For a ball falling, we could set the origin at some point on the ground, and pick one axis parallel to the ground, and one perpendicular. We can decide to measure the axes in meters, or we could decide to do it in feet (nothing stops us from making bad choices). So now the point $p$ where the ball lies is represented by $(x,y)=(0~ \mathrm m,10~ \mathrm m)$. Because this is such a natural choice of coordinate system, the coordinate $y$ is a well-known concept, called the height.
+	
+	\textbf{Insert Ball Falling}
+	
+	We can now study $h$, free of geometry, as just a function which we can do arithmetic and calculus on. If we are given an equation of motion, say $\frac{d^2y}{dt^2} = -g, \frac{d^2x}{dt^2} = 0$ with initial conditions $\frac{dy}{dt}=0, \frac{dx}{dt}=0$, then we can do kinetics on the system, and see how it evolves in the \emph{time} direction. A recurrent theme will be that dynamics of a system in $n$-dimensional space can be thought of just a special type of geometry in $n+1$ dimensional space, putting time as an added dimension. 
+	
+	Because this book will, in large part, be concerned with studying the ways in which geometry, algebra, and physics connect, it is worthwhile to dwell on the \emph{philosophy} behind coordinate systems.
+	
+	The ball will fall from 10 meters, according to the force of gravity. That is the way the world works. It doesn't matter what coordinate system we set up to do that calculation, we should get the \emph{exact same result}. Plainly: nature doens't \emph{care} what coordinate system we use. This fact, obvious as it may be, is worth thinking about: No matter what coordinate system we use, the equation of motion should give the same dynamics. The laws of physics should be \emph{independent of any coordinate system}.
+	
+	Newton's law $\mathbf F = m \mathbf a$ relates the force vector to the acceleration vector. The vector representing the force $\mathbf F$ that you apply on a surface is an object independent of coordinate system, so is the resulting acceleration vector. The \emph{components} of these vectors ($F_x, F_y, F_z$) and ($a_x, a_y, a_z$), however, depend on what you have chosen for the $x,y,z$ axes. These components \emph{represent} a real physical vector, but only once we pick a coordinate system. If we were to pick a different coordinate system, they would change. It would therefore be extremely wrong if a physical law ever looked like $F_x dx = dW$, because that puts emphasis on just one of the components over the others. While in some coordinate system this may be nonzero, in another it would be zero, so the work done, $dW$, is not an invariant. That's why the true formula looks like $\mathbf F \cdot  d \mathbf r = F_x dx + F_y dy + F_z dz = d W$. Although its not yet obvious that this is invariant under change of coordinates, at the very least it doesn't put one component above any of the others.
+	
+	
+		% In antiquity, Pythagoras discovered that for a right triangle with side lengths $a,b$ and hypotenuse $c$, the following equation related the lengths:
+	% 	\begin{equation*}
+	% 		a^2 + b^2 = c^2
+	% 	\end{equation*}
+	% 	Nowadays to us, this equation is interesting to know, and not too hard to prove. To Pythogoras and his students, however, it was absolutely stunning. The reason was that at that time, mathematics was divided into two fields: geometry and arithmetic. Geometry reasoned with measurements and constructions of figures in the plane, while arithmetic dealt with studying equalities of how numbers combined.
+	%
+	% 	Although equality played a central role in both fields,
+	
+	% section Descartes (end)
+	
+	\section{More General Coordinates} % (fold)
+	\label{sec:GeneralCoordinates}
+	
+	% section GeneralCoordinates (end)
+	
+	\section{The Manifold} % (fold)
+	\label{sec:the_manifold}
+	
+	% section the_manifold (end)
+	
+	\section{The Field} % (fold)
+	\label{sec:the_field}
+	
+	\section{What Follows} % (fold)
+	\label{sec:what_follows}
+	
+	The rest of this book will expand both on the geometry of fields and manifolds, and also on the larger ideas of groups, homogenous spaces, and representations. \\
+	
+	In chapter 1, we will continue studying the fields that live on manifolds. We'll prove the General Stokes' theorem, an elegant generalization of the divergence, curl, and line integral theorems that have been taught in multivariable calculus. From there, we will study more thoroughly the concept of a metric, and how this relates vector fields to differential forms. The notion of a derivative will be extended to manifolds, and will take the form of a ``Lie Derivative''.\\
+	
+	In chapter 2, we will introduce Fourier Analysis as a powerful tool for studying functions on the real line an Euclidean space. Then we will shift to looking at the representation theory of \emph{finite} groups and illustrate the parallels. We will then return to the study of continuous group actions on especially symmetric ``homogenous'' spaces, and show how Fourier analysis is related to their representation theory. Towards the end, we will expand on the idea behind a group actions on manifolds and look at the representation theory, giving a small glimpse into harmonic analysis: the Fourier transform on manifolds. Just as in the first chapter, we'll recognize the importance of the underlying differential geometry of the group action. The underlying differential structure is known as the ``Lie Algebra'' of the group, and we will discuss that.\\
+	
+	In chapter 3, we introduce some background behind Lie Algebras. We put almost all of our focus on one special case: the Lie algebra $\frak{sl}_2 (\mathbb C)$. The relationship between this algebra and the symmetries of the sphere are explored, as well as its applications in quantum physics for studying angular momentum. The representation theory of a variant of this algebra gives rise to the concept of spin. \\
+	
+	In chapter 4, we move further into physics, going over classical Lagrangian and Hamiltonian Mechanics. We discuss Noether's theorem in both the Lagrangian and Hamiltonian Pictures, and then we move to study Hamiltonian mechanics using the language of differential geometry that we have developed. This will give rise to \emph{symplectic geometry}. In chapter 7, combining this with representation theory gives rise to \emph{quantum mechanics}.\\
+	
+	In chapter 5, we apply differential geometry first to the study of electromagnetism, and then to gravitation. We shall arrive at Einstein's theory of gravity. Along the way, we study in even greater detail the notion of a metric, a connection, and curvature. \\
+	
+	In chapter 7, we use the representation theory and differential geometry that we have developed so far to study how quantum mechanics can arise from quantizing a symplectic manifold.\\
+	
+	Finally, chapter 8 studies Lie algebras in greater detail, working towards the \emph{classification of complex semisimple Lie algebras}. Along the way, we will look at the relationship between representation theory of Lie algebras and modern physics. 
+	
+	% section what_follows (end)
+	
+	% section the_field (end)
+	
+	
+\end{document}

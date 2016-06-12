@@ -1,2 +1,172 @@
 Latexmk: This is Latexmk, John Collins, 5 February 2015, version: 4.43a.
+Rule 'pdflatex': File changes, etc:
+   Changed files, or newly in use since previous run(s):
+      './chapters/Ch0ABA.tex'
+      'chapters/Ch0ABA.tex'
+------------
+Run number 1 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -synctex=1 -file-line-error-style  -interaction=nonstopmode -recorder  "./Master.tex"'
+------------
+Latexmk: applying rule 'pdflatex'...
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./Master.tex
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/bk11.clo))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/graphics.cfg)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty))))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/algorithms/algorithm.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/float/float.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifpdf.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifvtex.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/ifxetex/ifxetex.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/subfiles/subfiles.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/verbatim.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/makeidx.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/babel/babel.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/babel-english/english.ldf
+(/usr/local/texlive/2015/texmf-dist/tex/generic/babel/babel.def)))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/titlesec/titlesec.sty)
+\@input{Ch1ABA.tex.aux}
+No file Ch1ABA.tex.tex.
+Writing index file Master.idx
+(./Master.aux)
+(/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifluatex.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/grfext.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/etexcmds.sty)))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+Chapter 0.
+(./chapters/Ch0ABA.tex
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd) [1{/usr/local/t
+exlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active [2]
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
+
+
+Package amsfonts Warning: Obsolete command \frak; \mathfrak should be used inst
+ead on input line 64.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/ueuf.fd)
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--67
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--71
+
+) [4]
+Chapter 1.
+(./chapters/Ch1ABA.tex [5] [6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 88--91
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 181--182
+
+[11] [12]
+Overfull \hbox (5.69014pt too wide) in paragraph at lines 213--214
+[]\OT1/cmr/m/n/10.95 If we were ac-tu-ally \OT1/cmr/m/it/10.95 given \OT1/cmr/m
+/n/10.95 the changes in each of the co-or-di-nates $\OML/cmm/m/it/10.95 dx; dy;
+ dz$\OT1/cmr/m/n/10.95 ,
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 251--252
+
+[14] [15]) [16]
+Chapter 2.
+[17] [18]
+Chapter 3.
+[19] [20]
+Chapter 4.
+[21] [22]
+Chapter 5.
+[23] [24]
+Chapter 6.
+[25] [26]
+Chapter 7.
+(./Master.ind [27] [28]) (./Master.aux) )
+(see the transcript file for additional information)</usr/local/texlive/2015/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2015/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2015/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2015/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
+onts/euler/eufm10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
+sfonts/symbols/msbm10.pfb>
+Output written on Master.pdf (28 pages, 270697 bytes).
+SyncTeX written on Master.synctex.gz.
+Transcript written on Master.log.
+Latexmk: Missing input file: 'Ch1ABA.tex.tex' from line
+  'No file Ch1ABA.tex.tex.'
+Latexmk: Index file 'Master.idx' was written
+Latexmk: Log file says output to 'Master.pdf'
 Latexmk: All targets (Master.pdf) are up-to-date
