@@ -166,7 +166,7 @@ And later, in multivariable calculus, you encountered more elaborate integral fo
 			\int_C \mathbf{F} \cdot d\mathbf r = \int_S (\nabla \times \mathbf{F}) dA
 		\end{equation}
 	\end{theorem}
-	Exercise \textbf{(MAKE AN EXERCISE)} generalizes this to a surface in 3D, to get the 3D version of Stokes' theorem:
+	Exercise \textbf{(MAKE AN EXERCISE)} generalizes this to a surface in 3D, to get the 3D version of Stokes' theorem \index{Stokes' Theorem!For Curl}:
 	
 	\begin{equation}
 		\int_C \mathbf{F} \cdot d\mathbf r = \int_S (\nabla \times \mathbf{F}) \cdot d\mathbf S 
@@ -242,7 +242,7 @@ And later, in multivariable calculus, you encountered more elaborate integral fo
 	
 	All forces (including the generalized forces, like torque) come from the differential form. If you're working in a coordinate system $x^i$, whether it be cartesian $x,y,z$ or polar $r, \theta$, then the coefficient corresponding to $dx^i$ is precisely the generalized force associated with that coordinate.
 	
-	So if we have a 1-form $\omega$ we can write it in terms of its components as $\omega = \sum_{i=1}^n \omega_i dx^i$. In general, only a special set of $\omega$ are exterior derivatives of functions. In multivariable calculus, we studied conservative vector fields as arising from gradients of functions. The language we'll use here for the exact same phenomenon is that $\omega$ is \textbf{exact} \index{Differential Form!Exact} if it is the exterior derivative of a 0-form.
+	So if we have a 1-form $\omega$ we can write it in terms of its components as $\omega = \sum_{i=1}^n \omega_i dx^i$. In general, only a special set of $\omega$ are exterior derivatives of functions. In multivariable calculus, we studied conservative vector fields as arising from gradients of functions. The language we'll use here for the same phenomenon is that $\omega$ is \textbf{exact} \index{Differential Form!Exact} if it is the exterior derivative of a 0-form.
 	
 	\begin{condefn}[One-Forms Relate Change to Direction]
 		For a function $\phi$, the one-form $\omega = \mathrm d \phi$ gives the first-order change in $\phi$ along a given direction $(dx^1,\dots, dx^n)$. In general, for a one-form $\omega$ that is not exact, $\omega$ along a given direction $(dx^1,\dots, dx^n)$ gives the change in a quantity that cannot be represented by a function of the coordinates. This occurs, for example, with non-conservative forces such as friction or when calculating heat added to a system.
@@ -251,7 +251,7 @@ And later, in multivariable calculus, you encountered more elaborate integral fo
 	A classic example is $d\theta$. Although locally, $\theta$ can be defined just by calculating the angle from the $x$ axis, if you go around counterclockwise in a circle containing the origin, then $\theta$ continuously increases. At the end of the revolution, even though you are at the same point, $\theta$ has increased by $2\pi$. So although $d\theta$ makes sense locally as a differential form everywhere in the plane minus the origin, we cannot define a global smooth function representing $\theta$ without a discontinuity. \\
 
 
-	Because the language is suggestive, you would expect that there are two-forms for integrating over two-dimensional surfaces. 
+	We've now shown how the fundamental theorem of line integrals deals with the exterior derivative. The next step is to go into 2D and show how we can define the exterior derivative in just the right way to get Stokes' theorem \index{Stokes' Theorem!For Curl}for curl in 2D (also known as Green's theorem). Because the language is suggestive, you would expect that there are two-forms for integrating over two-dimensional regions. 
 
 	Now instead of having individual quantities like $dx$ to represent an infinitesimal-length line segment, we will want quantities to represent a \emph{infinitesimal areas} that will cover the surface that we integrate on. These areas need to be defined by two directions, $dx^i$ and $dx^j$. 
 	
