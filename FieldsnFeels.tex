@@ -1,0 +1,56 @@
+\documentclass[12pt, twoside, openany]{book}
+\usepackage[b5paper, margin = .8in]{geometry}
+\usepackage{amsmath}
+\usepackage{epigraph}
+\usepackage{epipart}
+\usepackage{makeidx}
+% packages for math typing
+\usepackage{amssymb,amsfonts,bbm,amsthm,amsmath,verbatim,graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{cancel}
+\usepackage{braket}
+\newcommand{\md}{\text{ \% }}
+\newcommand{\bld}{\texttextbf}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\noi}{\noindent}
+\newcommand{\1}{\mathbbm{1}}
+\newcommand{\vol}{\text{vol}}
+\newcommand{\re}{\text{re}}
+\newcommand{\im}{\text{im}}
+
+\setlength{\epigraphwidth}{8cm}
+
+%environment 
+\newcounter{conceptctr}
+
+\newenvironment{concept}{%      define a custom environment
+   \bigskip\noindent%         create a vertical offset to previous material
+   \refstepcounter{conceptctr}% increment the environment's counter
+   \textit{\textbf{Concept \theconceptctr}}% or \textbf, \textit, ...
+   \newline%
+   }{\par\bigskip}  %          create a vertical offset to following material
+\numberwithin{conceptctr}{section}
+
+%indexing
+\makeindex
+ 
+\begin{document}
+\tableofcontents
+\cleardoublepage
+\epigraphhead[500]{\textit{``She offers her information only in one form.  We are not so unhumble as to demand that she change before we pay any attention"}\\ -Richard Feynman on Nature }
+\part{The Language of Nature}
+There is no consensus regarding the precise nature of the relationship between mathematics and physics, but it is incontrovertible that the two share a uniquely strong \cancel{bond}*(replace w/ better word because they don't wanna hear about it now)*.  Their connection is so deep as to be regarded as mystical by some and their mutually supportive interplay has proven endlessly fruitful.  As such, the necessity of an understanding of mathematics in appreciating Nature cannot be understated.  Therefore, we commit this first part to providing an intuitively framed but rigorously supported overview of the mathematics necessary for understanding the physical theories of interest in later sections.\\\\
+EXPAND HERE ON: briefly touch on philosophy connecting math and physics, attitude to have towards physics,     
+\include{P1C1DifferentialGeometry}
+\printindex
+\end{document}
