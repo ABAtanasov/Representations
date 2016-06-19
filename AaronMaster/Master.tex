@@ -30,7 +30,7 @@
 
 \setlength{\epigraphwidth}{8cm}
 
-%environment 
+%concept environment 
 \newcounter{conceptctr}
 
 \newenvironment{concept}{%      define a custom environment
@@ -41,11 +41,36 @@
    }{\par\bigskip}  %          create a vertical offset to following material
 \numberwithin{conceptctr}{section}
 
+%definition environment 
+\newcounter{definitionctr}
+
+\newenvironment{definition}{%      define a custom environment
+   \bigskip\noindent%         create a vertical offset to previous material
+   \refstepcounter{definitionctr}% increment the environment's counter
+   \textit{\textbf{Definition \thedefinitionctr}}% or \textbf, \textit, ...
+   \newline%
+   }{\par\bigskip}  %          create a vertical offset to following material
+\numberwithin{definitionctr}{section}
+
 %indexing
 \makeindex
- 
+
+\setcounter{part}{-1} 
+\renewcommand\thepart{\arabic{part}}
+%so we can have part 0 
+\title{Representations of a Mathematical Universe}
+\author{Alex Atanasov \& Aaron Hillman}
 \begin{document}
+\maketitle
 \tableofcontents
+
+\cleardoublepage
+\epigraphhead[500]{dope quote}
+\part[0]{Old Notions and New Horizons}
+Before learning an entirely new and generalized mathematical formalism, reviewing the old notions which we held dear serves as a useful primer.  We can cut straight through our previous conceptions, separating the crutches supporting false physical assumptions, from the essential concepts lending themselves to generalization.  
+\include{P0C0Philosophy}
+
+
 \cleardoublepage
 \epigraphhead[500]{\textit{``She offers her information only in one form.  We are not so unhumble as to demand that she change before we pay any attention"}\\ -Richard Feynman on Nature }
 \part{The Language of Nature}

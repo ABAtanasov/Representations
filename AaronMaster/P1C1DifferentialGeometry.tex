@@ -1,9 +1,9 @@
 \chapter{Untitled}
-\epigraph{\textit{``Young man, in mathematics you don't understand things. You just get used to them."}}{John Von Neumann}
+\epigraph{\textit{``In mathematics you don't understand things. You just get used to them."}}{John Von Neumann}
 \epigraph{\textit{``There is no royal road to geometry"}}{Euclid}
 \section*{Setting the Stage}
 
-It is impossible to conceive of a complete description of physics that need not make use of a geometric space in which states exists.  And even those physical degrees of freedom not tied to positions or times, such as spin, naturally lend themselves to having their states placed in a geometric space.  As such, a natural starting point for understanding physical systems is first understanding the space in which the system lives, the \textit{stage} on which physics takes place.  For many years it was merely posited that physical space had the mathematical character of $\R^3$ (Euclidean space) and that time was merely another orthogonal direction making spacetime $\R^4$.  Such assumptions were poor for two reasons.  For one, a physicist should strive to make as few assumptions as possible in the pursuit of a general theory and presuming that physical space is $\R^3$ indirectly assumes many things about how physical systems behave. Second, and much more egregious, in many cases these assumptions are simply false; that is, they are inconsistent with what we experimentally observe about the universe.  But what is the way forward, then?  First, we must explore in abstract the geometries that spaces may have and how objects behave on them.  This naturally leads us to what is at present the best mathematical conception of the stage on which physics takes place, the \textbf{manifold}\index{manifold}.\\
+It is impossible to conceive of a complete description of physics that need not make use of a geometric space in which states exists.  And even those physical degrees of freedom not tied to positions or times, such as spin, naturally lend themselves to having their states described in a geometric space.  As such, a natural starting point for understanding physical systems is first understanding the space in which the system lives, the \textit{stage} on which physics takes place.  For many years it was merely posited that physical space had the mathematical character of $\R^3$ (Euclidean space) and that time was merely another orthogonal direction making spacetime $\R^4$.  Such assumptions were poor for two reasons.  For one, a physicist should strive to make as few assumptions as possible in the pursuit of a general theory and presuming that physical space is $\R^3$ indirectly assumes many things about how physical systems behave. Second, and much more egregious, in many cases these assumptions are simply false; that is, they are inconsistent with what we experimentally observe about the universe.  But what is the way forward, then?  First, we must explore in abstract the geometries that spaces may have and how objects behave on them.  This naturally leads us to what is at present the best mathematical conception of the stage on which physics takes place, the \textbf{manifold}\index{manifold}.\\
 
 The term manifold describes a very general class of mathematical objects.  Moreover, without certain restrictions on their properties, they may take certain pathological and non-physical forms.  As such, we will restrict our discussion to smooth manifolds, since spacetime (and other geometric spaces we care about) appears to be such a thing.  It is worth noting that perhaps, as physics progresses, we may learn that this assumption was also a mere approximation to a more fundamental description of reality.  This is a fair point, but nonetheless, this assumption is completely compatible with the physics of interest here. \\
 
@@ -22,18 +22,17 @@ A topological space $X$ is a set with a family of open subsets $T$ satisfying
  
 This definition of a manifold may still seem too abstract.  Intuitively, this definition is saying that an $n$-dimensional Manifold is a set which \textit{locally} looks like $\R^n$.  In the context of physics, by considering general manifolds, we are laxing our stipulation that space is Euclidean in its totality to a requirement that space \textit{seems} Euclidean in a small patch around any given point. For example, we know by various means, that the surface of the earth is roughly like the surface of a spherical ball.  But, ignoring irregularities in the surface like hills and mountains, at any given point on earth the surface appears flat in some patch around you.  We could, in principle, draw lines determining a collection of relatively flat patches of earth which collectively cover all of earth and then map each of these onto part of the plane, $\R^2$.  Therefore the surface of the earth is to good approximation a perfectly fine 2-dimensional smooth manifold, but we note that as it is different from the plane.  In a similar manner, its conceivable that although in 3-dimensional patches  around us physical space appears to be Euclidean, the entirety of physical space may be described by some much more interesting geometry.  It is on these non-Euclidean manifolds that much interesting and often unintuitive physics arises.\\
 
-As we endow our geometric spaces with more  structure it is important to keep in mind at each stage the limits of what we can say about our space.  At this point, we only have information about the smoothness and \textit{topology} of our space, but we have no notion of how distances behave on our manifold.  A concrete example of this limit is that we have not provided enough structure to our notion of manifold to differentiate between an egg and a  ping-pong ball.  The surfaces of these objects are topologically the same, and differentiating between the two requires a notion of how long different curves are on their surfaces; such differentiation is facilitated by the presence of Riemann structure. We complete the section by stating our first essential concept.  **(perhaps diagram )**\\
+As we endow our geometric spaces with more  structure it is important to keep in mind at each stage the limits of what we can say about our space.  At this point, we only have information about the smoothness and \textit{topology} of our space, but we have no notion of how distances behave on our manifold.  A concrete example of this limit is that we have not provided enough structure to our notion of manifold to differentiate between an egg and a  ping-pong ball.  The surfaces of these objects are topologically the same, and differentiating between the two requires a notion of how long different curves are on their surfaces; such differentiation is facilitated by the presence of Riemann structure, which our manifolds have not yet been equipped with.
 
-Moreover, the reader should not presume that they are able to visualize the totality of a manifold.  The capacity to do so for an $n$-dimensional manifold is contingent upon the ability to \textit{embed} the manifold in $\R^{n+1}$, as is commonly done with the 2-sphere; we are not generally able to do this.**(tie this up or something)**  
+Moreover, the reader should not presume that they are able to visualize the totality of a manifold.  The capacity to do so for an $n$-dimensional manifold is contingent upon the ability to \textit{embed} the manifold in $\R^{n+1}$, as is commonly done with the 2-sphere (picturing the two dimensional surface of the sphere as a curved space in three dimensional space.  We are not generally able to do this, and so the reader should not rely on intuitions rooted in embeddings, as they are a geometric crutch.
 
 \begin{concept}
-A smooth manifold is a set which can map itself into Euclidean space in a neighborhood of any point,
+\textit{A smooth manifold is a continuous collection of points which can be invertibly mapped into Euclidean space in a neighborhood of any point, allowing us to locally talk about our manifold by working in Euclidean space.}
 \end{concept}
 
+Now that we prepared the stage, we are ready to study the fields which may exist on it.  
 
-SEGWAY?
-
-\section*{Better Title} 
+\section*{Vectors Reinvented} 
 Surely the reader is familiar with the concept of a vector field.  The geometric intuition behind a vector field $v:\R^3 \to \R^3$  in Euclidean space is that we input a position in space and get out an object at said point with a magnitude and direction.  This may describe the velocity of a particle at the point, or a force acting at such point.  But as we generalize the geometry of the spaces in which physics is taking place, it becomes natural and necessary to utilize differently defined mathematical objects analogous to (or even in special cases reducing to) those previously used.  In order to build up our new geometric machinery, we will start simple and make an effort to intuitively motivate the need for this new formalism, often by pointing out the defunctness of old ways.  Nonetheless, this modern view of geometry may never feel as intuitive as arrows in three dimensional space, and so the reader should take seriously the epigraph at the beginning of the chapter. \\
 
 Perhaps the simplest object to conceive of existing on a manifold is a smooth function 
@@ -60,14 +59,14 @@ We will proceed writing functions in the way on the right, and omitting the comp
 \begin{align*}
 	\frac{d}{dt}(f(\gamma(t)))
 \end{align*}
-the collection of such maps for all possible curves $\gamma$ at a point $\gamma(t)$ is called the Tangent Space at $\gamma(t)$, denoted $T_{\gamma(t)}M$.  We will formally define this later.  Before seeing how this lends itself to a generalized notion of vector fields on manifolds, we must first discuss how mappings between manifolds give rise to mappings between the objects that exist on them. 
+the collection of such maps for all possible curves $\gamma$ at a point $\gamma(t)$ is called the Tangent Space at $\gamma(t)$, denoted $T_{\gamma(t)}M$.  We will formally define this space later.  Before seeing how this lends itself to a generalized notion of vector fields on manifolds, we must first discuss how mappings between manifolds give rise to mappings between the objects that exist on them. 
 \subsection*{Covariance, Contravariance, and Duality}
 Covariance, contravariance, and duality are very general concepts utilized in category theory, but in order to remain geometrically grounded we will restrict ourselves to a discussion of their application to manifolds.  Consider a smooth map $\varphi: M \to N$ between manifolds $M$ and $N$.  Such a map need not be invertible in general.  If we have a smooth function $f$ defined on $N$, $\varphi$ can allow us to compute this function on $M$ by considering the composition $\varphi^*f = f\circ \varphi : M \to \R$.  This operation $\varphi^*: f \to f\circ \varphi$ is called a \textbf{pullback}\index{pullback} because it brought the function defined on $N$ \textit{back} and defined it on $M$.  Notice that since $\varphi$ is not in general invertible, we are not in general able to send functions from $M$ forward to $N$ by composing with $\varphi^{-1}$ (which may not exist).  Because the map that goes forward from $M$ to $N$ gives rise to a backward map  $\varphi*: C^\infty(N) \to C^\infty(M)$ we say that smooth functions are \textbf{contravariant}\index{contravariant} objects.  Now, there exist other objects which, unlike functions, give rise to maps that would go the same way as $\varphi$.  Consider a map $v:C^\infty(M)\to C^\infty(M)$.  This $v$ takes a smooth function on $M$ and sends yields another smooth function on $M$.  We may define $(\varphi_*v)(f) = v(f\circ\varphi)$ where $f$ is a smooth function on $N$.  Therefore, $\varphi_*$ took a $v$ defined on $M$ and yielded a map $\varphi_* v: C^\infty(N) \to C^\infty(N)$ defined on $N$.  Since $\varphi_*$ maps in the same direction as $\varphi$ we call it a \textbf{pushforward}.  In practice, when we actually perform analysis on manifolds, we will be manipulating coordinates $\{x^\mu\}$ on $\R^n$, but technically speaking we are working with the \textit{pullbacks} of these coordinate functions by our charts, since \textit{those} are what are defined on the manifold.  There exists a \textit{duality} between contravariant and covariant objects, which can be summarized abstractly.  \\
 
 If we have a vector space $V$, we may consider the space of linear maps $v^*: V \to \R$.  This too comprises a vector space $V^*$ which we call the \textbf{dual space}\index{dual space}.  If we have a map $\varphi:V \to W$ we can see that, being careful about composing maps properly, this gives rise to $\varphi^*: W^* \to V^*$.  Maps between vector spaces produce pullbacks between the dual spaces.  With this in mind, we are prepared to discuss vector fields and differential forms.\\
 **(excercise on basis inducing a corresponding dual basis and $(V^*)^* = V$ )**
 
-\section*{TITLE VECTOR FIELDS, FORMS}
+\section*{Fields}
 \subsection*{Vector Fields}
 Given how organically the concept emerged of a tangent vector  being a map differentiating functions, it is natural to generalize the concept to vector \textit{fields} on a manifold.   A vector field will be a map which sends smooth functions to a directional derivative.  Since we define our smooth functions using local coordinate functions on a chart, we can compute this derivative as
 \begin{align*}
@@ -89,7 +88,7 @@ The essence of a vector field as a derivative operator is captured by the second
   The vector $v_p$ is a map taking $f$ to its derivative at $p$, a number which would be acquired by feeding in $p$ to the resultant function yielded by $vf$.  We say $v_p$ is a tangent vector at $p$ and the set of all such vectors is the \textbf{Tangent Space}\index{Tangent Space} at $p$, $T_pM$.  If we have an embedding of our $n$-dimensional manifold, we can identify the components $v_p^\mu$ of the vector field at a point $p$ as the components of traditional vector in $\R^n$ and as such place a copy of $\R^n$ tangent to $M$ at $p$ and draw the corresponding arrow.  In this way, we would get a field of arrows on our manifold.  But to indulge this practice is to betray the essence of our new concept of a vector field; our definition provides a useful form of a vector that does not need an embedding of the manifold in higher dimensional Euclidean space.  Nonetheless, it is nice to see that this advanced machinery is consistent with our old intuitions in special cases.\\
   
 
-\subsection*{Forms}
+\subsection*{Form Fields}
 In order to motivate forms, it is valuable to begin by asking how we might try to perform integration on a manifold or a submanifold (which is merely a manifold whose points are contained in a greater manifold).  The simplest example we might consider is integrating over a curve $\gamma: [0, 1] \to M$.  We want our integration to correspond to a summation of tiny scalar values, computed along a series of infinitesimal displacements conceptually given by the tangent vectors to $\gamma$.  But we cannot merely sum vector values to get a scalar, so we see already the need for a map $\omega$ from tangent vectors to real numbers.  This map $\omega$ assigns at each point in the manifold a map 
 \begin{equation*}
 	\omega_p: T_pM \to \R
@@ -170,31 +169,71 @@ Now, this generalization of the $d$ operation may at first appear contrived or u
  
  This example is clearly not a general result, but it is nonetheless comforting to see that a notion of exterior derivative as small changed can be recovered, and that we are \textit{generalizing} our old intuitions, not completely trashing them.\\
  
- **(Introdce tensor product of vector spaces and then tensor fields )**\\
- 
- **(Exterior algebra is subspace of tensor products)**
+
 \section*{Stoke's and Integration}
-We have now built up the geometric intuition and mathematical sophistication necessary to discuss a very powerful and general theorem in differential geometry.  The statement concerns a form $\omega$ defined on a mandifold with boundary, $M$. \\
+We have now built up the geometric intuition and mathematical sophistication necessary to discuss a very powerful and general theorem in differential geometry: Stoke's Theorem.  The statement concerns a form $\omega$ defined on a manifold with boundary, $M$ and is a generalization of the many integration theorems taught to students in multivariable calculus courses.  As such, we will motivate the theorem by reframing each of those old calculus theorems in our modern geometric language.  
+
+Surely the reader recalls the fundamental theorem of calculus 
+\begin{align*}
+	\int\limits_a^b f'(x) dx = f(x)\bigg|^b_a
+\end{align*}
+but how is this written in our modern language?  First we recognize that the integrand 
+\begin{equation*}
+	f'(x) dx = \partial_x f dx = df
+\end{equation*}
+and that the closed interval $[a, b]$, though not a manifold, does qualify as a manifold with boundary.
 
 A manifold with boundary differs from a manifold in that we allow the charts to map to $H^n := \{(x^1, \dots, x^n) \hspace{2mm} | \hspace{2mm}  x^n \geq 0\}$.  The requirement that transition functions be smooth becomes slippery around the boundary\\
 **(define this better)**\\
 
-The statement is
+So, denoting the manifold with boundary as $M$ and the boundary, which is the endpoints of the interval, as $\partial M$, we have the fundamental theorem of calculus is
+\begin{equation*}
+	\int\limits_M df = \sum_{\partial M} f
+\end{equation*}
+well this does not seem to have gotten us much, but lets see how the divergence theorem is reformulated in this modern language.  Recall that for a vector field $F$ on $\R^3$ that the divergence theorem states
+\begin{equation*}
+	\int\limits_V \nabla \cdot \mathbf F dV = \int\limits_S \mathbf  F \cdot d\mathbf S
+\end{equation*}
+for some 3-dimensional volume $V$ with boundary surface $S$.  Again, $V$ is a suitable manifold with boundary whose boundary is the surface $S$.  We will again reframe this statement in accordance with the new formalism.  Since we are taking some piece of information from $F$ and integrating it over a two-dimensional surface, it is natural to look for a way to express $F$ as a two-form.  We will make the identifications
+\begin{align*}
+	F_x dS_x&\to F_x dy\wedge dz\\
+	F_y dS_y&\to F_y dz\wedge dx\\
+	F_z dS_z&\to F_z dx\wedge dy\\
+	S &\to \partial M
+\end{align*}
+and we see that the right side becomes 
+\begin{equation*}
+	\int\limits_{\partial M} F
+\end{equation*}
+This should make sense to the reader, as the wedge product conceptually emerged as a generalization of the cross product, and here the $F_i$ component is the coefficient of the parallelogram normal to the $i^{\text{th}}$ direction. **(maybe diagram)** 
+Now we reformulate the right side.  Consider
+\begin{equation*}
+	dF = \partial_\mu dx^I\wedge dx^\mu = (\partial_x F_x+\partial_y F_y+\partial_z F_z )dx\wedge dy\wedge dz
+\end{equation*}
+and we see the coefficient is the traditional divergence!  So the equality becomes 
+\begin{equation*}
+	\int\limits_M dF = \int\limits_{\partial M} F
+\end{equation*} 
+perhaps the reader notices a pattern emerging.  \\
+
+**(Rewrite curl theorem in differential forms language excercise)**\\
+
+\text{}\\\\
+
+The generalization of this pattern is the elegant equality 
 \begin{equation*}
 	\int\limits_{\partial M} \omega = \int\limits_M d\omega
 \end{equation*}
-in English, we are saying that the integral of the form over the boundary is equal to the integral of its exterior derivative over the manifold.  Even in plain english, this may not be entirely intuitive yet.  In order to understand why this equality should make sense, we should recall that as we evaluate the integral of a form, we are summing evaluations of the form over small movements through the manifold.  We also recall that the exterior derivative of a form intuitively yields a small change in the form evaluated in the direction of those small movements, represented by tangent vectors it ``eats".  In this sense what Stoke's theorem is saying is the following: the sum of the small changes of a form \textit{throughout} a manifold is equal to the sum of the form's values over the boundary of the manifold.  That is, when we sum all the small changes throughout the manifold, the result is what's left on the boundary, just the \textit{net} change.  The power of this theorem is apparent when one realizes that the fundamental theorem of calculus, Green's theorem, and divergence theorem are all special cases of this general statement of Stoke's theorem.\\
+in English, we are saying that the integral of the form over the boundary is equal to the integral of its exterior derivative over the manifold.  Even in plain english, this may not be entirely intuitive yet.  In order to understand why this equality should make sense, we should remain grounded in the concept that as we evaluate the integral of a form, we are summing small changes of the form, as convoluted as they may be in general.  In this sense what Stoke's theorem is saying is the following: the sum of the small changes of a form \textit{throughout} a manifold is equal to the sum of the form's values over the boundary of the manifold.  That is, when we sum all the small changes throughout the manifold, the result is what's left on the boundary, just the \textit{net} change.  We have packaged the intuition and mathematical machinery behind the various integration theorems in calculus, and distilled it into an impressively general and elegant statement.
 
-**(Do these examples of Green's etc.)**\\
 
-**(Possibly geometric picture with sum over cubes cancelling leaving flat parallelograms on surface)**
 
 \section*{Coord Transforms}
-Perhaps the greatest impetus for the use of this geometric formalism in physics is the notion that we need coordinate independent laws of physics.  That is, when we apply a coordinate transformation on our manifold, we want the mathematical statements or equalities which we call physical laws, to say the same thing they did before.  In the context of relativity, coordinate transformations correspond to changes of reference frame, and this condition says that we do not want the laws of physics to be different for two different observers.  Therefore, the study of coordinate transformations on manifolds merits a bit of attention.\\
+Perhaps the greatest impetus for the use of this geometric formalism in physics is the notion that we need coordinate independent laws of physics.  That is, when we apply a coordinate transformation on our manifold, we want the mathematical statements or equalities which we call physical laws, to say the same thing they did before.  In the context of relativity, coordinate transformations correspond to changes of reference frame, and this condition says that we do not want the laws of physics to be different for two different observers.  It should be no surprise then, that the study of coordinate transformations on manifolds merits a bit of attention.\\
 
 There are two ways to apply coordinate transformations on a manifold, actively and passively.  We will focus on the active way.  Active coordinate transformations are represented by $\textbf{diffeomorphisms}\index{diffeomorphism}$, which are isomorphisms of manifolds.  If we have a map $\varphi: M \to N$, the condition for it to be a diffeomorphism is that $\varphi$ is smooth with smooth inverse;  this means $\varphi$ can essentially pair each point in $M$ with a point in $N$ smoothly.  And so, if two manifolds $M$ and $N$ are diffeomorphic, they are really the same manifold being represented in two different ways.  Perhaps the reader is not convinced of this, but we will show that diffeomorphisms are equivalent to our old notion of coordinate transformation.\\
 
-  To make the equivalence of diffeomorphic manifolds more concrete we consider an example.  Suppose I have a 2-sphere on which I draw a great circle to create two hemispheres and a natural choice of two poles which I call Northern and Southern.  If I have a map switching each point $p$ in the Northern hemisphere with the closest point $q$ in the Southern hemisphere that has the same distance from the South pole as $p$ has from the North pole (a sort of "reflecting" about the equator) **(figure )**, all we have done is exchanged the two hemispheres.  We have completely preserved the structure of the manifold, just changed the way the coordinate functions choose to talk about it.  It should then be clear that the things of physical interest on our manifold are those unaffected by diffeomorphisms.  First, we will consider how a vector $v$ changes under a diffeomorphism.\\
+  To make the equivalence of diffeomorphic manifolds more concrete we consider a conceptual example.  Suppose I have a 2-sphere on which I draw a great circle to create two hemispheres and a natural choice of two poles which I call Northern and Southern.  If I have a map switching each point $p$ in the Northern hemisphere with the closest point $q$ in the Southern hemisphere that has the same distance from the South pole as $p$ has from the North pole (a sort of ``reflecting" about the equator) **(figure )**, all we have done is exchanged the two hemispheres.  We have completely preserved the structure of the manifold, just changed the way the coordinate functions choose to talk about it.  It should then be clear that the things of physical interest on our manifold are those unaffected by diffeomorphisms.  First, we will consider how a vector $v$ changes under a diffeomorphism.\\
   
   We introduce manifolds $M$ and $M'$ which are diffeomorphic, so two different representations of the same thing, and denote objects defined on each space as primed and unprimed, respectively.  As such, there exists a diffeomorphism $\varphi$ which allows us to pushforward and pullback objects.  We say the pushforward of $v$  will be sent to $v'$ and we know it obeys
   \begin{equation*}
@@ -276,7 +315,7 @@ This perspective will prove useful in our use of tensor products in quantum mech
     
 **(contraction etc.?)**\\
 
-**(exterior algebra as anti-symmetric subspace?)**\\
+**(exterior algebra as anti-symmetric subspace of tensor product space)**\\
 \section*{Metric title}
 In order to put manifolds to use in physics, in particular general relativity, we need to define something called a metric. In the sense of stripping away old Euclidean assumptions and generalizing, the metric allows us to generalize the notion of a scalar or dot product.  In particular, it gives us a way to talk about the magnitudes of vectors.  In Euclidean space we would multiply the components of two vectors in order to obtain their dot product, and not think much about it.  As such, the magnitude of a vector was the square-root of the sum of the squares of its components.  But implicit in this operation was a choice of metric, we are free to choose \textit{how} we want infinitesimal distances to vary across points in our manifold.  We will motivate the need for the distance function but making an effort to compute the length of a curve.\\
 
@@ -310,7 +349,61 @@ for the metric tensor in a basis of coordinate one-forms.  As is the case with a
 **(Notion of tangent bundle?)**
  
  \section*{Derivatives Section}
- Up to now we have built up a great deal of structure on our manifold, but there still remain some physically useful notions that do not have the capacity to discuss with the tools at hand.  For example, we know how functions change as they move along curves, but what about a vector or even a tensor?  We have no notion of how to propagate a vector along a curve because we have no notion of how to take a directional derivative of a vector.  The mathematical apparatus which allows us to talk about these things is called a \textbf{connection}\index{connection} and with it comes a \textbf{covariant derivative}\index{covariant derivative}.\\ 
+ Up to now we have built up a great deal of structure on our manifold, but there still remain some physically useful notions that we do not have the capacity to discuss with the tools at hand.  For example, we know how functions change as they move along curves, but what about a vector or even a tensor?  We have no notion of how to propagate a vector along a curve because we have no notion of how to take a directional derivative of a vector.  The mathematical apparatus which allows us to talk about these things is called a \textbf{connection}\index{connection} and with it comes a \textbf{covariant derivative}\index{covariant derivative}.\\
+ 
+ Even given how many old Euclidean preconceptions we have blasted thus far, the reader might be tempted to think they can see \textit{exactly} how you would move a vector along a curve, from one tangent space to another.  If so, I would wager that the reader is visualizing their tangent vector, which so eagerly awaits propagation, in higher dimensional Euclidean space.  Euclid too thought there was an obvious to move vectors around, but he was working in his space.  And again, just as with the metric tensor, these beliefs implicitly restricted the mathematician to special cases of a more general geometric apparatus.\\
+ 
+ Euclid's fifth postulate stated that parallel lines never intersect.  Working in $\R^n$ this seems clear, we just infinitely extended two arrows that point in the same direction, and they will never cross paths.  But this is just a Euclidean intuition; how would we \textit{carefully} address Euclid's claim? The claim is first trying to saying that we have two objects called lines, and at a point on each line, there is some form of information which can be compared telling us whether or not the lines are something called \textit{parallel}.  We can already see a breaking down of the question itself.  How do we pick which points on each line to compare?  Does it matter?  What is the information and how are we comparing it?  The desire for answers to these questions motivates the need for a connection; after all, the spirit of the name is that it allows us to \textit{connect} different tangent spaces, cotangent spaces, or tensor products thereof.  Holding these questions in the back of our minds, we will now proceed to define the object capable of answering them.\\
+ 
+The desire to for a way to connect different tangent spaces and the desire for a way to determine how vectors infinitesimally change in some direction are dual.  To see this, consider one perspective on what derivatives of single variable functions are: the limiting value of the difference of a function evaluated at two points (i.e. $f(x+\epsilon)-f(x)$) over the interval length.  Our notion of small change of functions was and is contingent upon a way of connecting or comparing evaluations of $f$ at separate points.  There is no \textit{right} way to pick an operator that yields a form of small change of a vector field, but we can sensibly construct one from the ground up.\\
+
+First, we should think about sensible properties are derivative operator should have.  For one, it will need to tell us the derivative in the direction of some vector field, in particular mapping a vector field to a vector field.  We will want it reduce to the typical directional derivative when acting on a function and, as any good derivative operator, have the Liebniz property.  Properties of linearity are of course desirable and necessary as well.  Therefore we have a map 
+\begin{equation*}
+	D_v: \text{Vect}(M) \to \text{Vect}(M)
+\end{equation*}  
+ which obeys 
+ \begin{enumerate}
+ 	\item $D_{fv}(\alpha g (u \otimes t)) = f\alpha \left(v(g)+u\otimes D_v(t)+t\otimes D_v(s) \right)$
+ 	\item $D_{v+w}(u) = D_v(u)+D_w(u)$
+ \end{enumerate}
+ where $\alpha$ is a scalar, $f$ is a function, and $v, w, s$, and $t$ are vector fields.\\
+A final property we require is that the operator is natural, that is, it commutes with diffeomorphisms.  This stipulation says that the operation of taking a covariant derivative should be coordinate independent.\\
+
+With these requirements in mind, we now work with our covariant derivative in a coordinate chart with the standard basis of coordinate vector fields.  We have
+\begin{equation*}
+	D_vw = v^\mu (w^\nu D_{\partial_\mu} \partial_\nu+D_{\partial_\mu}(w^\nu)\partial_\nu ) = v^\nu((\partial_\mu w^\nu)\partial_\nu + D_\mu \partial_\nu)
+\end{equation*}
+ where $D_\mu$ is short hand for $D_{\mu}$ and we used the derivative rules since the vector components are functions and we can employ the Liebniz rule.\\
+ **(tensor product of function and vector is just multiplication)**\\
+ 
+ The remaining part of this equation is the derivative at the end 
+ \begin{equation*}
+ 	D_\mu \partial_\nu
+ \end{equation*}
+ given the linear nature of this map, we can say 
+ \begin{equation*}
+ 	D_\mu: \partial_\nu \to \Gamma^\lambda_{\mu\nu} \partial_\lambda 
+ \end{equation*} 
+ this should seem completely fair to the reader, as the result of mapping $\partial_\nu$ to another vector field is some linear combination of basis vector fields.  The set of functions denoted by $\Gamma_{\mu\nu}^\lambda$ are the $\lambda^{\text{th}}$ expansion coefficient of the result of differentiating the $\nu^{\text{th}}$ basis vector field in the $\mu^{\text{th}}$ direction.  These coefficients also provide another essential property: they make sure the covariant derivative operator is natural.  The coefficients might also be interpreted as corrections to the normal derivative operator for generalized manifolds, and as such they vanish for flat space.  Returning to our original expression, we then have 
+ \begin{equation*}
+ 	D_v w = v^\mu\left(( \partial_\mu \omega^\nu)\partial_\nu+\omega^\nu \Gamma^\lambda_{\mu\nu} \partial_\lambda )\right)
+ \end{equation*}  
+ now, we are going to rearrange this into a way common for the use of physicists, careful to note the manipulations we are making and why.  It should be clear that the above implies
+ \begin{equation*}
+ 	D_\mu w = ( \partial_\mu \omega^\nu)\partial_\nu+\omega^\nu \Gamma^\lambda_{\mu\nu} \partial_\lambda
+ \end{equation*}
+ and we can now focus on the $\sigma^{\text{th}}$ component of the result of the above, which will be the coefficient of $\partial_\sigma$ in the expansion.  As such, we get 
+ \begin{equation*}
+ 	\left(D_\mu w \right)^\sigma = \partial_\mu w^\sigma +\Gamma^\sigma_{\mu\nu} \omega^\nu
+ \end{equation*}
+ this is how physicists usually write the operation of a covariant derivative.  They in fact go even further, and take the formalism of saying that 
+ \begin{equation*}
+ 	D_\mu: w \to \left(\partial_\mu w^\sigma +\Gamma^\sigma_{\mu\nu} \omega^\nu\right)\partial_\sigma \otimes dx^\mu
+ \end{equation*}
+ and in general say that the covariant derivative sends $(k, l)$ tensors to $(k, l+1)$ tensors.  The convenience of using the right side of the above mapping is that we can now feed this object a vector field $v$ and get $D_v w$, we don't have to feed $D_\mu$ the components. **transition**\\
+ 
+ This object $\Gamma$ currently has an uncomfortable amount of mysteriousness given its importance to taking covariant derivatives.  Indeed these symbols are the deciders of \textit{how} we take derivatives on our manifold.  In gauge theory this object is identified with the vector potential and its components are in the gauge group.  In general relativity these are called Christoffel symbols and are consequence of choosing the Levi-Civita connection.  In order to discuss parallel transport.\\
+ **(parallel propagation? Or save for GR)**
  
  **(Lie derivative-> what's the difference between the two?)**
  
