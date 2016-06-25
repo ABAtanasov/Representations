@@ -22,9 +22,9 @@ Rp11
 sVmessages
 p12
 (lp13
-VERROR   makeidx.sty:46 \u2014 LaTeX Error: Command \u005csee already defined.
+VCould not find any messages containing line information.
 p14
-aVERROR   makeidx.sty:48 \u2014 LaTeX Error: Command \u005cprintindex already defined.
+aVPlease take a look at the log file Master.latexmk.log to find the source of the problem.
 p15
 asVfiles_with_guttermarks
 p16
@@ -38,12 +38,5 @@ atp20
 Rp21
 sVsynctex
 p22
-I01
-s.Alex/Documents/Representations/./Master.tex
-p20
-atp21
-Rp22
-sVsynctex
-p23
 I01
 s.

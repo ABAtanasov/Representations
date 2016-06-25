@@ -1,0 +1,348 @@
+Latexmk: This is Latexmk, John Collins, 5 February 2015, version: 4.43a.
+Rule 'pdflatex': File changes, etc:
+   Changed files, or newly in use since previous run(s):
+      './chapters/P0C0.tex'
+      'chapters/P0C0.tex'
+------------
+Run number 1 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -synctex=1 -file-line-error-style  -interaction=nonstopmode -recorder  "./ABA Master.tex"'
+------------
+Latexmk: applying rule 'pdflatex'...
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./ABA Master.tex
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/bk12.clo))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifpdf.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifvtex.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/ifxetex/ifxetex.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/graphics.cfg)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty))))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/cancel/cancel.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/braket/braket.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/subfiles/subfiles.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/verbatim.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/epigraph/epigraph.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/makeidx.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/titlesec/titlesec.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/babel/babel.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/babel-english/english.ldf
+(/usr/local/texlive/2015/texmf-dist/tex/generic/babel/babel.def)))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg))
+\@input{Ch1ABA.tex.aux}
+No file Ch1ABA.tex.tex.
+Writing index file "ABA Master".idx
+(./ABA Master.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifluatex.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/grfext.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/etexcmds.sty)))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd) [1{/usr/local/t
+exlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./ABA Master.toc
+[2]) [3] [4] (./chapters/P0C0.tex
+Chapter 1.
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 20--22
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--56
+
+[7]
+Overfull \hbox (1.69153pt too wide) in paragraph at lines 76--78
+\OT1/cmr/m/n/12 then sub-tract-ing these two dif-fer-ent com-bi-na-tions would 
+give a nonzero
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--80
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--82
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--121
+
+
+Overfull \hbox (4.9361pt too wide) in paragraph at lines 126--126
+ |[]\OT1/cmr/bx/n/17.28 Curvilinear Co-or-di-nates: Po-lar & Be-
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
+
+[11]
+Chapter 2.
+[12]) [13] [14] (./chapters/P1C1.tex
+Chapter 3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 49--51
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
+
+[19]
+Overfull \hbox (0.45126pt too wide) in paragraph at lines 64--65
+\OT1/cmr/m/n/12 lized in cat-e-gory the-ory, but in or-der to re-main ge-o-met-
+ri-cally grounded
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
+
+[20]
+Underfull \vbox (badness 10000) has occurred while \output is active [21]
+Underfull \hbox (badness 10000) in paragraph at lines 84--85
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 95--97
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 105--107
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--117
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--120
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 124--127
+
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 141--143
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--145
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 165--167
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--171
+
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 186--188
+
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 216--218
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 219--220
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 221--222
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 221--222
+
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 232--233
+
+
+Overfull \hbox (12.63828pt too wide) in paragraph at lines 234--235
+\OT1/cmr/m/n/12 co-or-di-nate trans-for-ma-tions are rep-re-sented by $[][]$, w
+hich
+
+Underfull \hbox (badness 10000) in paragraph at lines 234--235
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 236--237
+
+[30] [31]
+Overfull \hbox (15.27144pt too wide) in paragraph at lines 257--257
+[] 
+
+Underfull \hbox (badness 10000) in paragraph at lines 261--264
+
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 278--280
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 303--305
+
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 309--311
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 312--313
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 314--315
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 316--317
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 318--319
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 320--321
+
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 329--331
+
+[35]
+Underfull \hbox (badness 10000) in paragraph at lines 344--346
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 352--353
+
+
+Overfull \hbox (3.58041pt too wide) in paragraph at lines 354--355
+[]\OT1/cmr/m/n/12 Even given how many old Eu-clidean pre-con-cep-tions we have 
+blasted
+
+Underfull \hbox (badness 10000) in paragraph at lines 354--355
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 356--357
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 358--359
+
+[37]
+Underfull \hbox (badness 10000) in paragraph at lines 369--371
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 375--378
+
+[38]
+Underfull \hbox (badness 10000) in paragraph at lines 402--404
+
+) [39]
+Chapter 4.
+
+Overfull \hbox (16.17033pt too wide) in paragraph at lines 128--128
+|\OT1/cmr/bx/n/24.88 Beyond Har-mon-ics: Rep-re-sen-
+[40] [41]
+Chapter 5.
+
+Overfull \hbox (27.21626pt too wide) in paragraph at lines 134--134
+|\OT1/cmr/bx/n/24.88 Symmetries of the sphere: $[]\OT1/cmr/m/n/24.88 (2)$
+[42]
+Chapter 6.
+
+Overfull \hbox (4.9512pt too wide) in paragraph at lines 137--137
+|\OT1/cmr/bx/n/24.88 Classical Me-chan-ics and Sym-
+[43]
+Chapter 7.
+[44] [45]
+Chapter 8.
+[46]
+Chapter 9.
+
+Overfull \hbox (13.42015pt too wide) in paragraph at lines 148--148
+|\OT1/cmr/bx/n/24.88 Classification of Sim-ple Lie Al-
+(./ABA Master.ind [47] [48]) (./ABA Master.aux) )
+(see the transcript file for additional information)</usr/local/texlive/2015/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2015/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2015/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2015/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmti12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
+lic/amsfonts/symbols/msbm10.pfb>
+Output written on "ABA Master.pdf" (48 pages, 288055 bytes).
+SyncTeX written on "ABA Master.synctex.gz"
+Transcript written on "ABA Master.log".
+Latexmk: Missing input file: 'Ch1ABA.tex.tex' from line
+  'No file Ch1ABA.tex.tex.'
+Latexmk: Index file 'ABA Master.idx' was written
+Latexmk: Log file says output to 'ABA Master.pdf'
+Latexmk: All targets (ABA Master.pdf) are up-to-date

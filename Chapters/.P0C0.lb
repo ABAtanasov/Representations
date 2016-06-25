@@ -1,0 +1,181 @@
+(dp0
+Vmessages
+p1
+(lp2
+VERROR   P0C0.tex:1 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p3
+aVERROR   P0C0.tex:1 \u2014 Undefined control sequence.
+p4
+aVERROR   P0C0.tex:2 \u2014 Undefined control sequence.
+p5
+aVERROR   P0C0.tex:5 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p6
+aVERROR   P0C0.tex:7 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p7
+aVERROR   P0C0.tex:9 \u2014 Undefined control sequence.
+p8
+aVERROR   P0C0.tex:9 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p9
+aVERROR   P0C0.tex:11 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p10
+aVERROR   P0C0.tex:13 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p11
+aVERROR   P0C0.tex:14 \u2014 LaTeX Error: Environment equation* undefined.
+p12
+aVERROR   P0C0.tex:15 \u2014 Missing $ inserted.
+p13
+aVERROR   P0C0.tex:15 \u2014 Extra }, or forgotten $.
+p14
+aVERROR   P0C0.tex:16 \u2014 Missing } inserted.
+p15
+aVERROR   P0C0.tex:16 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p16
+aVERROR   P0C0.tex:16 \u2014 Missing $ inserted.
+p17
+aVERROR   P0C0.tex:18 \u2014 LaTeX Error: Environment equation* undefined.
+p18
+aVERROR   P0C0.tex:19 \u2014 Extra }, or forgotten $.
+p19
+aVERROR   P0C0.tex:19 \u2014 Missing $ inserted.
+p20
+aVERROR   P0C0.tex:20 \u2014 Missing } inserted.
+p21
+aVERROR   P0C0.tex:20 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p22
+aVERROR   P0C0.tex:20 \u2014 Missing $ inserted.
+p23
+aVERROR   P0C0.tex:23 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p24
+aVERROR   P0C0.tex:25 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p25
+aVERROR   P0C0.tex:26 \u2014 LaTeX Error: Environment equation* undefined.
+p26
+aVERROR   P0C0.tex:27 \u2014 Missing $ inserted.
+p27
+aVERROR   P0C0.tex:27 \u2014 LaTeX Error: \u005cmathbf allowed only in math mode.
+p28
+aVERROR   P0C0.tex:28 \u2014 Missing $ inserted.
+p29
+aVERROR   P0C0.tex:28 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p30
+aVERROR   P0C0.tex:42 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p31
+aVERROR   P0C0.tex:42 \u2014 Undefined control sequence.
+p32
+aVERROR   P0C0.tex:45 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p33
+aVERROR   P0C0.tex:47 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p34
+aVERROR   P0C0.tex:49 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p35
+aVERROR   P0C0.tex:50 \u2014 LaTeX Error: Environment equation* undefined.
+p36
+aVERROR   P0C0.tex:51 \u2014 Missing $ inserted.
+p37
+aVERROR   P0C0.tex:52 \u2014 Missing $ inserted.
+p38
+aVERROR   P0C0.tex:52 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p39
+aVERROR   P0C0.tex:55 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p40
+aVERROR   P0C0.tex:57 \u2014 LaTeX Error: Environment defn undefined.
+p41
+aVERROR   P0C0.tex:58 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p42
+aVERROR   P0C0.tex:59 \u2014 LaTeX Error: Environment equation* undefined.
+p43
+aVERROR   P0C0.tex:60 \u2014 Missing $ inserted.
+p44
+aVERROR   P0C0.tex:61 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p45
+aVERROR   P0C0.tex:61 \u2014 Missing $ inserted.
+p46
+aVERROR   P0C0.tex:62 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{defn}.
+p47
+aVERROR   P0C0.tex:63 \u2014 LaTeX Error: Environment defn undefined.
+p48
+aVERROR   P0C0.tex:65 \u2014 LaTeX Error: Environment equation* undefined.
+p49
+aVERROR   P0C0.tex:66 \u2014 Missing $ inserted.
+p50
+aVERROR   P0C0.tex:66 \u2014 LaTeX Error: \u005cmathbf allowed only in math mode.
+p51
+aVERROR   P0C0.tex:67 \u2014 Missing $ inserted.
+p52
+aVERROR   P0C0.tex:67 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p53
+aVERROR   P0C0.tex:68 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{defn}.
+p54
+aVERROR   P0C0.tex:69 \u2014 LaTeX Error: The font size command \u005cnormalsize is not defined:
+p55
+aVERROR   P0C0.tex:69 \u2014 Undefined control sequence.
+p56
+aVERROR   P0C0.tex:70 \u2014 LaTeX Error: Environment equation* undefined.
+p57
+aVERROR   P0C0.tex:70 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p58
+aVERROR   P0C0.tex:71 \u2014 Missing $ inserted.
+p59
+aVERROR   P0C0.tex:72 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p60
+aVERROR   P0C0.tex:72 \u2014 Missing $ inserted.
+p61
+aVERROR   P0C0.tex:74 \u2014 LaTeX Error: Environment equation* undefined.
+p62
+aVERROR   P0C0.tex:75 \u2014 Missing $ inserted.
+p63
+aVERROR   P0C0.tex:76 \u2014 Missing $ inserted.
+p64
+aVERROR   P0C0.tex:76 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p65
+aVERROR   P0C0.tex:79 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p66
+aVERROR   P0C0.tex:81 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p67
+aVERROR   P0C0.tex:83 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p68
+aVERROR   P0C0.tex:85 \u2014 Undefined control sequence.
+p69
+aVERROR   P0C0.tex:85 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p70
+aVERROR   P0C0.tex:86 \u2014 LaTeX Error: Environment equation* undefined.
+p71
+aVERROR   P0C0.tex:87 \u2014 LaTeX Error: \u005cmathbf allowed only in math mode.
+p72
+aVERROR   P0C0.tex:87 \u2014 Missing $ inserted.
+p73
+aVERROR   P0C0.tex:88 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p74
+aVERROR   P0C0.tex:90 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p75
+aVERROR   P0C0.tex:92 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p76
+aVERROR   P0C0.tex:94 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p77
+aVERROR   P0C0.tex:96 \u2014 LaTeX Error: Environment equation* undefined.
+p78
+aVERROR   P0C0.tex:97 \u2014 LaTeX Error: \u005cmathbf allowed only in math mode.
+p79
+aVERROR   P0C0.tex:97 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p80
+aVERROR   P0C0.tex:98 \u2014 Missing } inserted.
+p81
+aVERROR   P0C0.tex:98 \u2014 ==> Fatal error occurred, no output PDF file produced!
+p82
+aVERROR   P0C0.tex:98 \u2014 Misplaced \u005ccr.
+p83
+aVERROR   P0C0.tex:98 \u2014 Missing \u005ccr inserted.
+p84
+aVERROR   P0C0.tex:98 \u2014 Missing $ inserted.
+p85
+asVfiles_with_guttermarks
+p86
+c__builtin__
+set
+p87
+((lp88
+V/Users/Alex/Documents/Representations/Chapters/./P0C0.tex
+p89
+atp90
+Rp91
+s.
