@@ -1,10 +1,9 @@
 \documentclass[12pt, twoside, openany]{book}
 \usepackage[b5paper, margin = .8in]{geometry}
 \usepackage{amsmath}
+% \usepackage{epipart} This is causing problems
 \usepackage{epigraph}
-\usepackage{epipart}
-\usepackage{makeidx}
-% packages for math typing
+\usepackage{makeidx} % packages for math typing
 \usepackage{amssymb,amsfonts,bbm,amsthm,amsmath,verbatim,graphicx}
 \usepackage[utf8]{inputenc}
 \usepackage{cancel}
@@ -58,7 +57,7 @@
 \setcounter{part}{-1} 
 \renewcommand\thepart{\arabic{part}}
 %so we can have part 0 
-\title{Representations of a Mathematical Universe}
+\title{Representations of a Physical Universe}
 \author{Alex Atanasov \& Aaron Hillman}
 \begin{document}
 \maketitle
@@ -68,7 +67,7 @@
 \epigraphhead[500]{dope quote}
 \part[0]{Old Notions and New Horizons}
 Before learning an entirely new and generalized mathematical formalism, reviewing the old notions which we held dear serves as a useful primer.  We can cut straight through our previous conceptions, separating the crutches supporting false physical assumptions, from the essential concepts lending themselves to generalization.  
-\include{P0C0Philosophy}
+\include{Chapters/P0C0Philosophy}
 
 
 \cleardoublepage
@@ -76,6 +75,6 @@ Before learning an entirely new and generalized mathematical formalism, reviewin
 \part{The Language of Nature}
 There is no consensus regarding the precise nature of the relationship between mathematics and physics, but it is incontrovertible that the two share a uniquely strong \cancel{bond}*(replace w/ better word because they don't wanna hear about it now)*.  Their connection is so deep as to be regarded as mystical by some and their mutually supportive interplay has proven endlessly fruitful.  As such, the necessity of an understanding of mathematics in appreciating Nature cannot be understated.  Therefore, we commit this first part to providing an intuitively framed but rigorously supported overview of the mathematics necessary for understanding the physical theories of interest in later sections.\\\\
 EXPAND HERE ON: briefly touch on philosophy connecting math and physics, attitude to have towards physics,     
-\include{P1C1DifferentialGeometry}
+\include{Chapters/P1C1DifferentialGeometry}
 \printindex
 \end{document}

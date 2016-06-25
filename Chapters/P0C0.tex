@@ -54,18 +54,18 @@ Perhaps the most important revolution in mathematics and physics was ushered in 
 	
 	As in linear algebra, we need our coordinate system to both \textbf{span}\index{Linear Algebra!Span} the space so that we can represent any point, and be \textbf{linearly independent}\index{Linear Algebra!Linear Independence}, so that every point has exactly \emph{one} representation in our coordinate system. That's what a basis \emph{is}: it specifies a good coordinate system.\\
 	
-\begin{definition}
+\begin{defn}
 	\textit{A set of vectors $\{v_i\}$ is said to \textbf{span} a vector space $V$ if any vector $u$ in $V$ can be written as} 
 	\begin{equation*}
 		u = \sum\limits_i a_iv_i
 	\end{equation*}
-\end{definition}
-\begin{definition}
+\end{defn}
+\begin{defn}
 	\textit{A set of vectors $\{v_i\}$ is said to be \textbf{linearly independent} if no vector in the set can be written as a linearly combination of the other vectors in the set.  Equivalently, this says that there is only one way to write the zero vector} 
 	\begin{equation*}
 		\mathbf 0 =  0v_1 +\dots + 0v_n
 	\end{equation*}
-\end{definition}
+\end{defn}
 	
 	Linear independence implies that there is no superfluous information in the set of vectors.  We cannot linearly combine vectors in some subset to get another vector in the set; each vector is adding its own unique additional piece of information, making the set able to span in an additional direction. This is also equivalent to saying every point has a unique representation as a linear combination of basis vectors. If there were two ways to represent a point $P$: as \begin{equation*}
 		a_1 \mathbf v_1 + \dots + a_n \mathbf v_n
