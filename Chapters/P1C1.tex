@@ -1,0 +1,305 @@
+\documentclass[../master.tex]{subfiles}
+ 
+ 
+ 
+\begin{document}
+
+In calculus class you were taught the fundamental theorem, that the total difference of a function's value at the end of an interval from its value at the beginning is the sum of the infinitesimal changes in the function over the points of the interval:
+
+	\begin{equation}\label{eq:FTOC}
+		\int_a^b f'(x) dx = f\Big\rvert^b_a
+	\end{equation}
+
+And later, in multivariable calculus, you encountered more elaborate integral formulae, such as the divergence theorem of Gauss:
+
+	\begin{equation}\label{eq:Divergence}
+		\int_\Omega \nabla \cdot \mathbf{F} ~ dV = \int_S \mathbf{F} \cdot d\mathbf S
+	\end{equation}
+
+	where $\Omega$ is the volume of a 3D region we are integrating over, with infinitesimal volume element $dV$ and $S$ is the surface that forms the boundary of $\Omega$. $dS$ then represents an infinitesimal parallelogram through which $\mathbf{F}$ is flowing out, giving the flux integral on the right. Read in english, Gauss' divergence theorem says ``Summing up the infinitesimal flux over every volume element of the region is the same as calculating the total flux coming out of the region''. The total flux coming out of a region is the sum of its parts over the region. You might see that in english, this reads very similar to the description of the fundamental theorem of calculus.
+	
+	Alongside this, there is Stokes' theorem for a 2D region. In english: summing up the infinitesimal amount of circulation of a vector field $\mathbf F$ over every infinitesimal area is equal to calculating the total circulation of $\mathbf F$ around the boundary of the region. In mathematical language:
+	
+	\begin{equation}\label{eq:Stokes}
+		\int_R \nabla \times \mathbf{F} ~ dA = \int_C \mathbf{F} \cdot d\mathbf r
+	\end{equation}
+	
+	where $R$ is our region and $C$ is its boundary.
+	
+	Perhaps now, the pattern is more evident. In all the above cases, summing up some \emph{differential} of the function on the interior of some region is the same as summing up the function itself at the \emph{boundary} of the region. All these theorems, that on their own look so strange to a first-year calculus student, are part of a much more general statement, the \textbf{General Stokes' Theorem}\index{Stokes' Theorem!General}:
+	
+	\begin{theorem}[General Stokes' Theorem]\label{thm:GeneralStokes}
+		\begin{equation} \label{eq:GeneralStokes}
+			\int_\Omega \mathrm d \omega = \int_{\partial \Omega} \omega.
+		\end{equation}
+	\end{theorem}
+	
+
+	
+	Above, $\omega$ is an object that will generalize both the ``functions" and ``vector fields" that you've seen in multivariable calculus, and $\mathrm d$ will generalize of all the differential operators (gradient, divergence, curl) that you've dealt with. Lastly, when $\Omega$ is the region in question $\partial \Omega$ represents the \emph{boundary} of the region $\Omega$. The fact that it looks like a derivative symbol is no coincidence, as we'll see that the natural way to define the ``derivative'' of a region is as its boundary.
+	
+	Through abstraction, we can reach results like this that not only look elegant and beautiful, but also provide us with insight into the natural way to view the objects that we've been working with for centuries. This gives us not only understanding of what language to use when studying mathematics, but also what is the natural language in which to describe the natural world. The general Stokes' theorem is one of the first examples of this beautiful phenomenon, and this book will work to illustrate many more. 
+	
+	For the first half of this chapter, we will work towards giving the intuition behind  this result. On our way, we will begin to slowly move into a much more general setting, beyond the $3$-dimensional world in which most of multivariable calculus was taught. That doesn't just mean we'll be going into $n$-dimensional space. We'll move outside of euclidean spaces that look like $\mathbb{R}^n$, into non-euclidean geometries. This will put into question what we really mean by the familiar concepts of ``vector'', ``derivative'', and ``distance'' as the bias towards Euclidean geometry no longer remains central in our minds. At its worst, the introduction of new concepts and notation will seem confusing and even unnecessary. At its best, it will open your mind away from the biases you've gained from growing up in a euclidean-looking world, and give you a glimpse of how modern mathematics \emph{actually} looks. 
+	
+	Modern mathematics is learning that the earth isn't flat. To someone who's never had those thoughts, it is difficult to get used to, tiring, and sometimes even rage inducing, but to someone who has spent months thinking and reflecting on it, it quickly becomes second nature. Far from being the study of numbers or circles, it is a systematic climb towards abstraction.  It is a struggle towards creating one language, free from all-encompassing human bias, in order to try and describe a world that all other human languages, for so many centuries, have failed to grasp. It is humbling, and in the strangest of ways, it is profoundly beautiful.
+
+
+
+\section{The Derivative and the Boundary}
+
+	Let's start working towards understanding Equation~\eqref{eq:GeneralStokes}. First, let's work with what we've already seen to try and explore the relation between integrating within a region and integrating on the boundary. 
+	
+	If we are in one dimension, we have a function $f$ defined on the interval $x \in [a,b]$. Proving Equation~\eqref{eq:FTOC} is much easier than you'd think. Let's take a bunch of steps: $x_i = a + (b-a)i/N$, so that $x_0 = a, x_N = b$. Then all we need is to form the telescoping sum:	
+	\begin{align*}
+		f\rvert^b_a &= f(x_N) - f(x_0) \\& = \sum_{i=1}^N f(x_{i})-f(x_{i-1}).
+	\end{align*}
+	If we make the number of steps $N$ large enough, the stepsize shrinks so that in the limit, we get
+	\begin{align*}
+		\lim_{N \rightarrow \infty} 	\sum_{i=1}^N f(x_{i})-f(x_{i-1}) & = \lim_{N \rightarrow \infty} 	\sum_{i=1}^N \Delta f \\ & = \int_a^b df.
+	\end{align*}
+	Of course, the way its written more often is:
+	\begin{align*}
+		\lim_{N \rightarrow \infty} 	\sum_{i=1}^N \frac{\Delta f}{\Delta x} \Delta x  = \int_{a}^{b} \frac{df}{dx} dx.
+	\end{align*}
+	
+	What is the idea of what we've done? At each point we've taken a difference of $f$ at that point with $f$ at the preceding one. Because we're summing over all points, the sum of differences between neighboring points will lead to cancellation everywhere \emph{except} at the boundary, where there will not be further neighbors to cancel out the $f(b)$ and $f(a)$. From this, we get Equation~\eqref{eq:FTOC}. 
+	
+\noindent \textbf{Note:}
+	Now for a distinction which may seem like it isn't important. We haven't integrated from point $a$ to point $b$. We have integrated from where the coordinate $x$ take \emph{value} $a$, to the where coordinate $x$ takes \emph{value} $b$. $a$ and $b$ are \emph{NOT} points. They are numbers, values for our coordinate $x$. As we have said in the preceding chapter, the idea that numbers form a \emph{representation} for points is ingenius, but numbers are \emph{not} points. Although we could write this interval as $[a,b]$ in terms of some variable $x$, it would be a completely different interval should we have chosen a different coordinate $u$. This is why, when doing $u$-substitution, we change the bounds. In coordinate free, language, then:
+
+	
+	\begin{theorem}[Fundamental Theorem of Calculus]\label{thm:FTOC}
+		For a given interval $I$ with endpoints $p_0, p_1$ and a smooth function $f$, we have
+		\begin{equation}
+			  \int_{p_0}^{p_1} df = f \Big\rvert_{p_0}^{p_1} 
+		\end{equation}
+	\end{theorem}
+	Notice something: the end result doesn't depend on the partition $x_i$ at all, so long as it becomes infinitesimal as $N \rightarrow \infty$. That is to say: we are summing up the change of $f$ over some interval, but it doesn't matter what coordinate system we use to describe this interval. The integral is \emph{coordinate independent}. We chose to use $x$ as our coordinate, describing the interval as going from $x=a$ to $x=b$, but we didn't \emph{have} to make this specific choice. This makes perfect physical sense. For example, if we had a temperature at each point in space, the temperature difference between two fixed points some shouldn't depend on whether we use meters or feet to measure their distance apart.  
+	
+	Written mathematically: 
+	\begin{align*}
+		\int_I df = \int_I \frac{df}{dx} dx = \int_I \frac{df}{du} du 
+	\end{align*}
+	
+	If we chose an $I$ that's very small around some point, essentially an infinitesimal line segment, we get:
+	\begin{align*}
+		\frac{df}{dx} dx =  \frac{df}{du} du \Rightarrow \frac{df}{dx} = \frac{df}{du} \frac{du}{dx}
+	\end{align*}
+	this is the $u$-substitution rule from calculus.
+	\\
+
+	
+	Now what if $f$ was a function defined not on the real line $\mathbb{R}$, but on 2-dimensional space $\mathbb{R}^2$, or more generally $n$-dimensional space $\mathbb{R}^n$. To each point $p = (p_1, \dots, p_n)$ we associate $f(p)$. Now again, consider $f(p_f)-f(p_i)$ for two points in this space.
+	
+	For any curve $C$ going between $p_i$ and $p_f$, say defined by $\mathbf r(t)$ for $t$ a real number going from $a$ to $b$, we can make the same partition $t_i = a + (b-a)i/N$ and let $N$ get large. Again, it becomes a telescoping sum:
+	\begin{align*}
+		f(p_f) - f(p_i) = &f(\mathbf r(b)) - f(\mathbf r(a)) \\= & \sum_{i=1}^N f(\mathbf r(t_{i}))-f(\mathbf r(t_{i-1})) \\ = & \sum_{i=1}^N \Delta f_i  \rightarrow \int_C df.
+	\end{align*}
+	Now if we cared about coordinates, we could ask ``how can we write $df$ in terms of $dt$ or $dx_i$?''. 
+	
+	We know from the multivariable chain rule that the infinitesimal change of $f$ is the sum of the change in $f$ due to every individual variable, so: 
+	\begin{equation}
+		df = \sum_i \frac{df}{dx_i} dx_i
+	\end{equation}
+
+	We know that $dx_i$ together must lie along $C$. In terms of $t$ since $x_i = r_i (t)$, we have $dx_i = \frac{dr_i}{dt} dt$ giving:
+	\begin{theorem}[Fundamental Theorem of Line Integrals]
+	For a smooth function $f$ defined on a piecewise-smooth curve $C$ parameterized by $\mathbf r(t)$
+		\begin{equation}
+			f\rvert^{p_f}_{p_i} = \int_C \sum_i \frac{df}{dx_i} \frac{dr_i}{dt} dt = \int_C \nabla f \cdot \frac{d \mathbf r}{dt} dt =  \int_C \nabla f \cdot d \mathbf r
+		\end{equation}
+	\end{theorem}
+	The proof of this was no different from the 1-D case.\\
+	
+	Let's go further. Consider a region in three dimensions. We want to relate the total flux coming out of the region to the infinitesimal flux at each point inside the region. To do this, as before, we will subdivide the region. This time, it will not be into a series of intervals, but instead into a mesh of increasingly small \emph{cubes}, as below.
+	
+	\textbf{PUT A GRAPHIC HERE}
+	
+	See that the flux out a side of each cube is cancelled out by the corresponding side on its neighboring cube. That means that the only sides that do not cancel are for the cubes at the boundary$^1$\footnote{You may be worried that the cubes do not perfectly fit into the boundary when it is not rectangular. As the mesh gets smaller and smaller, this does not pose a problem. This can be made more rigorous (c.f. \textbf{GIVE A REFERNCE HERE})}, giving us the desired flux out.
+	
+	So if we sum the fluxes over all infinitesimal cubes, we will get the total flux out of the boundary. For a single cube of sides $dx,dy,dz$, drawn below, the total flux will be the sum over each side. 
+	\begin{align*}
+		\text{Flux} =&~~~ \mathbf F(x,y,z+dz/2) dx dy - \mathbf F(x,y,z-dz/2) dx dy \\ 
+						   & + \mathbf F(x,y+dy/2,z) dx dz - \mathbf F(x,y-dy/2,z) dx dz \\ 
+						   & + \mathbf F(x+dx/2,y,z) dy dz - \mathbf F(x-dx/2,y,z) dy dz \\ 
+	\end{align*}
+	\textbf{SHOW GRAPHIC HERE}
+	
+	But we can write this as: 
+	\begin{align*}
+		\left( \frac{\partial \mathbf F(x,y,z)}{\partial x} + \frac{\partial \mathbf F(x,y,z)}{\partial y} + \frac{\partial \mathbf F(x,y,z)}{\partial z} \right) dx dy dz = \nabla \cdot F ~ dV
+	\end{align*}
+	So the total flux will be the sum over all these cubes of each of their total fluxes. But then this becomes exactly the divergence theorem:
+	\begin{theorem}[Divergence Theorem, Gauss]
+	For a smooth vector field $\mathbf F$ defined on a piecewise-smooth region $\Omega$, then we can relate
+		\begin{equation*}
+			\int_\Omega \nabla \cdot \mathbf F ~ dV = \int_{\partial \Omega} \mathbf{F} \cdot d \mathbf S
+		\end{equation*}
+	\end{theorem}
+	
+	It is an easy \textbf{exercise} to show that this exact same argument holds for an $n$-cube. 
+	
+	What did we do? In the fundamental theorem of calculus/line integrals, we had a function $f$ evaluated on the 1-D boundary, and we chopped the curve into little pieces that cancelled on their neighboring boundaries, making a telescoping sum. Then we evaluated the contribution at each individual piece, and found that it was $df = f'(x_i) dx$, meaning that the evaluation on the boundary could be expressed as an integral of this differential quantity over the curve. That is Equation~\eqref{eq:FTOC}.
+	
+	For the divergence theorem, we had a vector field $\mathbf F$, again \emph{evaluated on the boundary}, this time in the form of a surface integral. We chopped the region into little pieces (cubes now) that cancelled on their neighboring boundaries, making a telescoping sum. Then we evaluated the contribution at each individual piece and found that it was $\nabla \cdot \mathbf F ~ dV$, meaning that the integration on the boundary could  be expressed as an integral of this differential quantity over the region. That is Equation~\eqref{eq:Divergence}.
+	
+	
+	Through abstraction, we see that there is really no difference. Perhaps now Equation~\eqref{eq:GeneralStokes} does not look so mysterious and far-off.\\
+	
+	For Equation~\eqref{eq:Stokes}, we have a vector field $\mathbf F$ evaluated on the boundary in the form of a contour integral around a region. This is the total circulation of $\mathbf{F}$ around the region. Let us chop the region into little pieces. 
+	
+	\textbf{INSERT GRAPHIC HERE}
+	
+	On an infinitesimal square, we get that the circulation is:
+	\begin{align*}
+		\text{Circulation} =& ~~~  \mathbf F(x+dx/2,y) dy - \mathbf F(x-dx/2,y) dy \\ &+ \mathbf F(x,y-dy/2) dx - \mathbf F(x,y+dy/2) dx
+	\end{align*}
+	This can be written as:
+	
+	\begin{align*}
+		\left( \frac{\partial \mathbf F}{\partial x} - \frac{\partial \mathbf F}{\partial y} \right) dx dy = \nabla \times \mathbf F ~ dA
+	\end{align*}
+	so that
+	\begin{theorem} For a smooth vector field on a piecewise smooth region $S$ 
+		\begin{equation}
+			\int_C \mathbf{F} \cdot d\mathbf r = \int_S (\nabla \times \mathbf{F}) dA
+		\end{equation}
+	\end{theorem}
+	Exercise \textbf{(MAKE AN EXERCISE)} generalizes this to a surface in 3D, to get the 3D version of Stokes' theorem \index{Stokes' Theorem!For Curl}:
+	
+	\begin{equation}
+		\int_C \mathbf{F} \cdot d\mathbf r = \int_S (\nabla \times \mathbf{F}) \cdot d\mathbf S 
+	\end{equation}
+	
+	The philosophy behind these proofs is always the same. It is the manipulation of the differentials that seems wildly different every time. The curl looks nothing like a divergence, and a divergence is distinct from a gradient. Moreover, its not clear in what way each one generalizes the one dimensional derivative $df = f'(x) dx$. This is the problem that the symbol `$\mathrm d$' in Equation~\eqref{eq:GeneralStokes} was made to solve.
+	
+	We need to stop thinking of the 1-d derivative, the gradient, the divergence, and the curl, as unrelated operations. They are in fact, the same operation, applied in different circumstances. Infinitesimal change, flux, and circulation are all the same type of derivative, acting on different types of objects. 
+	
+	Perhaps part of this was clear from multivariable calculus: the gradient is nothing more than a generalization of the derivative to functions of multiple variables. But then why are there seemingly two different, unrelated types of ``derivative'' on vector fields? Instead of a regular, gradient-like object, we have two: the divergence and the curl. 
+	
+	It will turn out that the reason that there are two is this: the vector fields that we take curls of are a different type of object from the vector fields we take the divergence of.	To see this more clearly, we need to stop thinking of functions and vector fields as totally separate objects. Every object that we've encountered when integrating: from functions in 1-D or 3-D, to vector fields in $n$-D, have been examples of \textbf{forms}. \index{Differential Form} \\
+	
+	As a final note of this section, let us try to give a sketch for why on a region $\Omega$, we denote its boundary with the partial derivative symbol as $\partial \Omega$. Picture in your mind a ball (interior of a sphere) of radius $r$,  $B_r$. If we increase the radius by a tiny amount $h$ then we have a slightly larger radius $B_{r+h}$. If we took the difference $B_{r+h} - B_r$, by which we mean all the points of $B_{r+h}$ that are not in $B_r$, we would be left with a thin shell. In the limit as $h \rightarrow 0$, this becomes a sphere of radius $r$, precisely the boundary of $B_r$ (note that a sphere is always the two-dimensional boundary of the ball). See how similar this is to taking derivatives. This is why $\partial B_r$ is what we use to denote the sphere boundary of the ball. 
+	
+	You may ask ``but what about dividing by $h$ at the end, like we do for a regular derivative?''. This also has an interpretation. The 3D volume of a sphere is zero, since it is a 2-D boundary. Dividing by $h$ as $h$ goes to zero puts increasing ``weight'' on the shell so that as the shell shrinks to becoming absolutely thinness, 3-D integrals on it become 2-D \footnote{For those familiar with the terminology: dividing by $h$ corresponds to multiplying by a dirac delta that spikes exactly on the sphere. This turns integrals over 3-D space into 2-D integrals on the sphere}.
+	 % But even here, we can go deeper. We've figured out why the 1-D integral becomes just a difference at two points, but we can actually interpret the \emph{difference} $f(b)-f(a)$ an integral! It is a zero-dimensional integral over the boundary of the region. The boundary of an interval is just two points, and a zero dimensional integral is a sum over points.
+ %
+	
+	
+	
+\section{The Notion of a Form}
+
+	A differential form $\omega$, in short, is an object that is meant to be integrated. The simplest example of a differential form is something you have often dealt with: $\omega = g(x) dx$. At every point $p$ in space, $\omega$ represents the infinitesimal change $g(p) dx$. If we were using another coordinate system $u$ instead of $x$, to measure length, then at point $p$, if we want to write $\omega$ in terms of the coordinate change $du$, we would have
+	
+	\begin{equation}
+		\omega = g(p) dx = \left( g(p) \frac{dx}{du} \right) du = \tilde g (p) du
+	\end{equation}
+	
+	So if we change our coordinate system, because $dx$ changes to $du$, $g$ must change to $\tilde g = g \frac{dx}{du}$ to counteract this, so that the total change is the same. Because at each point, $\omega$ represents a one-dimensional differential line segment, it is meant to be integrated along a one dimensional \emph{curve}.
+	
+	So more generally than the real line, on a curve, you want to integrate some vector field that perhaps you would write in cartesian coordinates like:
+	\begin{equation*}
+		\mathbf{F} = P(x,y,z)  \mathbf{\hat i} + Q(x,y,z)  \mathbf{\hat j} + R (x,y,z) \mathbf{\hat k}
+	\end{equation*}
+	But you are not actually integrating this field $\mathbf{F}$. You're integrating $\mathbf{F}\cdot d\mathbf{r}$, appropriately multiplying $\mathbf{F}$ by an infinitesimal change in distance along the curve. This gives the \emph{form} that you would integrate:
+	
+	\begin{equation*}
+		\omega = P dx + Q dy + R dz
+	\end{equation*}
+	
+	This is what we care about when integrating. It is more fundamental than $\mathbf{F}$, but what does it mean \emph{physically}? If $\mathbf{F}$ was a force field, then since we know $\mathbf{F} \cdot d \mathbf{r} = dW$, this form $\omega$ represents all possible infinitesimal changes in work $dW$ at a given point, depending on what changes $dx,dy,dz$ we do.
+	
+	If we were actually \emph{given} the changes in each of the coordinates $dx,dy,dz$, we could plug them in to $\omega$ and get the first-order approximation of the amount of work done over that distance. This is very important to understand! $\omega$ does not represent a specific change in work, but rather the \emph{relationship} between the changes in coordinate and the change in work. If you \emph{give it} an infinitesimal displacement, it will tell you the associated work. When integrating along a curve, the displacement is simply the tangent vector to the curve.
+		
+	Because there is only one differential multiplying each term (be it $dx$ or $dy$), we call such $\omega$ \textbf{one-forms}. \index{Differential Form!One-Form} It is easy to show \textbf{MAKE AN EXERCISE} that the sum of one-forms is still a one-form, and that multiplying a one-form by a function keeps it as a one-form. 
+	
+	Even simpler than one-forms are the \textbf{zero forms}, with no differentials appearing. A zero-form precisely a scalar function at $f(p)$ each point $p$. Regardless of how we change our coordinate system, the value of the \emph{function} at point $p$ is the same.
+	
+	We are now in a good place to define $\mathrm d$, at least for going from functions (zero-forms) to one-forms. Given a function $f$, $\mathrm d f$ will produce a form representing the local change in $f$ depending on the displacement. We call $\mathrm d$ the \textbf{exterior derivative} \index{Exterior Derivative} operator.
+	
+	For example, for a potential energy function $\phi$, $\mathrm d \phi$ can be written as 
+	
+	\begin{equation}
+		\mathrm d \phi = \sum_{i=1}^n \frac{\partial \phi}{\partial x^i} dx^i
+	\end{equation}
+	
+	because of $\mathrm d$, we will no longer have to use the gradient at all. This is more important than simply meaning that we'll grow to stop using $\mathbf{\hat i}, \mathbf{\hat j},\mathbf{\hat k}$. It is something much deeper. In in two-dimensional motion, if you have some potential $\phi$ at a point $p$, then of course the value of $\phi$ at $p$ is independent of any coordinate system you use. If you have two cartesian coordinates, say $x,y$, then you can define the $x,y$ components of force by 
+	\begin{equation*}
+		\mathbf{F} = F_x \mathbf{\hat i} + F_y \mathbf{\hat j} = \frac{\partial \phi}{\partial x} \mathbf{\hat i} + \frac{\partial \phi}{\partial y} \mathbf{\hat j}
+	\end{equation*}
+	If our coordinates were $r,\theta$, then the analogous force would be
+	\begin{equation*}
+		\mathbf{G} = G_\theta \mathbf{\hat \theta} + G_r \mathbf{\hat r} = \frac{\partial \phi}{\partial \theta} \mathbf{\hat \theta} + \frac{\partial \phi}{\partial r} \mathbf{\hat r}
+	\end{equation*}
+	Note that the first component has units not of force, but of force times distance. It is precisely the torque that the potential induces. In this sense, quantities like torque are precisely just generalizations of force to non-cartesian coordinate systems (polar, in this case). The second component is just radial force, plain and simple.
+	
+	These two ``forces'' have components that mean completely different things, and cannot easily be compared. On the other hand, since $\mathrm d \phi$ is independent of coordinate system, we get:
+	
+	\begin{equation}
+		\mathrm d \phi = \frac{\partial \phi}{\partial x} dx + \frac{\partial \phi}{\partial y} dy = \frac{\partial \phi}{\partial \theta} d\theta + \frac{\partial \phi}{\partial r} dr 
+	\end{equation}
+	
+	All forces (including the generalized forces, like torque) come from the differential form. If you're working in a coordinate system $x^i$, whether it be cartesian $x,y,z$ or polar $r, \theta$, then the coefficient corresponding to $dx^i$ is precisely the generalized force associated with that coordinate.
+	
+	So if we have a 1-form $\omega$ we can write it in terms of its components as $\omega = \sum_{i=1}^n \omega_i dx^i$. In general, only a special set of $\omega$ are exterior derivatives of functions. In multivariable calculus, we studied conservative vector fields as arising from gradients of functions. The language we'll use here for the same phenomenon is that $\omega$ is \textbf{exact} \index{Differential Form!Exact} if it is the exterior derivative of a 0-form.
+	
+	\begin{concept}[One-Forms Relate Change to Direction]
+		For a function $\phi$, the one-form $\omega = \mathrm d \phi$ gives the first-order change in $\phi$ along a given direction $(dx^1,\dots, dx^n)$. In general, for a one-form $\omega$ that is not exact, $\omega$ along a given direction $(dx^1,\dots, dx^n)$ gives the change in a quantity that cannot be represented by a function of the coordinates. This occurs, for example, with non-conservative forces such as friction or when calculating heat added to a system.
+	\end{concept}
+	
+	A classic example is $d\theta$. Although locally, $\theta$ can be defined just by calculating the angle from the $x$ axis, if you go around counterclockwise in a circle containing the origin, then $\theta$ continuously increases. At the end of the revolution, even though you are at the same point, $\theta$ has increased by $2\pi$. So although $d\theta$ makes sense locally as a differential form everywhere in the plane minus the origin, we cannot define a global smooth function representing $\theta$ without a discontinuity. \\
+
+
+	We've now shown how the fundamental theorem of line integrals deals with the exterior derivative. The next step is to go into 2D and show how we can define the exterior derivative in just the right way to get Stokes' theorem \index{Stokes' Theorem!For Curl}for curl in 2D (also known as Green's theorem). Because the language is suggestive, you would expect that there are two-forms for integrating over two-dimensional regions. 
+
+	Now instead of having individual quantities like $dx$ to represent an infinitesimal-length line segment, we will want quantities to represent a \emph{infinitesimal areas} that will cover the surface that we integrate on. These areas need to be defined by two directions, $dx^i$ and $dx^j$. 
+	
+	This is different from the vectors and forms that we've encountered before. Forms probably seem very similar to vectors. There are components associated with each $dx^i$. Even though philosophically they are deeply tied with infinitesimal quantities and integration, together with vectors they both correspond to some object that deals with 1-D lengths. 
+	
+	A 2-form, on the other hand, is a ``product'' of one forms in a similar way to how area is the product of lengths:
+	
+	\textbf{Insert Graphic Here}
+	
+	We denote the 2-form representing the infinitesimal area formed by one-forms $dx^i$ and $dx^j$ by $dx^i \wedge dx^j$. This is called the wedge product between $dx^i$ and $dx^j$.
+	
+	\begin{concept}
+		The wedge product of coordinate one-forms $dx^i, dx^j$ is geometrically defined to be the infinitesimal parallelogram with one side along the increment of $dx^i$ and the other side along the increment of $dx^j$
+	\end{concept}
+	
+	Note that it is not as easy as just defining the area to be $dx dy$, like a simple scalar. This two-form is a vector-like object. Indeed, the set of all two forms in some dimension form a vector space: we can add them, we can scale them by functions, and we have $0$ to be a trivial two form of no area. 
+	
+	What properties does this wedge product have? 
+	
+	\begin{prop}[Properties of $\wedge$]
+		The wedge product satisfies:
+		\begin{enumerate}
+			\item $dx^i \wedge dx^i = 0$
+			\item $(\alpha dx^i) \wedge dx^k = \alpha (dx^i \wedge dx^j)$
+			\item $(dx^i + dx^j) \wedge dx^k = dx^i \wedge dx^k + dx^j \wedge dx^k$
+		\end{enumerate}
+	\end{prop}
+	
+	Three forms? Infinitesimal parallelepipeds. Past that, it gets difficult to visualize, but you get the idea. Moreover, the formalism does not change.
+
+	\textbf{Talk about coordinate independence of the FTOC and now how we get it for the proof in the divergence theorem}
+	
+	\textbf{Example in 1-D, 2-D, and 3-D}
+
+\section{Stokes' Theorem}
+
+\section{To Manifolds, Coordinate Freedom}
+
+\section{Vectors, Forms, and Tensors}
+
+\section{Distance, a Metric}
+
+\section{Movement, Lie's Ideas}
+
+	First, something cool. Euler's identity $\rightarrow e^{a \frac{\partial}{\partial x}}$
+
+\section{Exercises}
+
+
+
+\end{document}

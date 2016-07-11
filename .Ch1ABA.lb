@@ -1,0 +1,43 @@
+(dp0
+Vmessages
+p1
+(lp2
+VCould not find any messages containing line information.
+p3
+aVPlease take a look at the log file Ch1ABA.latexmk.log to find the source of the problem.
+p4
+asVfiles_with_guttermarks
+p5
+c__builtin__
+set
+p6
+((lp7
+V/usr/local/texlive/2015/texmf-dist/tex/latex/base/makeidx.sty
+p8
+aV/usr/local/texlive/2015/texmf-dist/tex/latex/subfiles/subfiles.cls
+p9
+aV/Users/Alex/Documents/Representations/./Ch1ABA.tex
+p10
+atp11
+Rp12
+s.VERROR   Ch1ABA.tex:8 \u2014 Missing } inserted.
+p9
+aVERROR   Ch1ABA.tex:8 \u2014 Missing $ inserted.
+p10
+aVERROR   Ch1ABA.tex:8 \u2014 You can't use `\u005ceqno' in math mode.
+p11
+asVfiles_with_guttermarks
+p12
+c__builtin__
+set
+p13
+((lp14
+V/usr/local/texlive/2015/texmf-dist/tex/latex/base/makeidx.sty
+p15
+aV/usr/local/texlive/2015/texmf-dist/tex/latex/subfiles/subfiles.cls
+p16
+aV/Users/Alex/Documents/Representations/./Ch1ABA.tex
+p17
+atp18
+Rp19
+s.

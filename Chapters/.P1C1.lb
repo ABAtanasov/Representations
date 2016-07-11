@@ -1,0 +1,583 @@
+(dp0
+Vmessages
+p1
+(lp2
+VERROR   P1C1.tex:1 \u2014 Undefined control sequence.
+p3
+aVERROR   P1C1.tex:1 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p4
+aVERROR   P1C1.tex:2 \u2014 Undefined control sequence.
+p5
+aVERROR   P1C1.tex:3 \u2014 Undefined control sequence.
+p6
+aVERROR   P1C1.tex:4 \u2014 Undefined control sequence.
+p7
+aVERROR   P1C1.tex:6 \u2014 Undefined control sequence.
+p8
+aVERROR   P1C1.tex:6 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p9
+aVERROR   P1C1.tex:8 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p10
+aVERROR   P1C1.tex:10 \u2014 LaTeX Error: Missing \u005cbegin{document}.
+p11
+aVERROR   P1C1.tex:17 \u2014 Undefined control sequence.
+p12
+aVERROR   P1C1.tex:21 \u2014 Undefined control sequence.
+p13
+aVERROR   P1C1.tex:23 \u2014 Undefined control sequence.
+p14
+aVERROR   P1C1.tex:27 \u2014 Undefined control sequence.
+p15
+aVERROR   P1C1.tex:29 \u2014 LaTeX Error: Environment concept undefined.
+p16
+aVERROR   P1C1.tex:31 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{concept}.
+p17
+aVERROR   P1C1.tex:32 \u2014 LaTeX Error: The font size command \u005cnormalsize is not defined:
+p18
+aVERROR   P1C1.tex:35 \u2014 Undefined control sequence.
+p19
+aVERROR   P1C1.tex:36 \u2014 Undefined control sequence.
+p20
+aVERROR   P1C1.tex:39 \u2014 LaTeX Error: Environment equation* undefined.
+p21
+aVERROR   P1C1.tex:40 \u2014 Undefined control sequence.
+p22
+aVERROR   P1C1.tex:40 \u2014 Missing $ inserted.
+p23
+aVERROR   P1C1.tex:41 \u2014 Missing $ inserted.
+p24
+aVERROR   P1C1.tex:41 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p25
+aVERROR   P1C1.tex:43 \u2014 LaTeX Error: Environment equation* undefined.
+p26
+aVERROR   P1C1.tex:44 \u2014 Undefined control sequence.
+p27
+aVERROR   P1C1.tex:44 \u2014 Missing $ inserted.
+p28
+aVERROR   P1C1.tex:45 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p29
+aVERROR   P1C1.tex:45 \u2014 Missing $ inserted.
+p30
+aVERROR   P1C1.tex:46 \u2014 Undefined control sequence.
+p31
+aVERROR   P1C1.tex:47 \u2014 LaTeX Error: Environment equation* undefined.
+p32
+aVERROR   P1C1.tex:48 \u2014 Missing $ inserted.
+p33
+aVERROR   P1C1.tex:49 \u2014 Missing $ inserted.
+p34
+aVERROR   P1C1.tex:49 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p35
+aVERROR   P1C1.tex:52 \u2014 Undefined control sequence.
+p36
+aVERROR   P1C1.tex:54 \u2014 Undefined control sequence.
+p37
+aVERROR   P1C1.tex:55 \u2014 LaTeX Error: Environment equation* undefined.
+p38
+aVERROR   P1C1.tex:56 \u2014 Missing $ inserted.
+p39
+aVERROR   P1C1.tex:57 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p40
+aVERROR   P1C1.tex:57 \u2014 Missing $ inserted.
+p41
+aVERROR   P1C1.tex:59 \u2014 LaTeX Error: Environment align* undefined.
+p42
+aVERROR   P1C1.tex:60 \u2014 Extra }, or forgotten $.
+p43
+aVERROR   P1C1.tex:60 \u2014 Missing $ inserted.
+p44
+aVERROR   P1C1.tex:61 \u2014 Missing $ inserted.
+p45
+aVERROR   P1C1.tex:61 \u2014 Missing } inserted.
+p46
+aVERROR   P1C1.tex:61 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{align*}.
+p47
+aVERROR   P1C1.tex:63 \u2014 Undefined control sequence.
+p48
+aVERROR   P1C1.tex:64 \u2014 Undefined control sequence.
+p49
+aVERROR   P1C1.tex:66 \u2014 Undefined control sequence.
+p50
+aVERROR   P1C1.tex:69 \u2014 Undefined control sequence.
+p51
+aVERROR   P1C1.tex:70 \u2014 Undefined control sequence.
+p52
+aVERROR   P1C1.tex:72 \u2014 LaTeX Error: Environment align* undefined.
+p53
+aVERROR   P1C1.tex:73 \u2014 Missing $ inserted.
+p54
+aVERROR   P1C1.tex:74 \u2014 Missing $ inserted.
+p55
+aVERROR   P1C1.tex:74 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{align*}.
+p56
+aVERROR   P1C1.tex:75 \u2014 Undefined control sequence.
+p57
+aVERROR   P1C1.tex:76 \u2014 LaTeX Error: Environment align* undefined.
+p58
+aVERROR   P1C1.tex:77 \u2014 Missing $ inserted.
+p59
+aVERROR   P1C1.tex:78 \u2014 Missing $ inserted.
+p60
+aVERROR   P1C1.tex:78 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{align*}.
+p61
+aVERROR   P1C1.tex:88 \u2014 Undefined control sequence.
+p62
+aVERROR   P1C1.tex:91 \u2014 Undefined control sequence.
+p63
+aVERROR   P1C1.tex:93 \u2014 LaTeX Error: Environment equation* undefined.
+p64
+aVERROR   P1C1.tex:94 \u2014 Missing $ inserted.
+p65
+aVERROR   P1C1.tex:94 \u2014 Undefined control sequence.
+p66
+aVERROR   P1C1.tex:95 \u2014 Missing $ inserted.
+p67
+aVERROR   P1C1.tex:95 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p68
+aVERROR   P1C1.tex:99 \u2014 LaTeX Error: Environment equation* undefined.
+p69
+aVERROR   P1C1.tex:101 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p70
+aVERROR   P1C1.tex:103 \u2014 LaTeX Error: Environment equation* undefined.
+p71
+aVERROR   P1C1.tex:104 \u2014 Missing $ inserted.
+p72
+aVERROR   P1C1.tex:105 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p73
+aVERROR   P1C1.tex:105 \u2014 Missing $ inserted.
+p74
+aVERROR   P1C1.tex:108 \u2014 Undefined control sequence.
+p75
+aVERROR   P1C1.tex:109 \u2014 LaTeX Error: Environment align* undefined.
+p76
+aVERROR   P1C1.tex:110 \u2014 Missing $ inserted.
+p77
+aVERROR   P1C1.tex:111 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{align*}.
+p78
+aVERROR   P1C1.tex:111 \u2014 Missing $ inserted.
+p79
+aVERROR   P1C1.tex:113 \u2014 LaTeX Error: Environment equation* undefined.
+p80
+aVERROR   P1C1.tex:114 \u2014 Missing $ inserted.
+p81
+aVERROR   P1C1.tex:115 \u2014 Missing $ inserted.
+p82
+aVERROR   P1C1.tex:115 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p83
+aVERROR   P1C1.tex:118 \u2014 Undefined control sequence.
+p84
+aVERROR   P1C1.tex:122 \u2014 LaTeX Error: Environment equation* undefined.
+p85
+aVERROR   P1C1.tex:123 \u2014 Missing $ inserted.
+p86
+aVERROR   P1C1.tex:124 \u2014 Missing $ inserted.
+p87
+aVERROR   P1C1.tex:124 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p88
+aVERROR   P1C1.tex:135 \u2014 LaTeX Error: Environment align* undefined.
+p89
+aVERROR   P1C1.tex:136 \u2014 Missing $ inserted.
+p90
+aVERROR   P1C1.tex:137 \u2014 Missing $ inserted.
+p91
+aVERROR   P1C1.tex:137 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{align*}.
+p92
+aVERROR   P1C1.tex:139 \u2014 LaTeX Error: Environment align* undefined.
+p93
+aVERROR   P1C1.tex:140 \u2014 Missing $ inserted.
+p94
+aVERROR   P1C1.tex:141 \u2014 Missing $ inserted.
+p95
+aVERROR   P1C1.tex:141 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{align*}.
+p96
+aVERROR   P1C1.tex:147 \u2014 LaTeX Error: Environment align* undefined.
+p97
+aVERROR   P1C1.tex:148 \u2014 Missing $ inserted.
+p98
+aVERROR   P1C1.tex:149 \u2014 Missing $ inserted.
+p99
+aVERROR   P1C1.tex:149 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{align*}.
+p100
+aVERROR   P1C1.tex:151 \u2014 LaTeX Error: Environment equation* undefined.
+p101
+aVERROR   P1C1.tex:152 \u2014 Missing $ inserted.
+p102
+aVERROR   P1C1.tex:153 \u2014 Missing $ inserted.
+p103
+aVERROR   P1C1.tex:153 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p104
+aVERROR   P1C1.tex:155 \u2014 LaTeX Error: Environment align* undefined.
+p105
+aVERROR   P1C1.tex:156 \u2014 Missing $ inserted.
+p106
+aVERROR   P1C1.tex:157 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{align*}.
+p107
+aVERROR   P1C1.tex:157 \u2014 Missing $ inserted.
+p108
+aVERROR   P1C1.tex:159 \u2014 LaTeX Error: Environment align* undefined.
+p109
+aVERROR   P1C1.tex:160 \u2014 Missing $ inserted.
+p110
+aVERROR   P1C1.tex:161 \u2014 Missing $ inserted.
+p111
+aVERROR   P1C1.tex:161 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{align*}.
+p112
+aVERROR   P1C1.tex:163 \u2014 LaTeX Error: Environment align* undefined.
+p113
+aVERROR   P1C1.tex:164 \u2014 Missing $ inserted.
+p114
+aVERROR   P1C1.tex:165 \u2014 Missing $ inserted.
+p115
+aVERROR   P1C1.tex:165 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{align*}.
+p116
+aVERROR   P1C1.tex:173 \u2014 Undefined control sequence.
+p117
+aVERROR   P1C1.tex:177 \u2014 LaTeX Error: Environment align* undefined.
+p118
+aVERROR   P1C1.tex:178 \u2014 Missing $ inserted.
+p119
+aVERROR   P1C1.tex:179 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{align*}.
+p120
+aVERROR   P1C1.tex:179 \u2014 Missing $ inserted.
+p121
+aVERROR   P1C1.tex:181 \u2014 LaTeX Error: Environment equation* undefined.
+p122
+aVERROR   P1C1.tex:182 \u2014 Missing $ inserted.
+p123
+aVERROR   P1C1.tex:183 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p124
+aVERROR   P1C1.tex:183 \u2014 Missing $ inserted.
+p125
+aVERROR   P1C1.tex:190 \u2014 LaTeX Error: Environment equation* undefined.
+p126
+aVERROR   P1C1.tex:191 \u2014 Missing $ inserted.
+p127
+aVERROR   P1C1.tex:192 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p128
+aVERROR   P1C1.tex:192 \u2014 Missing $ inserted.
+p129
+aVERROR   P1C1.tex:193 \u2014 Undefined control sequence.
+p130
+aVERROR   P1C1.tex:194 \u2014 LaTeX Error: Environment equation* undefined.
+p131
+aVERROR   P1C1.tex:195 \u2014 Missing $ inserted.
+p132
+aVERROR   P1C1.tex:196 \u2014 Missing $ inserted.
+p133
+aVERROR   P1C1.tex:196 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p134
+aVERROR   P1C1.tex:198 \u2014 LaTeX Error: Environment align* undefined.
+p135
+aVERROR   P1C1.tex:199 \u2014 Misplaced alignment tab character &.
+p136
+aVERROR   P1C1.tex:199 \u2014 Missing $ inserted.
+p137
+aVERROR   P1C1.tex:200 \u2014 Misplaced alignment tab character &.
+p138
+aVERROR   P1C1.tex:201 \u2014 Misplaced alignment tab character &.
+p139
+aVERROR   P1C1.tex:202 \u2014 Misplaced alignment tab character &.
+p140
+aVERROR   P1C1.tex:203 \u2014 Missing $ inserted.
+p141
+aVERROR   P1C1.tex:203 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{align*}.
+p142
+aVERROR   P1C1.tex:205 \u2014 LaTeX Error: Environment equation* undefined.
+p143
+aVERROR   P1C1.tex:206 \u2014 Missing $ inserted.
+p144
+aVERROR   P1C1.tex:207 \u2014 Missing $ inserted.
+p145
+aVERROR   P1C1.tex:207 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p146
+aVERROR   P1C1.tex:208 \u2014 Undefined control sequence.
+p147
+aVERROR   P1C1.tex:210 \u2014 LaTeX Error: Environment equation* undefined.
+p148
+aVERROR   P1C1.tex:211 \u2014 Missing $ inserted.
+p149
+aVERROR   P1C1.tex:212 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p150
+aVERROR   P1C1.tex:212 \u2014 Missing $ inserted.
+p151
+aVERROR   P1C1.tex:214 \u2014 LaTeX Error: Environment equation* undefined.
+p152
+aVERROR   P1C1.tex:215 \u2014 Missing $ inserted.
+p153
+aVERROR   P1C1.tex:216 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p154
+aVERROR   P1C1.tex:216 \u2014 Missing $ inserted.
+p155
+aVERROR   P1C1.tex:221 \u2014 LaTeX Error: There's no line here to end.
+p156
+aVERROR   P1C1.tex:221 \u2014 Undefined control sequence.
+p157
+aVERROR   P1C1.tex:222 \u2014 LaTeX Error: There's no line here to end.
+p158
+aVERROR   P1C1.tex:224 \u2014 LaTeX Error: Environment equation* undefined.
+p159
+aVERROR   P1C1.tex:225 \u2014 Missing $ inserted.
+p160
+aVERROR   P1C1.tex:226 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p161
+aVERROR   P1C1.tex:226 \u2014 Missing $ inserted.
+p162
+aVERROR   P1C1.tex:231 \u2014 Undefined control sequence.
+p163
+aVERROR   P1C1.tex:239 \u2014 LaTeX Error: Environment equation* undefined.
+p164
+aVERROR   P1C1.tex:240 \u2014 Missing $ inserted.
+p165
+aVERROR   P1C1.tex:241 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p166
+aVERROR   P1C1.tex:241 \u2014 Missing $ inserted.
+p167
+aVERROR   P1C1.tex:243 \u2014 LaTeX Error: Environment equation* undefined.
+p168
+aVERROR   P1C1.tex:244 \u2014 Missing $ inserted.
+p169
+aVERROR   P1C1.tex:245 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p170
+aVERROR   P1C1.tex:245 \u2014 Missing $ inserted.
+p171
+aVERROR   P1C1.tex:248 \u2014 Undefined control sequence.
+p172
+aVERROR   P1C1.tex:250 \u2014 LaTeX Error: Environment equation* undefined.
+p173
+aVERROR   P1C1.tex:251 \u2014 Missing $ inserted.
+p174
+aVERROR   P1C1.tex:252 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p175
+aVERROR   P1C1.tex:252 \u2014 Missing $ inserted.
+p176
+aVERROR   P1C1.tex:254 \u2014 LaTeX Error: Environment align* undefined.
+p177
+aVERROR   P1C1.tex:255 \u2014 Misplaced alignment tab character &.
+p178
+aVERROR   P1C1.tex:255 \u2014 Missing $ inserted.
+p179
+aVERROR   P1C1.tex:256 \u2014 Misplaced alignment tab character &.
+p180
+aVERROR   P1C1.tex:257 \u2014 Missing $ inserted.
+p181
+aVERROR   P1C1.tex:257 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{align*}.
+p182
+aVERROR   P1C1.tex:259 \u2014 LaTeX Error: Environment equation* undefined.
+p183
+aVERROR   P1C1.tex:260 \u2014 Missing $ inserted.
+p184
+aVERROR   P1C1.tex:261 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p185
+aVERROR   P1C1.tex:261 \u2014 Missing $ inserted.
+p186
+aVERROR   P1C1.tex:266 \u2014 LaTeX Error: Environment equation* undefined.
+p187
+aVERROR   P1C1.tex:267 \u2014 Missing $ inserted.
+p188
+aVERROR   P1C1.tex:268 \u2014 Missing $ inserted.
+p189
+aVERROR   P1C1.tex:268 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p190
+aVERROR   P1C1.tex:271 \u2014 LaTeX Error: Environment equation* undefined.
+p191
+aVERROR   P1C1.tex:272 \u2014 Missing $ inserted.
+p192
+aVERROR   P1C1.tex:273 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p193
+aVERROR   P1C1.tex:273 \u2014 Missing $ inserted.
+p194
+aVERROR   P1C1.tex:275 \u2014 LaTeX Error: Environment align* undefined.
+p195
+aVERROR   P1C1.tex:276 \u2014 Misplaced alignment tab character &.
+p196
+aVERROR   P1C1.tex:276 \u2014 Missing $ inserted.
+p197
+aVERROR   P1C1.tex:277 \u2014 Misplaced alignment tab character &.
+p198
+aVERROR   P1C1.tex:278 \u2014 Missing $ inserted.
+p199
+aVERROR   P1C1.tex:278 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{align*}.
+p200
+aVERROR   P1C1.tex:281 \u2014 LaTeX Error: Environment concept undefined.
+p201
+aVERROR   P1C1.tex:283 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{concept}.
+p202
+aVERROR   P1C1.tex:285 \u2014 LaTeX Error: Environment equation* undefined.
+p203
+aVERROR   P1C1.tex:286 \u2014 Missing $ inserted.
+p204
+aVERROR   P1C1.tex:287 \u2014 Missing $ inserted.
+p205
+aVERROR   P1C1.tex:287 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p206
+aVERROR   P1C1.tex:289 \u2014 LaTeX Error: Environment align* undefined.
+p207
+aVERROR   P1C1.tex:290 \u2014 Missing $ inserted.
+p208
+aVERROR   P1C1.tex:291 \u2014 Missing $ inserted.
+p209
+aVERROR   P1C1.tex:291 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{align*}.
+p210
+aVERROR   P1C1.tex:293 \u2014 LaTeX Error: Environment equation* undefined.
+p211
+aVERROR   P1C1.tex:294 \u2014 Missing $ inserted.
+p212
+aVERROR   P1C1.tex:295 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p213
+aVERROR   P1C1.tex:295 \u2014 Missing $ inserted.
+p214
+aVERROR   P1C1.tex:296 \u2014 Undefined control sequence.
+p215
+aVERROR   P1C1.tex:297 \u2014 LaTeX Error: Environment equation* undefined.
+p216
+aVERROR   P1C1.tex:298 \u2014 Missing $ inserted.
+p217
+aVERROR   P1C1.tex:299 \u2014 Missing $ inserted.
+p218
+aVERROR   P1C1.tex:299 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p219
+aVERROR   P1C1.tex:301 \u2014 LaTeX Error: Environment equation* undefined.
+p220
+aVERROR   P1C1.tex:302 \u2014 Undefined control sequence.
+p221
+aVERROR   P1C1.tex:302 \u2014 Missing $ inserted.
+p222
+aVERROR   P1C1.tex:303 \u2014 Missing $ inserted.
+p223
+aVERROR   P1C1.tex:303 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p224
+aVERROR   P1C1.tex:304 \u2014 Undefined control sequence.
+p225
+aVERROR   P1C1.tex:307 \u2014 LaTeX Error: Environment equation* undefined.
+p226
+aVERROR   P1C1.tex:308 \u2014 Missing $ inserted.
+p227
+aVERROR   P1C1.tex:309 \u2014 Missing $ inserted.
+p228
+aVERROR   P1C1.tex:309 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p229
+aVERROR   P1C1.tex:312 \u2014 Undefined control sequence.
+p230
+aVERROR   P1C1.tex:319 \u2014 Undefined control sequence.
+p231
+aVERROR   P1C1.tex:323 \u2014 LaTeX Error: Environment equation* undefined.
+p232
+aVERROR   P1C1.tex:324 \u2014 Missing $ inserted.
+p233
+aVERROR   P1C1.tex:325 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p234
+aVERROR   P1C1.tex:325 \u2014 Missing $ inserted.
+p235
+aVERROR   P1C1.tex:327 \u2014 LaTeX Error: Environment equation* undefined.
+p236
+aVERROR   P1C1.tex:328 \u2014 Missing $ inserted.
+p237
+aVERROR   P1C1.tex:329 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p238
+aVERROR   P1C1.tex:329 \u2014 Missing $ inserted.
+p239
+aVERROR   P1C1.tex:330 \u2014 Undefined control sequence.
+p240
+aVERROR   P1C1.tex:333 \u2014 LaTeX Error: Environment equation* undefined.
+p241
+aVERROR   P1C1.tex:334 \u2014 Missing $ inserted.
+p242
+aVERROR   P1C1.tex:334 \u2014 Undefined control sequence.
+p243
+aVERROR   P1C1.tex:335 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p244
+aVERROR   P1C1.tex:335 \u2014 Missing $ inserted.
+p245
+aVERROR   P1C1.tex:342 \u2014 LaTeX Error: Environment equation* undefined.
+p246
+aVERROR   P1C1.tex:343 \u2014 Missing $ inserted.
+p247
+aVERROR   P1C1.tex:344 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p248
+aVERROR   P1C1.tex:344 \u2014 Missing $ inserted.
+p249
+aVERROR   P1C1.tex:351 \u2014 Undefined control sequence.
+p250
+aVERROR   P1C1.tex:356 \u2014 Undefined control sequence.
+p251
+aVERROR   P1C1.tex:361 \u2014 LaTeX Error: Environment equation* undefined.
+p252
+aVERROR   P1C1.tex:362 \u2014 Missing $ inserted.
+p253
+aVERROR   P1C1.tex:362 \u2014 Undefined control sequence.
+p254
+aVERROR   P1C1.tex:363 \u2014 Missing $ inserted.
+p255
+aVERROR   P1C1.tex:363 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p256
+aVERROR   P1C1.tex:373 \u2014 LaTeX Error: Environment equation* undefined.
+p257
+aVERROR   P1C1.tex:374 \u2014 Missing $ inserted.
+p258
+aVERROR   P1C1.tex:375 \u2014 Missing $ inserted.
+p259
+aVERROR   P1C1.tex:375 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p260
+aVERROR   P1C1.tex:380 \u2014 LaTeX Error: Environment equation* undefined.
+p261
+aVERROR   P1C1.tex:381 \u2014 Missing $ inserted.
+p262
+aVERROR   P1C1.tex:382 \u2014 Missing $ inserted.
+p263
+aVERROR   P1C1.tex:382 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p264
+aVERROR   P1C1.tex:384 \u2014 LaTeX Error: Environment equation* undefined.
+p265
+aVERROR   P1C1.tex:385 \u2014 Missing $ inserted.
+p266
+aVERROR   P1C1.tex:386 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p267
+aVERROR   P1C1.tex:386 \u2014 Missing $ inserted.
+p268
+aVERROR   P1C1.tex:387 \u2014 Undefined control sequence.
+p269
+aVERROR   P1C1.tex:388 \u2014 LaTeX Error: Environment equation* undefined.
+p270
+aVERROR   P1C1.tex:389 \u2014 Missing $ inserted.
+p271
+aVERROR   P1C1.tex:390 \u2014 Missing $ inserted.
+p272
+aVERROR   P1C1.tex:390 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p273
+aVERROR   P1C1.tex:392 \u2014 LaTeX Error: Environment equation* undefined.
+p274
+aVERROR   P1C1.tex:393 \u2014 Missing $ inserted.
+p275
+aVERROR   P1C1.tex:394 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p276
+aVERROR   P1C1.tex:394 \u2014 Missing $ inserted.
+p277
+aVERROR   P1C1.tex:395 \u2014 Undefined control sequence.
+p278
+aVERROR   P1C1.tex:396 \u2014 LaTeX Error: Environment equation* undefined.
+p279
+aVERROR   P1C1.tex:397 \u2014 Missing $ inserted.
+p280
+aVERROR   P1C1.tex:398 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p281
+aVERROR   P1C1.tex:398 \u2014 Missing $ inserted.
+p282
+aVERROR   P1C1.tex:400 \u2014 LaTeX Error: Environment equation* undefined.
+p283
+aVERROR   P1C1.tex:401 \u2014 Missing $ inserted.
+p284
+aVERROR   P1C1.tex:402 \u2014 Missing $ inserted.
+p285
+aVERROR   P1C1.tex:402 \u2014 LaTeX Error: \u005cbegin{document} ended by \u005cend{equation*}.
+p286
+asVfiles_with_guttermarks
+p287
+c__builtin__
+set
+p288
+((lp289
+V/Users/Alex/Documents/Representations/Chapters/./P1C1.tex
+p290
+atp291
+Rp292
+s.
