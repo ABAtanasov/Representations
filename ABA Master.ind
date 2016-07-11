@@ -1,71 +1,51 @@
 \begin{theindex}
 
-  \item atlas, 25
+  \item chart, 19
+  \item Contravariance, 12
+  \item contravariant, 13, 26
+  \item Covariance, 12
+  \item covariant, 13, 26
+  \item cover, 19
 
   \indexspace
 
-  \item chart, 18, 24
-  \item connection, 44
-  \item Contravariance, 11
-  \item contravariant, 12, 29
-  \item cotangent space, 31
-  \item Covariance, 11
-  \item covariant, 12
-  \item covariant derivative, 45
-  \item cover, 18, 24
+  \item Differential Form, 41
+    \subitem Exact, 44
+    \subitem One-Form, 43
 
   \indexspace
 
-  \item diffeomorphism, 38
-  \item dual space, 29
+  \item Exterior Derivative, 43
 
   \indexspace
 
-  \item exterior algebra, 33
+  \item Inner Product, 14
 
   \indexspace
 
-  \item Inner Product, 13
-
-  \indexspace
-
-  \item Jacobian, 14
-
-  \indexspace
-
-  \item Kronecker delta, 32
+  \item Jacobian, 15, 27
 
   \indexspace
 
   \item Linear Algebra
-    \subitem Linear Independence, 8
-    \subitem Linear Transformation, 8
-    \subitem Span, 8
+    \subitem Basis, 24
+    \subitem Linear Independence, 9, 24
+    \subitem Linear Transformation, 9, 24
+    \subitem Span, 9, 24
 
   \indexspace
 
-  \item manifold, 24
-  \item Metric Tensor, 13, 43
+  \item Metric Tensor, 14
 
   \indexspace
 
-  \item one-forms, 31
+  \item Stokes' Theorem
+    \subitem For Curl, 40, 45
+    \subitem General, 34
 
   \indexspace
 
-  \item pullback, 29
-
-  \indexspace
-
-  \item Tangent Space, 31
-  \item tensor, 42
-  \item tensor product, 39
-  \item topological space, 18, 24
-  \item topology, 18, 24
-  \item transition function, 25
-
-  \indexspace
-
-  \item vector field, 30
+  \item topological space, 19
+  \item topology, 19
 
 \end{theindex}

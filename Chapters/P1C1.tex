@@ -1,415 +1,305 @@
-\chapter{Differential Geometry}
-\epigraph{\textit{``In mathematics you don't understand things. You just get used to them."}}{John Von Neumann}
-\epigraph{\textit{``There is no royal road to geometry"}}{Euclid}
-\section*{Setting the Stage}
-
-It is impossible to conceive of a complete description of physics that need not make use of a geometric space in which states exists.  And even those physical degrees of freedom not tied to positions or times, such as spin, naturally lend themselves to having their states described in a geometric space.  As such, a natural starting point for understanding physical systems is first understanding the space in which the system lives, the \textit{stage} on which physics takes place.  For many years it was merely posited that physical space had the mathematical character of $\R^3$ (Euclidean space) and that time was merely another orthogonal direction making spacetime $\R^4$.  Such assumptions were poor for two reasons.  For one, a physicist should strive to make as few assumptions as possible in the pursuit of a general theory and presuming that physical space is $\R^3$ indirectly assumes many things about how physical systems behave. Second, and much more egregious, in many cases these assumptions are simply false; that is, they are inconsistent with what we experimentally observe about the universe.  But what is the way forward, then?  First, we must explore in abstract the geometries that spaces may have and how objects behave on them.  This naturally leads us to what is at present the best mathematical conception of the stage on which physics takes place, the \textbf{manifold}\index{manifold}.\\
-
-The term manifold describes a very general class of mathematical objects.  Moreover, without certain restrictions on their properties, they may take certain pathological and non-physical forms.  As such, we will restrict our discussion to smooth manifolds, since spacetime (and other geometric spaces we care about) appears to be such a thing.  It is worth noting that perhaps, as physics progresses, we may learn that this assumption was also a mere approximation to a more fundamental description of reality.  This is a fair point, but nonetheless, this assumption is completely compatible with the physics of interest here. \\
-
- In order to formally define a manifold, we must first define a \textbf{topological space}\index{topological space}.  
-A topological space $X$ is a set with a family of open subsets $T$ satisfying 
- \begin{enumerate}
- 	\item[1)] $\emptyset$ (empty set) and $X$ are in $T$
- 	\item[2)] A finite union of members of $T$ is in $T$
- 	\item[3)] A finite intersection of members of $T$ is in $T$
- \end{enumerate}
- and $T$ is called the \textbf{topology}\index{topology} on $X$.  We can talk about points $x$ in the set $X$ and we say that a collection of open sets $\{O_\alpha \}$ \textbf{covers}\index{cover} $X$ if $X$ is contained in their union.  Intuitively, the information contained in such a collection of sets should be enough to talk about all of $X$.  The last thing we need is a \textbf{chart}\index{chart}, which is an open set $O_a$ paired with a continuous function $\varphi_\alpha: O_\alpha \to \R^n$ with continuous inverse.  This map is identifying each point in the subset $O_\alpha$ with a corresponding point in $\R^n$.  We can now define a manifold\\
-
-  An $n$-dimensional \textbf{smooth manifold} is a topological space $M$ equipped with a cover $\{O_\alpha\}$ and charts $\{\varphi_\alpha\}$ such that when $O_\alpha$ and $O_\beta$ have nontrivial intersection (they overlap), $\varphi_\alpha \circ \varphi_\beta^{-1}$ is \textbf{smooth}.  Smooth here means infinitely differentiable.  This composition is called a \textbf{transition function}\index{transition function} and its smoothness guarantees that our collection of charts (called an \textbf{atlas}\index{atlas}) will allow us to define smooth functions on our manifold with no trouble. \\
-  
-  It is also important to stress that the reader should not at the moment think of charts as mapping identifying each point $p$ in a manifold $M$ with $n$ coordinates in $\R^n$.  The point of this construction is to have coordinate independent notions of geometry.  When working in a chart, we are identifying each point in the manifold with a corresponding point in $\R^n$, which exists independent of a set of numbers we choose to identify it with.\\
+\documentclass[../master.tex]{subfiles}
  
-This definition of a manifold may still seem too abstract.  Intuitively, this definition is saying that an $n$-dimensional Manifold is a set which \textit{locally} looks like $\R^n$.  In the context of physics, by considering general manifolds, we are laxing our stipulation that space is Euclidean in its totality to a requirement that space \textit{seems} Euclidean in a small patch around any given point. For example, we know by various means, that the surface of the earth is roughly like the surface of a spherical ball.  But, ignoring irregularities in the surface like hills and mountains, at any given point on earth the surface appears flat in some patch around you.  We could, in principle, draw lines determining a collection of relatively flat patches of earth which collectively cover all of earth and then map each of these onto part of the plane, $\R^2$.  Therefore the surface of the earth is to good approximation a perfectly fine 2-dimensional smooth manifold, but we note that as it is different from the plane.  In a similar manner, its conceivable that although in 3-dimensional patches  around us physical space appears to be Euclidean, the entirety of physical space may be described by some much more interesting geometry.  It is on these non-Euclidean manifolds that much interesting and often unintuitive physics arises.\\
-
-As we endow our geometric spaces with more  structure it is important to keep in mind at each stage the limits of what we can say about our space.  At this point, we only have information about the smoothness and \textit{topology} of our space, but we have no notion of how distances behave on our manifold.  A concrete example of this limit is that we have not provided enough structure to our notion of manifold to differentiate between an egg and a  ping-pong ball.  The surfaces of these objects are topologically the same, and differentiating between the two requires a notion of how long different curves are on their surfaces; such differentiation is facilitated by the presence of Riemann structure, which our manifolds have not yet been equipped with.
-
-Moreover, the reader should not presume that they are able to visualize the totality of a manifold.  The capacity to do so for an $n$-dimensional manifold is contingent upon the ability to \textit{embed} the manifold in $\R^{n+1}$, as is commonly done with the 2-sphere (picturing the two dimensional surface of the sphere as a curved space in three dimensional space.  We are not generally able to do this, and so the reader should not rely on intuitions rooted in embeddings, as they are a geometric crutch.
-
-\begin{concept}
-\textit{A smooth manifold is a continuous collection of points which can be invertibly mapped into Euclidean space in a neighborhood of any point, allowing us to locally talk about our manifold by working in Euclidean space.}
-\end{concept}
-
-Now that we prepared the stage, we are ready to study the fields which may exist on it.  
-
-\section*{Vectors Reinvented} 
-Surely the reader is familiar with the concept of a vector field.  The geometric intuition behind a vector field $v:\R^3 \to \R^3$  in Euclidean space is that we input a position in space and get out an object at said point with a magnitude and direction.  This may describe the velocity of a particle at the point, or a force acting at such point.  But as we generalize the geometry of the spaces in which physics is taking place, it becomes natural and necessary to utilize differently defined mathematical objects analogous to (or even in special cases reducing to) those previously used.  In order to build up our new geometric machinery, we will start simple and make an effort to intuitively motivate the need for this new formalism, often by pointing out the defunctness of old ways.  Nonetheless, this modern view of geometry may never feel as intuitive as arrows in three dimensional space, and so the reader should take seriously the epigraph at the beginning of the chapter. \\
-
-Perhaps the simplest object to conceive of existing on a manifold is a smooth function 
-\begin{equation*}
-	f: M \to \R
-\end{equation*}
-This definition should not seem surprising to the reader.  At each point in the manifold the function assigns a value and in order for it to be smooth we require that 
-\begin{equation*}
-	f\circ \varphi^{-1}_\alpha: \R^n \to \R
-\end{equation*}
-be smooth.  The collection of such functions is denoted by $C^\infty(M)$.  Perhaps the most fundamental functions are coordinates themselves!  For example, each Cartesian coordinate in $\R^3$ ($x$, $y$, and $z$) returns a value at each point in $\R^3$ corresponding to what we call the $x$, $y$, or $z$ coordinate.  Clearly these are infinitely differentiable, defining a smooth function.  We see that, working in a chart, we can then use the local coordinate functions $\{x^\mu \}$ on $\R^n$ as arguments of our function by relating 
-\begin{equation*}
-	f(p) = f(x^1 \circ \varphi_a, \dots, x^n \circ \varphi_a)
-\end{equation*}
-We will proceed writing functions in the way on the right, and omitting the composition with the chart (i.e. just writing $f(x^1, \dots, x^n)$).\\
-
- Slightly less intuitive is our modern definition of a tangent vector.  In order to motivate this, we must first introduce a \textbf{curve} in $M$, which is a map $\gamma: T \to M$ where $T$ is the compact interval $[0, T] \subset \R$.  For each value of some parameter in $\R$, we get a point in $M$, and so $\gamma$ is describing a path traced out in the manifold.  The reader should be familiar with curves in $\R^3$ as described by the methods of basic multivariable calculus.  In this case we were unknowingly spoiled, as $\R^3$ can be viewed both as a manifold and a vector space.  We could sloppily interchange these viewpoints of $\R^3$, representing the points on the curve as endpoints of vectors starting from the origin.  We could then acquire the tangent vector to a curve by differentiating the position vector component-wise.  When  one conceives of such a tangent vector, they cannot help but conceive of it existing as an arrow in three dimensional Euclidean space. And so one way to explain why our old Euclidean ways fall short is this: our manifold is not in general a vector space.  \textit{We cannot linearly combine two distinct points on the manifold to get something meaningful.}**(probably worthy of stressing as a concept)**  We have not equipped our space with a structure enabling comparison of information at two distinct points and so we must not subconsciously presume one.\\
  
-   Moreover, we need to talk about geometric objects only making reference to the \textit{intrinsic} properties of the manifold, and without embedding our $n$-dimensional manifold in $n+1$ - dimensional Euclidean space. How then can we view our tangent vector as an element of the vector space $\R^{m}$? We cannot in general, but I ask the reader, what good are tangent vectors?  That is, what do we want from a tangent vector?  A tangent vector to a curve provides us with the information necessary to determine the rate of change of a function as its argument moves along the curve.  In the old way mentioned above, this is done by taking a directional derivative of a function along an arrow in $\R^3$, but on our arbitrary manifold, the output of $\gamma$ is not a vector, but a point!  Let us proceed demanding the desired \textit{result} from our tangent vector and see if we can construct a consistent geometric viewpoint.  We simply demand that the tangent vector to $\gamma$ at point $p = \gamma(t)$ be the map 
-   \begin{equation*}
-   	\gamma^\prime(t): C^\infty(M) \to C^\infty(M)
-   \end{equation*}
-   sending the smooth function $f$ to its derivative 
-\begin{align*}
-	\frac{d}{dt}(f(\gamma(t)))
-\end{align*}
-the collection of such maps for all possible curves $\gamma$ at a point $\gamma(t)$ is called the Tangent Space at $\gamma(t)$, denoted $T_{\gamma(t)}M$.  We will formally define this space later.  Before seeing how this lends itself to a generalized notion of vector fields on manifolds, we must first discuss how mappings between manifolds give rise to mappings between the objects that exist on them. 
-\subsection*{Covariance, Contravariance, and Duality}
-Covariance, contravariance, and duality are very general concepts utilized in category theory, but in order to remain geometrically grounded we will restrict ourselves to a discussion of their application to manifolds.  Consider a smooth map $\varphi: M \to N$ between manifolds $M$ and $N$.  Such a map need not be invertible in general.  If we have a smooth function $f$ defined on $N$, $\varphi$ can allow us to compute this function on $M$ by considering the composition $\varphi^*f = f\circ \varphi : M \to \R$.  This operation $\varphi^*: f \to f\circ \varphi$ is called a \textbf{pullback}\index{pullback} because it brought the function defined on $N$ \textit{back} and defined it on $M$.  Notice that since $\varphi$ is not in general invertible, we are not in general able to send functions from $M$ forward to $N$ by composing with $\varphi^{-1}$ (which may not exist).  Because the map that goes forward from $M$ to $N$ gives rise to a backward map  $\varphi*: C^\infty(N) \to C^\infty(M)$ we say that smooth functions are \textbf{contravariant}\index{contravariant} objects.  Now, there exist other objects which, unlike functions, give rise to maps that would go the same way as $\varphi$.  Consider a map $v:C^\infty(M)\to C^\infty(M)$.  This $v$ takes a smooth function on $M$ and sends yields another smooth function on $M$.  We may define $(\varphi_*v)(f) = v(f\circ\varphi)$ where $f$ is a smooth function on $N$.  Therefore, $\varphi_*$ took a $v$ defined on $M$ and yielded a map $\varphi_* v: C^\infty(N) \to C^\infty(N)$ defined on $N$.  Since $\varphi_*$ maps in the same direction as $\varphi$ we call it a \textbf{pushforward}.  In practice, when we actually perform analysis on manifolds, we will be manipulating coordinates $\{x^\mu\}$ on $\R^n$, but technically speaking we are working with the \textit{pullbacks} of these coordinate functions by our charts, since \textit{those} are what are defined on the manifold.  There exists a \textit{duality} between contravariant and covariant objects, which can be summarized abstractly.  \\
-
-If we have a vector space $V$, we may consider the space of linear maps $v^*: V \to \R$.  This too comprises a vector space $V^*$ which we call the \textbf{dual space}\index{dual space}.  If we have a map $\varphi:V \to W$ we can see that, being careful about composing maps properly, this gives rise to $\varphi^*: W^* \to V^*$.  Maps between vector spaces produce pullbacks between the dual spaces.  With this in mind, we are prepared to discuss vector fields and differential forms.\\
-**(excercise on basis inducing a corresponding dual basis and $(V^*)^* = V$ )**
-
-\section*{Fields}
-\subsection*{Vector Fields}
-Given how organically the concept emerged of a tangent vector  being a map differentiating functions, it is natural to generalize the concept to vector \textit{fields} on a manifold.   A vector field will be a map which sends smooth functions to a directional derivative.  Since we define our smooth functions using local coordinate functions on a chart, we can compute this derivative as
-\begin{align*}
-	vf = \sum\limits_\mu v^\mu \frac{\partial}{\partial x^\mu}f(x^1, ..., x^n)
-\end{align*} 
-where we will call the $v^\mu$ the components of the vector $v$ written with respect to a basis $\{\partial_\mu \}$ of partial derivative operators with respect to coordinates on $\R^n$.  The $\{\partial_\mu\}$ serve as a basis for vector fields in $\R^n$ in the sense that any function $f$ on $\R^n$ can be taken to any of its possible directional derivatives by taking a unique linear combination 
-\begin{align*}
-	v^\mu\partial_\mu = \sum\limits_\mu v^\mu \frac{\partial}{\partial x^\mu}
-\end{align*}
-where the left side is short hand meant to represent the right side in accordance with Einstein summation notation.  But in the spirit of generality, we must provide a coordinate independent definition of a vector field, which will naturally be more abstract.  A \textbf{vector field}\index{vector field} is a map $v: C^\infty(M) \to C^\infty(M)$ satisfying 
-\begin{enumerate}
-	\item $v(\alpha f+\beta g) = \alpha v(f)+\beta v(g)$
-	\item $v(fg) = v(f)g+v(g)f$
-\end{enumerate}
-for $f, g \in C^\infty(M)$ and a scalar $\alpha$.\\
-
-The essence of a vector field as a derivative operator is captured by the second property, the so called Liebnitz property (essentially the chain rule).  In this way, the presence of vector fields which differentiate functions is not contingent upon the details of a coordinate system.  Given this construction, we can now generally define a tangent vector.\\
-
-  The vector $v_p$ is a map taking $f$ to its derivative at $p$, a number which would be acquired by feeding in $p$ to the resultant function yielded by $vf$.  We say $v_p$ is a tangent vector at $p$ and the set of all such vectors is the \textbf{Tangent Space}\index{Tangent Space} at $p$, $T_pM$.  If we have an embedding of our $n$-dimensional manifold, we can identify the components $v_p^\mu$ of the vector field at a point $p$ as the components of traditional vector in $\R^n$ and as such place a copy of $\R^n$ tangent to $M$ at $p$ and draw the corresponding arrow.  In this way, we would get a field of arrows on our manifold.  But to indulge this practice is to betray the essence of our new concept of a vector field; our definition provides a useful form of a vector that does not need an embedding of the manifold in higher dimensional Euclidean space.  Nonetheless, it is nice to see that this advanced machinery is consistent with our old intuitions in special cases.\\
-  
-
-\subsection*{Form Fields}
-In order to motivate forms, it is valuable to begin by asking how we might try to perform integration on a manifold or a submanifold (which is merely a manifold whose points are contained in a greater manifold).  The simplest example we might consider is integrating over a curve $\gamma: [0, 1] \to M$.  We want our integration to correspond to a summation of tiny scalar values, computed along a series of infinitesimal displacements conceptually given by the tangent vectors to $\gamma$.  But we cannot merely sum vector values to get a scalar, so we see already the need for a map $\omega$ from tangent vectors to real numbers.  This map $\omega$ assigns at each point in the manifold a map 
-\begin{equation*}
-	\omega_p: T_pM \to \R
-\end{equation*} 
-which lives in $T^*_pM$, the \textbf{cotangent space}\index{cotangent space}, which is dual to the tangent space as its elements are linear maps from tangent vectors to scalars.  These are also called \textbf{one-forms}\index{one-forms}, and just as we have vector fields, we can have form fields, which assign a covector in the cotangent space at each point in the manifold.\\
-
-  More concretely, we can consider the one-form $df$ where $f$ is a smooth function on $M$.  Though there is delicate formalism which we need to develop, we still intuitively identify $df$ with the differential of $f$.  We have that $df$ is defined by 
-\begin{equation*}
-	df(v) = vf
-\end{equation*} 
-and so we can consider integration 
-\begin{equation*}
-	\int\limits_\gamma df = \int_{[0, 1]} df(\gamma'(t)) dt = \int\limits_{[0, 1]} \frac{d}{dt}f(\gamma(t)) dt
-\end{equation*}
-where we use the notation on the right to indicate that we are performing a typical Riemann sum.  So what occurs here is that we define our form $df$ and it eats a vector, yielding a real number.  Intuitively this is the infinitesimal change in $f$ for an infinitesimal change in $\gamma$.  That is to say, $df$ is \textit{not} the scalar value of small change itself, but a map which gives us this small change if we feed it a vector.  By making these identifications, we see that forms are the things which we integrate over manifolds, or more generally, manifolds with boundary which we will define later.  As such, forms merit a great deal of study and so we must proceed unpacking their machinery. \\
-
-If we recall that a basis $\{e_i\}$ for a vector space $V$ directly induces a basis $\{e^j\}$ for the dual space $V^*$ then we recognize that their should be such a basis induced on the space of forms.  Indeed, given the basis $\{ \partial_\mu\}$ for vector fields on $\R^n$, we have a dual basis of forms $\{ dx^\nu \}$ satisfying 
-\begin{align*}
-	dx^\nu(\partial_\mu) = \delta^\nu_\mu
-\end{align*}
-where the symbol on the right is the Kronecker delta\index{Kronecker delta}, which is 1 when $\mu = \nu$ and 0 otherwise.  Being a basis, we can express any one-form in a chart as a linear combination 
-\begin{equation*}
-	\omega = \omega_\mu dx^\mu
-\end{equation*}
-But we will not stop at mere one-forms, we must generalize in order to integrate over higher dimensional manifolds.\\
-
- The reader should recall from multivariable calculus that when integrating over surfaces in $\R^3$ one would parameterize the surface using a map $\varphi:[0, 1]^2 \to \R^3$ and the derivatives with respect to each parameter would each define tangent vector.  We would identify with the norm of the cross product of these tangent vectors a small area element on the surface, and we could then integrate functions over these infinitesimal areas.  We can intuit that since a $k$-manifold will be parameterized by $k$-parameters, we need something that can eat $k$ tangent vectors and give us scalars to sum over our manifold.  Out of necessity we therefore develop $k$-forms.\\
- **(maybe note that mapping from unit square implies compact surface)**\\
  
- We need an operation which can allow us to build $k$-forms from our humble one-forms, and we will denote it by $\wedge$.  But how can we get a unique operation to combine them?  For one, there is a requirement we would like satisfied by these forms.  Given our new formalism, our tangent vectors merely get eaten by the forms, so some of the work that was done by interesting operations between vectors must now be done by forms.  In particular, 3-vectors had an algebra where the operation was the cross-product.  We still want to have an analog of a cross-product in our new formalism. Therefore, like the cross product, we demand antisymmetry from our $\wedge$.  That is, for any two $v, w \in V$ where $V$ is the vector space of one-forms, we demand 
- \begin{equation*}
- 	v \wedge w = -w \wedge v
- \end{equation*} 
-we call this operation the \textbf{wedge product} and with it we construct something called the \textbf{exterior algebra}\index{exterior algebra}, $\Lambda V$.  We can build $k$-forms by wedging any two $n$ and $m$ forms together (satisfying $n+m = k$) and taking linear combinations of $k$-forms with functions as coefficients.  This will now allow us to integrate over $k$-manifolds, but before we attempt to do so, we need to discuss another operation on forms and some additional structure on our manifold.   **(rigorous definition with rules)** **(Prove $\omega \wedge \omega = 0$ as excercise)**\\
-Remaining\\
+\begin{document}
 
-We saw before that we wanted $df$ to represent a one-form which emerged from a smooth function.  Therefore we want $d$ to be an operation which sends smooth functions to one forms.  But really, we can identify functions as 0-forms, so we are motivated to make $d$ a general operation from $k$ forms to $k+1$ forms.  We will call this the \textbf{exterior derivative} and as a derivative we would like it to obey
-\begin{enumerate}
-	\item $d(\alpha\omega+\beta\mu) = \alpha d\omega+\beta d\mu$ for forms $\omega, \mu$ and scalars $\alpha, \beta$
-	\item $d(\omega\wedge \mu) =  d\omega \wedge \mu +(-1)^p\omega\wedge d\mu$ for $p$-form $\omega$ and one-form $\mu$.
-	\item $d(d\omega) = 0$ for all forms $\omega$
-\end{enumerate}
-These properties uniquely define the directional derivative.  We can write a simple algorithm for taking a general exterior derivative as a result of these properties.  Consider a multi-index $I$ which is a list of $p$ indices, where each index corresponds to those labeling the coordinate functions in a chart (and hence the basis of forms and vector fields).   We can write a $p$-form as 
-\begin{align*}
-	\omega = \omega_I dx^I
-\end{align*} 
-where the summation is over all possible $\textit{combinations}$ of $p$ indices.  We chose to say combinations because the $dx^I$ for different orderings of indices in $I$ can only differ by a sign, so we just combine the functions for different permutations into one $\omega_I$ coefficient.  We then have that 
-\begin{align*}
-	d\omega = (\partial_\mu \omega_I)dx^\mu \wedge dx^I
-\end{align*} 
-Now, this generalization of the $d$ operation may at first appear contrived or useless, but we again call upon the intuition that in our new framework of geometry, we are transferring some of what was physically expressed by operations on vectors, to operations on \textit{forms}.  Also, despite this rather involved generalization to $k$-forms, we can still preserve our old notion of $d$ as representing small change.  \\
+In calculus class you were taught the fundamental theorem, that the total difference of a function's value at the end of an interval from its value at the beginning is the sum of the infinitesimal changes in the function over the points of the interval:
 
-**(form wedge parallelipiped somewhere)**\\
+	\begin{equation}\label{eq:FTOC}
+		\int_a^b f'(x) dx = f\Big\rvert^b_a
+	\end{equation}
 
-  Consider a chart on an $n$-dimensional manifold $M$.  We introduce a \textit{fixed} index, which is just a collection $(i_1, \dots, i_p)$ where the $i$'s are ordered and correspond to the indexation of the basis of coordinate functions and hence one-forms in our chart.  We now consider a $p$-form of the form
-  \begin{align*}
-  	\omega = \omega_{(i_1, \dots, i_p)} dx^{(i_1, \dots, i_p)}
-  \end{align*}
-  where 
-  \begin{equation*}
-  	dx^{(i_1, \dots, i_p)} = dx^{i_1}\wedge \dots \wedge dx^{i_p}
-  \end{equation*}
-  We can consider 
-  \begin{align*}
-  	d\omega = (\partial_\mu\omega_{(i_1, \dots, i_p)})dx^\mu \wedge dx^{(i_1, \dots, i_p)}
-  \end{align*}
-  where the nonzero terms result in a sum over basis forms $dx^\mu$ not in the $p$-form $dx^I$ (otherwise we have a repeated wedge of basis forms which equals 0).  Now, consider a vector 
-  \begin{align*}
-  	v = v^\nu\partial_\nu
-  \end{align*}
- where the $v^\nu$ are only nonzero for $\nu$ not in the index.  Then we see that we get
- \begin{align*}
- 	d\omega(v) = v^\mu(\partial_\mu \omega_{(i_1, \dots, i_p)})dx^\mu(\partial_\mu)\wedge dx^{(i_1, \dots, i_p)}  = (v \omega_{(i_1, \dots, i_p)})dx^{(i_1, \dots, i_p)}
- \end{align*}
- so the effect of this was to essentially get a directional derivative, the change, of the form's coefficient $\omega_{(i_1, \dots, i_p)}$ in the directions excluded from the index.\\   
- 
- *(Diagram of this with parallelogram moving)*\\
- 
- This example is clearly not a general result, but it is nonetheless comforting to see that a notion of exterior derivative as small changed can be recovered, and that we are \textit{generalizing} our old intuitions, not completely trashing them.\\
- 
+And later, in multivariable calculus, you encountered more elaborate integral formulae, such as the divergence theorem of Gauss:
 
-\section*{Stoke's and Integration}
-We have now built up the geometric intuition and mathematical sophistication necessary to discuss a very powerful and general theorem in differential geometry: Stoke's Theorem.  The statement concerns a form $\omega$ defined on a manifold with boundary, $M$ and is a generalization of the many integration theorems taught to students in multivariable calculus courses.  As such, we will motivate the theorem by reframing each of those old calculus theorems in our modern geometric language.  
+	\begin{equation}\label{eq:Divergence}
+		\int_\Omega \nabla \cdot \mathbf{F} ~ dV = \int_S \mathbf{F} \cdot d\mathbf S
+	\end{equation}
 
-Surely the reader recalls the fundamental theorem of calculus 
-\begin{align*}
-	\int\limits_a^b f'(x) dx = f(x)\bigg|^b_a
-\end{align*}
-but how is this written in our modern language?  First we recognize that the integrand 
-\begin{equation*}
-	f'(x) dx = \partial_x f dx = df
-\end{equation*}
-and that the closed interval $[a, b]$, though not a manifold, does qualify as a manifold with boundary.
+	where $\Omega$ is the volume of a 3D region we are integrating over, with infinitesimal volume element $dV$ and $S$ is the surface that forms the boundary of $\Omega$. $dS$ then represents an infinitesimal parallelogram through which $\mathbf{F}$ is flowing out, giving the flux integral on the right. Read in english, Gauss' divergence theorem says ``Summing up the infinitesimal flux over every volume element of the region is the same as calculating the total flux coming out of the region''. The total flux coming out of a region is the sum of its parts over the region. You might see that in english, this reads very similar to the description of the fundamental theorem of calculus.
+	
+	Alongside this, there is Stokes' theorem for a 2D region. In english: summing up the infinitesimal amount of circulation of a vector field $\mathbf F$ over every infinitesimal area is equal to calculating the total circulation of $\mathbf F$ around the boundary of the region. In mathematical language:
+	
+	\begin{equation}\label{eq:Stokes}
+		\int_R \nabla \times \mathbf{F} ~ dA = \int_C \mathbf{F} \cdot d\mathbf r
+	\end{equation}
+	
+	where $R$ is our region and $C$ is its boundary.
+	
+	Perhaps now, the pattern is more evident. In all the above cases, summing up some \emph{differential} of the function on the interior of some region is the same as summing up the function itself at the \emph{boundary} of the region. All these theorems, that on their own look so strange to a first-year calculus student, are part of a much more general statement, the \textbf{General Stokes' Theorem}\index{Stokes' Theorem!General}:
+	
+	\begin{theorem}[General Stokes' Theorem]\label{thm:GeneralStokes}
+		\begin{equation} \label{eq:GeneralStokes}
+			\int_\Omega \mathrm d \omega = \int_{\partial \Omega} \omega.
+		\end{equation}
+	\end{theorem}
+	
 
-A manifold with boundary differs from a manifold in that we allow the charts to map to $H^n := \{(x^1, \dots, x^n) \hspace{2mm} | \hspace{2mm}  x^n \geq 0\}$.  The requirement that transition functions be smooth becomes slippery around the boundary\\
-**(define this better)**\\
-
-So, denoting the manifold with boundary as $M$ and the boundary, which is the endpoints of the interval, as $\partial M$, we have the fundamental theorem of calculus is
-\begin{equation*}
-	\int\limits_M df = \sum_{\partial M} f
-\end{equation*}
-well this does not seem to have gotten us much, but lets see how the divergence theorem is reformulated in this modern language.  Recall that for a vector field $F$ on $\R^3$ that the divergence theorem states
-\begin{equation*}
-	\int\limits_V \nabla \cdot \mathbf F dV = \int\limits_S \mathbf  F \cdot d\mathbf S
-\end{equation*}
-for some 3-dimensional volume $V$ with boundary surface $S$.  Again, $V$ is a suitable manifold with boundary whose boundary is the surface $S$.  We will again reframe this statement in accordance with the new formalism.  Since we are taking some piece of information from $F$ and integrating it over a two-dimensional surface, it is natural to look for a way to express $F$ as a two-form.  We will make the identifications
-\begin{align*}
-	F_x dS_x&\to F_x dy\wedge dz\\
-	F_y dS_y&\to F_y dz\wedge dx\\
-	F_z dS_z&\to F_z dx\wedge dy\\
-	S &\to \partial M
-\end{align*}
-and we see that the right side becomes 
-\begin{equation*}
-	\int\limits_{\partial M} F
-\end{equation*}
-This should make sense to the reader, as the wedge product conceptually emerged as a generalization of the cross product, and here the $F_i$ component is the coefficient of the parallelogram normal to the $i^{\text{th}}$ direction. **(maybe diagram)** 
-Now we reformulate the right side.  Consider
-\begin{equation*}
-	dF = \partial_\mu dx^I\wedge dx^\mu = (\partial_x F_x+\partial_y F_y+\partial_z F_z )dx\wedge dy\wedge dz
-\end{equation*}
-and we see the coefficient is the traditional divergence!  So the equality becomes 
-\begin{equation*}
-	\int\limits_M dF = \int\limits_{\partial M} F
-\end{equation*} 
-perhaps the reader notices a pattern emerging.  \\
-
-**(Rewrite curl theorem in differential forms language excercise)**\\
-
-\text{}\\\\
-
-The generalization of this pattern is the elegant equality 
-\begin{equation*}
-	\int\limits_{\partial M} \omega = \int\limits_M d\omega
-\end{equation*}
-in English, we are saying that the integral of the form over the boundary is equal to the integral of its exterior derivative over the manifold.  Even in plain english, this may not be entirely intuitive yet.  In order to understand why this equality should make sense, we should remain grounded in the concept that as we evaluate the integral of a form, we are summing small changes of the form, as convoluted as they may be in general.  In this sense what Stoke's theorem is saying is the following: the sum of the small changes of a form \textit{throughout} a manifold is equal to the sum of the form's values over the boundary of the manifold.  That is, when we sum all the small changes throughout the manifold, the result is what's left on the boundary, just the \textit{net} change.  We have packaged the intuition and mathematical machinery behind the various integration theorems in calculus, and distilled it into an impressively general and elegant statement.
+	
+	Above, $\omega$ is an object that will generalize both the ``functions" and ``vector fields" that you've seen in multivariable calculus, and $\mathrm d$ will generalize of all the differential operators (gradient, divergence, curl) that you've dealt with. Lastly, when $\Omega$ is the region in question $\partial \Omega$ represents the \emph{boundary} of the region $\Omega$. The fact that it looks like a derivative symbol is no coincidence, as we'll see that the natural way to define the ``derivative'' of a region is as its boundary.
+	
+	Through abstraction, we can reach results like this that not only look elegant and beautiful, but also provide us with insight into the natural way to view the objects that we've been working with for centuries. This gives us not only understanding of what language to use when studying mathematics, but also what is the natural language in which to describe the natural world. The general Stokes' theorem is one of the first examples of this beautiful phenomenon, and this book will work to illustrate many more. 
+	
+	For the first half of this chapter, we will work towards giving the intuition behind  this result. On our way, we will begin to slowly move into a much more general setting, beyond the $3$-dimensional world in which most of multivariable calculus was taught. That doesn't just mean we'll be going into $n$-dimensional space. We'll move outside of euclidean spaces that look like $\mathbb{R}^n$, into non-euclidean geometries. This will put into question what we really mean by the familiar concepts of ``vector'', ``derivative'', and ``distance'' as the bias towards Euclidean geometry no longer remains central in our minds. At its worst, the introduction of new concepts and notation will seem confusing and even unnecessary. At its best, it will open your mind away from the biases you've gained from growing up in a euclidean-looking world, and give you a glimpse of how modern mathematics \emph{actually} looks. 
+	
+	Modern mathematics is learning that the earth isn't flat. To someone who's never had those thoughts, it is difficult to get used to, tiring, and sometimes even rage inducing, but to someone who has spent months thinking and reflecting on it, it quickly becomes second nature. Far from being the study of numbers or circles, it is a systematic climb towards abstraction.  It is a struggle towards creating one language, free from all-encompassing human bias, in order to try and describe a world that all other human languages, for so many centuries, have failed to grasp. It is humbling, and in the strangest of ways, it is profoundly beautiful.
 
 
 
-\section*{Coord Transforms}
-Perhaps the greatest impetus for the use of this geometric formalism in physics is the notion that we need coordinate independent laws of physics.  That is, when we apply a coordinate transformation on our manifold, we want the mathematical statements or equalities which we call physical laws, to say the same thing they did before.  In the context of relativity, coordinate transformations correspond to changes of reference frame, and this condition says that we do not want the laws of physics to be different for two different observers.  It should be no surprise then, that the study of coordinate transformations on manifolds merits a bit of attention.\\
+\section{The Derivative and the Boundary}
 
-There are two ways to apply coordinate transformations on a manifold, actively and passively.  We will focus on the active way.  Active coordinate transformations are represented by $\textbf{diffeomorphisms}\index{diffeomorphism}$, which are isomorphisms of manifolds.  If we have a map $\varphi: M \to N$, the condition for it to be a diffeomorphism is that $\varphi$ is smooth with smooth inverse;  this means $\varphi$ can essentially pair each point in $M$ with a point in $N$ smoothly.  And so, if two manifolds $M$ and $N$ are diffeomorphic, they are really the same manifold being represented in two different ways.  Perhaps the reader is not convinced of this, but we will show that diffeomorphisms are equivalent to our old notion of coordinate transformation.\\
+	Let's start working towards understanding Equation~\eqref{eq:GeneralStokes}. First, let's work with what we've already seen to try and explore the relation between integrating within a region and integrating on the boundary. 
+	
+	If we are in one dimension, we have a function $f$ defined on the interval $x \in [a,b]$. Proving Equation~\eqref{eq:FTOC} is much easier than you'd think. Let's take a bunch of steps: $x_i = a + (b-a)i/N$, so that $x_0 = a, x_N = b$. Then all we need is to form the telescoping sum:	
+	\begin{align*}
+		f\rvert^b_a &= f(x_N) - f(x_0) \\& = \sum_{i=1}^N f(x_{i})-f(x_{i-1}).
+	\end{align*}
+	If we make the number of steps $N$ large enough, the stepsize shrinks so that in the limit, we get
+	\begin{align*}
+		\lim_{N \rightarrow \infty} 	\sum_{i=1}^N f(x_{i})-f(x_{i-1}) & = \lim_{N \rightarrow \infty} 	\sum_{i=1}^N \Delta f \\ & = \int_a^b df.
+	\end{align*}
+	Of course, the way its written more often is:
+	\begin{align*}
+		\lim_{N \rightarrow \infty} 	\sum_{i=1}^N \frac{\Delta f}{\Delta x} \Delta x  = \int_{a}^{b} \frac{df}{dx} dx.
+	\end{align*}
+	
+	What is the idea of what we've done? At each point we've taken a difference of $f$ at that point with $f$ at the preceding one. Because we're summing over all points, the sum of differences between neighboring points will lead to cancellation everywhere \emph{except} at the boundary, where there will not be further neighbors to cancel out the $f(b)$ and $f(a)$. From this, we get Equation~\eqref{eq:FTOC}. 
+	
+\noindent \textbf{Note:}
+	Now for a distinction which may seem like it isn't important. We haven't integrated from point $a$ to point $b$. We have integrated from where the coordinate $x$ take \emph{value} $a$, to the where coordinate $x$ takes \emph{value} $b$. $a$ and $b$ are \emph{NOT} points. They are numbers, values for our coordinate $x$. As we have said in the preceding chapter, the idea that numbers form a \emph{representation} for points is ingenius, but numbers are \emph{not} points. Although we could write this interval as $[a,b]$ in terms of some variable $x$, it would be a completely different interval should we have chosen a different coordinate $u$. This is why, when doing $u$-substitution, we change the bounds. In coordinate free, language, then:
 
-  To make the equivalence of diffeomorphic manifolds more concrete we consider a conceptual example.  Suppose I have a 2-sphere on which I draw a great circle to create two hemispheres and a natural choice of two poles which I call Northern and Southern.  If I have a map switching each point $p$ in the Northern hemisphere with the closest point $q$ in the Southern hemisphere that has the same distance from the South pole as $p$ has from the North pole (a sort of ``reflecting" about the equator) **(figure )**, all we have done is exchanged the two hemispheres.  We have completely preserved the structure of the manifold, just changed the way the coordinate functions choose to talk about it.  It should then be clear that the things of physical interest on our manifold are those unaffected by diffeomorphisms.  First, we will consider how a vector $v$ changes under a diffeomorphism.\\
-  
-  We introduce manifolds $M$ and $M'$ which are diffeomorphic, so two different representations of the same thing, and denote objects defined on each space as primed and unprimed, respectively.  As such, there exists a diffeomorphism $\varphi$ which allows us to pushforward and pullback objects.  We say the pushforward of $v$  will be sent to $v'$ and we know it obeys
-  \begin{equation*}
-  	v'(f') = (\varphi_* v)(f') = v(f'\circ \varphi)
-  \end{equation*} 
-  but since this is a diffeomorphism, we are free to use $\varphi^{-1}$ and say that $f'$ is $f\circ \varphi^{-1}$, effectively the pushforward of the function $f$ on $M$. And so
-  \begin{equation*}
-  	v'(f') = v(f\circ \varphi^{-1}\circ \varphi) = v(f)
-  \end{equation*}
-  and so the action of the vector field on functions is invariant under the diffeomorphism, and hence invariant under coordinate transformations.  It is sensible that the action of vectors on functions is invariant, but \textit{something} must be changing, right?  What changes are the the coordinate vector fields and the vectors components; they do so in essentially opposite ways so that their changing cancels out to leave the \textit{whole} object invariant.  When we are doing actual physics later on, we are going to want to know how these components change.  To do this, we will develop the tensor transformation law, but first we must define tensors.
-  
-  \section*{Tensors}
-  The starting point for defining tensors, is defining the \textbf{tensor product}\index{tensor product} of vector spaces.  We begin with an abstract, coordinate independent definition.  Given vector spaces $V^1, \dots, V^n$ we can consider their cartesian product, $V^1 \times \dots \times V^n$, merely the set of ordered pairs $(v^1, \dots, v^n)$.  We introduce a space $	V^1 \otimes \dots \otimes V^n$ whose elements are of the form 
-  \begin{equation*}
-  	v^1\otimes\dots \otimes v^n
-  \end{equation*}
-   We define the tensor product by its universal property.  That is, when given a multilinear map $\phi: V^1 \times \dots \times V^n \to Z$ (a map linear in each "slot")
-   \begin{align*}
-   	&\phi(\alpha v^1+\beta w^1, \dots, \gamma v^n +\delta w^n) =\\
-   	 & \alpha \gamma \phi(v^1, \dots, v^n)+\alpha \delta f(v^1, \dots, w^n)+\beta \gamma f(w^1, \dots, v^n)+\beta\delta f(w^1, \dots, w^n)
-   \end{align*}
-   we can find a multilinear map $\varphi: V^1 \times \dots \times V^n \to V^1 \otimes \dots \otimes V^n$ and find that there exists a unique \textit{linear} map $F:V^1 \otimes \dots \otimes V^n \to Z$ such that 
-   \begin{equation*}
-   	F(v^1\otimes\dots \otimes v^n) = f(v^1, \dots, v^n)
-   \end{equation*}
-   We say that $F$ is a map over the tensor product of these vector spaces.  We can then see that a given bases $\{e^1_i\}, \dots, \{e_i^n\}$ for these vector spaces, we have that $\{e^1_i\otimes \dots \otimes e^n_i\}$ must be a basis for the tensor product space.  
-   This definition appears devoid of intuitive motivation, and so we now try to make this construction seem more natural.  \\
-   
-   One perspective to take on what we have done in constructing our tensor product space is to interpret tensoring as introducing \textit{coupling} between elements of the different vector spaces.  Indeed this is a useful notion when applying tensor products to quantum mechanics.  What we mean by coupling is that two tensored vectors $v\otimes v'$ behave now as a collective object, which is dependent on how each sub-object (each vector in the tensor product) changes.  To illustrate this notion more explicitly, we will compare $V\otimes W$ and $V\times W$ for vector spaces $V$ and $W$.  If I have 
-   \begin{equation*}
-   	(v_1+v_2, w_1+w_2) \in V\times W
-   \end{equation*} 
-     **(maybe even talk about how this is a direct sum)**\\
-     I can decompose this as 
-     \begin{equation*}
-     	(v_1, w_1)+(v_2, w_2)
-     \end{equation*}
-     so we can independently separate each component.  I can separate vectors in $V$ and in $W$ separately without worrying about any coupling or interaction between vectors in the two spaces.  This is why we used Cartesian products to describe velocity and acceleration vectors; we have the physical intuition that forces applied in the $x$ direction of motion should not affect my $y$ direction of motion.  Now consider 
-     \begin{align*}
-     	(v_1+v_2)\otimes(w_1+w_2) &= v_1\otimes \omega_1+v_2\otimes w_2+v_1\otimes w_2 +v_2\otimes w_1 \\
-     	&\neq v_1\otimes w_1+v_2\otimes w_2
-     \end{align*}
-     There are cross terms here emerging from the definition of our tensor product.  These cross terms are a manifestation of the coupling, which is the essential property of the tensor product.\\
-     
-     \begin{concept}
-     \textit{The tensor product of vector spaces can be viewed as the space of coupled elements of each vector space.  A map which is multilinear over the Cartesian product extends to a linear map over the tensor product because the tensoring the vectors packages them into a single, pre-coupled object.}
-     \end{concept}
-This perspective will prove useful in our use of tensor products in quantum mechanics, but in order to consider tensors in relativity, we will need to consider the tensor products of linear maps.  Given a set of linear maps 
-   \begin{equation*}
-   	L^i: V^i\to W^i
-   \end{equation*}  
-   We have tensored maps 
-   \begin{align*}
-   	L^1 \otimes \dots \otimes L^n: V^1 \otimes \dots \otimes V^n \to W^1 \otimes \dots \otimes W^n
-   \end{align*}
-   which are linear over the tensor product space and obey 
-   \begin{equation*}
-   	L^1 \otimes \dots \otimes L^n(v^1\otimes\dots \otimes v^n) = L^1(v^1) \otimes \dots \otimes L^n(v^n)
-   \end{equation*}
-   These maps can also be viewed as multilinear maps over the Cartesian product of the vector spaces..  We will now use this concept and the duality of vector spaces to construct tensor fields.  Recall that given a vector space $V$, the dual space $V^*$ is the space of linear maps from $V$ to $\R$.  As such, we can identify an element of 
-   \begin{equation*}
-   	V^1\otimes \dots \otimes V^r\otimes V^{*^1}\otimes V^{*^s}
-   \end{equation*}
-   as a linear map 
-   \begin{equation*}
-   	T: V^{*^1}\otimes \dots \otimes V^{*^r}\otimes V^1\otimes V^s \to \R
-   \end{equation*}
-   where we note that $n$ tensor products of $\R$ is just $\R$.  Such an object is called a rank $(r, s)$ \textbf{tensor} \index{tensor}.  This construction straightforwardly extends to smooth tensor fields on manifolds.\\
-   
-    Given a manifold $M$, we may consider the tangent and cotangent spaces at $p$, $T_pM$ and $T^*_pM$ respectively.  These are vector spaces, and so we may consider objects in the tensor product of $r$ copies of the tangent space and $s$ copies of the cotangent space.  A tensor field will assign an element in this tensor product space at each point $p$ in the manifold $M$.  Given our coordinate bases for the tangent and cotanget spaces in a manifold, we can expand a tensor as
-    \begin{equation*}
-    	T = T^{\mu_1\dots \mu_r}_{\nu_1 \dots \nu_s}\partial_{\mu_1}\otimes \dots \partial_{\mu_r}\otimes dx^{\nu_1}\otimes \dots \otimes dx^{\nu_s}
-    \end{equation*} \\
-    where the smooth functions in front are the components of the tensor.  Now that we have tensor fields on our manifold, we can formulate the tensor transformation law.\\
-    
-    In order to formulate the tensor transformation law it is now more straightforward to work with passive coordinate transformations.  In this case, we merely change the coordinate functions on $\R^n$ that we use in a chart.  As we transform from the \\
-    
-    **(tensor transformation law)**\\
-    
-**(contraction etc.?)**\\
+	
+	\begin{theorem}[Fundamental Theorem of Calculus]\label{thm:FTOC}
+		For a given interval $I$ with endpoints $p_0, p_1$ and a smooth function $f$, we have
+		\begin{equation}
+			  \int_{p_0}^{p_1} df = f \Big\rvert_{p_0}^{p_1} 
+		\end{equation}
+	\end{theorem}
+	Notice something: the end result doesn't depend on the partition $x_i$ at all, so long as it becomes infinitesimal as $N \rightarrow \infty$. That is to say: we are summing up the change of $f$ over some interval, but it doesn't matter what coordinate system we use to describe this interval. The integral is \emph{coordinate independent}. We chose to use $x$ as our coordinate, describing the interval as going from $x=a$ to $x=b$, but we didn't \emph{have} to make this specific choice. This makes perfect physical sense. For example, if we had a temperature at each point in space, the temperature difference between two fixed points some shouldn't depend on whether we use meters or feet to measure their distance apart.  
+	
+	Written mathematically: 
+	\begin{align*}
+		\int_I df = \int_I \frac{df}{dx} dx = \int_I \frac{df}{du} du 
+	\end{align*}
+	
+	If we chose an $I$ that's very small around some point, essentially an infinitesimal line segment, we get:
+	\begin{align*}
+		\frac{df}{dx} dx =  \frac{df}{du} du \Rightarrow \frac{df}{dx} = \frac{df}{du} \frac{du}{dx}
+	\end{align*}
+	this is the $u$-substitution rule from calculus.
+	\\
 
-**(exterior algebra as anti-symmetric subspace of tensor product space)**\\
-\section*{Metric title}
-In order to put manifolds to use in physics, in particular general relativity, we need to define something called a metric. In the sense of stripping away old Euclidean assumptions and generalizing, the metric allows us to generalize the notion of a scalar or dot product.  In particular, it gives us a way to talk about the magnitudes of vectors.  In Euclidean space we would multiply the components of two vectors in order to obtain their dot product, and not think much about it.  As such, the magnitude of a vector was the square-root of the sum of the squares of its components.  But implicit in this operation was a choice of metric, we are free to choose \textit{how} we want infinitesimal distances to vary across points in our manifold.  We will motivate the need for the distance function but making an effort to compute the length of a curve.\\
+	
+	Now what if $f$ was a function defined not on the real line $\mathbb{R}$, but on 2-dimensional space $\mathbb{R}^2$, or more generally $n$-dimensional space $\mathbb{R}^n$. To each point $p = (p_1, \dots, p_n)$ we associate $f(p)$. Now again, consider $f(p_f)-f(p_i)$ for two points in this space.
+	
+	For any curve $C$ going between $p_i$ and $p_f$, say defined by $\mathbf r(t)$ for $t$ a real number going from $a$ to $b$, we can make the same partition $t_i = a + (b-a)i/N$ and let $N$ get large. Again, it becomes a telescoping sum:
+	\begin{align*}
+		f(p_f) - f(p_i) = &f(\mathbf r(b)) - f(\mathbf r(a)) \\= & \sum_{i=1}^N f(\mathbf r(t_{i}))-f(\mathbf r(t_{i-1})) \\ = & \sum_{i=1}^N \Delta f_i  \rightarrow \int_C df.
+	\end{align*}
+	Now if we cared about coordinates, we could ask ``how can we write $df$ in terms of $dt$ or $dx_i$?''. 
+	
+	We know from the multivariable chain rule that the infinitesimal change of $f$ is the sum of the change in $f$ due to every individual variable, so: 
+	\begin{equation}
+		df = \sum_i \frac{df}{dx_i} dx_i
+	\end{equation}
 
-Consider two points $p$ and $q$ in a manifold.  Call the function yielding the distance between them for a given path $s$.  We then identify the exterior derivative $ds$ with a tiny distance change along the curve.  We would like to integrate the form $ds$ in order to get a length for the curve $\gamma: [0, 1] \to M$.  In  accordance with the integration formalism we have developed so far, we will write this as 
-\begin{equation*}
-	\int_\gamma ds = \int_{[0, 1]} ds(\gamma'(t)) dt = \int_{[0, 1]}\frac{d}{dt}s(\gamma(t)) dt
-\end{equation*}
-So, in order to compute this integral, we need a way for $ds$ to take a tangent vector and give us an infinitesimal change in distance along the curve, or a way to get the instantaneous rate of change of the distance function at each point along the curve.  There is no \textit{right} way to define the tiny changes in distance on an arbitrary manifold given only the structure that we have built so far.  In fact, the way that small distances vary on a manifold is how we differentiate between manifolds which are topologically identical.  As such, we need to define on our own how $s$ or $ds$ will determine these distances; we are actually going to define the one-form $ds$ by running two copies of $\gamma$ through a two-form $g$.  We write
-\begin{equation*}
-	ds(\gamma'(t)) = \sqrt{g(\gamma'(t), \gamma'(t)) }
-\end{equation*}
-and we call $g$ the \textbf{metric tensor}\index{Metric Tensor} on the manifold.  It is the object which tells us how to measure tiny distances.  Really, $g$ is the metric tensor \textit{field}, defined over the entirety of $M$.  At each point $p$ in $M$, $g$ assigns a metric tensor $g_p: T_pM \times T_pM \to \R$, taking two vectors and returning a scalar.  Before proceeding, we will now rigorously define a semi-Riemannian metric.\\
+	We know that $dx_i$ together must lie along $C$. In terms of $t$ since $x_i = r_i (t)$, we have $dx_i = \frac{dr_i}{dt} dt$ giving:
+	\begin{theorem}[Fundamental Theorem of Line Integrals]
+	For a smooth function $f$ defined on a piecewise-smooth curve $C$ parameterized by $\mathbf r(t)$
+		\begin{equation}
+			f\rvert^{p_f}_{p_i} = \int_C \sum_i \frac{df}{dx_i} \frac{dr_i}{dt} dt = \int_C \nabla f \cdot \frac{d \mathbf r}{dt} dt =  \int_C \nabla f \cdot d \mathbf r
+		\end{equation}
+	\end{theorem}
+	The proof of this was no different from the 1-D case.\\
+	
+	Let's go further. Consider a region in three dimensions. We want to relate the total flux coming out of the region to the infinitesimal flux at each point inside the region. To do this, as before, we will subdivide the region. This time, it will not be into a series of intervals, but instead into a mesh of increasingly small \emph{cubes}, as below.
+	
+	\textbf{PUT A GRAPHIC HERE}
+	
+	See that the flux out a side of each cube is cancelled out by the corresponding side on its neighboring cube. That means that the only sides that do not cancel are for the cubes at the boundary$^1$\footnote{You may be worried that the cubes do not perfectly fit into the boundary when it is not rectangular. As the mesh gets smaller and smaller, this does not pose a problem. This can be made more rigorous (c.f. \textbf{GIVE A REFERNCE HERE})}, giving us the desired flux out.
+	
+	So if we sum the fluxes over all infinitesimal cubes, we will get the total flux out of the boundary. For a single cube of sides $dx,dy,dz$, drawn below, the total flux will be the sum over each side. 
+	\begin{align*}
+		\text{Flux} =&~~~ \mathbf F(x,y,z+dz/2) dx dy - \mathbf F(x,y,z-dz/2) dx dy \\ 
+						   & + \mathbf F(x,y+dy/2,z) dx dz - \mathbf F(x,y-dy/2,z) dx dz \\ 
+						   & + \mathbf F(x+dx/2,y,z) dy dz - \mathbf F(x-dx/2,y,z) dy dz \\ 
+	\end{align*}
+	\textbf{SHOW GRAPHIC HERE}
+	
+	But we can write this as: 
+	\begin{align*}
+		\left( \frac{\partial \mathbf F(x,y,z)}{\partial x} + \frac{\partial \mathbf F(x,y,z)}{\partial y} + \frac{\partial \mathbf F(x,y,z)}{\partial z} \right) dx dy dz = \nabla \cdot F ~ dV
+	\end{align*}
+	So the total flux will be the sum over all these cubes of each of their total fluxes. But then this becomes exactly the divergence theorem:
+	\begin{theorem}[Divergence Theorem, Gauss]
+	For a smooth vector field $\mathbf F$ defined on a piecewise-smooth region $\Omega$, then we can relate
+		\begin{equation*}
+			\int_\Omega \nabla \cdot \mathbf F ~ dV = \int_{\partial \Omega} \mathbf{F} \cdot d \mathbf S
+		\end{equation*}
+	\end{theorem}
+	
+	It is an easy \textbf{exercise} to show that this exact same argument holds for an $n$-cube. 
+	
+	What did we do? In the fundamental theorem of calculus/line integrals, we had a function $f$ evaluated on the 1-D boundary, and we chopped the curve into little pieces that cancelled on their neighboring boundaries, making a telescoping sum. Then we evaluated the contribution at each individual piece, and found that it was $df = f'(x_i) dx$, meaning that the evaluation on the boundary could be expressed as an integral of this differential quantity over the curve. That is Equation~\eqref{eq:FTOC}.
+	
+	For the divergence theorem, we had a vector field $\mathbf F$, again \emph{evaluated on the boundary}, this time in the form of a surface integral. We chopped the region into little pieces (cubes now) that cancelled on their neighboring boundaries, making a telescoping sum. Then we evaluated the contribution at each individual piece and found that it was $\nabla \cdot \mathbf F ~ dV$, meaning that the integration on the boundary could  be expressed as an integral of this differential quantity over the region. That is Equation~\eqref{eq:Divergence}.
+	
+	
+	Through abstraction, we see that there is really no difference. Perhaps now Equation~\eqref{eq:GeneralStokes} does not look so mysterious and far-off.\\
+	
+	For Equation~\eqref{eq:Stokes}, we have a vector field $\mathbf F$ evaluated on the boundary in the form of a contour integral around a region. This is the total circulation of $\mathbf{F}$ around the region. Let us chop the region into little pieces. 
+	
+	\textbf{INSERT GRAPHIC HERE}
+	
+	On an infinitesimal square, we get that the circulation is:
+	\begin{align*}
+		\text{Circulation} =& ~~~  \mathbf F(x+dx/2,y) dy - \mathbf F(x-dx/2,y) dy \\ &+ \mathbf F(x,y-dy/2) dx - \mathbf F(x,y+dy/2) dx
+	\end{align*}
+	This can be written as:
+	
+	\begin{align*}
+		\left( \frac{\partial \mathbf F}{\partial x} - \frac{\partial \mathbf F}{\partial y} \right) dx dy = \nabla \times \mathbf F ~ dA
+	\end{align*}
+	so that
+	\begin{theorem} For a smooth vector field on a piecewise smooth region $S$ 
+		\begin{equation}
+			\int_C \mathbf{F} \cdot d\mathbf r = \int_S (\nabla \times \mathbf{F}) dA
+		\end{equation}
+	\end{theorem}
+	Exercise \textbf{(MAKE AN EXERCISE)} generalizes this to a surface in 3D, to get the 3D version of Stokes' theorem \index{Stokes' Theorem!For Curl}:
+	
+	\begin{equation}
+		\int_C \mathbf{F} \cdot d\mathbf r = \int_S (\nabla \times \mathbf{F}) \cdot d\mathbf S 
+	\end{equation}
+	
+	The philosophy behind these proofs is always the same. It is the manipulation of the differentials that seems wildly different every time. The curl looks nothing like a divergence, and a divergence is distinct from a gradient. Moreover, its not clear in what way each one generalizes the one dimensional derivative $df = f'(x) dx$. This is the problem that the symbol `$\mathrm d$' in Equation~\eqref{eq:GeneralStokes} was made to solve.
+	
+	We need to stop thinking of the 1-d derivative, the gradient, the divergence, and the curl, as unrelated operations. They are in fact, the same operation, applied in different circumstances. Infinitesimal change, flux, and circulation are all the same type of derivative, acting on different types of objects. 
+	
+	Perhaps part of this was clear from multivariable calculus: the gradient is nothing more than a generalization of the derivative to functions of multiple variables. But then why are there seemingly two different, unrelated types of ``derivative'' on vector fields? Instead of a regular, gradient-like object, we have two: the divergence and the curl. 
+	
+	It will turn out that the reason that there are two is this: the vector fields that we take curls of are a different type of object from the vector fields we take the divergence of.	To see this more clearly, we need to stop thinking of functions and vector fields as totally separate objects. Every object that we've encountered when integrating: from functions in 1-D or 3-D, to vector fields in $n$-D, have been examples of \textbf{forms}. \index{Differential Form} \\
+	
+	As a final note of this section, let us try to give a sketch for why on a region $\Omega$, we denote its boundary with the partial derivative symbol as $\partial \Omega$. Picture in your mind a ball (interior of a sphere) of radius $r$,  $B_r$. If we increase the radius by a tiny amount $h$ then we have a slightly larger radius $B_{r+h}$. If we took the difference $B_{r+h} - B_r$, by which we mean all the points of $B_{r+h}$ that are not in $B_r$, we would be left with a thin shell. In the limit as $h \rightarrow 0$, this becomes a sphere of radius $r$, precisely the boundary of $B_r$ (note that a sphere is always the two-dimensional boundary of the ball). See how similar this is to taking derivatives. This is why $\partial B_r$ is what we use to denote the sphere boundary of the ball. 
+	
+	You may ask ``but what about dividing by $h$ at the end, like we do for a regular derivative?''. This also has an interpretation. The 3D volume of a sphere is zero, since it is a 2-D boundary. Dividing by $h$ as $h$ goes to zero puts increasing ``weight'' on the shell so that as the shell shrinks to becoming absolutely thinness, 3-D integrals on it become 2-D \footnote{For those familiar with the terminology: dividing by $h$ corresponds to multiplying by a dirac delta that spikes exactly on the sphere. This turns integrals over 3-D space into 2-D integrals on the sphere}.
+	 % But even here, we can go deeper. We've figured out why the 1-D integral becomes just a difference at two points, but we can actually interpret the \emph{difference} $f(b)-f(a)$ an integral! It is a zero-dimensional integral over the boundary of the region. The boundary of an interval is just two points, and a zero dimensional integral is a sum over points.
+ %
+	
+	
+	
+\section{The Notion of a Form}
 
-A semi-Riemannian metric is a bilinear map 
-\begin{equation*}
-	g: V\times V \to \R
-\end{equation*}
-obeying 
-\begin{enumerate}
-	\item[$\cdot$] $g(v, w) = g(w, v)$
-	\item[$\cdot$] $g(v, w) = 0$ for all $w \in V$ if and only if $v = 0$  
-\end{enumerate}
-these conditions are called symmetry and non-degeneracy, respectively.  Indeed, as $g$ is bilinear in the Cartesian product, it naturally extends to being defined as a rank (0, 2) tensor.  We write
-\begin{equation*}
-	ds\otimes ds = g_{\mu\nu}dx^{\mu}\otimes dx^{\nu}
-\end{equation*}
-for the metric tensor in a basis of coordinate one-forms.  As is the case with a tensor field, the metric components can vary from point to point on the manifold.  It is this added Riemann structure on the manifold that lets us differentiate between the egg and the ping-pong ball!   On the ping-pong ball, from a given point, the change in small distances is not uniform over directions, whereas they are on the sphere.  Aside from its use as implied its motivation, the metric is a useful algebraic tool for index manipulation.  We can get a dual vector from a vector and vice versa by``raising" and ``lowering" with the metric.\\
-
-**(excercise showing $v^a g_{ab} = v_b$ )**
-
-**(Notion of tangent bundle?)**
- 
- \section*{Derivatives Section}
- Up to now we have built up a great deal of structure on our manifold, but there still remain some physically useful notions that we do not have the capacity to discuss with the tools at hand.  For example, we know how functions change as they move along curves, but what about a vector or even a tensor?  We have no notion of how to propagate a vector along a curve because we have no notion of how to take a directional derivative of a vector.  The mathematical apparatus which allows us to talk about these things is called a \textbf{connection}\index{connection} and with it comes a \textbf{covariant derivative}\index{covariant derivative}.\\
- 
- Even given how many old Euclidean preconceptions we have blasted thus far, the reader might be tempted to think they can see \textit{exactly} how you would move a vector along a curve, from one tangent space to another.  If so, I would wager that the reader is visualizing their tangent vector, which so eagerly awaits propagation, in higher dimensional Euclidean space.  Euclid too thought there was an obvious to move vectors around, but he was working in his space.  And again, just as with the metric tensor, these beliefs implicitly restricted the mathematician to special cases of a more general geometric apparatus.\\
- 
- Euclid's fifth postulate stated that parallel lines never intersect.  Working in $\R^n$ this seems clear, we just infinitely extended two arrows that point in the same direction, and they will never cross paths.  But this is just a Euclidean intuition; how would we \textit{carefully} address Euclid's claim? The claim is first trying to saying that we have two objects called lines, and at a point on each line, there is some form of information which can be compared telling us whether or not the lines are something called \textit{parallel}.  We can already see a breaking down of the question itself.  How do we pick which points on each line to compare?  Does it matter?  What is the information and how are we comparing it?  The desire for answers to these questions motivates the need for a connection; after all, the spirit of the name is that it allows us to \textit{connect} different tangent spaces, cotangent spaces, or tensor products thereof.  Holding these questions in the back of our minds, we will now proceed to define the object capable of answering them.\\
- 
-The desire to for a way to connect different tangent spaces and the desire for a way to determine how vectors infinitesimally change in some direction are dual.  To see this, consider one perspective on what derivatives of single variable functions are: the limiting value of the difference of a function evaluated at two points (i.e. $f(x+\epsilon)-f(x)$) over the interval length.  Our notion of small change of functions was and is contingent upon a way of connecting or comparing evaluations of $f$ at separate points.  There is no \textit{right} way to pick an operator that yields a form of small change of a vector field, but we can sensibly construct one from the ground up.\\
-
-First, we should think about sensible properties are derivative operator should have.  For one, it will need to tell us the derivative in the direction of some vector field, in particular mapping a vector field to a vector field.  We will want it reduce to the typical directional derivative when acting on a function and, as any good derivative operator, have the Liebniz property.  Properties of linearity are of course desirable and necessary as well.  Therefore we have a map 
-\begin{equation*}
-	D_v: \text{Vect}(M) \to \text{Vect}(M)
-\end{equation*}  
- which obeys 
- \begin{enumerate}
- 	\item $D_{fv}(\alpha g (u \otimes t)) = f\alpha \left(v(g)+u\otimes D_v(t)+t\otimes D_v(s) \right)$
- 	\item $D_{v+w}(u) = D_v(u)+D_w(u)$
- \end{enumerate}
- where $\alpha$ is a scalar, $f$ is a function, and $v, w, s$, and $t$ are vector fields.\\
-A final property we require is that the operator is natural, that is, it commutes with diffeomorphisms.  This stipulation says that the operation of taking a covariant derivative should be coordinate independent.\\
-
-With these requirements in mind, we now work with our covariant derivative in a coordinate chart with the standard basis of coordinate vector fields.  We have
-\begin{equation*}
-	D_vw = v^\mu (w^\nu D_{\partial_\mu} \partial_\nu+D_{\partial_\mu}(w^\nu)\partial_\nu ) = v^\nu((\partial_\mu w^\nu)\partial_\nu + D_\mu \partial_\nu)
-\end{equation*}
- where $D_\mu$ is short hand for $D_{\mu}$ and we used the derivative rules since the vector components are functions and we can employ the Liebniz rule.\\
- **(tensor product of function and vector is just multiplication)**\\
- 
- The remaining part of this equation is the derivative at the end 
- \begin{equation*}
- 	D_\mu \partial_\nu
- \end{equation*}
- given the linear nature of this map, we can say 
- \begin{equation*}
- 	D_\mu: \partial_\nu \to \Gamma^\lambda_{\mu\nu} \partial_\lambda 
- \end{equation*} 
- this should seem completely fair to the reader, as the result of mapping $\partial_\nu$ to another vector field is some linear combination of basis vector fields.  The set of functions denoted by $\Gamma_{\mu\nu}^\lambda$ are the $\lambda^{\text{th}}$ expansion coefficient of the result of differentiating the $\nu^{\text{th}}$ basis vector field in the $\mu^{\text{th}}$ direction.  These coefficients also provide another essential property: they make sure the covariant derivative operator is natural.  The coefficients might also be interpreted as corrections to the normal derivative operator for generalized manifolds, and as such they vanish for flat space.  Returning to our original expression, we then have 
- \begin{equation*}
- 	D_v w = v^\mu\left(( \partial_\mu \omega^\nu)\partial_\nu+\omega^\nu \Gamma^\lambda_{\mu\nu} \partial_\lambda )\right)
- \end{equation*}  
- now, we are going to rearrange this into a way common for the use of physicists, careful to note the manipulations we are making and why.  It should be clear that the above implies
- \begin{equation*}
- 	D_\mu w = ( \partial_\mu \omega^\nu)\partial_\nu+\omega^\nu \Gamma^\lambda_{\mu\nu} \partial_\lambda
- \end{equation*}
- and we can now focus on the $\sigma^{\text{th}}$ component of the result of the above, which will be the coefficient of $\partial_\sigma$ in the expansion.  As such, we get 
- \begin{equation*}
- 	\left(D_\mu w \right)^\sigma = \partial_\mu w^\sigma +\Gamma^\sigma_{\mu\nu} \omega^\nu
- \end{equation*}
- this is how physicists usually write the operation of a covariant derivative.  They in fact go even further, and take the formalism of saying that 
- \begin{equation*}
- 	D_\mu: w \to \left(\partial_\mu w^\sigma +\Gamma^\sigma_{\mu\nu} \omega^\nu\right)\partial_\sigma \otimes dx^\mu
- \end{equation*}
- and in general say that the covariant derivative sends $(k, l)$ tensors to $(k, l+1)$ tensors.  The convenience of using the right side of the above mapping is that we can now feed this object a vector field $v$ and get $D_v w$, we don't have to feed $D_\mu$ the components. **transition**\\
- 
- This object $\Gamma$ currently has an uncomfortable amount of mysteriousness given its importance to taking covariant derivatives.  Indeed these symbols are the deciders of \textit{how} we take derivatives on our manifold.  In gauge theory this object is identified with the vector potential and its components are in the gauge group.  In general relativity these are called Christoffel symbols and are consequence of choosing the Levi-Civita connection.  In order to discuss parallel transport.\\
- **(parallel propagation? Or save for GR)**
- 
- **(Lie derivative-> what's the difference between the two?)**
- 
-   
- 
-  
+	A differential form $\omega$, in short, is an object that is meant to be integrated. The simplest example of a differential form is something you have often dealt with: $\omega = g(x) dx$. At every point $p$ in space, $\omega$ represents the infinitesimal change $g(p) dx$. If we were using another coordinate system $u$ instead of $x$, to measure length, then at point $p$, if we want to write $\omega$ in terms of the coordinate change $du$, we would have
+	
+	\begin{equation}
+		\omega = g(p) dx = \left( g(p) \frac{dx}{du} \right) du = \tilde g (p) du
+	\end{equation}
+	
+	So if we change our coordinate system, because $dx$ changes to $du$, $g$ must change to $\tilde g = g \frac{dx}{du}$ to counteract this, so that the total change is the same. Because at each point, $\omega$ represents a one-dimensional differential line segment, it is meant to be integrated along a one dimensional \emph{curve}.
+	
+	So more generally than the real line, on a curve, you want to integrate some vector field that perhaps you would write in cartesian coordinates like:
+	\begin{equation*}
+		\mathbf{F} = P(x,y,z)  \mathbf{\hat i} + Q(x,y,z)  \mathbf{\hat j} + R (x,y,z) \mathbf{\hat k}
+	\end{equation*}
+	But you are not actually integrating this field $\mathbf{F}$. You're integrating $\mathbf{F}\cdot d\mathbf{r}$, appropriately multiplying $\mathbf{F}$ by an infinitesimal change in distance along the curve. This gives the \emph{form} that you would integrate:
+	
+	\begin{equation*}
+		\omega = P dx + Q dy + R dz
+	\end{equation*}
+	
+	This is what we care about when integrating. It is more fundamental than $\mathbf{F}$, but what does it mean \emph{physically}? If $\mathbf{F}$ was a force field, then since we know $\mathbf{F} \cdot d \mathbf{r} = dW$, this form $\omega$ represents all possible infinitesimal changes in work $dW$ at a given point, depending on what changes $dx,dy,dz$ we do.
+	
+	If we were actually \emph{given} the changes in each of the coordinates $dx,dy,dz$, we could plug them in to $\omega$ and get the first-order approximation of the amount of work done over that distance. This is very important to understand! $\omega$ does not represent a specific change in work, but rather the \emph{relationship} between the changes in coordinate and the change in work. If you \emph{give it} an infinitesimal displacement, it will tell you the associated work. When integrating along a curve, the displacement is simply the tangent vector to the curve.
+		
+	Because there is only one differential multiplying each term (be it $dx$ or $dy$), we call such $\omega$ \textbf{one-forms}. \index{Differential Form!One-Form} It is easy to show \textbf{MAKE AN EXERCISE} that the sum of one-forms is still a one-form, and that multiplying a one-form by a function keeps it as a one-form. 
+	
+	Even simpler than one-forms are the \textbf{zero forms}, with no differentials appearing. A zero-form precisely a scalar function at $f(p)$ each point $p$. Regardless of how we change our coordinate system, the value of the \emph{function} at point $p$ is the same.
+	
+	We are now in a good place to define $\mathrm d$, at least for going from functions (zero-forms) to one-forms. Given a function $f$, $\mathrm d f$ will produce a form representing the local change in $f$ depending on the displacement. We call $\mathrm d$ the \textbf{exterior derivative} \index{Exterior Derivative} operator.
+	
+	For example, for a potential energy function $\phi$, $\mathrm d \phi$ can be written as 
+	
+	\begin{equation}
+		\mathrm d \phi = \sum_{i=1}^n \frac{\partial \phi}{\partial x^i} dx^i
+	\end{equation}
+	
+	because of $\mathrm d$, we will no longer have to use the gradient at all. This is more important than simply meaning that we'll grow to stop using $\mathbf{\hat i}, \mathbf{\hat j},\mathbf{\hat k}$. It is something much deeper. In in two-dimensional motion, if you have some potential $\phi$ at a point $p$, then of course the value of $\phi$ at $p$ is independent of any coordinate system you use. If you have two cartesian coordinates, say $x,y$, then you can define the $x,y$ components of force by 
+	\begin{equation*}
+		\mathbf{F} = F_x \mathbf{\hat i} + F_y \mathbf{\hat j} = \frac{\partial \phi}{\partial x} \mathbf{\hat i} + \frac{\partial \phi}{\partial y} \mathbf{\hat j}
+	\end{equation*}
+	If our coordinates were $r,\theta$, then the analogous force would be
+	\begin{equation*}
+		\mathbf{G} = G_\theta \mathbf{\hat \theta} + G_r \mathbf{\hat r} = \frac{\partial \phi}{\partial \theta} \mathbf{\hat \theta} + \frac{\partial \phi}{\partial r} \mathbf{\hat r}
+	\end{equation*}
+	Note that the first component has units not of force, but of force times distance. It is precisely the torque that the potential induces. In this sense, quantities like torque are precisely just generalizations of force to non-cartesian coordinate systems (polar, in this case). The second component is just radial force, plain and simple.
+	
+	These two ``forces'' have components that mean completely different things, and cannot easily be compared. On the other hand, since $\mathrm d \phi$ is independent of coordinate system, we get:
+	
+	\begin{equation}
+		\mathrm d \phi = \frac{\partial \phi}{\partial x} dx + \frac{\partial \phi}{\partial y} dy = \frac{\partial \phi}{\partial \theta} d\theta + \frac{\partial \phi}{\partial r} dr 
+	\end{equation}
+	
+	All forces (including the generalized forces, like torque) come from the differential form. If you're working in a coordinate system $x^i$, whether it be cartesian $x,y,z$ or polar $r, \theta$, then the coefficient corresponding to $dx^i$ is precisely the generalized force associated with that coordinate.
+	
+	So if we have a 1-form $\omega$ we can write it in terms of its components as $\omega = \sum_{i=1}^n \omega_i dx^i$. In general, only a special set of $\omega$ are exterior derivatives of functions. In multivariable calculus, we studied conservative vector fields as arising from gradients of functions. The language we'll use here for the same phenomenon is that $\omega$ is \textbf{exact} \index{Differential Form!Exact} if it is the exterior derivative of a 0-form.
+	
+	\begin{concept}[One-Forms Relate Change to Direction]
+		For a function $\phi$, the one-form $\omega = \mathrm d \phi$ gives the first-order change in $\phi$ along a given direction $(dx^1,\dots, dx^n)$. In general, for a one-form $\omega$ that is not exact, $\omega$ along a given direction $(dx^1,\dots, dx^n)$ gives the change in a quantity that cannot be represented by a function of the coordinates. This occurs, for example, with non-conservative forces such as friction or when calculating heat added to a system.
+	\end{concept}
+	
+	A classic example is $d\theta$. Although locally, $\theta$ can be defined just by calculating the angle from the $x$ axis, if you go around counterclockwise in a circle containing the origin, then $\theta$ continuously increases. At the end of the revolution, even though you are at the same point, $\theta$ has increased by $2\pi$. So although $d\theta$ makes sense locally as a differential form everywhere in the plane minus the origin, we cannot define a global smooth function representing $\theta$ without a discontinuity. \\
 
 
+	We've now shown how the fundamental theorem of line integrals deals with the exterior derivative. The next step is to go into 2D and show how we can define the exterior derivative in just the right way to get Stokes' theorem \index{Stokes' Theorem!For Curl}for curl in 2D (also known as Green's theorem). Because the language is suggestive, you would expect that there are two-forms for integrating over two-dimensional regions. 
 
+	Now instead of having individual quantities like $dx$ to represent an infinitesimal-length line segment, we will want quantities to represent a \emph{infinitesimal areas} that will cover the surface that we integrate on. These areas need to be defined by two directions, $dx^i$ and $dx^j$. 
+	
+	This is different from the vectors and forms that we've encountered before. Forms probably seem very similar to vectors. There are components associated with each $dx^i$. Even though philosophically they are deeply tied with infinitesimal quantities and integration, together with vectors they both correspond to some object that deals with 1-D lengths. 
+	
+	A 2-form, on the other hand, is a ``product'' of one forms in a similar way to how area is the product of lengths:
+	
+	\textbf{Insert Graphic Here}
+	
+	We denote the 2-form representing the infinitesimal area formed by one-forms $dx^i$ and $dx^j$ by $dx^i \wedge dx^j$. This is called the wedge product between $dx^i$ and $dx^j$.
+	
+	\begin{concept}
+		The wedge product of coordinate one-forms $dx^i, dx^j$ is geometrically defined to be the infinitesimal parallelogram with one side along the increment of $dx^i$ and the other side along the increment of $dx^j$
+	\end{concept}
+	
+	Note that it is not as easy as just defining the area to be $dx dy$, like a simple scalar. This two-form is a vector-like object. Indeed, the set of all two forms in some dimension form a vector space: we can add them, we can scale them by functions, and we have $0$ to be a trivial two form of no area. 
+	
+	What properties does this wedge product have? 
+	
+	\begin{prop}[Properties of $\wedge$]
+		The wedge product satisfies:
+		\begin{enumerate}
+			\item $dx^i \wedge dx^i = 0$
+			\item $(\alpha dx^i) \wedge dx^k = \alpha (dx^i \wedge dx^j)$
+			\item $(dx^i + dx^j) \wedge dx^k = dx^i \wedge dx^k + dx^j \wedge dx^k$
+		\end{enumerate}
+	\end{prop}
+	
+	Three forms? Infinitesimal parallelepipeds. Past that, it gets difficult to visualize, but you get the idea. Moreover, the formalism does not change.
+
+	\textbf{Talk about coordinate independence of the FTOC and now how we get it for the proof in the divergence theorem}
+	
+	\textbf{Example in 1-D, 2-D, and 3-D}
+
+\section{Stokes' Theorem}
+
+\section{To Manifolds, Coordinate Freedom}
+
+\section{Vectors, Forms, and Tensors}
+
+\section{Distance, a Metric}
+
+\section{Movement, Lie's Ideas}
+
+	First, something cool. Euler's identity $\rightarrow e^{a \frac{\partial}{\partial x}}$
+
+\section{Exercises}
+
+
+
+\end{document}
