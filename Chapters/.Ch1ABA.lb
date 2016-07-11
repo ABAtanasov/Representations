@@ -2,16 +2,24 @@
 Vmessages
 p1
 (lp2
-VCould not find any messages containing line information.
+VERROR   subfiles.cls:40 \u2014 Emergency stop
 p3
-aVPlease take a look at the log file Ch1ABA.latexmk.log to find the source of the problem.
-p4
 asVfiles_with_guttermarks
-p5
+p4
 c__builtin__
+set
+p5
+((lp6
+V/usr/local/texlive/2015/texmf-dist/tex/latex/subfiles/subfiles.cls
+p7
+atp8
+Rp9
+s.builtin__
 set
 p6
 ((lp7
-tp8
-Rp9
+V/usr/local/texlive/2015/texmf-dist/tex/latex/subfiles/subfiles.cls
+p8
+atp9
+Rp10
 s.
