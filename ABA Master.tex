@@ -1,14 +1,38 @@
-\documentclass[11pt]{book} 
+\documentclass[12pt, twoside, openany]{book} 
+\usepackage[b5paper, margin = .8in]{geometry}
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{enumitem}
 \usepackage{graphicx}
-\usepackage[noend]{algpseudocode}
-\usepackage{algorithm,algorithmicx}
+\usepackage{cancel}
+\usepackage{braket}
 \usepackage{fancyhdr}
 \usepackage{geometry}
 \usepackage{subfiles}
+\usepackage{epigraph}
 \usepackage{makeidx}
+\usepackage{titlesec}
 \usepackage[english]{babel}
+
+\newcommand{\md}{\text{ \% }}
+\newcommand{\bld}{\texttextbf}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\noi}{\noindent}
+\newcommand{\1}{\mathbbm{1}}
+\newcommand{\vol}{\text{vol}}
+\newcommand{\re}{\text{re}}
+\newcommand{\im}{\text{im}}
+
+
 
 \usepackage{xcolor}
 \usepackage{titlesec}
@@ -16,11 +40,13 @@
 
 \geometry{papersize={17 cm, 24.4 cm},margin = .9 in} %Close to standard
 
-\setcounter{chapter}{-1} 			%This way we start at Chapter 0
+\setcounter{chapter}{0} 
+\setcounter{part}{-1}			%This way we start at Chapter 0
 
 \titleformat{\chapter}[display]
-  {\center\normalfont\LARGE\bfseries}
+  {\normalfont\LARGE\bfseries}
   {Chapter \thechapter}{12pt}{\huge}
+  
 \titleformat{\section}
   {\normalfont\Large\bfseries}
   {\thesection}{1em}{}
@@ -47,7 +73,7 @@
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{defn}[theorem]{Definition}
 \newtheorem*{nb}{Important Note}		%Don't think we'll use this
-\newtheorem{condefn}[theorem]{Conceptual Definition}
+\newtheorem{concept}[theorem]{Concept}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{prop}[theorem]{Proposition}
 
@@ -55,12 +81,19 @@
 
 % This will be the book itself, all .tex files compiled into one source. For simplicity, as well as to save space, we're going to have each chapter be a .tex on its own
 
+\renewcommand\thepart{\arabic{part}}
+%so we can have part 0 
+\title{\textbf{\Huge Representations\\ \large of a\\ \LARGE Physical \LARGE Universe}}
+\author{Alex Atanasov \& Aaron Hillman}
+\begin{document}
+\maketitle
+\tableofcontents
+
 % Don't forget.. when made into a book odd numbers go on the right, even numbers on the left. This is probably a publisher's issue but it's worth remembering
 
 
 % When I say "pages" that means two pages = one page front and back
 
-\begin{document} 
 	
 
 %Title Page, left
@@ -80,25 +113,42 @@
 %Right, blank page
 
 %Chapter 0: Philosophy (small chapter)
-\chapter{Philosophy of Coordinates}
-\subfile{chapters/Ch0ABA}
+\part{Old Notions and New Horizons}
+
+<<<<<<< Updated upstream
+\subfile{chapters/P0C1}
+\subfile{chapters/P0C2}
+=======
+\subfile{chapters/P0C0}
+>>>>>>> Stashed changes
 
 %Chapter 1: Differential Geometry (large chapter)
-\chapter{Differential Geometry}
-\subfile{chapters/Ch1ABA}
+
+
+<<<<<<< Updated upstream
+\part{A Better Language}
+=======
+\part{The Language of Nature}
+>>>>>>> Stashed changes
+
+\subfile{chapters/P1C1}
 
 %Chapter 2: Representation Theory (large chapter)
 \chapter{Beyond Harmonics: Representation Theory}
 
 
+\part{Physics}
+
 %Chapter 3: The algebra SL(2) (medium chapter)
-\chapter{The group $\mathrm{SL}_2 (\mathbb{C})$ and friends}
+\chapter{Symmetries of the sphere: $\mathrm{SU}(2)$ and friends}
 
 %Chapter 4: Classical Mechanics towards Symplectic Geometry (medium chapter)
 \chapter{Classical Mechanics and Symplectic Geometry}
 
 %Chapter 5: Applications to General Relativity (large chapter)
 \chapter{Einstein's Gravity}
+
+\part{More Advanced Topics}
 
 %Chapter 6: Quantization (medium chapter)
 \chapter{An Introduction to Quantization}

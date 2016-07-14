@@ -1,0 +1,83 @@
+	
+	\chapter{New Horizons}
+	
+	\section{The Manifold} % (fold)
+	\label{sec:the_manifold}
+
+	It is impossible to conceive of a complete description of physics that need not make use of a geometric space in which states exists.  And even those physical degrees of freedom not tied to positions or times, such as spin, naturally lend themselves to having their states described in a geometric space.  As such, a natural starting point for understanding physical systems is first understanding the space in which the system lives, the \textit{stage} on which physics takes place.  For many years it was merely posited that physical space had the mathematical character of $\R^3$ (Euclidean space) and that time was merely another orthogonal direction, making spacetime $\R^4$. 
+
+	Everything we've done so far has been in $\mathbb{R}^n$. We have used different bases to represent it. Perhaps when we were first born, we expect that the universe looks like $\mathbb{R}^3$, and it goes out infinitely far in every direction.  Perhaps the first humans, too, expected that the surface of the earth looks like $\mathbb R^2$, stretching out infinitely. But we know now that the surface of the earth is \emph{not} the plane $\mathbb R^2$. We don't know so much about the universe, but there is no reason to expect it to be $\mathbb R^3$.
+	
+	We exist in the universe like 2-D people would exist on a sphere, or on some other object with rich geometry that by no means needs to be flat. Because the object is so large, we have no idea how it \emph{globally} looks, but \emph{locally}, just like 2-D humans would see a flat plane, we see $\mathbb R^3$. These geometric objects we are talking about are called \emph{manifolds}. What is a manifold? It is a set of points that looks like Euclidean space around each point.
+	
+	A line is a one-dimensional manifold (in fact it \emph{is} a Euclidean space) a circle is a one-dimensional manifold (when you zoom in on a point, it looks like a line), so is an ellipse, parabola, hyperbola, and the graph of any smooth function. A sphere is a two dimensional manifold (note that the sphere is just the 2-D surface of a 3-D ball). It locally looks like the euclidean plane, just as the world looks flat to us. The Mobius strip is also a two-dimensional manifold. Although globally it is a twisted band, locally it, too looks like flat two-dimensional space.
+	
+	This will be our intuitive basis for what we mean by a manifold: a manifold is anything that \emph{locally} looks like Euclidean space. This concept shall have such fundamental weight that it is especially important to try to make it formal. In order to do that, we need to define what we mean by locally.\\
+	
+	 In order to formally define a manifold, we must first define a \textbf{topological space}\index{topological space}.  
+	A topological space $X$ is a set with a family of open subsets $T$ satisfying 
+	 \begin{enumerate}
+	 	\item[1)] $\emptyset$ (empty set) and $X$ are in $T$
+	 	\item[2)] A finite union of members of $T$ is in $T$
+	 	\item[3)] A finite intersection of members of $T$ is in $T$
+	 \end{enumerate}
+	 and $T$ is called the \textbf{topology}\index{topology} on $X$.  We can talk about points $x$ in the set $X$ and we say that a collection of open sets $\{O_\alpha \}$ \textbf{covers}\index{cover} $X$ if $X$ is contained in their union.  Intuitively, the information contained in such a collection of sets should be enough to talk about all of $X$.  The last thing we need is a \textbf{chart}\index{chart}, which is an open set $O_a$ paired with a continuous function $\varphi_\alpha: O_\alpha \to \R^n$ with continuous inverse.  This map is identifying each point in the subset $O_\alpha$ with a corresponding point in $\R^n$.  We can now define a manifold\
+	 
+	 \textbf{DRAW A PICTURE OF A SPHERE COVERED BY CHARTS}
+	
+	
+	We need to be able to use 
+	\textbf{Talk about the sphere here (not the metric part)}
+	
+	Just like in $\mathbb{R}^n$ where had different coordinate systems around an origin, on a manifold $M$, we will \emph{locally} at each point have coordinate systems that look exactly like the ones we used for $\mathbb{R}^n$ in section \ref{sec:Linear Algebra & Coordinates}. 
+	
+	Just because we have a coordinate system to describe the manifold doens't mean we have everything. It may seem strange, but up until now we have missed talking about a vital part of geometry: the notion of \emph{distance}. Even though we've talked in all the way points can be represented by coordinates, none of these numbers representing coordinates have any \emph{inherent} notion of distance to them. 
+	
+
+	
+	\begin{concept}
+	\textit{A smooth manifold is a continuous collection of points which can be invertibly mapped into Euclidean space in a neighborhood of any point, allowing us to locally talk about our manifold by working in Euclidean space.}
+	\end{concept}
+
+	Now that we prepared the stage, we are ready to study the fields which can exist on it.  
+	
+	
+	% section the_manifold (end)
+	
+	\section{The Field} % (fold)
+	\label{sec:the_field}
+	
+	One of the most important aspects of physics is studying the \emph{fields} that live on manifolds. Just like in multivariable calculus, this means the study of scalar fields $\phi$ that associate a number to every point $P$. Examples are voltage, potential energy, mass/charge density, etc. This also includes the study of vector fields $\mathbf v$ associating a vector to each point. These can be wind speeds, electric fields. 
+	
+	While scalar fields associate a number $\phi(P)$ to each point $P$, which looks the same regardless of the local coordinate system used at $P$, vector fields will associate a specific vector $\mathbf u$ to a point $P$ whose coordinate representation will, of course, change depending on the local coordinate system at $P$.
+	
+	
+	
+	{\emph{[I want to somehow motivate why the vectors should looks like $\partial/\partial q_i$]}}
+	
+	\textbf{Show a graph of the curves for coordinates $q_i$}
+	
+	\section{What Follows} % (fold)
+	\label{sec:what_follows}
+	
+	The rest of this book will expand both on the geometry of fields and manifolds, and also on the larger ideas of groups, homogenous spaces, and representations. \\
+	
+	In chapter 1, we will continue studying the fields that live on manifolds. We'll prove the General Stokes' theorem, an elegant generalization of the divergence, curl, and line integral theorems that have been taught in multivariable calculus. From there, we will study more thoroughly the concept of a metric, and how this relates vector fields to differential forms. The notion of a derivative will be extended to manifolds, and will take the form of a ``Lie Derivative''.\\
+	
+	In chapter 2, we will introduce Fourier Analysis as a powerful tool for studying functions on the real line an Euclidean space. Then we will shift to looking at the representation theory of \emph{finite} groups and illustrate the parallels. We will then return to the study of continuous group actions on especially symmetric ``homogenous'' spaces, and show how Fourier analysis is related to their representation theory. Towards the end, we will expand on the idea behind a group actions on manifolds and look at the representation theory, giving a small glimpse into harmonic analysis: the Fourier transform on manifolds. Just as in the first chapter, we'll recognize the importance of the underlying differential geometry of the group action. The underlying differential structure is known as the ``Lie Algebra'' of the group, and we will discuss that.\\
+	
+	In chapter 3, we introduce some background behind Lie Algebras. We put almost all of our focus on one special case: the Lie algebra $\frak{sl}_2 (\mathbb C)$. The relationship between this algebra and the symmetries of the sphere are explored, as well as its applications in quantum physics for studying angular momentum. The representation theory of a variant of this algebra gives rise to the concept of spin. \\
+	
+	In chapter 4, we move further into physics, going over classical Lagrangian and Hamiltonian Mechanics. We discuss Noether's theorem in both the Lagrangian and Hamiltonian Pictures, and then we move to study Hamiltonian mechanics using the language of differential geometry that we have developed. This will give rise to \emph{symplectic geometry}. In chapter 7, combining this with representation theory gives rise to \emph{quantum mechanics}.\\
+	
+	In chapter 5, we apply differential geometry first to the study of electromagnetism, and then to gravitation. We shall arrive at Einstein's theory of gravity. Along the way, we study in even greater detail the notion of a metric, a connection, and curvature. \\
+	
+	In chapter 7, we use the representation theory and differential geometry that we have developed so far to study how quantum mechanics can arise from quantizing a symplectic manifold.\\
+	
+	Finally, chapter 8 studies Lie algebras in greater detail, working towards the \emph{classification of complex semisimple Lie algebras}. Along the way, we will look at the relationship between representation theory of Lie algebras and modern physics. 
+	
+	% section what_follows (end)
+	
+	% section the_field (end)
+	
+	
