@@ -1,5 +1,10 @@
 *.lb
 *.fls
-*.latexmk
+*.fdb_latexmk
 *.log.txt
 *.aux
+*.watcher_pid
+*.ind
+*.toc
+*.idx
+*.gz
