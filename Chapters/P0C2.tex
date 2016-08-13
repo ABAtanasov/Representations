@@ -1,18 +1,19 @@
 	
-	\chapter{New Horizons}
+	\chapter{New Horizons Developed}
 	
 	\section{The Manifold} % (fold)
 	\label{sec:the_manifold}
 
-	It is impossible to conceive of a complete description of physics that need not make use of a geometric space in which states exists.  And even those physical degrees of freedom not tied to positions or times, such as spin, naturally lend themselves to having their states described in a geometric space.  As such, a natural starting point for understanding physical systems is first understanding the space in which the system lives, the \textit{stage} on which physics takes place.  For many years it was merely posited that physical space had the mathematical character of $\R^3$ (Euclidean space) and that time was merely another orthogonal direction, making spacetime $\R^4$. 
-
-	Everything we've done so far has been in $\mathbb{R}^n$. We have used different bases to represent it. Perhaps when we were first born, we expect that the universe looks like $\mathbb{R}^3$, and it goes out infinitely far in every direction.  Perhaps the first humans, too, expected that the surface of the earth looks like $\mathbb R^2$, stretching out infinitely. But we know now that the surface of the earth is \emph{not} the plane $\mathbb R^2$. We don't know so much about the universe, but there is no reason to expect it to be $\mathbb R^3$.
+	Several thousand years ago, the first sentient human beings noticed that the landscape of the earth looked flat, and seemed to stretch out infinitely far in every direction. It is perhaps from this observation that the Euclidean plane was first conceived, and indeed it is from the fact that the earth looked like Euclid's 2D plane that geometry got its name to literally mean ``measuring the earth''. But the fact is that the earth is \emph{not} a flat plane, stretching out infinitely. It turned out to be a sphere. What is true, however, is that \emph{locally}, the geometry of the earth looks very similar to that of Euclidean space. 
 	
-	We exist in the universe like 2-D people would exist on a sphere, or on some other object with rich geometry that by no means needs to be flat. Because the object is so large, we have no idea how it \emph{globally} looks, but \emph{locally}, just like 2-D humans would see a flat plane, we see $\mathbb R^3$. These geometric objects we are talking about are called \emph{manifolds}. What is a manifold? It is a set of points that looks like Euclidean space around each point.
+	And now in modern times, as we look out into the cosmos and see them stretching out in every direction, our first human bias creeps in and tells us ``this thing must be infinite, stretching out in every direction". Just as people thought the world was $\mathbb R^2$ in ancient times, in this age we entertain the thought that our universe could be three-dimensional Euclidean space $\mathbb R^3$. Indeed, most of the time when we do simple classical physics, we embed our system into a space that is $\mathbb R^3$ and work there. It is an easy space to work in. 
 	
-	A line is a one-dimensional manifold (in fact it \emph{is} a Euclidean space) a circle is a one-dimensional manifold (when you zoom in on a point, it looks like a line), so is an ellipse, parabola, hyperbola, and the graph of any smooth function. A sphere is a two dimensional manifold (note that the sphere is just the 2-D surface of a 3-D ball). It locally looks like the euclidean plane, just as the world looks flat to us. The Mobius strip is also a two-dimensional manifold. Although globally it is a twisted band, locally it, too looks like flat two-dimensional space.
+	But just as the earth's surface looked \emph{locally} like Euclidean 2-space but in fact turned out to globally be wildly different, we should not be surprised if it turns out that the universe, despite locally looking Euclidean, has wildly different global structure. 
 	
-	This will be our intuitive basis for what we mean by a manifold: a manifold is anything that \emph{locally} looks like Euclidean space. This concept shall have such fundamental weight that it is especially important to try to make it formal. In order to do that, we need to define what we mean by locally.\\
+	This is exactly what a manifold intuitively is: an object that at each point locally resembles Euclidean space. The property of being locally Euclidean is similar to the property that differentiable functions have of being locally linear. It allows us to use calculus on them to reduce nonlinear objects to linear ones locally. 
+	
+	A line is a one-dimensional manifold (in fact it \emph{is} a Euclidean space).  circle is a one-dimensional manifold as it locally resembles a line, and so are ellipses, parabolas, hyperbolas, and the graph of any smooth function. A sphere is the two dimensional manifold that ancient humans mistook for the plane itself. The Mobius strip is also a two-dimensional manifold. Although globally it is a twisted band, locally it, too looks like flat two-dimensional space. All the geometric objects that you've encountered that before were classified into sets like ``curves'' or ``surfaces'' are bundled together into one category: manifolds. 
+	
 	
 	 In order to formally define a manifold, we must first define a \textbf{topological space}\index{topological space}.  
 	A topological space $X$ is a set with a family of open subsets $T$ satisfying 
@@ -36,13 +37,18 @@
 
 	
 	\begin{concept}
-	\textit{A smooth manifold is a continuous collection of points which can be invertibly mapped into Euclidean space in a neighborhood of any point, allowing us to locally talk about our manifold by working in Euclidean space.}
+	\textit{A smooth manifold is a continuous collection of points which can be invertibly mapped into Euclidean space in a neighborhood of any point.}
 	\end{concept}
 
 	Now that we prepared the stage, we are ready to study the fields which can exist on it.  
 	
 	
 	% section the_manifold (end)
+	
+	\section{Intrinsic Geometry} % (fold)
+	\label{sec:intrinsic_geometry}
+	
+	% section intrinsic_geometry (end)
 	
 	\section{The Field} % (fold)
 	\label{sec:the_field}
