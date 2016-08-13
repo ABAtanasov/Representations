@@ -8,3 +8,5 @@
 *.toc
 *.idx
 *.gz
+*.log
+*.ilg
