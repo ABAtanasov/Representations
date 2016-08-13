@@ -2,20 +2,30 @@
 
 An upcoming book, by Alex &amp; Aaron
 
-## Chapters:
 
-### Old Notions and New Horizons
+## Part 0: Old Notions & New Horizons
 
-### Differential Geometry
+### 1) Old Notions Revisited
 
-### Beyond Harmonics: Representation Theory
+### 2) New Horizons Developed
 
-### SU(2) and Friends
+## Part 1: A Better Language
 
-### Sympletic Geometry
+### 3) Differential Geometry
 
-### General Relativity
+### 4) Beyond Harmonics: Representation Theory
 
-### Lie Algebras and their Classification
+## Part 2: Physics
 
-### Quantization
+### 5) Symmetries of the Sphere: SU(2) and Friends
+
+### 6) Classical Mechanics and Sympletic Geometry
+
+### 7) Einstein's Gravity
+
+## Part 3: More Advanced Topics
+
+### 8) An Introduction to Geometric Quantization
+
+### 9) Classification of Simple Lie Algebras over C
+
