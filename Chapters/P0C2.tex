@@ -10,77 +10,148 @@
 	
 	But just as the earth's surface looked \emph{locally} like Euclidean 2-space but in fact turned out to globally be wildly different, we should not be surprised if it turns out that the universe, despite locally looking Euclidean, has wildly different global structure. 
 	
-	This is exactly what a manifold intuitively is: an object that at each point locally resembles Euclidean space. The property of being locally Euclidean is similar to the property that differentiable functions have of being locally linear. It allows us to use calculus on them to reduce nonlinear objects to linear ones locally. 
-	
-	A line is a one-dimensional manifold (in fact it \emph{is} a Euclidean space).  circle is a one-dimensional manifold as it locally resembles a line, and so are ellipses, parabolas, hyperbolas, and the graph of any smooth function. A sphere is the two dimensional manifold that ancient humans mistook for the plane itself. The Mobius strip is also a two-dimensional manifold. Although globally it is a twisted band, locally it, too looks like flat two-dimensional space. All the geometric objects that you've encountered that before were classified into sets like ``curves'' or ``surfaces'' are bundled together into one category: manifolds. 
-	
-	
-	 In order to formally define a manifold, we must first define a \textbf{topological space}\index{topological space}.  
-	A topological space $X$ is a set with a family of open subsets $T$ satisfying 
-	 \begin{enumerate}
-	 	\item[1)] $\emptyset$ (empty set) and $X$ are in $T$
-	 	\item[2)] A finite union of members of $T$ is in $T$
-	 	\item[3)] A finite intersection of members of $T$ is in $T$
-	 \end{enumerate}
-	 and $T$ is called the \textbf{topology}\index{topology} on $X$.  We can talk about points $x$ in the set $X$ and we say that a collection of open sets $\{O_\alpha \}$ \textbf{covers}\index{cover} $X$ if $X$ is contained in their union.  Intuitively, the information contained in such a collection of sets should be enough to talk about all of $X$.  The last thing we need is a \textbf{chart}\index{chart}, which is an open set $O_a$ paired with a continuous function $\varphi_\alpha: O_\alpha \to \R^n$ with continuous inverse.  This map is identifying each point in the subset $O_\alpha$ with a corresponding point in $\R^n$.  We can now define a manifold\
-	 
-	 \textbf{DRAW A PICTURE OF A SPHERE COVERED BY CHARTS}
-	
-	
-	We need to be able to use 
-	\textbf{Talk about the sphere here (not the metric part)}
-	
-	Just like in $\mathbb{R}^n$ where had different coordinate systems around an origin, on a manifold $M$, we will \emph{locally} at each point have coordinate systems that look exactly like the ones we used for $\mathbb{R}^n$ in section \ref{sec:Linear Algebra & Coordinates}. 
-	
-	Just because we have a coordinate system to describe the manifold doens't mean we have everything. It may seem strange, but up until now we have missed talking about a vital part of geometry: the notion of \emph{distance}. Even though we've talked in all the way points can be represented by coordinates, none of these numbers representing coordinates have any \emph{inherent} notion of distance to them. 
-	
-
+	This is exactly what a manifold\index{Manifold} intuitively is: an object that at each point locally resembles Euclidean space. The property of being locally Euclidean is similar to the property that differentiable functions have of being locally linear. It allows us to use calculus on them to reduce nonlinear objects to linear ones locally. 
 	
 	\begin{concept}
-	\textit{A smooth manifold is a continuous collection of points which can be invertibly mapped into Euclidean space in a neighborhood of any point.}
+	\textit{A manifold $M$ is a set of points which, in the neighborhood of every point, locally looks like euclidean space}
 	\end{concept}
-
-	Now that we prepared the stage, we are ready to study the fields which can exist on it.  
 	
+	A line is a one-dimensional manifold (in fact it \emph{is} a Euclidean space).  The circle is a one-dimensional manifold locally resembling a line, and so are ellipses, parabolas, hyperbolas, and the graph of any smooth function. A sphere is the two dimensional manifold that ancient humans mistook for the Euclidean plane itself. The Mobius strip is also a two-dimensional manifold. Although globally it is a twisted band, locally it too looks like two-dimensional Euclidean space. Every geometric object referred to as a ``curve'' or a ``surface'' has been an example of a manifold this whole time. 
+	
+	In this chapter, we work towards building the language necessary to formally define what we mean by a manifold. First, we reinforce the intuitive ideas through examples.
 	
 	% section the_manifold (end)
 	
-	\section{Intrinsic Geometry} % (fold)
-	\label{sec:intrinsic_geometry}
+	\section{Examples of Manifolds} % (fold)
+	\label{sec:examples_of_manifolds}
 	
-	% section intrinsic_geometry (end)
+	\begin{example}
+		The sphere is a two-dimensional manifold
+	\end{example}
+	
+		This is the classic example of a manifold that isn't just $\mathbb R^n$. As we have said before, at every point on the sphere, things look locally like $\mathbb R^2$. Throughout this text, the sphere will often be our first go-to setting when we want to take concepts from Euclidean space and generalize them to manifolds. It is easy to visualize things on this space, so often the first question to ask when generalizing something is ``well, how would this thing look on the sphere?''. Of course for this reason ellipsoids, paraboloids, and hyperboloids are all also manifolds. Similarly familiar objects like cylinders, tori, or tori with multiple holes are also manifolds.
+		
+		Every point on the sphere looks exactly the same as any other. This is a highly symmetric manifold, that will later be referred to as a \emph{homogenous space}\index{Homogenous Space} because of this property.
+	
+	\begin{example}
+		Manifolds need not be connected. The disjoint union of two manifolds is also a manifold.
+	\end{example}
+	
+	Consider the set consisting of two separate spheres. Since each sphere individually is a manifold, then any point in this disjoint union belongs to one of the spheres, and so it has a locally euclidean neighborhood.
+	
+	\begin{example}
+		The graph of the curve $y=f(x)$ where $f$ is a smooth function defines a one-dimensional manifold.
+	\end{example}
+	
+	Because $f$ is smooth, we know that every point of the graph of the curve will locally look like its tangent line. Since the tangent line is precisely one-dimensional Euclidean space, every point on the curve looks locally Euclidean. Indeed, we only needed $f$ to be differentiable.
+	
+	\begin{example}
+		The set of points forming the graph of $y = f(x_1, \dots, x_n)$ defines an $n$-dimensional manifold when $f$ is smooth.
+	\end{example}
+	
+	The exact same argument as before holds, except with a tangent line generalized to a tangent plane, etc. Locally at each point the set looks like Euclidean $n$-space. The idea of an $n$-dimensional ``tangent \emph{something}" at each point $p$ on a manifold $M$ that generalizes the notion of a tangent line or plane to higher dimensions, will be made precise in coming sections by talking about the \emph{tangent space}\index{Tangent Space} of $M$ at $p$, $T_p M$.
+
+	
+	\begin{example}
+		The figure-eight and the cone are not manifolds.
+	\end{example}
+	
+	\textbf{DRAW IT}
+	
+	Both of these objects have a ``cusp-like" point where multiple lines intersect. Zooming in near that point will preserve these cusps, and so the space does not look like Euclidean space near that point. There is no tangent space for the figure eight at the point of intersection that looks like a line: it would look like two lines intersecting. Similarly for the cone, there would not be a tangent space at the cusp that looks like a plane. At that point, the manifold looks like a continuum of intersecting lines. Intuitively, then, manifolds cannot have sharp cusps. As a result, the cube and triangle are not examples of manifolds. \\
+	
+	The power of manifolds lies in the fact that not only are geometric objects manifolds, but so are many of the algebraic objects that we have been working with. 
+	
+	\begin{example}\label{ex:secret_torus}
+		Consider a two-dimensional parallelogram, with opposite sides identified as the same. This is a manifold.
+	\end{example}
+	
+	\textbf{DRAW THIS}
+	
+	This is like a room, where if you exit on one side, you come back on the other side. The one dimensional version of this is a circle, and we will show how this space can be thought of as a ``product of circles'' or a ``circle of circles'' in two dimensions. Clearly this parallelogram locally looks like euclidean two-space in the neighborhood of any point on the interior. The only possible problem is at the edges. Because each edge is identified with its opposite one, however, a neighborhood of a point at the edge of the parallelogram will simple wrap around to the other side, and look just as euclidean as the neighborhood around any other point.
+	
+	\begin{example}\label{ex:M_n}
+		The set of $n \times n$ matrices forms a real manifold of dimension $n^2$.
+	\end{example}
+	Note that any $n \times n$ matrix can be equivalently viewed as a vector living in $\mathbb R^{n^2}$. Given any matrix, locally we can go in each of $n^2$ direction by appropriately varying one of the $n^2$ components of the matrix. So this manifold not only locally looks like $\mathbb R^{n^2}$ but can in fact be identified as being \emph{the same} as $\mathbb R^{n^2}$.
+	
+	\begin{example}\label{ex:GL_n}
+		The set of \emph{invertible} $n\times n$ matrices forms a manifold of dimension $n^2$
+	\end{example}
+	It is not obvious that this is a manifold. We need to know that near any point on this set $M$, we can go in each of $n^2$ linearly independent directions. The way we can see this is that invertible matrices are precisely those matrices $A$ with \emph{nonzero determinant}, $\det A \neq 0$. If I pick a given point $A$ on this manifold corresponding to a matrix with nonzero determinant, then say it has determinant $d \neq 0$. Because the determinant is a \emph{continuous} function, then changing any of the $n^2$ components of $A$ by a small number $\delta$ will change the determinant by some small amount as well. We just need to pick $\delta$ small enough so that the resulting change has magnitude less than $d$, and therefore keeps the determinant away from $0$. As long as we pick the neighborhood around $A$ small enough, we still can vary in any of $n^2$ directions, and so \emph{locally} look like $\mathbb R^{n^2}$. 
+	
+	\begin{example}\label{ex:SO_n}
+		The set of rotations in Euclidean $3$-space is a manifold. 
+	\end{example}
+	From mechanics and engineering, or just by playing with an object for a little bit, it is known that there are three independent ways to rotate something (about each of the three spacial axes). Any given rotation can be specified by three ``Euler Angles'' that describe how much to rotate about each axis, in a specific order. For a specific rotation given by these three angles, we intuitively expect that we can \emph{perturb} this rotation in three independent ways by slightly changing one of the three angles. There would then be a three-dimensional neighborhood of the rotations \emph{near} the original one. So locally, we look like Euclidean 3-space. 
+	
+	\begin{prop}
+		Manifolds are a powerful and useful idea in both engineering and applied mathematics.
+	\end{prop}
+	Oftentimes, we care about studying the possible states that a system can have, like the ways that an object can rotate, as in the prior example. This goes much beyond possible rotations, and can go as far as 
+	
+	\textbf{AARON EXPLAIN WHY ITS USEFUL I DONT KNOW ANYTHING PRACTICAL}
+	
+	
+	% section examples_of_manifolds (end)
+	
+	\section{Elementary Topology} % (fold)
+	\label{sec:elementary_topology}
+	
+	\textbf{Start with open intervals on the line $\rightarrow$ open balls in the plane}\\
+	
+	\textbf{Talk about the algebra of open/closed sets?}\\
+	
+	\textbf{Explain what makes a function continuous in a topology. Just as Baez did, leave an exercise for the reader to show this is consistent with the calculus $\varepsilon-\delta$ definition}\\
+	
+	\textbf{We'll give the proper definition of a manifold as in Baez}
+	
+	% section elementary_topology (end)
+	
+	\section{Embeddings vs. Intrinsic Geometry} % (fold)
+	\label{sec:embeddings_vs._intrinsic_geometry}
+	
+	\textbf{Talk about how we always picture manifolds as embedded into Euclidean space, but nothing about them \emph{intrinsically demands it}}\\ 
+	
+	\textbf{Mention any $n$-dimensional manifold can be embedded in $\mathbb{R}^{2n}$}\\
+
+	
+	\textbf{Talk about how the torus is exactly the space in Example \ref{ex:secret_torus}}
+	
+	% section embeddings_vs._intrinsic_geometry (end)
 	
 	\section{The Field} % (fold)
 	\label{sec:the_field}
 	
-	One of the most important aspects of physics is studying the \emph{fields} that live on manifolds. Just like in multivariable calculus, this means the study of scalar fields $\phi$ that associate a number to every point $P$. Examples are voltage, potential energy, mass/charge density, etc. This also includes the study of vector fields $\mathbf v$ associating a vector to each point. These can be wind speeds, electric fields. 
-	
-	While scalar fields associate a number $\phi(P)$ to each point $P$, which looks the same regardless of the local coordinate system used at $P$, vector fields will associate a specific vector $\mathbf u$ to a point $P$ whose coordinate representation will, of course, change depending on the local coordinate system at $P$.
 	
 	
+	{\emph{[I want to somehow motivate why the vectors should looks like $\partial/\partial q_i$], and then go on to mention 1-forms are basically the possible local linear approximations of functions}}\\
 	
-	{\emph{[I want to somehow motivate why the vectors should looks like $\partial/\partial q_i$]}}
+	\textbf{We can use Einstein summation convention at this point}\\
 	
 	\textbf{Show a graph of the curves for coordinates $q_i$}
 	
 	\section{What Follows} % (fold)
 	\label{sec:what_follows}
 	
+	\begin{center}
+		\textbf{\emph{{Tentative:}}}\\
+	\end{center}
 	The rest of this book will expand both on the geometry of fields and manifolds, and also on the larger ideas of groups, homogenous spaces, and representations. \\
 	
-	In chapter 1, we will continue studying the fields that live on manifolds. We'll prove the General Stokes' theorem, an elegant generalization of the divergence, curl, and line integral theorems that have been taught in multivariable calculus. From there, we will study more thoroughly the concept of a metric, and how this relates vector fields to differential forms. The notion of a derivative will be extended to manifolds, and will take the form of a ``Lie Derivative''.\\
+	In Chapter 3, we will continue studying the fields that live on manifolds. We'll prove the General Stokes' theorem, an elegant generalization of the divergence, curl, and line integral theorems that have been taught in multivariable calculus. From there, we will study more thoroughly the concept of a metric, and how this relates vector fields to differential forms. The notion of a derivative will be extended to manifolds, and will take the form of a ``Lie Derivative''.\\
 	
-	In chapter 2, we will introduce Fourier Analysis as a powerful tool for studying functions on the real line an Euclidean space. Then we will shift to looking at the representation theory of \emph{finite} groups and illustrate the parallels. We will then return to the study of continuous group actions on especially symmetric ``homogenous'' spaces, and show how Fourier analysis is related to their representation theory. Towards the end, we will expand on the idea behind a group actions on manifolds and look at the representation theory, giving a small glimpse into harmonic analysis: the Fourier transform on manifolds. Just as in the first chapter, we'll recognize the importance of the underlying differential geometry of the group action. The underlying differential structure is known as the ``Lie Algebra'' of the group, and we will discuss that.\\
+	In Chapter 4, we will introduce Fourier Analysis as a powerful tool for studying functions on the real line an Euclidean space. Then we will shift to looking at the representation theory of \emph{finite} groups and illustrate the parallels. We will then return to the study of continuous group actions on especially symmetric ``homogenous'' spaces, and show how Fourier analysis is related to their representation theory. Towards the end, we will expand on the idea behind a group actions on manifolds and look at the representation theory, giving a small glimpse into harmonic analysis: the Fourier transform on manifolds. Just as in the first chapter, we'll recognize the importance of the underlying differential geometry of the group action. The underlying differential structure is known as the ``Lie Algebra'' of the group, and we will discuss that.\\
 	
-	In chapter 3, we introduce some background behind Lie Algebras. We put almost all of our focus on one special case: the Lie algebra $\frak{sl}_2 (\mathbb C)$. The relationship between this algebra and the symmetries of the sphere are explored, as well as its applications in quantum physics for studying angular momentum. The representation theory of a variant of this algebra gives rise to the concept of spin. \\
+	In Chapter 5, we introduce some background behind Lie Algebras. We put almost all of our focus on one special case: the Lie algebra $\frak{sl}_2 (\mathbb C)$. The relationship between this algebra and the symmetries of the sphere are explored, as well as its applications in quantum physics for studying angular momentum. The representation theory of a variant of this algebra gives rise to the concept of spin. \\
 	
-	In chapter 4, we move further into physics, going over classical Lagrangian and Hamiltonian Mechanics. We discuss Noether's theorem in both the Lagrangian and Hamiltonian Pictures, and then we move to study Hamiltonian mechanics using the language of differential geometry that we have developed. This will give rise to \emph{symplectic geometry}. In chapter 7, combining this with representation theory gives rise to \emph{quantum mechanics}.\\
+	In Chapter 6, we move further into physics, going over classical Lagrangian and Hamiltonian Mechanics. We discuss Noether's theorem in both the Lagrangian and Hamiltonian Pictures, and then we move to study Hamiltonian mechanics using the language of differential geometry that we have developed. This will give rise to \emph{symplectic geometry}. In chapter 7, combining this with representation theory gives rise to \emph{quantum mechanics}.\\
 	
-	In chapter 5, we apply differential geometry first to the study of electromagnetism, and then to gravitation. We shall arrive at Einstein's theory of gravity. Along the way, we study in even greater detail the notion of a metric, a connection, and curvature. \\
+	In Chapter 7, we apply differential geometry first to the study of electromagnetism, and then to gravitation. We shall arrive at Einstein's theory of gravity. Along the way, we study in even greater detail the notion of a metric, a connection, and curvature. \\
 	
-	In chapter 7, we use the representation theory and differential geometry that we have developed so far to study how quantum mechanics can arise from quantizing a symplectic manifold.\\
+	In Chapter 8, we use the representation theory and differential geometry that we have developed so far to study how quantum mechanics can arise from quantizing a symplectic manifold.\\
 	
-	Finally, chapter 8 studies Lie algebras in greater detail, working towards the \emph{classification of complex semisimple Lie algebras}. Along the way, we will look at the relationship between representation theory of Lie algebras and modern physics. 
+	Finally, Chapter 9 studies Lie algebras in greater detail, working towards the \emph{classification of complex semisimple Lie algebras}. Along the way, we will look at the relationship between representation theory of Lie algebras and modern physics. 
 	
 	% section what_follows (end)
 	
