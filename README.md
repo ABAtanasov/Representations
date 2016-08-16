@@ -27,9 +27,13 @@ Close to being done.
 ### 3) Differential Geometry
 
 Most of the material is written up. Need to explain differential forms more intuitively.
+
   Alex: 
 
     Intuitive explaination of Differential forms. Finish Stokes' theorem 
+    Tensors, tensor products, the works. Just use Aaron's stuff its all basically done
+    Lie Derivatives, through examples just like the ISSYP lecture
+    Uhh connections? <3 
 
 
 ### 4) Beyond Harmonics: Representation Theory
@@ -58,6 +62,7 @@ Most of the material is written up. Need to explain differential forms more intu
 
 ### 7) Einstein's Gravity
   Aaron:
+
     Here be Covariant Derivatives? 
 
 ## Part 3: More Advanced Topics
