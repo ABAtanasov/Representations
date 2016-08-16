@@ -98,13 +98,119 @@
 	\section{Elementary Topology} % (fold)
 	\label{sec:elementary_topology}
 	
-	\textbf{Start with open intervals on the line $\rightarrow$ open balls in the plane}\\
+	Before we can begin to do geometry on a space, we need to go even more fundamental still, into the real of topology\index{Topology}. Geometry takes its name from the ``study of the earth'', while topology takes its name from the more abstract ``study of places'' (\emph{topos}). Topology deals with ideas that, to a geometer or a physicist, border on the unphysical. In fact, it is likely easier to work to work with topological objects by relying on pure logical reasoning rather than geometrical intuition. Topology is in many ways an extension of set theory, and is a central tool in mathematical analysis of functions when defining and studying ideas like continuity.
+	
+	Elementary topology begins with \textbf{point-set topology}\index{Topology!Point-Set}, in which the central objects of study are the open and closed subsets of a main set $X$. This should in fact be a familiar idea from studying the real line $\mathbb{R}$.
+	
+	On the real line, intervals of the form $(a,b)$ consisting of all $x$ so that $a<x<b$ were called \textbf{open intervals}. One of the interesting things about open intervals is that on an interval like $(a,b)$ there is no \emph{greatest} number in that set. 
+	\begin{prop}
+		There is no maximum number on the open set $(a,b)$
+	\end{prop} 
+	\begin{proof}
+		This will be a proof by contradiction. If there were a maximal number $x \in (a,b)$ then it must necessarily be \emph{strictly} less than $b$ (Note since $b$ is not strictly less than itself, $b \notin (a,b)$). Therefore, since $x<b$ we can consider $(x+b)/2$. This average is strictly greater than $x$ and less than $b$ and so is in $(a,b)$, contradicting the fact that $x$ was the maximal element in $(a,b)$.
+	\end{proof}
+	By the same argument, there is no minimal element in $(a,b)$. This set has the interesting property that for a point $x \in (a,b)$, there are points both to the right and left of $x$ that are still in $(a,b)$. Such subsets of $\mathbb{R}$ are called open
+	
+	\begin{defn}
+		A subset $S$ of $\mathbb{R}$ is called open iff for any point $x \in S$, we can pick an $\varepsilon$ sufficiently small so that the open interval $(x-\varepsilon, x+\varepsilon) \subseteq S$ as well.
+	\end{defn}
+	For example, any point in the interval $(-1,3)$ satisfies this. For example $2.99$ is contained in the interval $(2.99 - 0.005, 2.99+0.005)$ which is a subset of  $(-1,3)$. In other words, any point in an open set has that all the points sufficiently close to it are also in that set.
+	
+	
+	The notion of an ``open interval'' of size $\varepsilon$ around a point $x$ generalizes into higher dimensions by talking about an ``open ball'' of radius $\varepsilon$ around a point $p$
+	\begin{equation}
+		B_{\varepsilon} (p) := \{ q \in \mathbb{R}^n : |p-q|<\varepsilon \}
+	\end{equation}
+	that is, the set of all points $q$ within $\varepsilon$ of $p$. So a subset $S$ of $\mathbb{R}^n$ is called open iff every point $p \in S$ has a ball $B_\varepsilon(p)$ of some sufficiently small positive radius $\varepsilon$ is contained in $S$.
+	
+	So on the real line open intervals are open sets, and in fact any union of open intervals is still an open set (in fact an exercise will show that all open sets on the real line can be expressed as a (possibly infinite) union of open intervals). Intersections of open intervals are also open, but only when there are \emph{finitely many} such intersections. On the other hand, infinite unions of open sets are still open:
+	
+	\begin{prop}
+		In the Euclidean topology of $\mathbb{R}^n$, any arbitrary union $V = \bigcup_\alpha U_\alpha$ of open sets $U_\alpha$ is open 
+	\end{prop}
+	\begin{proof}
+		Let $p$ be a point in this union $V$, then since it belongs to the union, it must belong to at least one of the $U_\alpha$. This means that some $B_\varepsilon(p) \subseteq U_\alpha$, implying $B_\varepsilon (p) \subseteq V$ as well.
+	\end{proof}
+	Hopefully this proof illustrates something that is common in many topology proofs: working with simple logic works better than appealing to geometric intuition. Similarly
+	\begin{prop}
+		In the Euclidean topology, any \emph{finite} intersection $V = \bigcap_\alpha U_\alpha$ of open sets is open.
+	\end{prop}
+	\begin{proof}
+		Let $p$ be a point in the intersection $V$, then since it belongs to the intersection, it must belong to \emph{all} of the $U_\alpha$. For each $U_\alpha$ there a positive $\varepsilon$ so that $B_\varepsilon(p) \subseteq U_\alpha$. Since the intersection is finite, pick the minimum such epsilon and it will still be positive. Moreover $B_\varepsilon(p)$ will then be contained in each $U_\alpha$ so will be contained in the intersection $V$ as well.
+	\end{proof}
+	It's clear to see that if the intersection were \emph{not} finite, then the set of $\varepsilon$s that we take the minimum over may give us a minimum value of zero. This is illustrated in an example as one of the exercises. We are now in a good place to define what we mean by a \textbf{topology} on a set.
+	
+	\begin{defn}\label{def:Topology}
+		A \emph{topology}\index{Topology} on a set $X$ is a family $\mathcal T$ of subsets of $X$ so that
+		\begin{itemize}
+			\item Both the empty set $\emptyset$ and $X$ are in $\mathcal T$
+			\item Any finite/infinite union of sets in $\mathcal T$ is in $\mathcal T$
+			\item Any \emph{finite} intersection of sets in $\mathcal T$ is in $\mathcal T$
+		\end{itemize}
+		The elements of the topology $\mathcal T$ are called the \emph{open sets}\index{Topology!Open Set} of $X$. Complements of open sets are called \textbf{\emph{closed sets}}\index{Topology!Closed Set}. $X$ is then called a \emph{topological space}.
+	\end{defn}
+	Note that on $\mathbb{R}$, the closed intervals $[a,b]$ are the complements of the unions of open sets informally denoted by $(-\infty, a) \cup (b, \infty)$.
+	
+	We can always arbitrarily define a topology and call ``these sets, and all their  arbitrary unions'' open, but it is better to work with a natural topologies like the Euclidean one discussed above.
+	
 	
 	\textbf{Talk about the algebra of open/closed sets?}\\
 	
-	\textbf{Explain what makes a function continuous in a topology. Just as Baez did, leave an exercise for the reader to show this is consistent with the calculus $\varepsilon-\delta$ definition}\\
 	
-	\textbf{We'll give the proper definition of a manifold as in Baez}
+	Why do we care about open sets so much? They allow us to define a notion of continuity for functions between any topological spaces:
+	
+	\begin{defn}[Continuity]\label{def:Continuity}
+		A function between two topological spaces $$f: X \rightarrow T$$ is \textbf{\emph{continuous at a point}} \index{Topological Space!Continuous Functions} $x \in X$ iff for every open set $V\subseteq T$ containing $f(x)$, there is an open set $U \subseteq X$ so that $f(U) \subseteq V$.
+		
+		
+		A function is \textbf{\emph{continuous}} if it is continuous at every point $p \in X$.
+	\end{defn}
+	\textbf{DRAW THIS}\\
+	
+	On the Euclidean topology, this is exactly equivalent to the $\varepsilon-\delta$ definitions taught in calculus class. An exercise will sketch out a simple proof of this fact. This is one of the reasons that open sets are worth studying: it allows us to turn language using numerical epsilons and deltas into a ``coordinate-free" language of maps between sets.
+	
+	\begin{defn}[Homeomorphism]\label{def:Homeomorphism}
+		A function between two topological spaces $$f: X \rightarrow T$$ is a \textbf{\emph{homeomorphism}}\index{Homeomorphism}\index{Topological Space!Homeomorphism} iff it is bijective, with inverse $$f^{-1}: T \rightarrow X$$ so that both $f$ and $f^{-1}$ are continuous.
+	\end{defn}
+	
+	\textbf{COFFEE CUP = DOUGHNUT}
+	
+	In order to talk about manifolds \emph{locally} looking like Euclidean space, we need to be able to have a rigorous way of talking about things \emph{locally}. We want a good way of defining a \emph{neighborhood} around a point $p$. Certainly an open ball containing $p$ is a neighborhood of $p$ because it contains ``All the points near $p$''. In the Euclidean topology, any open set $U$ containing $p$ also contains a ball of some radius around $p$, and thus contains a neighborhood of $p$. We could say that a neighborhood is any open set containing $p$, or more generally:
+	
+	\begin{defn}[Neighborhood]\label{def:Neighborhood}
+		A \index{Topological Space!Neighborhood}\textbf{\emph{neighborhood}} $V$ of a point $p$ is a subset of $X$ that contains an open set containing $p$. That is $p \in U \subseteq V$.
+	\end{defn}
+	
+	This way, there is no need for $V$ to be open, but it does \emph{contain} an open set containing all the points close to $p$.
+	
+	\textbf{Draw a sphere, with a patch.}
+	
+	\begin{defn}[The Manifold]\label{def:Manifold}
+		A \textbf{\emph{manifold}}\index{Manifold} $M$ of dimension $n$ is a topological space such that for every point $p \in M$, there is a neighborhood $U$ of $p$ that is homeomorphic to an open  subset of $\mathbb{R}^n$.
+	\end{defn}
+	
+	This is exactly what we have been speaking about intuitively the whole time: for any point, a neighborhood around that point looks like Euclidean space. On a manifold, then, these neighborhoods are open sets that can be mapped in a one-to-one manner to open sets in $\mathbb{R}^n$. We use this notion to define a coordinate charts: 
+	
+	\begin{defn}[Coordinate Charts]\label{def:coordinate_charts}
+		A \textbf{\emph{coordinate chart}}\index{Manifold!Coordinate Chart} $(U, \varphi)$ is an open set $U \subseteq M$ together with a ``coordinate" map $\varphi: U \rightarrow \mathbb{R}^n$ that is a homeomorphism of $U$ to and open subset of $\mathbb{R}^n$.
+	\end{defn}
+	
+	Coordinate charts are vital to calculations on manifolds. They allow physicists to lay down a coordinate system that is valid for at least a \emph{part} of the manifold, by which numerical calculations can be done. Because $\varphi$ is one-to-one, we can parameterize the manifold on $U$ by $n$ parameters.
+	
+	\begin{example}[Charts on the Sphere]
+		The sphere has a \textbf{\emph{stereographic projection}}\index{Sphere!Stereographic Projection} to the plane that covers every point of the sphere except the north pole. 
+	\end{example}
+	\textbf{FINISH THIS}
+	
+	We would like to be able to patch up the whole manifold with coordinate charts, so that we can work globally. Such a patch that covers the entire manifold is called an \emph{atlas}.
+	
+	\begin{defn}[Atlas]\label{def:Atlas}
+		An \textbf{\emph{atlas}}\index{Manifold!Atlas} on a manifold is a set of coordinate charts $(U_\alpha, \varphi_\alpha)$ whose union $\bigcup_\alpha U_\alpha = M$.
+	\end{defn}
+	
+	Note that because each $\varphi_\alpha$ is a homeomorphism, meaning its inverse is also continuous, then if $U_\alpha \cap U_\beta \neq \emptyset$, we have $\varphi_\alpha \circ \varphi_\beta^{-1}$ is a continuous function as well, from $\mathbb{R}^n$ to $\mathbb{R}^n$. These are the \emph{transition maps}\index{Manifold!Transition Map} between coordinate patches.
+	
+	A \textbf{smooth manifold} is one where the $\varphi_\alpha$ are not only continuous but in fact infinitely differentiable (i.e. \textbf{smooth}). This makes the transition maps smooth functions on $\mathbb{R}^n$. Essentially all the examples we deal with for the remainder of this book will be smooth manifolds.
 	
 	% section elementary_topology (end)
 	
@@ -120,15 +226,27 @@
 	
 	% section embeddings_vs._intrinsic_geometry (end)
 	
-	\section{The Field} % (fold)
-	\label{sec:the_field}
+	\section{The Fields on a Manifold} % (fold)
+	\label{sec:the_fields_on_a_manifold}
 	
+	Let us go back to $\mathbb{R}^3$. Studying the point-set topology of $\mathbb{R}^3$ as we have been doing for manifolds is a very easy thing to do, and isn't so rewarding. The reason we do it is so we can apply it to studying the \emph{functions} on $\mathbb{R}^3$. A function on $\mathbb{R}^3$ takes three a tuple of three real inputs $(x,y,z)$ and outputs a real number $f(x,y,z)$.
 	
+	As you should be aware of by now, $(x,y,z)$ is not a point, but instead a \emph{coordinate representation} of some point. The manifold of Euclidean 3-space $\mathbf{E}^3$ can be modelled by $\mathbb{R}^3$ once a coordinate representation is chosen. This distinction is so slight that it is barely noted, but it is worth noting. A function $f: \mathbf{E}^3 \rightarrow \mathbb{R}$ in fact takes a point $p \in \mathbf{E}^3$ and outputs a real number $f(p)$.
 	
-	{\emph{[I want to somehow motivate why the vectors should looks like $\partial/\partial q_i$], and then go on to mention 1-forms are basically the possible local linear approximations of functions}}\\
+	We also study vector fields on Euclidean space. Before thinking too hard about coordinate co-variance and contra-variance, we would just pick an orthogonal reference frame, and label an orthonormal basis by three vectors $\hat{\mathbf{i}},\hat{\mathbf{j}},\hat{\mathbf{k}}$. Then, the form of a vector field looked like
 	
-	\textbf{We can use Einstein summation convention at this point}\\
+	\begin{equation*}
+		\mathbf{F} = P(x,y,z)\hat{\mathbf{i}} + Q(x,y,z)\hat{\mathbf{j}} + R(x,y,z)\hat{\mathbf{k}}
+	\end{equation*}
 	
+	and again, $(x,y,z)$ is in fact a coordinate representation of the invariant point $p = x \hat{\mathbf{i}} + y \hat{\mathbf{j}} + z \hat{\mathbf{k}}$.\\
+	
+	In higher dimensions, a function (i.e. a scalar field) could be specified in terms of a coordinate representation by $f(x_1, \dots, x_n)$. Usually, it is customary to replace $\hat{\mathbf{i}}, \hat{\mathbf{j}}, \hat{\mathbf{k}}$ by the notation $\hat{\mathbf{e}}_1, \hat{\mathbf{e}}_2, \dots$ just so that we do not run out of alphabet characters.
+	\begin{equation*}
+		\mathbf{F} = \sum_{i = 1}^n \mathbf{F}^i(x^1, \dots , x^n) ~ \hat{\mathbf{e}}_i = \mathbf{F}^i(x^j) ~\hat{\mathbf{e}}_i
+	\end{equation*}
+	where we are now beginning to use Einstein summation convention.
+
 	\textbf{Show a graph of the curves for coordinates $q_i$}
 	
 	\section{What Follows} % (fold)
