@@ -54,6 +54,8 @@
 	\section{Linear Algebra \& Coordinates} 
 	\label{sec:Linear Algebra & Coordinates}% (fold)
 	
+	\index{Linear Algebra|(}
+	
 	The traditional concept of a coordinate system, a series of perpendicular lines that together associate ordered tuples of numbers to each point in $n$-dimensional space, is not representative of all coordinate systems. For one, we do not need the requirement that the lines be perpendicular. Our coordinate system could instead look like this:
 	
 	\textbf{Graphic of non-perp lines and representing a point like that}
@@ -96,7 +98,7 @@
 	
 	A geometric vector like $u$ is \emph{not} a list of numbers. Once we pick a basis, $u$ can be \emph{represented by} a list of numbers, but if we change into a different basis, those numbers all have to change as well. This exact same idea will be the reason why a tensor is \emph{not} just a multi-dimensional array (like the ones encountered in computer science). It can be \emph{represented by} a multi-dimensional array once a coordinate system is chosen, but the numbers in each entry will differ depending on the coordinate system we pick. 
 	
-	This is very confusing (and will also be part of the reason why it's so hard to understand tensors as an undergraduate). In most math courses, we can freely call any list of numbers a `vector'. After all, you can add lists and scale them so they do form a `vector space'. This is a really unfortunate linguistic degeneracy in mathematics terminology. The type of vectors that we see in physics (acceleration, force, electric field, etc.) are \emph{geometric vectors}\index{Vector!Geometric} that have nothing \emph{a priori} to do with lists of numbers until we represent them as such by using coordinate systems. On the other hand, abstract structures that we can add and multiply by scalars are \emph{algebraic vectors}\index{Vector!As Lists}, and lists are an example of that. To avoid confusing lists of numbers with the geometric vectors in the physical world, we will call lists of numbers \emph{tuples}\index{Vector!Tuple} rather than vectors.
+	This is very confusing (and will also be part of the reason why it's so hard to understand tensors as an undergraduate). In most math courses, we can freely call any list of numbers a `vector'. After all, you can add lists and scale them so they do form a `vector space'. This is a really unfortunate linguistic degeneracy in mathematics terminology. The type of vectors that we see in physics (acceleration, force, electric field, etc.) are \emph{geometric vectors}\index{Vector!Geometric} that have nothing \emph{a priori} to do with lists of numbers until we represent them as such by using coordinate systems. On the other hand, abstract structures that we can add and multiply by scalars are \emph{algebraic vectors}, and lists are an example of that. To avoid confusing lists of numbers with the geometric vectors in the physical world, we will call lists of numbers \emph{tuples}\index{Vector!As a Tuple} rather than vectors.
 	
 	So returning to the geometric vector $\mathbf u$, a more careful way to write it would be:
 	
@@ -242,16 +244,18 @@
 	\end{equation*}
 	as desired. \textbf{THIS WOULD BE A GOOD EXERCISE: PROVE IT HAS TO BE A INVERSE}
 	
-	We say that the basis vectors $\mathbf v_i$ \textbf{co-vary}\index{covariant} and the coordinates $a_i$ \textbf{contra-vary}\index{contravariant} with the change of basis. The idea, although it sounds simple, is rather hard to get the feel of. It's worth thinking a good bit about how coordinates and bases need to vary in opposite ways so that the physical object represented by the coordinates stays the same regardless of how we look at it. 
+	We say that the basis vectors $\mathbf v_i$ \textbf{co-vary}\index{Vector!Covariant} and the coordinates $a_i$ \textbf{contra-vary}\index{Vector!Contravariant} with the change of basis. The idea, although it sounds simple, is rather hard to get the feel of. It's worth thinking a good bit about how coordinates and bases need to vary in opposite ways so that the physical object represented by the coordinates stays the same regardless of how we look at it. 
 	
 	\textbf{This will be a caption for a sketch of a 3-D rotation}
 	
 	 When you rotate your character in a video game (and in real life too, by the way), the world rotates \emph{contrary} to the direction that you've rotated in. That's because the coordinates of what you see have \emph{contra-varied} while your basis vectors, given by the direction you face have \emph{co-varied}. The end result is that despite changing your coordinate system, physics stays the same: invariant. The universe did not rotate itself just because you did. This extends beyond just rotations to \emph{all} linear transformations point. \\
 	
+	\index{Linear Algebra|)}
+	
 	\section{The Notion of Length on Vector Spaces} % (fold)
 	\label{sec:the_notion_of_length_on_vector_spaces}
 	
-	Let us consider the property of orthogonality. It's well known that for geometric vectors, there's more that we can do than just add, scale, and transform them: we can take dot products\footnote{Of course in 3-D we can also take a cross product. This will be discussed in the following chapters.} between them. When we have two geometric vectors in space, their dot product is a well defined number. If it is zero, then the vectors are orthogonal to one another. From the dot product and the magnitudes, it is possible to calculate the angle between two given vectors. 
+	Let us consider the property of orthogonality\index{Vector!Orthogonality}. It's well known that for geometric vectors, there's more that we can do than just add, scale, and transform them: we can take dot products\footnote{Of course in 3-D we can also take a cross product. This will be discussed in the following chapters.} between them. When we have two geometric vectors in space, their dot product is a well defined number. If it is zero, then the vectors are orthogonal to one another. From the dot product and the magnitudes, it is possible to calculate the angle between two given vectors. 
 	
 	When vectors are represented in terms of tuples of numbers, the dot product was taught to us as ``multiply component by component, and then sum that up". This is not, in general, what the dot product really is. Consider a basis transformation as below:
 	\begin{align*}
@@ -274,6 +278,10 @@
 	
 	Euclidean space, as well as the world in which we live in, both have an natural way to measure length between two points that is invariant of the coordinate system used. A vector space on its own does not, and so it is called an \emph{affine space}\index{Affine Space}. In affine space, although there are notions like ``parallel'', there is not a notion of distance. Adding an inner product to affine space gives rise to Euclidean space\index{Euclidean Space}. This will be discussed in much greater detail in the following two chapters. 
 	
+	The takeaway from this discussion is that general linear transformations don't preserve distances. Because of this, the usual definition of the dot product gives different results depending on the choice of coordinate system. To make length an \emph{invariant} regardless of coordinate choice, the definition of the inner product between two vectors needs to be appropriately modified. Without an \emph{inner product} to measure distance, $\mathbb{R}^n$ is \emph{not} Euclidean space $\mathbf{E}^n$, and is called affine space. Affine space looks the same regardless of the linear transformations we apply, while Euclidean space only looks the same when we rotate or translate our frame (because those are the two transformations that don't change lengths). 
+	
+	The reason we haven't encountered this problem so far in physics is simply because we always have worked in orthonormal frames given by an orthonormal basis like $\hat{\mathbf{i}}, \hat{\mathbf{j}}$, where the inner product in fact \emph{is} just the sum of the products of corresponding components. $\mathbb{R}^n$ without an inner product is affine, not Euclidean. Often however, when talking about Euclidean space, authors refer to it as $\mathbb{R}^n$ instead of $\mathbf{E}^n$ simply because $\mathbf{E}^n$ is modeled as $\mathbb{R}^n$ endowed with an inner product.
+	
 	
 	%
 	% In the succeeding chapter, we will study how to define these \emph{inner products}\index{Inner Product} on vectors. To obtain the invariant scalar from the contravariant coordinates, we will need to introduce a doubly-covariant quantity called the \emph{metric tensor}\index{Metric Tensor}.
@@ -283,7 +291,7 @@
 
 	% section the_notion_of_length_on_vector_spaces (end)
 
-	\section{Nonlinear Coordinate Systems are Locally Linear} % (fold)
+	\section[Nonlinear Coordinate Systems are Locally Linear]{Nonlinear Coordinate Systems are\\ Locally Linear}% (fold)
 	\label{sec:nonlinear_coordinate_systems_are_locally_linear}
 	
 	Perhaps you may be wondering why we've spent so much time on changing between coordinate systems represented by basis vectors centered at a fixed origin. Consider the change between cartesian and polar coordinates. What does this have to do with the linear changes of coordinates that we've been discussing?
@@ -388,9 +396,9 @@
 	% section nonlinear_coordinate_systems_are_locally_linear (end)
 	
 	\section{Einstein's Summation Convention} % (fold)
-	\label{sec:einstein_s_summation_convention}
+	\label{sec:einstein's_summation_convention}
 	
-	Row tuples, column tuples, matrices representing basis transformations (old to new and new to old), co-variance and contra-variance. These ideas have constituted the entirety of this first chapter, and although hopefully they have not been too difficult conceptually, the matrix manipulation even at this early level is already a pain. We have to write everything in terms of tuples, and we need to arbitrarily decide which ones are rows and which ones are columns, and which matrices are transposed so that all the matrix multiplications make sense, as defined in linear algebra. A young physicist named Albert Einstein used a convention of writing all these equations so that we did not have to explicitly write out tuples of abstract basis vectors and coordinates.
+	Row tuples, column tuples, matrices representing basis transformations (old to new and new to old), co-variance and contra-variance. These ideas have constituted the entirety of this first chapter, and although hopefully they have not been too difficult conceptually, the matrix manipulation even at this early level is already a pain. We have to write everything in terms of tuples, and we need to arbitrarily decide which ones are rows and which ones are columns, and which matrices are transposed so that all the matrix multiplications make sense, as defined in linear algebra. A young physicist named Albert Einstein used a convention\index{Summation Convention} of writing all these equations so that we did not have to explicitly write out tuples of abstract basis vectors and coordinates.
 	
 	The first step is to avoid explicitly writing out row tuples and column tuples. To do this, instead of writing out a whole tuple to represent a vector like $(v_1, \dots, v_n)$ we will simply write $\mathbf v_i$. $v_i$ should be viewed as the whole vector, rather than an $ith$ component. The index $i$ is \emph{free} and can be anything. 
 	
@@ -402,12 +410,12 @@
 		\mathbf u = \sum_{i} a^i \mathbf v_i
 	\end{equation}
 	
-	For another example, the gradient operator was written $\nabla = (\partial/\partial x_1, \dots, \partial/\partial x_n)$ and is now written simply as $\partial/\partial x^i$ (adopting upper indices for $x^i$ since coordinates contra-vary). This means that Equation~\eqref{eq:partial_transform} can be written as
+	For another example, the gradient\index{Gradient Operator} operator was written $\nabla = (\partial/\partial x_1, \dots, \partial/\partial x_n)$ and is now written simply as $\partial/\partial x^i$ (adopting upper indices for $x^i$ since coordinates contra-vary). This means that Equation~\eqref{eq:partial_transform} can be written as
 	\begin{equation}\label{eq:partial_transform2}
 		\frac{\partial}{\partial {x'}^i} = \sum_{j} \frac{\partial x^j}{\partial {x'}^i} \frac{\partial}{\partial x^j}.
 	\end{equation}
 	
-	Since $i$ is free to be anything (while $j$ is bound since it is being summed over), this equation holds for every $i$ in $1,\dots, n$ and so is indeed an equation relating two \emph{vectors} on both sides. Note also that this means the transformation matrix can be written as $\frac{\partial x^j}{\partial {x'}^i}$. By writing just a summation and not any explicit matrices, we avoid having to worry about unnecessary troubles like transposes, etc. Note also that this matrix has both upper and lower indices so that the upper index in $\frac{\partial x^j}{\partial {x'}^i}$ gets multiplied with the lower index $\frac{\partial}{\partial x^j}$ to cancel out, and all that remains is the lower index $i$. All the trouble of seeing what's covariant, what's contravariant, and what's invariant is washed away into just seeing how the upper indices and lower indices cancel out in the end.
+	Since $i$ is free to be anything (while $j$ is bound since it is being summed over), this equation holds for every $i$ in $1,\dots, n$ and so is indeed an equation relating two \emph{vectors} on both sides. Note also that this means the transformation matrix can be written as $\frac{\partial x^j}{\partial {x'}^i}$. By writing just a summation and not any explicit matrices, we avoid having to worry about unnecessary troubles like transposes, etc. Note also that this matrix has both upper and lower indices so that the upper index in $\frac{\partial x^j}{\partial {x'}^i}$ gets multiplied with the lower index $\frac{\partial}{\partial x^j}$ to cancel out, and all that remains is the lower index $i$. All the trouble of seeing what's covariant, what's contravariant, and what's invariant is washed away into just seeing how the upper indices and lower indices\index{Indices!Upper \& Lower} cancel out in the end.
 	
 	Sometimes in the mathematics literature in places where co- and contra-variance are of lesser importance, upper and lower indices are ignored and the notation describing something like a matrix-vector multiplication looks like this:
 	\begin{equation*}
@@ -426,7 +434,7 @@
 	\end{align*}
 	A dot product between $v$ and itself would simply be $\vec v\cdot \vec v = \vec v_i \vec v_i$ in Einstein's convention.
 	
-	Now returning back to caring about co-variance and contra-variance, this scheme makes every equation in the chapter shockingly short. Equation~\eqref{eq:RepU} becomes $\mathbf u = a^i \mathbf v_i$, Equation~\eqref{eq:CovariantTransform2} becomes $\mathbf v_i' = A^j_i \mathbf v_j$, Equation~\eqref{eq:ContravariantTransform2} becomes $a_i' = (A^{-1})^j_i a_j$. Equation~\eqref{eq:partial_transform2} is further reduced to just 
+	Now returning back to co-variance and contra-variance, this scheme makes every equation in the chapter shockingly short. Equation~\eqref{eq:RepU} becomes $\mathbf u = a^i \mathbf v_i$, Equation~\eqref{eq:CovariantTransform2} becomes $\mathbf v_i' = A^j_i \mathbf v_j$, Equation~\eqref{eq:ContravariantTransform2} becomes $a_i' = (A^{-1})^j_i a_j$. Equation~\eqref{eq:partial_transform2} is further reduced to just 
 	\begin{equation*}
 		\frac{\partial}{\partial {x'}^i} = \frac{\partial x^j}{\partial {x'}^i} \frac{\partial}{\partial x^j}.
 	\end{equation*}

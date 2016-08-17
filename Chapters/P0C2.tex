@@ -27,7 +27,7 @@
 	
 	\begin{example}
 		The sphere is a two-dimensional manifold
-	\end{example}
+	\end{example}\index{Sphere}
 	
 		This is the classic example of a manifold that isn't just $\mathbb R^n$. As we have said before, at every point on the sphere, things look locally like $\mathbb R^2$. Throughout this text, the sphere will often be our first go-to setting when we want to take concepts from Euclidean space and generalize them to manifolds. It is easy to visualize things on this space, so often the first question to ask when generalizing something is ``well, how would this thing look on the sphere?''. Of course for this reason ellipsoids, paraboloids, and hyperboloids are all also manifolds. Similarly familiar objects like cylinders, tori, or tori with multiple holes are also manifolds.
 		
@@ -64,7 +64,7 @@
 	
 	\begin{example}\label{ex:secret_torus}
 		Consider a two-dimensional parallelogram, with opposite sides identified as the same. This is a manifold.
-	\end{example}
+	\end{example}\index{Torus}
 	
 	\textbf{DRAW THIS}
 	
@@ -78,7 +78,7 @@
 	\begin{example}\label{ex:GL_n}
 		The set of \emph{invertible} $n\times n$ matrices forms a manifold of dimension $n^2$
 	\end{example}
-	It is not obvious that this is a manifold. We need to know that near any point on this set $M$, we can go in each of $n^2$ linearly independent directions. The way we can see this is that invertible matrices are precisely those matrices $A$ with \emph{nonzero determinant}, $\det A \neq 0$. If I pick a given point $A$ on this manifold corresponding to a matrix with nonzero determinant, then say it has determinant $d \neq 0$. Because the determinant is a \emph{continuous} function, then changing any of the $n^2$ components of $A$ by a small number $\delta$ will change the determinant by some small amount as well. We just need to pick $\delta$ small enough so that the resulting change has magnitude less than $d$, and therefore keeps the determinant away from $0$. As long as we pick the neighborhood around $A$ small enough, we still can vary in any of $n^2$ directions, and so \emph{locally} look like $\mathbb R^{n^2}$. 
+	It is not obvious that this is a manifold. We need to know that near any point on this set $M$, we can go in each of $n^2$ linearly independent directions. The way we can see this is that invertible matrices are precisely those matrices $A$ with \emph{nonzero determinant}, $\det A \neq 0$. If I pick a given point $A$ on this manifold corresponding to a matrix with nonzero determinant, then say it has determinant $d \neq 0$. Because the determinant is a \emph{continuous} function, then changing any of the $n^2$ components of $A$ by a small number $\delta$ will change the determinant by some small amount as well. We just need to pick $\delta$ small enough so that the resulting change has magnitude less than $d$, and therefore keeps the determinant away from $0$. As long as we pick the neighborhood around $A$ small enough, we still can vary in any of $n^2$ directions, and so it still \emph{locally} looks like $\mathbb R^{n^2}$. 
 	
 	\begin{example}\label{ex:SO_n}
 		The set of rotations in Euclidean $3$-space is a manifold. 
@@ -98,9 +98,11 @@
 	\section{Elementary Topology} % (fold)
 	\label{sec:elementary_topology}
 	
-	Before we can begin to do geometry on a space, we need to go even more fundamental still, into the real of topology\index{Topology}. Geometry takes its name from the ``study of the earth'', while topology takes its name from the more abstract ``study of places'' (\emph{topos}). Topology deals with ideas that, to a geometer or a physicist, border on the unphysical. In fact, it is likely easier to work to work with topological objects by relying on pure logical reasoning rather than geometrical intuition. Topology is in many ways an extension of set theory, and is a central tool in mathematical analysis of functions when defining and studying ideas like continuity.
+	\index{Topology|(}
 	
-	Elementary topology begins with \textbf{point-set topology}\index{Topology!Point-Set}, in which the central objects of study are the open and closed subsets of a main set $X$. This should in fact be a familiar idea from studying the real line $\mathbb{R}$.
+	Before we can begin to do geometry on a space, we need to go even more fundamental still, into the real of topology. Geometry takes its name from the ``study of the earth'', while topology takes its name from the more abstract ``study of places'' (\emph{topos}). Topology deals with ideas that, to a geometer or a physicist, border on the unphysical. In fact, it is likely easier to work to work with topological objects by relying on pure logical reasoning rather than geometrical intuition. Topology is in many ways an extension of set theory, and is a central tool in mathematical analysis of functions when defining and studying ideas like continuity.
+	
+	Elementary topology begins with \textbf{point-set topology}\index{Topology!Point-Set}, in which the central objects of study are the open and closed subsets of a main set $X$. This should in fact be a familiar idea from studying the real line $\mathbb{R}$, on which there is the \textbf{Euclidean Topology}\index{Euclidean Space!Topology of}\index{Topology!Euclidean}.
 	
 	On the real line, intervals of the form $(a,b)$ consisting of all $x$ so that $a<x<b$ were called \textbf{open intervals}. One of the interesting things about open intervals is that on an interval like $(a,b)$ there is no \emph{greatest} number in that set. 
 	\begin{prop}
@@ -147,7 +149,7 @@
 			\item Any finite/infinite union of sets in $\mathcal T$ is in $\mathcal T$
 			\item Any \emph{finite} intersection of sets in $\mathcal T$ is in $\mathcal T$
 		\end{itemize}
-		The elements of the topology $\mathcal T$ are called the \emph{open sets}\index{Topology!Open Set} of $X$. Complements of open sets are called \textbf{\emph{closed sets}}\index{Topology!Closed Set}. $X$ is then called a \emph{topological space}.
+		The elements of the topology $\mathcal T$ are called the \textbf{\emph{open sets}}\index{Topology!Open Set} of $X$. Complements of open sets are called \textbf{\emph{closed sets}}\index{Topology!Closed Set}. $X$ is then called a \textbf{\emph{topological space}}\index{Topology!Topological Space}.
 	\end{defn}
 	Note that on $\mathbb{R}$, the closed intervals $[a,b]$ are the complements of the unions of open sets informally denoted by $(-\infty, a) \cup (b, \infty)$.
 	
@@ -160,25 +162,26 @@
 	Why do we care about open sets so much? They allow us to define a notion of continuity for functions between any topological spaces:
 	
 	\begin{defn}[Continuity]\label{def:Continuity}
-		A function between two topological spaces $$f: X \rightarrow T$$ is \textbf{\emph{continuous at a point}} \index{Topological Space!Continuous Functions} $x \in X$ iff for every open set $V\subseteq T$ containing $f(x)$, there is an open set $U \subseteq X$ so that $f(U) \subseteq V$.
+		A function between two topological spaces $$f: X \rightarrow T$$ is \textbf{\emph{continuous at a point}} \index{Topology!Continuous Functions} $p \in X$ iff for every open set $V\subseteq T$ containing $f(p)$, there is an open set $U \subseteq X$ so that $f(U) \subseteq V$.
 		
 		
 		A function is \textbf{\emph{continuous}} if it is continuous at every point $p \in X$.
 	\end{defn}
 	\textbf{DRAW THIS}\\
 	
-	On the Euclidean topology, this is exactly equivalent to the $\varepsilon-\delta$ definitions taught in calculus class. An exercise will sketch out a simple proof of this fact. This is one of the reasons that open sets are worth studying: it allows us to turn language using numerical epsilons and deltas into a ``coordinate-free" language of maps between sets.
+	On the Euclidean topology, this is exactly equivalent to the $\varepsilon-\delta$ definitions taught in calculus class. An exercise will sketch out a simple proof of this fact. This is one of the reasons that open sets are worth studying: it allows us to turn language using numerical epsilons and deltas into a ``coordinate-free" language of maps between sets. Intuitively, a continuous function is one that doesn't locally mess with the space too much around any point. 
 	
 	\begin{defn}[Homeomorphism]\label{def:Homeomorphism}
-		A function between two topological spaces $$f: X \rightarrow T$$ is a \textbf{\emph{homeomorphism}}\index{Homeomorphism}\index{Topological Space!Homeomorphism} iff it is bijective, with inverse $$f^{-1}: T \rightarrow X$$ so that both $f$ and $f^{-1}$ are continuous.
+		A function between two topological spaces $$f: X \rightarrow T$$ is a \textbf{\emph{homeomorphism}}\index{Homeomorphism}\index{Topology!Homeomorphism} iff it is bijective, with inverse $$f^{-1}: T \rightarrow X$$ so that both $f$ and $f^{-1}$ are continuous.
 	\end{defn}
 	
-	\textbf{COFFEE CUP = DOUGHNUT}
+	An example of a homeomorphism that is one of the most common ideas associated with topology is that something like a coffee cup is homeomorphic to a doughnut as a topological space. \\
+	\textbf{ELABORATE HERE: COFFEE CUP = DOUGHNUT}
 	
 	In order to talk about manifolds \emph{locally} looking like Euclidean space, we need to be able to have a rigorous way of talking about things \emph{locally}. We want a good way of defining a \emph{neighborhood} around a point $p$. Certainly an open ball containing $p$ is a neighborhood of $p$ because it contains ``All the points near $p$''. In the Euclidean topology, any open set $U$ containing $p$ also contains a ball of some radius around $p$, and thus contains a neighborhood of $p$. We could say that a neighborhood is any open set containing $p$, or more generally:
 	
 	\begin{defn}[Neighborhood]\label{def:Neighborhood}
-		A \index{Topological Space!Neighborhood}\textbf{\emph{neighborhood}} $V$ of a point $p$ is a subset of $X$ that contains an open set containing $p$. That is $p \in U \subseteq V$.
+		A \index{Topology!Neighborhood}\textbf{\emph{neighborhood}} $V$ of a point $p$ is a subset of $X$ that contains an open set containing $p$. That is $p \in U \subseteq V$.
 	\end{defn}
 	
 	This way, there is no need for $V$ to be open, but it does \emph{contain} an open set containing all the points close to $p$.
@@ -189,13 +192,13 @@
 		A \textbf{\emph{manifold}}\index{Manifold} $M$ of dimension $n$ is a topological space such that for every point $p \in M$, there is a neighborhood $U$ of $p$ that is homeomorphic to an open  subset of $\mathbb{R}^n$.
 	\end{defn}
 	
-	This is exactly what we have been speaking about intuitively the whole time: for any point, a neighborhood around that point looks like Euclidean space. On a manifold, then, these neighborhoods are open sets that can be mapped in a one-to-one manner to open sets in $\mathbb{R}^n$. We use this notion to define a coordinate charts: 
+	This is exactly what we have been speaking about intuitively the whole time: for any point, a neighborhood around that point looks like Euclidean space. On a manifold, then, these neighborhoods are open sets that can be mapped in a one-to-one manner to open sets in $\mathbb{R}^n$. We use this notion to define coordinate charts: 
 	
 	\begin{defn}[Coordinate Charts]\label{def:coordinate_charts}
 		A \textbf{\emph{coordinate chart}}\index{Manifold!Coordinate Chart} $(U, \varphi)$ is an open set $U \subseteq M$ together with a ``coordinate" map $\varphi: U \rightarrow \mathbb{R}^n$ that is a homeomorphism of $U$ to and open subset of $\mathbb{R}^n$.
 	\end{defn}
 	
-	Coordinate charts are vital to calculations on manifolds. They allow physicists to lay down a coordinate system that is valid for at least a \emph{part} of the manifold, by which numerical calculations can be done. Because $\varphi$ is one-to-one, we can parameterize the manifold on $U$ by $n$ parameters.
+	The revolutionary idea of Descartes has been translated beyond Euclidean space, onto manifolds. Coordinate charts are vital to going from geometric data into algebraic calculations. They allow physicists to lay down a coordinate system that is valid for at least a \emph{part} of the manifold, on which numerical calculations can be done. Because $\varphi$ is one-to-one, we can parameterize the part of the manifold on $U$ by $n$ parameters.
 	
 	\begin{example}[Charts on the Sphere]
 		The sphere has a \textbf{\emph{stereographic projection}}\index{Sphere!Stereographic Projection} to the plane that covers every point of the sphere except the north pole. 
@@ -212,6 +215,7 @@
 	
 	A \textbf{smooth manifold} is one where the $\varphi_\alpha$ are not only continuous but in fact infinitely differentiable (i.e. \textbf{smooth}). This makes the transition maps smooth functions on $\mathbb{R}^n$. Essentially all the examples we deal with for the remainder of this book will be smooth manifolds.
 	
+	\index{Topology|)}
 	% section elementary_topology (end)
 	
 	\section{Embeddings vs. Intrinsic Geometry} % (fold)
@@ -229,11 +233,13 @@
 	\section{The Fields on a Manifold} % (fold)
 	\label{sec:the_fields_on_a_manifold}
 	
-	Let us go back to $\mathbb{R}^3$. Studying the point-set topology of $\mathbb{R}^3$ as we have been doing for manifolds is a very easy thing to do, and isn't so rewarding. The reason we do it is so we can apply it to studying the \emph{functions} on $\mathbb{R}^3$. A function on $\mathbb{R}^3$ takes three a tuple of three real inputs $(x,y,z)$ and outputs a real number $f(x,y,z)$.
+	\index{Vector!As a Derivation|(}
+	
+	Let us go back to $\mathbb{R}^3$\index{Euclidean Space}. Studying the point-set topology of $\mathbb{R}^3$ as we have been doing for manifolds is a very easy thing to do, and isn't so rewarding. The reason we do it is so we can apply it to studying the \emph{functions} on $\mathbb{R}^3$. A function on $\mathbb{R}^3$ takes three a tuple of three real inputs $(x,y,z)$ and outputs a real number $f(x,y,z)$.
 	
 	As you should be aware of by now, $(x,y,z)$ is not a point, but instead a \emph{coordinate representation} of some point. The manifold of Euclidean 3-space $\mathbf{E}^3$ can be modelled by $\mathbb{R}^3$ once a coordinate representation is chosen. This distinction is so slight that it is barely noted, but it is worth noting. A function $f: \mathbf{E}^3 \rightarrow \mathbb{R}$ in fact takes a point $p \in \mathbf{E}^3$ and outputs a real number $f(p)$.
 	
-	We also study vector fields on Euclidean space. Before thinking too hard about coordinate co-variance and contra-variance, we would just pick an orthogonal reference frame, and label an orthonormal basis by three vectors $\hat{\mathbf{i}},\hat{\mathbf{j}},\hat{\mathbf{k}}$. Then, the form of a vector field looked like
+	We also study vector fields on Euclidean space\index{Euclidean Space!Fields on}. Before thinking too hard about coordinate co-variance and contra-variance, we would just pick an orthogonal reference frame, and label an orthonormal basis by three vectors $\hat{\mathbf{i}},\hat{\mathbf{j}},\hat{\mathbf{k}}$. Then, the form of a vector field looked like
 	
 	\begin{equation*}
 		\mathbf{F} = P(x,y,z)\hat{\mathbf{i}} + Q(x,y,z)\hat{\mathbf{j}} + R(x,y,z)\hat{\mathbf{k}}
@@ -241,13 +247,135 @@
 	
 	and again, $(x,y,z)$ is in fact a coordinate representation of the invariant point $p = x \hat{\mathbf{i}} + y \hat{\mathbf{j}} + z \hat{\mathbf{k}}$.\\
 	
-	In higher dimensions, a function (i.e. a scalar field) could be specified in terms of a coordinate representation by $f(x_1, \dots, x_n)$. Usually, it is customary to replace $\hat{\mathbf{i}}, \hat{\mathbf{j}}, \hat{\mathbf{k}}$ by the notation $\hat{\mathbf{e}}_1, \hat{\mathbf{e}}_2, \dots$ just so that we do not run out of alphabet characters.
+	In higher dimensions, a function (i.e. a scalar field) could be specified in terms of a coordinate representation by $f(x_1, \dots, x_n)$. Usually, it is customary to replace $\hat{\mathbf{i}}, \hat{\mathbf{j}}, \hat{\mathbf{k}}$ by the notation $\hat{\mathbf{e}}_1, \hat{\mathbf{e}}_2, \dots, \hat{\mathbf{e}}_n$ to denote an orthonormal frame in $n$ dimensions, just so that we do not run out of alphabet characters.
 	\begin{equation*}
 		\mathbf{F} = \sum_{i = 1}^n \mathbf{F}^i(x^1, \dots , x^n) ~ \hat{\mathbf{e}}_i = \mathbf{F}^i(x^j) ~\hat{\mathbf{e}}_i
 	\end{equation*}
-	where we are now beginning to use Einstein summation convention.
-
+	where we are now beginning to use Einstein summation convention\index{Summation Convention}. Of course, we do not \emph{need} an orthonormal frame to describe a vector. We can use any basis $\mathbf e_i$ and write $p = x^i \mathbf e_i$, $\mathbf{F}(p) = \mathbf{F}^i(p) \mathbf e_i$.
+	
+	The first important thing to note is that a scalar field is an invariant, \emph{physical} thing on $\mathbb{R}^n$ (and on manifolds in general). When we talk about the temperature at each point in space, or classically when we talk about the energy density of the electric field at each point in space, that means there is a specific invariant number at each point. It doesn't matter whether we set up coordinates $x^i$ on the space or not. The temperature at a point does not depend on what coordinate system we represent that point in. 
+	
+	Similarly, a \emph{vector field} is also an invariant physical thing! The components $\mathbf F^i$ of the vector field, of course, \emph{will} depend on the coordinate system we use, but the field $\mathbf{F}$ itself will \emph{not}. Just like the wind doesn't change its motion across the earth when we change the coordinate system we use for measuring it, $\mathbf{F} = \mathbf{F}^i \mathbf e_i$ will remain invariant at every point. Only the components $\mathbf{F}^i$ will contra-vary against our co-variant $\mathbf e_i$.
+	
+	Using these ideas from $\mathbb{R}^n$, consider a manifold $M$. A scalar function on $M$ is no difficult thing to define: it associates to each point $p \in M$ a value $f(p)$. Because we can form an atlas of charts $(U_\alpha, \varphi_\alpha)$, we can locally form a function $f \circ \varphi_\alpha^{-1} : \mathbb{R}^n \rightarrow \mathbb R$ on Euclidean $\mathbb{R}^n$. Then we can say $f$ is continuous/differentiable/smooth if every $f \circ \varphi_\alpha^{-1}$ is.
+	
+	The $\varphi_\alpha^{-1}$ allow us to take a tuple of $n$ coordinates $q^1, \dots, q^n$ on $\mathbb{R}^n$ and associate that to a unique point on $M$ that is part of $U$. So we see how a scalar field $f: M \rightarrow R$ can descend to a function on the local coordinates. 
+	
 	\textbf{Show a graph of the curves for coordinates $q_i$}
+	
+	The question now is what about a \emph{vector field} $\mathbf{F}$ on our manifold $M$? What does this thing mean? We want to associate to each point on $M$ a vector at that point. Note that this doesn't mean we want to associate to each point on $M$ just some tuple in $\mathbb{R}^n$, because a vector is \emph{not} just a tuple of numbers (that's coordinate dependent). We want to associate a physical vector at that point. 
+	
+	 Intuitively it should make sense what we mean by this: 
+	
+	\textbf{PICTURE OF A BALL WITH A VECTOR FIELD ON IT}
+	
+	In Section~\ref{sec:nonlinear_coordinate_systems_are_locally_linear}, we showed how when adopting polar coordinates, the corresponding vectors $\hat{\mathbf{r}},\hat{\mathbf{\theta}}$ change direction depending on the point $p$ we're describing. Each of them points in the direction of an increase in the corresponding coordinate. So for a general curvilinear coordinate system on a manifold $q^i$, the associated vectors $\mathbf e_i$ would be tangent to the paths traced out by varying $q_i$. 
+	
+	The vectors $e_i$ are tangents to the curves traced out by letting each $q^i$ vary (i.e. $\phi^{-1} (q^i)$). 
+	
+	At each point $p \in M$, the local tangent vector $\mathbf e_i$ corresponding to coordinate $q^i$ is associated with increasing $q^i$ while holding all other coordinates fixed. This already gives us enough information to know one thing: the rate of change of a scalar function $f$ along $\mathbf e_i$. It is exactly the partial derivative with respect to $q^i$
+	
+	\begin{equation}
+		D_{\mathbf e_i} = \frac{\partial f}{\partial q^i}
+	\end{equation}
+	
+	We already know from Section~\ref{sec:einstein's_summation_convention} that partial derivative operators with respect to coordinates are \emph{co}-variant, just like the vectors $\mathbf e_i$ themselves. So for any coordinate system $q^i$, we have a set of differential operators $\partial/\partial q^i$ corresponding to directional derivatives along the basis vectors $\mathbf e_i$. So we have a correspondence between coordinate frames $\mathbf e_i$ at a point and the differential operators associated with their coordinate system $q^i$.
+	
+	\begin{align*}
+		&\text{Covariant Quantities:}&  \mathbf e_i \longleftrightarrow \frac{\partial}{\partial q^i}
+	\end{align*}
+	
+	 The set of vectors at $p$ correspond to all the possible directions that paths on $M$ can pass through $p$. If we have a path $\gamma \in M$ parameterized by $t$ so that $\gamma(t_0) = p$ then we can compute derivative along the direction $\mathbf v$ tangent to $\gamma$ as
+	 \begin{equation}
+	 	D_\mathbf v f = \frac{d}{dt} \left[ f\left(\gamma(t) \right) \right]
+	 \end{equation}
+	 So although even though we don't have an idea of how to represent $\mathbf v$ in terms of our coordinate system $q^i$, we know how to represent its directional derivative operator. That is just:
+	 \begin{equation}
+		D_\mathbf v =  \frac{dq^i}{dt} \frac{\partial}{\partial q^i}
+	 \end{equation}
+	 where $dq^i/dt$ is the change in $q^i = \varphi^i(\gamma(t))$.
+	 \begin{equation}
+	 	\frac{dq^i}{dt} = \frac{d}{dt} \big[ \varphi^i(\gamma(t)) \big]
+	 \end{equation}
+	 This gives us the ``component'' $v^i$ associated with $\partial/\partial q^i$ for our directional derivative in our coordinate basis:
+	 \begin{equation}
+	 	D_\mathbf v = \frac{d}{dt} \big[ \varphi^i (\gamma(t))\big] \frac{\partial}{\partial q^i} = v^i \frac{\partial}{\partial q^i}
+	 \end{equation}
+	 
+	But this is a correspondence between two physical, invariant objects associated with a direction:
+	\begin{align*}
+		\text{Tangent Vectors at $p$} &\rightleftharpoons \text{Directional Derivatives at $p$}\\
+		\mathbf v = v^i \mathbf e_i &\longleftrightarrow D_\mathbf v = v^i \frac{\partial}{\partial q^i} 
+	\end{align*}
+	Independent of the coordinates $q^i$ that we use, the differential operator $D_{\mathbf v}$ will give the same invariant value when acting on a physical scalar field $f$, namely $v^i \frac{\partial f}{\partial q^i}$. So this differential operator is an invariant just like its corresponding vector $\mathbf v$. Moreover, in the case of Euclidean space, the components $v^i$ of the directional derivative operator are exactly the same as the components of $\mathbf v$ itself:
+	\begin{equation}
+		D_\mathbf v = \mathbf v \cdot \nabla = v^i \frac{\partial}{\partial x^i}
+	\end{equation}
+	
+	Just like with vector addition, the sum $\mathbf u + \mathbf v$ corresponds to the operator $ D_{\mathbf u + \mathbf v} = D_\mathbf u + D_\mathbf v$, and a multiple $c \mathbf u$ gives the multiple of the original derivative $D_{c \mathbf u} = c D_\mathbf u$. Directional derivatives form a vector space in one-to-one correspondence with the vectors at $p$.  For this reason we say that these directional derivatives \emph{are} the vectors at $p$. Vectors, at their core, represent flows along direction, which is no different from what a directional derivative operator along that point represents. 
+	
+	This leads us to define the \textbf{tangent space} of the vectors at a point $p$ of a manifold $M$.
+	\begin{defn}[Tangent Space]
+		The tangent space\index{Manifold!Tangent Space} at a point $p$ of a manifold $M$, $T_p M$ is the set of all directional derivative operators at $p$.
+	\end{defn}
+
+	Going back to $\mathbb{R}^n$, this means that this whole time we could have treated $\hat{\mathbf{i}}$ as $\partial/\partial x$, $\hat{\mathbf{j}}$ as $\partial/\partial y$, etc. Using this idea is powerful, because now just from having a coordinate patch, $q^i$ on a manifold, we obtain the full set of tangent vectors $\partial/\partial q^i$ at each point on the manifold. 
+	
+	The fundamental observation is that vectors are in one-to-one correspondence with the \emph{first order behaviour} of curves passing through $p$ (i.e. the instantaneous velocity along that curve). This in turn corresponds to first-order derivative operators at $p$ (corresponding to moving along the curve's direction instantaneously). Vectors can be viewed as equivalence classes of curves through $p$, where two curves $\gamma_1, \gamma_2$ are equivalent if they share the same tangent at $p$. \\
+	
+	The guiding philosophy of this section is that everything vectors represent: namely direction and magnitude, can be derived from the way that we compute changes in a scalar function via directional derivatives. From multivariable calculus, it is easy to see that the first order change in a function along a curve is the sum of the changes due to each coordinate:
+	\begin{equation}
+		\frac{df}{dt} = \frac{\partial f}{\partial q^i} \frac{dq^i}{dt}
+	\end{equation}
+	Given a function $f$ and given a specific direction of first order changes $dq^i/dt$, this gives a \emph{real, invariant} quantity. Note that this quantity is dependent on two objects: the \emph{function} that we are differentiating and the \emph{direction} along which we differentiate.
+	
+	When we focus a specific direction along a curve: $dq^i/dt = v^i$, and allow the function to be arbitrary we get a vector corresponding to change along our path:
+	
+	\begin{equation}
+		\mathbf v  = v^i \frac{\partial}{\partial q^i} 
+	\end{equation}
+	This needs to be fed a function $f$ to give a real number value.
+	
+	On the other hand, if we pick a specific \emph{function} with first order behaviour given by $\frac{\partial f}{\partial q^i} = \omega_i$ and allow for the \emph{direction} to be arbitrary, we get something else
+	
+	\begin{equation}
+		df = \omega_i dq^i
+	\end{equation}
+	This needs to be fed a direction $dq^i$ to give an associated real value. This object is called a \textbf{covector}\index{Vector!Covector} or a \textbf{1-form}\index{Differential Form!1-Form}, and is often denoted by the greek letter $\omega$. It is an entirely different object from a vector. Where a vector represents a direction that we can differentiate functions alone, this represents a \emph{function differential} that we can take along a direction. It is the dual to the notion of a vector, but behaves in very much the same way.
+	
+	The 1-forms on a manifold give rise to the \textbf{cotangent space}.
+	
+	\begin{defn}[Cotangent Space]
+		The cotangent space\index{Manifold!Cotangent Space} at a point $p$ of a manifold $M$, $T_p^* M$ is the set of all first order differentials at $p$.
+	\end{defn}
+	
+	Vectors were defined in terms of curves: they represent the first order approximations to curves (namely their tangents, and the derivatives along them). 1-Forms are defined in terms of \emph{functions}: they represent the first order approximations of functions (namely their differentials). At first glance, you may think that for a dimension $n$ manifold, there are only $n$ directions to go in whereas we have seemingly infinite freedom in picking the functions passing through $p$ so there are many more 1-forms than there are vectors, but this isn't true.
+	
+	Just as there are a huge number of functions that we can define at $p$, there are a huge number of curves that go through $p$, but because we only care about \underline{first order behaviour} at $p$ for the curves, many curves give the same tangent vector. Similarly, many functions will give the same 1-form, if they have the same \underline{first order behaviour}. It should start to become clear that there is duality between these two ideas
+	
+	\begin{concept}
+		The first-order behaviour of curves at a point $p$ (i.e. vectors) is dual (in a sense that will be discussed in the next chapter) to the first-order behaviour of the functions at $p$. On a manifold of dimension $n$, both of these are vector spaces of dimension $n$. 
+	\end{concept}
+	
+	\begin{center}
+	 \begin{tabular}{|p{5cm} | p{5cm}|} 
+	 \hline
+	 Vectors & 1-Forms  \\ [0.5ex] 
+	 \hline \hline
+	 First-order approximations\newline to curves & 
+	 First-order approximations\newline to functions \\
+	 \hline
+	 To differentiate\newline functions along &
+	 To be integrated\newline along curves \\
+	 \hline
+	 Contravariant components & Covariant components \\
+	 \hline
+	 Space of dimension $n$ & Space of dimension $n$ \\ [1ex] 
+	 \hline
+	\end{tabular}
+	\end{center}
+	
+	\index{Vector!As a Derivation|)}
 	
 	\section{What Follows} % (fold)
 	\label{sec:what_follows}
@@ -257,19 +385,21 @@
 	\end{center}
 	The rest of this book will expand both on the geometry of fields and manifolds, and also on the larger ideas of groups, homogenous spaces, and representations. \\
 	
-	In Chapter 3, we will continue studying the fields that live on manifolds. We'll prove the General Stokes' theorem, an elegant generalization of the divergence, curl, and line integral theorems that have been taught in multivariable calculus. From there, we will study more thoroughly the concept of a metric, and how this relates vector fields to differential forms. The notion of a derivative will be extended to manifolds, and will take the form of a ``Lie Derivative''.\\
+	In Chapter 3, we will continue studying the fields that live on manifolds. We'll prove the General Stokes' theorem, an elegant generalization of the divergence, curl, and line integral theorems that have been taught in multivariable calculus. From there, we will study more thoroughly the concept of distance on a vector space and on a manifold using a metric, and how this relates vector fields to differential forms. The notion of a derivative will be extended to manifolds, and will take the form of a ``Lie Derivative''.\\
 	
-	In Chapter 4, we will introduce Fourier Analysis as a powerful tool for studying functions on the real line an Euclidean space. Then we will shift to looking at the representation theory of \emph{finite} groups and illustrate the parallels. We will then return to the study of continuous group actions on especially symmetric ``homogenous'' spaces, and show how Fourier analysis is related to their representation theory. Towards the end, we will expand on the idea behind a group actions on manifolds and look at the representation theory, giving a small glimpse into harmonic analysis: the Fourier transform on manifolds. Just as in the first chapter, we'll recognize the importance of the underlying differential geometry of the group action. The underlying differential structure is known as the ``Lie Algebra'' of the group, and we will discuss that.\\
+	In Chapter 4, we will introduce Fourier Analysis as a powerful tool for studying functions on the real line and in Euclidean space. We'll see how the set of functions on a manifold naturally forms a vector space (of infinite dimension) and consider the Fourier Transform as a change of basis. \\
 	
-	In Chapter 5, we introduce some background behind Lie Algebras. We put almost all of our focus on one special case: the Lie algebra $\frak{sl}_2 (\mathbb C)$. The relationship between this algebra and the symmetries of the sphere are explored, as well as its applications in quantum physics for studying angular momentum. The representation theory of a variant of this algebra gives rise to the concept of spin. \\
+	In Chapter 5, we will shift to looking at the representation theory of \emph{finite} groups and illustrate the parallels. We will then return to the study of continuous group actions on especially symmetric ``homogenous'' spaces, and show how Fourier analysis is related to their representation theory. Towards the end, we will expand on the idea behind a group actions on manifolds and look at the representation theory, giving a small glimpse into harmonic analysis: the Fourier transform on manifolds. Just as in the first chapter, we'll recognize the importance of the underlying differential geometry of the group action. The underlying differential structure is known as the ``Lie Algebra'' of the group, and we will discuss that.\\
 	
-	In Chapter 6, we move further into physics, going over classical Lagrangian and Hamiltonian Mechanics. We discuss Noether's theorem in both the Lagrangian and Hamiltonian Pictures, and then we move to study Hamiltonian mechanics using the language of differential geometry that we have developed. This will give rise to \emph{symplectic geometry}. In chapter 7, combining this with representation theory gives rise to \emph{quantum mechanics}.\\
+	In Chapter 6, we introduce some background behind Lie Algebras. We put almost all of our focus on one special case: the Lie algebra $\frak{sl}_2 (\mathbb C)$. The relationship between this algebra and the symmetries of the sphere are explored, as well as its applications in quantum physics for studying angular momentum. The representation theory of a variant of this algebra gives rise to the concept of spin. \\
 	
-	In Chapter 7, we apply differential geometry first to the study of electromagnetism, and then to gravitation. We shall arrive at Einstein's theory of gravity. Along the way, we study in even greater detail the notion of a metric, a connection, and curvature. \\
+	In Chapter 7, we move further into physics, going over classical Lagrangian and Hamiltonian Mechanics. We discuss Noether's theorem in both the Lagrangian and Hamiltonian Pictures, and then we move to study Hamiltonian mechanics using the language of differential geometry that we have developed. This will give rise to \emph{symplectic geometry}. In chapter 7, combining this with representation theory gives rise to \emph{quantum mechanics}.\\
 	
-	In Chapter 8, we use the representation theory and differential geometry that we have developed so far to study how quantum mechanics can arise from quantizing a symplectic manifold.\\
+	In Chapter 8, we apply differential geometry first to the study of electromagnetism, and then to gravitation. We shall arrive at Einstein's theory of gravity. Along the way, we study in even greater detail the notion of a metric, a connection, and curvature. \\
 	
-	Finally, Chapter 9 studies Lie algebras in greater detail, working towards the \emph{classification of complex semisimple Lie algebras}. Along the way, we will look at the relationship between representation theory of Lie algebras and modern physics. 
+	In Chapter 9, we use the representation theory and differential geometry that we have developed so far to study how quantum mechanics can arise from quantizing a symplectic manifold.\\
+	
+	Finally, Chapter 10 studies Lie algebras in greater detail, working towards the \emph{classification of complex semisimple Lie algebras}. Along the way, we will look at the relationship between representation theory of Lie algebras and modern physics. 
 	
 	% section what_follows (end)
 	
