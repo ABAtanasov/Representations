@@ -1,11 +1,11 @@
-\documentclass[../master.tex]{subfiles}
- 
- 
-\begin{document}
-	
-	\chapter{Old Notions Revisited}
-	\section{The Cartesian Coordinate System} % (fold)
-	\label{sec:Cartesian}
+% \documentclass[../master.tex]{subfiles}
+%
+%
+% \begin{document}
+%
+\chapter{Old Notions Revisited}
+\section{The Cartesian Coordinate System} % (fold)
+\label{sec:Cartesian}
 	
 	
 	
@@ -276,7 +276,12 @@
 	
 	It is here that there is a big subtlety. A vector space on its own does not have a notion of length. We've just seen choosing different bases would give rise to different length scales and notions of ``perpendicular'' as well. Endowing a vector space with a way to universally tell what the length of a vector is, or whether two vectors are perpendicular is actually adding \emph{extra structure} to the space. It picks a whole class of specific coordinate systems and says ``these are the orthogonal reference frames; the others are skewed and stretched perspectives''. This allows us to measure length using an invariant \emph{inner product}\index{Inner Product}. 
 	
-	Euclidean space, as well as the world in which we live in, both have an natural way to measure length between two points that is invariant of the coordinate system used. A vector space on its own does not, and so it is called an \emph{affine space}\index{Affine Space}. In affine space, although there are notions like ``parallel'', there is not a notion of distance. Adding an inner product to affine space gives rise to Euclidean space\index{Euclidean Space}. This will be discussed in much greater detail in the following two chapters. 
+	Euclidean space, as well as the world in which we live in, both have an natural way to measure length between two points that is invariant of the coordinate system used. A vector space on its own does not, and so it is called an \emph{affine space}\index{Affine Space}. In affine space, although there are notions like ``parallel'', there is not a notion of distance. Adding an inner product to affine space gives rise to Euclidean space\index{Euclidean Space}.
+	
+	\textbf{Insert graphic here, with an affine transformation of the plane}
+	\textbf{Caption something like ``If Euclid's space allowed for not just rotations/translations but also general linear transformations like this, being perpendicular would be a coordinate-dependent idea. Note parallel lines, on the other hand, stay parallel, so affine space \emph{does} have a notion of parallel''}
+	
+	This will be discussed in much greater detail in the following two chapters. 
 	
 	The takeaway from this discussion is that general linear transformations don't preserve distances. Because of this, the usual definition of the dot product gives different results depending on the choice of coordinate system. To make length an \emph{invariant} regardless of coordinate choice, the definition of the inner product between two vectors needs to be appropriately modified. Without an \emph{inner product} to measure distance, $\mathbb{R}^n$ is \emph{not} Euclidean space $\mathbf{E}^n$, and is called affine space. Affine space looks the same regardless of the linear transformations we apply, while Euclidean space only looks the same when we rotate or translate our frame (because those are the two transformations that don't change lengths). 
 	
@@ -400,11 +405,11 @@
 	
 	Row tuples, column tuples, matrices representing basis transformations (old to new and new to old), co-variance and contra-variance. These ideas have constituted the entirety of this first chapter, and although hopefully they have not been too difficult conceptually, the matrix manipulation even at this early level is already a pain. We have to write everything in terms of tuples, and we need to arbitrarily decide which ones are rows and which ones are columns, and which matrices are transposed so that all the matrix multiplications make sense, as defined in linear algebra. A young physicist named Albert Einstein used a convention\index{Summation Convention} of writing all these equations so that we did not have to explicitly write out tuples of abstract basis vectors and coordinates.
 	
-	The first step is to avoid explicitly writing out row tuples and column tuples. To do this, instead of writing out a whole tuple to represent a vector like $(v_1, \dots, v_n)$ we will simply write $\mathbf v_i$. $v_i$ should be viewed as the whole vector, rather than an $ith$ component. The index $i$ is \emph{free} and can be anything. 
+	The first step is to avoid explicitly writing out row tuples and column tuples. To do this, instead of writing out a whole tuple to represent a vector like $(v_1, \dots, v_n)$ we will simply write $v_i$. $v_i$ should be viewed as the whole vector, rather than a specific $ith$ component of $\mathbf v$. The index $i$ is \emph{free} and can be anything. 
 	
 	The reason it is preferable to view $v_i$ as the whole vector rather than a specific $i$th component of it is because of the same reason given at the end of Section~\ref{sec:Cartesian}, that we never care about just a specific component, but rather the vector as a whole. 
 	
-	The second step is to be able to differentiate between \emph{covariant} quantities and contravariant quantities. The convention is this: if the quantity is covariant, like a basis vector, then write its index \emph{downstairs}: $\mathbf v_i$. On the other hand, of a quantity is contravariant (like a coordinate) then write its index \emph{upstairs} as $a^i$ instead\footnote{If you are worried that this will be confused with exponentiation, don't be. In practice, such confusion rarely arises.}. Then we can write Equation~\eqref{eq:RepU} as 
+	The second step is to be able to differentiate between \emph{covariant} quantities and contravariant quantities. The convention is this: if the quantity is covariant, like a basis vector, then write its index \emph{downstairs}: $\mathbf v_i$. On the other hand, of a quantity is contravariant (like a component of a vector) then write its index \emph{upstairs} as $v^i$ instead\footnote{If you are worried that this will be confused with exponentiation, don't be. In practice, such confusion almost never arises.}. Then we can write Equation~\eqref{eq:RepU} as 
 	
 	\begin{equation}
 		\mathbf u = \sum_{i} a^i \mathbf v_i
@@ -419,9 +424,9 @@
 	
 	Sometimes in the mathematics literature in places where co- and contra-variance are of lesser importance, upper and lower indices are ignored and the notation describing something like a matrix-vector multiplication looks like this:
 	\begin{equation*}
-		(\mathbf A \vec v)_i = \sum_{j} \mathbf A_{ij} \vec v_j.
+		(\mathbf A \mathbf v)_i = \sum_{j} \mathbf A_{ij} \mathbf v_j.
 	\end{equation*}
-	That is, the $i$th component of the product $\mathbf A \vec v$ is the sum over $j$ of the $ij$th component of $\mathbf A$ with the $j$th component of $\vec v$. For a matrix-matrix multiplication this would look like
+	That is, the $i$th component of the product $\mathbf A \mathbf v$ is the sum over $j$ of the $ij$th component of $\mathbf A$ with the $j$th component of $\mathbf v$. For a matrix-matrix multiplication this would look like
 	\begin{equation*}
 		(\mathbf A \mathbf{B})_{ik} = \sum_{j} \mathbf A_{ij} \mathbf B_{jk}.
 	\end{equation*}
@@ -432,7 +437,7 @@
 		(\mathbf A \vec v)_i & =  \mathbf A_{ij} \vec v_j \\
 		(\mathbf A \mathbf{B})_{ik} & = \mathbf A_{ij} \mathbf B_{jk}.
 	\end{align*}
-	A dot product between $v$ and itself would simply be $\vec v\cdot \vec v = \vec v_i \vec v_i$ in Einstein's convention.
+	A dot product between $\mathbf v$ and itself would simply be $\mathbf v\cdot \mathbf v = v_i v_i$ in Einstein's convention. Note since $i$ is an index that is summed over (and doesn't appear in the end result), we could just as well replace it by any symbol $v_i v_i = v_j v_j = v_{\ddot \smile} v_{\ddot \smile} = \mathbf v \cdot \mathbf v$.
 	
 	Now returning back to co-variance and contra-variance, this scheme makes every equation in the chapter shockingly short. Equation~\eqref{eq:RepU} becomes $\mathbf u = a^i \mathbf v_i$, Equation~\eqref{eq:CovariantTransform2} becomes $\mathbf v_i' = A^j_i \mathbf v_j$, Equation~\eqref{eq:ContravariantTransform2} becomes $a_i' = (A^{-1})^j_i a_j$. Equation~\eqref{eq:partial_transform2} is further reduced to just 
 	\begin{equation*}
@@ -450,4 +455,9 @@
 	
 	% section einstein_s_summation_convention (end)
 	
-\end{document}
+	\section{Exercises} % (fold)
+	\label{sec:exercises1}
+	
+	% section exercises (end)
+
+% \end{document}

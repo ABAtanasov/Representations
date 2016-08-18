@@ -1,13 +1,14 @@
 # Representations
 
-An upcoming book, by Alex &amp; Aaron
+####An upcoming book, by Alex &amp; Aaron
 
 
-## Part 0: Old Notions & New Horizons
+## Part 0: Prerequisites
 
 ### 1) Old Notions Revisited
 
 First draft completed, need to draw up figures. dwabi
+OK there's a problem with a^i vs v^i vs \mathbf v_i_ (vs possible e_i_) usage in this chapter.
 
 ### 2) New Horizons Developed
 

@@ -1,8 +1,3 @@
-\documentclass[../master.tex]{subfiles}
- 
- 
- 
-\begin{document}
 
 \chapter{Differential Geometry}
 
@@ -18,9 +13,9 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		\int_\Omega \nabla \cdot \mathbf{F} ~ dV = \int_S \mathbf{F} \cdot d\mathbf S
 	\end{equation}
 
-	where $\Omega$ is the volume of a 3D region we are integrating over, with infinitesimal volume element $dV$ and $S$ is the surface that forms the boundary of $\Omega$. $dS$ then represents an infinitesimal parallelogram through which $\mathbf{F}$ is flowing out, giving the flux integral on the right. Read in english, Gauss' divergence theorem says ``Summing up the infinitesimal flux over every volume element of the region is the same as calculating the total flux coming out of the region''. The total flux coming out of a region is the sum of its parts over the region. You might see that in english, this reads very similar to the description of the fundamental theorem of calculus.
+	where $\Omega$ is the volume of a 3D region we are integrating over, with infinitesimal volume element $dV$ and $S$ is the surface that forms the boundary of $\Omega$. $dS$ then represents an infinitesimal parallelogram through which $\mathbf{F}$ is flowing out, giving the flux integral on the right. Read in English, Gauss' divergence theorem says ``Summing up the infinitesimal flux over every volume element of the region is the same as calculating the total flux coming out of the region''. The total flux coming out of a region is the sum of its parts over the region. You might see that in English, this reads very similar to the description of the fundamental theorem of calculus.
 	
-	Alongside this, there is Stokes' theorem for a 2D region. In english: summing up the infinitesimal amount of circulation of a vector field $\mathbf F$ over every infinitesimal area is equal to calculating the total circulation of $\mathbf F$ around the boundary of the region. In mathematical language:
+	Alongside this, there is Stokes' theorem for a 2D region. In English: summing up the infinitesimal amount of circulation of a vector field $\mathbf F$ over every infinitesimal area is equal to calculating the total circulation of $\mathbf F$ around the boundary of the region. In mathematical language:
 	
 	\begin{equation}\label{eq:Stokes}
 		\int_R \nabla \times \mathbf{F} ~ dA = \int_C \mathbf{F} \cdot d\mathbf r
@@ -120,23 +115,27 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	\end{theorem}
 	The proof of this was no different from the 1-D case.\\
 	
-	Let's go further. Consider a region in three dimensions. We want to relate the total flux coming out of the region to the infinitesimal flux at each point inside the region. To do this, as before, we will subdivide the region. This time, it will not be into a series of intervals, but instead into a mesh of increasingly small \emph{cubes}, as below.
+	Let's go further. Consider a region in three dimensions and a vector field 
+	\begin{equation*}
+		\mathbf F = F_x \hat{\mathbf{i}} + F_y \hat{\mathbf j} + F_z \hat{\mathbf k}
+	\end{equation*} 
+	We want to relate the total flux coming out of the region to the infinitesimal flux at each point inside the region. To do this, as before, we will subdivide the region. This time, it will not be into a series of intervals, but instead into a mesh of increasingly small \emph{cubes}, as below.
 	
 	\textbf{PUT A GRAPHIC HERE}
 	
-	See that the flux out a side of each cube is cancelled out by the corresponding side on its neighboring cube. That means that the only sides that do not cancel are for the cubes at the boundary$^1$\footnote{You may be worried that the cubes do not perfectly fit into the boundary when it is not rectangular. As the mesh gets smaller and smaller, this does not pose a problem. This can be made more rigorous (c.f. \textbf{GIVE A REFERNCE HERE})}, giving us the desired flux out.
+	See that the flux out a side of each cube is cancelled out by the corresponding side on its neighboring cube. That means that the only sides that do not cancel are for the cubes at the boundary$^1$\footnote{You may be worried that the cubes do not perfectly fit into the boundary when it is not rectangular. As the mesh gets smaller and smaller, it approximates the region better so this does not pose a problem. This idea can be made rigorous (c.f. \textbf{GIVE A REFERNCE HERE})}, giving us the desired flux out.
 	
 	So if we sum the fluxes over all infinitesimal cubes, we will get the total flux out of the boundary. For a single cube of sides $dx,dy,dz$, drawn below, the total flux will be the sum over each side. 
 	\begin{align*}
-		\text{Flux} =&~~~ \mathbf F(x,y,z+dz/2) dx dy - \mathbf F(x,y,z-dz/2) dx dy \\ 
-						   & + \mathbf F(x,y+dy/2,z) dx dz - \mathbf F(x,y-dy/2,z) dx dz \\ 
-						   & + \mathbf F(x+dx/2,y,z) dy dz - \mathbf F(x-dx/2,y,z) dy dz \\ 
+		\text{Flux} =&~~~  F_z(x,y,z+dz/2) dx dy -  F_z(x,y,z-dz/2) dx dy \\ 
+						   & + F_y (x,y+dy/2,z) dx dz - F_y (x,y-dy/2,z) dx dz \\ 
+						   & + F_x (x+dx/2,y,z) dy dz - F_x (x-dx/2,y,z) dy dz \\ 
 	\end{align*}
 	\textbf{SHOW GRAPHIC HERE}
 	
 	But we can write this as: 
 	\begin{align*}
-		\left( \frac{\partial \mathbf F(x,y,z)}{\partial x} + \frac{\partial \mathbf F(x,y,z)}{\partial y} + \frac{\partial \mathbf F(x,y,z)}{\partial z} \right) dx dy dz = \nabla \cdot F ~ dV
+		\left( \frac{\partial F_x (x,y,z)}{\partial x} + \frac{\partial F_y (x,y,z)}{\partial y} + \frac{\partial F_z(x,y,z)}{\partial z} \right) dx dy dz = \nabla \cdot \mathbf F ~ dV
 	\end{align*}
 	So the total flux will be the sum over all these cubes of each of their total fluxes. But then this becomes exactly the divergence theorem:
 	\begin{theorem}[Divergence Theorem, Gauss]
@@ -161,17 +160,17 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	
 	On an infinitesimal square, we get that the circulation is:
 	\begin{align*}
-		\text{Circulation} =& ~~~  \mathbf F(x+dx/2,y) dy - \mathbf F(x-dx/2,y) dy \\ &+ \mathbf F(x,y-dy/2) dx - \mathbf F(x,y+dy/2) dx
+		\text{Circulation} =& ~~~  F_y (x+dx/2,y) dy - F_y (x-dx/2,y) dy \\ &+  F_x (x,y-dy/2) dx - F_x (x,y+dy/2) dx
 	\end{align*}
 	This can be written as:
 	
 	\begin{align*}
-		\left( \frac{\partial \mathbf F}{\partial x} - \frac{\partial \mathbf F}{\partial y} \right) dx dy = \nabla \times \mathbf F ~ dA
+		\left( \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \right) dx dy = (\nabla \times \mathbf F) ~ dA
 	\end{align*}
 	so that
-	\begin{theorem} For a smooth vector field on a piecewise smooth region $S$ 
+	\begin{theorem}[Stokes' Theorem in $2$D] For a smooth vector field on a piecewise smooth region $S$ 
 		\begin{equation}
-			\int_C \mathbf{F} \cdot d\mathbf r = \int_S (\nabla \times \mathbf{F}) dA
+			\int_C \mathbf{F} \cdot d\mathbf r = \int_S \nabla \times \mathbf{F} ~ dA
 		\end{equation}
 	\end{theorem}
 	Exercise \textbf{(MAKE AN EXERCISE)} generalizes this to a surface in 3D, to get the 3D version of Stokes' theorem \index{Stokes' Theorem!For Curl}:
@@ -180,17 +179,62 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		\int_C \mathbf{F} \cdot d\mathbf r = \int_S (\nabla \times \mathbf{F}) \cdot d\mathbf S 
 	\end{equation}
 	
-	The philosophy behind these proofs is always the same. It is the manipulation of the differentials that seems wildly different every time. The curl looks nothing like a divergence, and a divergence is distinct from a gradient. Moreover, its not clear in what way each one generalizes the one dimensional derivative $df = f'(x) dx$. This is the problem that the symbol `$\mathrm d$' in Equation~\eqref{eq:GeneralStokes} was made to solve.
+	The philosophy behind these proofs is always the same. It is the manipulation of the differentials that seems wildly different every time. The curl looks nothing like a divergence, and a divergence is distinct from a gradient. Moreover, its not clear in what way each one generalizes the one dimensional derivative $df = f'(x) dx$. This is the problem that the symbol `$\mathrm d$' in Equation~\eqref{eq:GeneralStokes} was made to solve.\\
 	
-	We need to stop thinking of the 1-d derivative, the gradient, the divergence, and the curl, as unrelated operations. They are in fact, the same operation, applied in different circumstances. Infinitesimal change, flux, and circulation are all the same type of derivative, acting on different types of objects. 
+	We must stop thinking of the $1$D derivative, the gradient, the divergence, and the curl, as unrelated operations. They are in fact, the same operation, applied in different circumstances. Infinitesimal change, flux, and circulation are all the same differential action applied to different types of objects. 
 	
-	Perhaps part of this was clear from multivariable calculus: the gradient is nothing more than a generalization of the derivative to functions of multiple variables. But then why are there seemingly two different, unrelated types of ``derivative'' on vector fields? Instead of a regular, gradient-like object, we have two: the divergence and the curl. 
+	Perhaps part of this was clear from multivariable calculus: the gradient is nothing more than a generalization of the derivative to functions on higher dimensions. Then why are there seemingly two different, unrelated types of ``derivative'' on vector fields? Instead of a regular, gradient-like object, we have two: the divergence and the curl. 
 	
-	It will turn out that the reason that there are two is this: the vector fields that we take curls of are a different type of object from the vector fields we take the divergence of.	To see this more clearly, we need to stop thinking of functions and vector fields as totally separate objects. Every object that we've encountered when integrating: from functions in 1-D or 3-D, to vector fields in $n$-D, have been examples of \textbf{forms}. \index{Differential Form} \\
+	It will turn out that the reason that there are two is this: the vector fields that we take curls of are a different type of object from the vector fields we take divergences of. Looking forward, we'll see that we only take the curl on a vector field that is ``meant to be integrated along curves" (\textbf{1-form}), and the curl gives us another vector field ``meant to be integrated over surfaces" (\textbf{2-form}). On the other hand, the divergence takes a vector field ``meant to be integrated over surfaces'' (\textbf{2-form}) and gives us a scalar field ``meant to be integrated over volumes'' (\textbf{3-form}). Every object that we've encountered when integrating: from functions in 1-D or 3-D, to vector fields in $n$-D, have been examples of these \textbf{forms}. \index{Differential Form} \\
+	
+	To get to this idea, we first need to stop thinking of functions and vector fields as totally separate objects. A function is an object that is ``meant to be evaluated at a point'' (\textbf{0-form}). The derivative takes us from a function to a 1-form, meant to be integrated along a curve. It is the exact same object as the one in Section~\ref{sec:vectors_reimagined}. The gradient, properly speaking, is not a vector describing the local behavior of a \emph{curve} but is the opposite: a 1-form describing the local behavior of a \emph{function}.
+	So the correct way of writing this, is to go from the old $\mathbb{R}^3$ notation
+	\begin{equation*}
+		\nabla f = \frac{\partial f}{\partial x} \hat{\mathbf i}
+					+\frac{\partial f}{\partial y} \hat{\mathbf j}
+					+\frac{\partial f}{\partial k} \hat{\mathbf k}
+	\end{equation*}
+	to the modern language
+	\begin{equation}
+		\mathrm d f  = \frac{\partial f}{\partial x^i} dx^i ~\Big(= \nabla f \cdot d \mathbf r\Big)
+	\end{equation}
+	This is a 1-form, as we already know.
+	
+	What we would like is to have the old multivariable calculus chain
+	\begin{equation*}
+		\text{functions} ~ \overbrace{\longrightarrow}^{\text{grad}}
+		~ \text{vector fields} ~ \overbrace{\longrightarrow}^{\text{curl}}
+		~ \text{vector fields} ~ \overbrace{\longrightarrow}^{\text{div}} 
+		~ \text{functions} 
+	\end{equation*}
+	be converted to
+	\begin{equation*}
+		~~~~~~
+		\begin{matrix}
+			\text{0-forms} & \overbrace{\longrightarrow}^\mathrm d & 
+			\text{1-forms} & \overbrace{\longrightarrow}^\mathrm d & 
+			\text{2-forms} & \overbrace{\longrightarrow}^\mathrm d & 
+			\text{3-forms}  \\
+			\downarrow & & \downarrow & & \downarrow & & \downarrow \\
+			^{\text{Evaluated}}_{\text{~~~~~at}} & & 
+			^{\text{Integrated}}_{\text{~~~along}} & &
+			^{\text{Integrated}}_{\text{~~~along}} & &
+			^{\text{Integrated}}_{\text{~~~along}} & &\\
+			\downarrow & & \downarrow & & \downarrow & & \downarrow \\
+			\text{Points} & \underbrace{\longleftarrow}_\partial & 
+			\text{Curves} & \underbrace{\longleftarrow}_\partial & 
+			\text{Surfaces} & \underbrace{\longleftarrow}_\partial & \text{Volumes}
+			
+			% \downarrow ^{\text{Evaluated}}_{\text{~~~~~at}} \downarrow & &
+% 			\downarrow ^{\text{Integrated}}_{\text{~~~along}} \downarrow & &
+% 			\downarrow ^{\text{Integrated}}_{\text{~~~along}} \downarrow & & 			\downarrow ^{\text{Integrated}}_{\text{~~~along}} \downarrow \\
+		\end{matrix}
+	\end{equation*}
+	where $\partial$ is the \textbf{boundary operator}\index{Boundary Operator} that takes us from an $n$ dimensional manifold to its $n-1$ dimensional boundary. At this point, we won't be afraid to use our new word: manifold, when referring collectively to curves, surfaces, volumes, or any of their higher dimensional generalizations (points too, as the degenerate 0 dimensional case). 
 	
 	As a final note of this section, let us try to give a sketch for why on a region $\Omega$, we denote its boundary with the partial derivative symbol as $\partial \Omega$. Picture in your mind a ball (interior of a sphere) of radius $r$,  $B_r$. If we increase the radius by a tiny amount $h$ then we have a slightly larger radius $B_{r+h}$. If we took the difference $B_{r+h} - B_r$, by which we mean all the points of $B_{r+h}$ that are not in $B_r$, we would be left with a thin shell. In the limit as $h \rightarrow 0$, this becomes a sphere of radius $r$, precisely the boundary of $B_r$ (note that a sphere is always the two-dimensional boundary of the ball). See how similar this is to taking derivatives. This is why $\partial B_r$ is what we use to denote the sphere boundary of the ball. 
 	
-	You may ask ``but what about dividing by $h$ at the end, like we do for a regular derivative?''. This also has an interpretation. The 3D volume of a sphere is zero, since it is a 2-D boundary. Dividing by $h$ as $h$ goes to zero puts increasing ``weight'' on the shell so that as the shell shrinks to becoming absolutely thinness, 3-D integrals on it become 2-D \footnote{For those familiar with the terminology: dividing by $h$ corresponds to multiplying by a dirac delta that spikes exactly on the sphere. This turns integrals over 3-D space into 2-D integrals on the sphere}.
+	You may ask ``but what about dividing by $h$ at the end, like we do for a regular derivative?''. This also has an interpretation. The 3D volume of a sphere is zero, since it is a 2-D boundary. Dividing by $h$ as $h$ goes to zero puts increasing ``weight'' on the shell so that as the shell shrinks to becoming absolutely thin, 3-D integrals on it become 2-D \footnote{For those familiar with the terminology: dividing by $h$ corresponds to multiplying by a dirac delta that spikes exactly on the sphere. This turns integrals over 3-D space into 2-D integrals on the sphere}.
 	 % But even here, we can go deeper. We've figured out why the 1-D integral becomes just a difference at two points, but we can actually interpret the \emph{difference} $f(b)-f(a)$ an integral! It is a zero-dimensional integral over the boundary of the region. The boundary of an interval is just two points, and a zero dimensional integral is a sum over points.
  %
 	
@@ -198,30 +242,22 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	
 \section{The Notion of a Form}
 
-	A differential form $\omega$, in short, is an object that is meant to be integrated. The simplest example of a differential form is something you have often dealt with: $\omega = g(x) dx$. At every point $p$ in space, $\omega$ represents the infinitesimal change $g(p) dx$. If we were using another coordinate system $u$ instead of $x$, to measure length, then at point $p$, if we want to write $\omega$ in terms of the coordinate change $du$, we would have
-	
+	A differential form $\omega$, in short, is an object that is meant to be integrated. We've seen the example of 1-forms in the preceding chapter. At a point $p$ on a manifold, one-forms $\omega$ are exactly all the first-order behaviors of the functions at $p$. Just as we can have a vector field on $\mathbb{R}^3$, or manifolds in general, we have 1-form fields. You have seen this before: the gradient is in fact a one-form field
 	\begin{equation}
-		\omega = g(p) dx = \left( g(p) \frac{dx}{du} \right) du = \tilde g (p) du
+		(\nabla f \cdot d\mathbf r) (p) = \frac{\partial f}{\partial q^i}(p)~ dq^i
 	\end{equation}
+	The components of the gradient are \emph{covariant} with our change of coordinate system, just like those of a 1-form (and unlike those of a vector field). 
 	
-	So if we change our coordinate system, because $dx$ changes to $du$, $g$ must change to $\tilde g = g \frac{dx}{du}$ to counteract this, so that the total change is the same. Because at each point, $\omega$ represents a one-dimensional differential line segment, it is meant to be integrated along a one dimensional \emph{curve}.
+	A general 1-form associates a first-order function behavior $\omega_i(p)~ dq^i$ to every point $p$ in space. Just because $\omega$ is some differential behavior of a function at a point $p$ doesn't mean that $\omega$ actually \emph{is} the differential of a function. That is, it doesn't mean there exists a function so that $\partial f/\partial q^i = \omega_i$ at every point $p$ so that $\omega = \mathrm df$.
 	
-	So more generally than the real line, on a curve, you want to integrate some vector field that perhaps you would write in cartesian coordinates like:
-	\begin{equation*}
-		\mathbf{F} = P(x,y,z)  \mathbf{\hat i} + Q(x,y,z)  \mathbf{\hat j} + R (x,y,z) \mathbf{\hat k}
-	\end{equation*}
-	But you are not actually integrating this field $\mathbf{F}$. You're integrating $\mathbf{F}\cdot d\mathbf{r}$, appropriately multiplying $\mathbf{F}$ by an infinitesimal change in distance along the curve. This gives the \emph{form} that you would integrate:
+	It rarely true that $\omega = \mathrm df$. In fact, this happens \emph{exactly} when $\omega$ actually \emph{does} correspond to a gradient. This is exactly what we called a conservative vector field in introductory physics and in multivariable calculus. In this language, we call $\omega$ an \textbf{exact form}\index{Differential Form!Exact} when it is the differential of a function.
 	
-	\begin{equation*}
-		\omega = P dx + Q dy + R dz
-	\end{equation*}
+	
 	
 	This is what we care about when integrating. It is more fundamental than $\mathbf{F}$, but what does it mean \emph{physically}? If $\mathbf{F}$ was a force field, then since we know $\mathbf{F} \cdot d \mathbf{r} = dW$, this form $\omega$ represents all possible infinitesimal changes in work $dW$ at a given point, depending on what changes $dx,dy,dz$ we do.
 	
-	If we were actually \emph{given} the changes in each of the coordinates $dx,dy,dz$, we could plug them in to $\omega$ and get the first-order approximation of the amount of work done over that distance. This is very important to understand! $\omega$ does not represent a specific change in work, but rather the \emph{relationship} between the changes in coordinate and the change in work. If you \emph{give it} an infinitesimal displacement, it will tell you the associated work. When integrating along a curve, the displacement is simply the tangent vector to the curve.
-		
-	Because there is only one differential multiplying each term (be it $dx$ or $dy$), we call such $\omega$ \textbf{1-forms}. \index{Differential Form!1-Form} It is easy to show \textbf{MAKE AN EXERCISE} that the sum of one-forms is still a one-form, and that multiplying a one-form by a function keeps it as a one-form. 
-	
+	If we were actually \emph{given} the changes in each of the coordinates $dx,dy,dz$, we could plug them in to $\omega$ and get the first-order approximation of the amount of work done over that distance. This is a point that has been said before: $\omega$ does not represent a specific change in work, but rather the \emph{relationship} between the changes in coordinate and the change in work. If you \emph{give it} an infinitesimal displacement, it will tell you the associated work. When integrating along a curve, the displacement is simply the tangent vector to the curve.
+
 	Even simpler than one-forms are the \textbf{zero forms}, with no differentials appearing. A zero-form precisely a scalar function at $f(p)$ each point $p$. Regardless of how we change our coordinate system, the value of the \emph{function} at point $p$ is the same.
 	
 	We are now in a good place to define $\mathrm d$, at least for going from functions (zero-forms) to one-forms. Given a function $f$, $\mathrm d f$ will produce a form representing the local change in $f$ depending on the displacement. We call $\mathrm d$ the \textbf{exterior derivative} \index{Exterior Derivative} operator.
@@ -234,29 +270,29 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	
 	because of $\mathrm d$, we will no longer have to use the gradient at all. This is more important than simply meaning that we'll grow to stop using $\mathbf{\hat i}, \mathbf{\hat j},\mathbf{\hat k}$. It is something much deeper. In in two-dimensional motion, if you have some potential $\phi$ at a point $p$, then of course the value of $\phi$ at $p$ is independent of any coordinate system you use. If you have two cartesian coordinates, say $x,y$, then you can define the $x,y$ components of force by 
 	\begin{equation*}
-		\mathbf{F} = F_x \mathbf{\hat i} + F_y \mathbf{\hat j} = \frac{\partial \phi}{\partial x} \mathbf{\hat i} + \frac{\partial \phi}{\partial y} \mathbf{\hat j}
+		\mathrm d \phi= \frac{\partial \phi}{\partial x} dx + \frac{\partial \phi}{\partial y} dy= F_x ~ dx + F_y ~dy 
 	\end{equation*}
-	If our coordinates were $r,\theta$, then the analogous force would be
+	If our coordinates were $r,\theta$, then the analogous force would be the covariant components of the same \emph{form}, in a different coordinate system:
 	\begin{equation*}
-		\mathbf{G} = G_\theta \mathbf{\hat \theta} + G_r \mathbf{\hat r} = \frac{\partial \phi}{\partial \theta} \mathbf{\hat \theta} + \frac{\partial \phi}{\partial r} \mathbf{\hat r}
+		\mathrm d \phi = \frac{\partial \phi}{\partial \theta} d\theta + \frac{\partial \phi}{\partial r} dr = F_\theta ~ d\theta + F_r ~ dr
 	\end{equation*}
 	Note that the first component has units not of force, but of force times distance. It is precisely the torque that the potential induces. In this sense, quantities like torque are precisely just generalizations of force to non-cartesian coordinate systems (polar, in this case). The second component is just radial force, plain and simple.
 	
-	These two ``forces'' have components that mean completely different things, and cannot easily be compared. On the other hand, since $\mathrm d \phi$ is independent of coordinate system, we get:
+	To hammer the point across: these two ``forces'' have components that mean completely different things, and cannot easily be compared. On the other hand, since $\mathrm d \phi$ is independent of coordinate system, we get:
 	
 	\begin{equation}
-		\mathrm d \phi = \frac{\partial \phi}{\partial x} dx + \frac{\partial \phi}{\partial y} dy = \frac{\partial \phi}{\partial \theta} d\theta + \frac{\partial \phi}{\partial r} dr 
+		\mathrm d \phi = F_x ~ dx + F_y ~ dy = F_\theta ~ d\theta + F_r ~ dr 
 	\end{equation}
 	
-	All forces (including the generalized forces, like torque) come from the differential form. If you're working in a coordinate system $x^i$, whether it be cartesian $x,y,z$ or polar $r, \theta$, then the coefficient corresponding to $dx^i$ is precisely the generalized force associated with that coordinate.
+	Because we know how to go from $x,y$ to $r, \theta$ and because this nonlinear change of coordinates is \emph{linear} at every point on the differentials, this would allow us to go between the language of ``x-y force'' and the language of ``torque + radial force about the origin''  at any ponit.
 	
-	So if we have a 1-form $\omega$ we can write it in terms of its components as $\omega = \sum_{i=1}^n \omega_i dx^i$. In general, only a special set of $\omega$ are exterior derivatives of functions. In multivariable calculus, we studied conservative vector fields as arising from gradients of functions. The language we'll use here for the same phenomenon is that $\omega$ is \textbf{exact} \index{Differential Form!Exact} if it is the exterior derivative of a 0-form.
+	All forces (including the generalized forces, like torque) are covariant coefficients of the invariant differential form for work. If you're working in a coordinate system $q^i$, whether it be cartesian $x,y,z$ or polar $r, \theta$, then the coefficient corresponding to $dq^i$ is precisely the generalized force associated with that coordinate in your system.\\
 	
-	\begin{concept}[One-Forms Relate Change to Direction]
-		For a function $\phi$, the one-form $\omega = \mathrm d \phi$ gives the first-order change in $\phi$ along a given direction $(dx^1,\dots, dx^n)$. In general, for a one-form $\omega$ that is not exact, $\omega$ along a given direction $(dx^1,\dots, dx^n)$ gives the change in a quantity that cannot be represented by a function of the coordinates. This occurs, for example, with non-conservative forces such as friction or when calculating heat added to a system.
-	\end{concept}
+	% \begin{concept}[One-Forms Relate Change to Direction]
+	% 	For a function $\phi$, the one-form $\omega = \mathrm d \phi$ gives the first-order change in $\phi$ along a given direction $(dx^1,\dots, dx^n)$. In general, for a one-form $\omega$ that is not exact, $\omega$ along a given direction $(dx^1,\dots, dx^n)$ gives the change in a quantity that cannot be represented by a function of the coordinates. This occurs, for example, with non-conservative forces such as friction or when calculating heat added to a system.
+	% \end{concept}
 	
-	A classic example is $d\theta$. Although locally, $\theta$ can be defined just by calculating the angle from the $x$ axis, if you go around counterclockwise in a circle containing the origin, then $\theta$ continuously increases. At the end of the revolution, even though you are at the same point, $\theta$ has increased by $2\pi$. So although $d\theta$ makes sense locally as a differential form everywhere in the plane minus the origin, we cannot define a global smooth function representing $\theta$ without a discontinuity. \\
+	A classic example of a closed form that is not exact is $d\theta$. We know $\mathrm d (d\theta) = 0$, so it is indeed closed. Although locally, $\theta$ can be defined just by calculating the angle from the $x$ axis, if you go around counterclockwise in a circle containing the origin, then $\theta$ continuously increases. At the end of the revolution, even though you are at the same point, $\theta$ has increased by $2\pi$. So although $d\theta$ makes sense locally as a differential form everywhere in the plane minus the origin, we cannot define a global smooth function representing $\theta$ without a discontinuity. The existence of a closed form that is not exact happens because the manifold on which $d\theta$ is defined is \emph{not} $\mathbb R^2$, but is instead defined on $\mathbb{R}^2$ without the origin (where $d\theta$ would not be well-defined). This change in global geometric structure gives rise to these interesting closed, inexact forms. The study of the closed forms that are not exact is called the \textbf{De-Rham cohomology}\index{De-Rham Cohomology} of a manifold. \\
 
 
 	We've now shown how the fundamental theorem of line integrals deals with the exterior derivative. The next step is to go into 2D and show how we can define the exterior derivative in just the right way to get Stokes' theorem \index{Stokes' Theorem!For Curl}for curl in 2D (also known as Green's theorem). Because the language is suggestive, you would expect that there are two-forms for integrating over two-dimensional regions. 
@@ -272,7 +308,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	We denote the 2-form representing the infinitesimal area formed by one-forms $dx^i$ and $dx^j$ by $dx^i \wedge dx^j$. This is called the wedge product between $dx^i$ and $dx^j$.
 	
 	\begin{concept}
-		The wedge product of coordinate one-forms $dx^i, dx^j$ is geometrically defined to be the infinitesimal parallelogram with one side along the increment of $dx^i$ and the other side along the increment of $dx^j$
+		The wedge product of coordinate one-forms $dx^i, dx^j$ is geometrically defined to be the infinitesimal parallelogram with one side along the increment of $dx^i$ and the other side along the increment of $dx^j$.
 	\end{concept}
 	
 	Note that it is not as easy as just defining the area to be $dx dy$, like a simple scalar. This two-form is a vector-like object. Indeed, the set of all two forms in some dimension form a vector space: we can add them, we can scale them by functions, and we have $0$ to be a trivial two form of no area. 
@@ -280,7 +316,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	What properties does this wedge product have? 
 	
 	\begin{prop}[Properties of $\wedge$]
-		The wedge product satisfies:
+		The wedge product\index{Wedge Product} satisfies:
 		\begin{enumerate}
 			\item $dx^i \wedge dx^i = 0$
 			\item $(\alpha dx^i) \wedge dx^k = \alpha (dx^i \wedge dx^j)$
@@ -296,8 +332,6 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 
 \section{Stokes' Theorem}
 
-\section{To Manifolds, Coordinate Freedom}
-
 \section{Vectors, Forms, and Tensors}
 
 \section{Distance, a Metric}
@@ -308,6 +342,3 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 
 \section{Exercises}
 
-
-
-\end{document}

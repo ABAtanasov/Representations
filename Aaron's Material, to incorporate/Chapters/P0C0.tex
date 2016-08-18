@@ -1,0 +1,161 @@
+\chapter{Old Notions}
+\section{Cartesian Coordinates}
+Perhaps the most important revolution in mathematics and physics was ushered in by the brainchild of seventeenth century mathematician, Renee Descartes. The idea was that any point $P$ in the plane could be represented by a pair of numbers $(x,y)$. The numbers themselves represented distances along two perpendicular axes that met at a point $(0,0)$, called the origin. By introducing this concept, he had done something amazing: related the \emph{geometry} of the plane to the \emph{algebra} of variables and equations. Algebra could be \emph{represented} geometrically, and conversely, geometric problems could be solved by going into the realm of algebra. 
+	
+	\textbf{Insert 2D Plane with Coordinates}
+	
+	Applications of coordinates would extend from Descartes's plane to spaces of arbitrarily high dimensions and subsequently be used to lay the foundations for modern physics and mathematics. Linear algebra, multivariable calculus, and all the connections between algebra and geometry begin with the concept of a coordinate, and the use thereof has consistently been proven indispensable to physicists and mathematicians throughout history; from Newton, through Maxwell and Einstein, to the physicists and engineers of today.  Therefore, the merits of a review of the philosophy behind coordinate systems are evident.\\
+	
+	When studying a geometric phenomenon in some $n$-dimensional space, say $\mathbb{R}^n$, we pick an origin and axes to form our coordinate system. For a ball falling, we could set the origin at some point on the ground, and pick one axis parallel to the ground, and one perpendicular. We can decide to measure the axes in meters, feet, or some other system (nothing stops us from making bad choices). Given these choices, we say the point $P$ indicating where the ball lies is represented by $(x,y)=(0~ \mathrm m,10~ \mathrm m)$.  The coordinate $y$ is a natural choice of coordinate, as it corresponds to our intuitive notion of height.  But it will soon become clear the importance of the fact that $y$ is merely a representation of one aspect of the space, not an intrinsic property.  We could just as legitimately describe the space with other parameters.
+	
+	\textbf{Insert Ball Falling}
+	
+	We can now study $y$, free of geometry, as just a function which we can do arithmetic and calculus on. If we are given an equations of motion, say 
+	\begin{equation*}
+		\frac{d^2y}{dt^2} = -g, \hspace{5mm} \frac{d^2x}{dt^2} = 0
+	\end{equation*} 
+	with initial conditions,
+	\begin{equation*}
+		\frac{dy}{dt}=0, \hspace{5mm} \frac{dx}{dt}=0
+	\end{equation*}
+	 then we can perform our well-known kinetic calculations for the system, and see how the system evolves in the \emph{time} direction. **A recurrent theme will be that dynamics of a system in $n$-dimensional space can be thought of just a special type of geometry in $n+1$ dimensional space, poor time as an added dimension**.\\ 
+	
+	The ball will fall from 10 meters as dictated by the law of gravitation; this is an empirical fact, independent of a human's abstract choice of coordinates. As such, for any and all coordinate systems we can choose, we should get the \emph{exact same result}. Plainly: nature does not \emph{care} what coordinate system we use.  The laws of physics should be \emph{independent of any coordinate system}.\\
+	
+	Newton's law $\mathbf F = m \mathbf a$ relates the force vector to the acceleration vector. The vector representing the force $\mathbf F$ that you apply on a surface is an object independent of coordinate system, so is the resulting acceleration vector. The \emph{components} of these vectors ($F_x, F_y, F_z$) and ($a_x, a_y, a_z$), however, depend on what you have chosen for the $x,y,z$ axes. These components \emph{represent} a real physical vector, but only once we pick a coordinate system. If we were to pick a different coordinate system, they would change. Therefore a physical law of the form $F_x dx = dW$ could not be universal (and therefore not a true physical law) as it puts emphasis on just one of the components over the others. While in some coordinate system the work differential might be nonzero, in another it would be zero, so the work done, $dW$, is not an invariant. The need for coordinate invariance is why the law looks like 
+	\begin{equation*}
+		\mathbf F \cdot  d \mathbf r = F_x dx + F_y dy + F_z dz = d W
+	\end{equation*}
+	 Although its not yet obvious that this is invariant under change of coordinates, at the very least it places all coordinates on level footing.
+	
+	
+		% In antiquity, Pythagoras discovered that for a right triangle with side lengths $a,b$ and hypotenuse $c$, the following equation related the lengths:
+	% 	\begin{equation*}
+	% 		a^2 + b^2 = c^2
+	% 	\end{equation*}
+	% 	Nowadays to us, this equation is interesting to know, and not too hard to prove. To Pythogoras and his students, however, it was absolutely stunning. The reason was that at that time, mathematics was divided into two fields: geometry and arithmetic. Geometry reasoned with measurements and constructions of figures in the plane, while arithmetic dealt with studying equalities of how numbers combined.
+	%
+	% 	Although equality played a central role in both fields,
+	
+	% section Descartes (end)
+	
+	\section{Linear Algebra \& Coordinates} 
+	\label{sec:Linear Algebra & Coordinates}% (fold)
+	
+	The traditional conception of a coordinate system, a series of perpendicular lines that together associate ordered tuples of numbers to each point in space, is not representative of all coordinate systems. For one, we do not need the requirement that the lines be perpendicular (we will show later that for general spaces, there is no simple notion of what perpendicular even \emph{means}). Our coordinate system could instead look like this:\\
+	
+	\textbf{Graphic of non-perp lines and representing a point like that}\\
+	
+	In the language of linear algebra, once we choose an origin point, choosing a set of coordinate axes is the same as choosing a \textbf{basis}\index{Linear Algebra!Basis} for the space (a coordinate basis). We can relate a new system of coordinates $x_i'$ in terms of an old system $x_i$ by matrix multiplication:
+	\begin{equation*}
+		x_i' = \sum_{j=1}^n \mathbf A_{ij} x_j
+	\end{equation*} 
+	 This is exactly corresponds to a change of basis in linear algebra. Transformations between coordinate bases are exactly the invertible \textbf{linear transformations} \index{Linear Algebra!Linear Transformation}.
+	
+	As in linear algebra, we need our coordinate system to both \textbf{span}\index{Linear Algebra!Span} the space so that we can represent any point, and be \textbf{linearly independent}\index{Linear Algebra!Linear Independence}, so that every point has exactly \emph{one} representation in our coordinate system. That's what a basis \emph{is}: it specifies a good coordinate system.\\
+	
+\begin{defn}
+	\textit{A set of vectors $\{v_i\}$ is said to \textbf{span} a vector space $V$ if any vector $u$ in $V$ can be written as} 
+	\begin{equation*}
+		u = \sum\limits_i a_iv_i
+	\end{equation*}
+\end{defn}
+\begin{defn}
+	\textit{A set of vectors $\{v_i\}$ is said to be \textbf{linearly independent} if no vector in the set can be written as a linearly combination of the other vectors in the set.  Equivalently, this says that there is only one way to write the zero vector} 
+	\begin{equation*}
+		\mathbf 0 =  0v_1 +\dots + 0v_n
+	\end{equation*}
+\end{defn}
+	
+	Linear independence implies that there is no superfluous information in the set of vectors.  We cannot linearly combine vectors in some subset to get another vector in the set; each vector is adding its own unique additional piece of information, making the set able to span in an additional direction. This is also equivalent to saying every point has a unique representation as a linear combination of basis vectors. If there were two ways to represent a point $P$: as \begin{equation*}
+		a_1 \mathbf v_1 + \dots + a_n \mathbf v_n
+	\end{equation*} 
+	and 
+	\begin{equation*}
+		b_1 \mathbf v_1 + \dots + b_n \mathbf v_n
+	\end{equation*} 
+	then subtracting these two different combinations would give a nonzero way to represent zero. Conversely, if there were a nonzero combination of vectors summing to zero, then we could add that combination to a coordinate representation of any point and get a \emph{different} representation of the same point. So coordinate representations for all vectors are unique as long as long as there is only one representation for zero: the trivial one (where each component is 0).
+	
+	Bases that fail to span, or are not linearly independent, would lead to coordinate systems like these:\\
+	
+	\textbf{Show a 2-D basis in a 3-D space, and a basis of 3 vectors in 2-D space}\\
+
+	An additional perspective to take on this matter is through the lens of linear systems of equations.  Very often in mathematics, we ask ``Does a solution exist, and if so, is it unique?''. The two pars of this question are dual to one another. If a set of vectors spans the space, then there \emph{exists} at least one way to represent any point. If a set of vectors is linearly independent, then \emph{if} you can represent a point, that representation is \emph{unique} (no more than one way to represent any point).
+	
+	To continue stressing this idea: because points in $\mathbb R^n$ and vectors are essentially the same thing in our current view, the idea that points in space are invariant of a coordinate system of course applies to vectors. If we choose a basis for our vector space $\mathbf v_1, \dots \mathbf v_n$, then we can express any vector $\mathbf u$ by a unique combination $\mathbf u = a_1 \mathbf v_1 + \dots + a_n \mathbf v_n$. We then say that in this basis, we can represent $\mathbf u$ by a list of numbers:
+	\begin{equation*}
+		\mathbf u = \begin{pmatrix} a_1 \\ \vdots \\a_n	\end{pmatrix}
+	\end{equation*}
+	
+	In some sense, this is wrong. The vector $\mathbf u$ represents something physical: a velocity, a force, the flow of water. The right hand side is just a list of numbers that depend entirely on the coordinate system chosen.  But we know how to handle this list of numbers.  If we change coordinate systems, the right hand side changes. Because $\mathbf u$ exists (say, in the real world) independently of coordinates used, it does not change.\\
+	
+	A vector is \emph{not} the list of numbers we \textit{represent} it as.  This exact same idea will be the reason why a tensor is \emph{not} just a multi-dimensional array (much like the ones you see in computer science). It can be \emph{represented by} a multi-dimensional array once we pick a coordinate system, but that coordinate representation will change depending on the system we pick. \\
+	
+	A more careful way to write $\mathbf u$ would be:
+	
+	\begin{equation*}
+		\mathbf u = \begin{pmatrix}
+			\mathbf v_1  \dots \mathbf v_n
+		\end{pmatrix}\begin{pmatrix} a_1 \\ \vdots \\a_n	\end{pmatrix} = a_1 \mathbf v_1 + \dots + a_n \mathbf v_n
+	\end{equation*}
+	
+	If we \emph{vary} $\mathbf v_i$ to a different basis: $\mathbf v_i'$, then the coordinates will $a_i'$ vary the \emph{other} way, so that $\mathbf u = a_1 \mathbf v_1 + \dots + a_n \mathbf v_n = a_1' \mathbf v_1' + \dots + a_n' \mathbf v_n'$ is \emph{invariant} regardless of coordinate choice.\\
+	
+	That is, if we make the linear transformation $\mathbf v'_i = \sum_{j=1}^n A_{ij} \mathbf v_j$ then $a^\prime_i = \sum_{j=1}^n (A^{-1})_{ji} a_j$ so that:
+	
+	\begin{equation*}
+		\sum_{i=1}^n a_i' \mathbf v_i' = \sum_{i=1}^n \sum_{j=1}^n\sum_{k=1}^n (A^{-1})_{ji} a_jA_{ik}\mathbf v_k
+	\end{equation*}
+	And we recognize that 
+	\begin{equation*}
+		\sum\limits_{i = 1}^n (A^{-1})_{ji} A_{ik} = \delta_{jk}
+	\end{equation*}
+	where $\delta_{jk}$ is 1 if $j = k$ and 0 otherwise, because this is merely the $jk^{\text{th}}$ entry of the matrix product of A and its inverse.  Therefore we get 
+	\begin{equation*}
+		\sum_{i=1}^n a_i' \mathbf v_i' =   \sum_{l=1}^n  a_l\mathbf v_l
+	\end{equation*}
+	 
+We say that the basis vectors $\mathbf v_i$ \textbf{co-vary}\index{covariant} and the coordinates $a_i$ \textbf{contra-vary}\index{contravariant} with the change of basis. The idea, although it sounds simple, is rather hard to get the feel of. As such, the concept that coordinates and bases need to vary in oppositely to leave the physical object represented by them invariant merits some independent thought.\\ 
+	
+	\textbf{This will be a caption for a sketch of a 3-D rotation}\\
+	
+	 When you rotate your character in a video game (or in real life too...), the world rotates \emph{contrary} to the direction you've rotated in. The coordinates of what you've seen have \emph{contra-varied} while your basis vectors have \emph{co-varied}. The end result is that despite changing your coordinate system, physics stays the same: invariant. This extends beyond just rotations to \emph{all} coordinate transformations around a point. 
+	
+	% section Linear Algebra & Coordinates (end)
+	
+	\section{Curvilinear Coordinates: Polar \& Beyond} % (fold)
+	\label{sec:curvilinear_coordinates_polar_beyond}
+	
+	You may be wondering why we have dwelled on basis changes between coordinate systems represented by basis vectors centered at a fixed origin. Although the connection is unclear, the concepts underpinning these linear transformations apply to more general transformations.  We could use something like a polar system of $(r,\theta)$ coordinates or a spherical system using coordinates $(r, \phi, \theta)$. These are now not representable in terms of three axes, but instead look like this:\\
+	
+	\textbf{Graphic of polar coordinate system/spherical} \\
+	
+	This is an example of a non-linear coordinate transformation. They are more commonly referred to as \textbf{curvilinear}. Whereas linear ones map lines to lines, curvilinear ones more generally map lines to curves. The idea for making sure that the equations of physics still stay true for non-linear coordinate transformations is to note that just like a curve locally looks like a line, a \emph{non-linear} transformation locally looks like a \emph{linear} one. The linear transformation that it locally looks like is called the \textbf{Jacobian} \index{Jacobian} $J$. If the laws of physics are invariant under linear transformations locally at each point, then \emph{globally}, they will be invariant under certain non-linear ones as well. That is why we cared about studying covariance and contravariance for linear transformations: more complicated cases can be reduced to their local linear behavior. 
+	
+	
+	\textbf{Elaborate}
+	
+	% section curvilinear_coordinates_polar_beyond (end)
+\chapter{New Horizons}	
+	\section{The Manifold} % (fold)
+	\label{sec:the_manifold}
+	
+	Thus far, our discussion has been restricted to $\mathbb{R}^n$ as it is a natural starting point.  Perhaps when we were first born, we expect that the universe looks like $\mathbb{R}^3$ and that it goes out infinitely far in every direction.  Perhaps the first humans, too, expected that the surface of the earth was $\mathbb R^2$; flat and extending infinitely.  But we may exist in the universe like two-dimensional people would exist on a sphere, or on some other object with rich geometry that is not merely flat. Because the object is so large, we have no idea how it \emph{globally} looks, but \emph{locally}, just like two-dimensional humans would see a flat plane, we see $\mathbb R^3$. The need to generalize our discussion of geometric spaces will motivate our introduction of \textit{manifolds} in the next part; these are spaces which look locally like Euclidean space.
+	
+	A line is a one-dimensional manifold (in fact it \emph{is} a Euclidean space) a circle is a one-dimensional manifold (when you zoom in on a point, it looks like a line), so is an ellipse, parabola, hyperbola, and the graph of any smooth function. A sphere is a two dimensional manifold (note that the sphere is just the two-dimensional surface of a three-dimensional ball). It locally looks like the euclidean plane, just as the world looks flat to us.   And just as we had different coordinate systems around an origin in $\R^n$, on a manifold $M$, we will  have coordinate systems that look exactly like the ones we used for $\mathbb{R}^n$ in a neighborhood of each point. 
+	
+	Just because we have a coordinate system to describe the manifold does not mean we have everything. It may seem strange, but up until now we have missed talking about a vital part of geometry: the notion of \emph{distance}. We have discussed the various way points can be represented by coordinates, but none of these choices of coordinate representation have any \emph{inherent} notion of distance tied to them.  Once we have built up sufficient structure on our concept of manifolds, we will discuss how to equip it the capacity to measure distances, a capacity which is endowed to something called the \textit{metric}. 
+	
+	(What you dealt with before is called affine space)
+	
+	(Difference between affine space and Euclidean space: the metric)
+	
+	
+	% section the_manifold (end)
+	
+	\section{The Field} % (fold)
+	\label{sec:the_field}
+	
+	One of the most important aspects of physics is studying the \emph{fields} that live on manifolds. Just like in multivariable calculus, this means the study of scalar fields $\phi$ that associate a number to every point $P$. Examples are voltage, potential energy, mass/charge density, etc. This also includes the study of vector fields $\mathbf v$ associating a vector to each point. These can be wind speeds, electric fields. 
+	
+	One of the important things to note is that while scalar fields associate a number $\phi(P)$ to each point $P$, which looks the same regardless of the local coordinate system used at $P$, vector fields will associate a specific vector $\mathbf u$ to a point $P$ whose coordinate representation will, of course, change depending on the local coordinate system at $P$. 
