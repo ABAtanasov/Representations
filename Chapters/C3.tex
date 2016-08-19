@@ -288,14 +288,50 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	
 	All forces (including the generalized forces, like torque) are covariant coefficients of the invariant differential form for work. If you're working in a coordinate system $q^i$, whether it be cartesian $x,y,z$ or polar $r, \theta$, then the coefficient corresponding to $dq^i$ is precisely the generalized force associated with that coordinate in your system.\\
 	
+	To go from a 0-form to a 1-form, we applied the exterior derivative operator, which could just be written as:
+	\begin{equation}
+		\mathrm d = dq^i \frac{\partial}{\partial q^i}
+	\end{equation}
+	we can view this $\mathrm d$ operator as a 1-form whose coefficients on each $dq^i$, rather than being numbers, are derivative operators $\partial/\partial q^i$ with respect to the corresponding coordinates.
+	
+	Say we are integrating a 1-form $\omega$ along a small line segment where (without loss of generality) $q^1$ is changing by some very small length $dq^1$. All other coordinates are held fixed, so $dq^i = 0 ~ \forall i \neq 1$. This infinitesimal line segment could be turned into a 2-D parallelogram by adding another \emph{different} $q^i$ into the mix, say (again without loss of generality) $q^2$. Then in multivariable calculus this would be an infinitesimal area element of size $dA = dq^1 dq^2$. This is what we want to do: we want to be able to multiply two one-forms to get a two-form that is meant to be integrated along areas. 
+	
+	This multiplication is not just as straightforward as multiplying the differentials as if they were numbers $dx^i dx^j$ like we did when integrating. The differentials are elements of the vector space of one forms at each point. We want to multiply two vectors (that give values when given a specific direction or infinitesimal line segment $dx^i$) and obtain a new type of object that gives a value when given a specific \emph{plane element}, or infinitesimal parallelogram $dx^i, dx^j$. Extending a length in its own direction would not give rise to an area. We need to define a product $\wedge$ of 1-forms so that $dq^1 \wedge dq^1 = 0$ 
+	
+	\section{The Wedge Product} % (fold)
+	\label{sec:the_wedge_product}
+	
+	When we visualize any vector space, whether physical or abstract algebraic, we can view each component as being an axis, and the vector as being a magnitude and direction along this space. 
+	
+	%% Need to work on this
+	A physical vector takes specific direction (a line passing through the origin) and associates to it a magnitude. The vector's information is the direction of the line, together with ``how far we go along this line". Algebraic vectors are anything that can be added and scaled. Physical vectors $v^i \partial/\partial q^i$ are examples of algebraic vectors, as are 1-forms. 1-forms can also be seen
+	%%
+	
+	
+	\begin{concept}[Wedge Product]
+		The wedge product $dq^1 \wedge dq^2$ should associate an infinitesimal increase of size $dq^1 dq^2$ when integrated along the parallelogram obtained by varying $dq^1$ and $dq^2$ together. 
+	\end{concept}
+	Physically, this two-form $\omega = dq^1 \wedge dq^2$ should represent exactly some flux at a point $p$ in space. Once you give a parallelogram on which to evaluate $\omega$ 
+	
+	This wedge product accomplishes exactly what the cross product does, but it doesn't output a \emph{vector}, but rather this 
+	
+	% section the_wedge_product (end)
+	
+	
 	% \begin{concept}[One-Forms Relate Change to Direction]
 	% 	For a function $\phi$, the one-form $\omega = \mathrm d \phi$ gives the first-order change in $\phi$ along a given direction $(dx^1,\dots, dx^n)$. In general, for a one-form $\omega$ that is not exact, $\omega$ along a given direction $(dx^1,\dots, dx^n)$ gives the change in a quantity that cannot be represented by a function of the coordinates. This occurs, for example, with non-conservative forces such as friction or when calculating heat added to a system.
 	% \end{concept}
 	
 	A classic example of a closed form that is not exact is $d\theta$. We know $\mathrm d (d\theta) = 0$, so it is indeed closed. Although locally, $\theta$ can be defined just by calculating the angle from the $x$ axis, if you go around counterclockwise in a circle containing the origin, then $\theta$ continuously increases. At the end of the revolution, even though you are at the same point, $\theta$ has increased by $2\pi$. So although $d\theta$ makes sense locally as a differential form everywhere in the plane minus the origin, we cannot define a global smooth function representing $\theta$ without a discontinuity. The existence of a closed form that is not exact happens because the manifold on which $d\theta$ is defined is \emph{not} $\mathbb R^2$, but is instead defined on $\mathbb{R}^2$ without the origin (where $d\theta$ would not be well-defined). This change in global geometric structure gives rise to these interesting closed, inexact forms. The study of the closed forms that are not exact is called the \textbf{De-Rham cohomology}\index{De-Rham Cohomology} of a manifold. \\
 
-
-	We've now shown how the fundamental theorem of line integrals deals with the exterior derivative. The next step is to go into 2D and show how we can define the exterior derivative in just the right way to get Stokes' theorem \index{Stokes' Theorem!For Curl}for curl in 2D (also known as Green's theorem). Because the language is suggestive, you would expect that there are two-forms for integrating over two-dimensional regions. 
+	
+	
+	
+	
+	\section{Stokes' Theorem} % (fold)
+	\label{sec:stokes_theorem}
+	
+	% section stokes_theorem (end)
 
 	Now instead of having individual quantities like $dx$ to represent an infinitesimal-length line segment, we will want quantities to represent a \emph{infinitesimal areas} that will cover the surface that we integrate on. These areas need to be defined by two directions, $dx^i$ and $dx^j$. 
 	
@@ -307,10 +343,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	
 	We denote the 2-form representing the infinitesimal area formed by one-forms $dx^i$ and $dx^j$ by $dx^i \wedge dx^j$. This is called the wedge product between $dx^i$ and $dx^j$.
 	
-	\begin{concept}
-		The wedge product of coordinate one-forms $dx^i, dx^j$ is geometrically defined to be the infinitesimal parallelogram with one side along the increment of $dx^i$ and the other side along the increment of $dx^j$.
-	\end{concept}
-	
+
 	Note that it is not as easy as just defining the area to be $dx dy$, like a simple scalar. This two-form is a vector-like object. Indeed, the set of all two forms in some dimension form a vector space: we can add them, we can scale them by functions, and we have $0$ to be a trivial two form of no area. 
 	
 	What properties does this wedge product have? 
@@ -330,9 +363,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	
 	\textbf{Example in 1-D, 2-D, and 3-D}
 
-\section{Stokes' Theorem}
-
-\section{Vectors, Forms, and Tensors}
+\section{The Spaces of Vectors, Forms, and Tensors}
 
 \section{Distance, a Metric}
 
