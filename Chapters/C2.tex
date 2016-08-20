@@ -312,11 +312,11 @@
 		D_\mathbf v = \mathbf v \cdot \nabla = v^i \frac{\partial}{\partial x^i}
 	\end{equation}
 	
-	Just like with vector addition, the sum $\mathbf u + \mathbf v$ corresponds to the operator $ D_{\mathbf u + \mathbf v} = D_\mathbf u + D_\mathbf v$, and a multiple $c \mathbf u$ gives the multiple of the original derivative $D_{c \mathbf u} = c D_\mathbf u$. Directional derivatives form a vector space in one-to-one correspondence with the vectors at $p$.  For this reason we say that these directional derivatives \emph{are} the vectors at $p$. Vectors, at their core, represent flows along direction, which is no different from what a directional derivative operator along that point represents. 
+	Just like with vector addition, the sum $\mathbf u + \mathbf v$ corresponds to the operator $ D_{\mathbf u + \mathbf v} = D_\mathbf u + D_\mathbf v$, and a multiple $c \mathbf u$ gives the multiple of the original derivative $D_{c \mathbf u} = c D_\mathbf u$. Directional derivatives form a vector space in one-to-one correspondence with the vectors at $p$.  For this reason we say that these directional derivatives \emph{are} the vectors at $p$. Vectors, at their core, represent flows along direction, which is no different from what a directional derivative operator along that point represents. We will sometimes abbreviate it as $v^i \partial_i$.
 	
 	This leads us to define the \textbf{tangent space} of the vectors at a point $p$ of a manifold $M$.
 	\begin{defn}[Tangent Space]
-		The tangent space\index{Manifold!Tangent Space} at a point $p$ of a manifold $M$, $T_p M$ is the set of all directional derivative operators at $p$.
+		The tangent space\index{Manifold!Tangent Space} at a point $p$ of a manifold $M$, $T_p M$ is the set of first order derivative operators at $p$.
 	\end{defn}
 
 	Going back to $\mathbb{R}^n$, this means that this whole time we could have treated $\hat{\mathbf{i}}$ as $\partial/\partial x$, $\hat{\mathbf{j}}$ as $\partial/\partial y$, etc. Using this idea is powerful, because now just from having a coordinate patch, $q^i$ on a manifold, we obtain the full set of tangent vectors $\partial/\partial q^i$ at each point on the manifold. 
@@ -332,29 +332,29 @@
 	When we focus a specific direction along a curve: $dq^i/dt = v^i$, and allow the function to be arbitrary we get a vector corresponding to change along our path:
 	
 	\begin{equation}
-		\mathbf v  = v^i \frac{\partial}{\partial q^i} 
+		\mathbf v  = v^i \partial_i
 	\end{equation}
-	This needs to be fed a function $f$ to give a real number value.
+	This needs to be \emph{fed} a \underline{function} $f$ to give a real number value.
 	
-	On the other hand, if we pick a specific \emph{function} with first order behaviour given by $\frac{\partial f}{\partial q^i} = \omega_i$ and allow for the \emph{direction} to be arbitrary, we get something else
+	On the other hand, if we pick a specific \emph{function} with first order behaviour given by $\partial_i f = \omega_i$ and allow for the \emph{direction} to be arbitrary, we get something else
 	
 	\begin{equation}
 		df = \omega_i dq^i
 	\end{equation}
-	This needs to be fed a direction $dq^i$ to give an associated real value. This object is called a \textbf{covector}\index{Vector!Covector} or a \textbf{1-form}\index{Differential Form!1-Form}, and is often denoted by the greek letter $\omega$. It is an entirely different object from a vector. Where a vector represents a direction that we can differentiate functions alone, this represents a \emph{function differential} that we can take along a direction. It is the dual to the notion of a vector, but behaves in very much the same way.
+	This needs to be \emph{fed} a \underline{direction} $dq^i$ to give an associated real value. We will call this new object a \textbf{covector}\index{Vector!Covector} or a \textbf{1-form}\index{Differential Form!1-Form}, and it is often denoted by the greek letter $\omega$. It is an entirely different object from a vector. Where a vector represents a direction that we can differentiate functions alone, this represents a \emph{function differential} which we can take changes of, along a direction. It is the dual to the notion of a vector, but behaves in very much the same way.
 	
-	The 1-forms on a manifold give rise to the \textbf{cotangent space}.
+	The sum of two one-forms is still a one form, as are scalar multiples, so the one forms at a point $p$ form a vector space called the \textbf{cotangent space} at $p$.
 	
 	\begin{defn}[Cotangent Space]
 		The cotangent space\index{Manifold!Cotangent Space} at a point $p$ of a manifold $M$, $T_p^* M$ is the set of all first order differentials at $p$.
 	\end{defn}
 	
-	Vectors were defined in terms of curves: they represent the first order approximations to curves (namely their tangents, and the derivatives along them). 1-Forms are defined in terms of \emph{functions}: they represent the first order approximations of functions (namely their differentials). At first glance, you may think that for a dimension $n$ manifold, there are only $n$ directions to go in whereas we have seemingly infinite freedom in picking the functions passing through $p$ so there are many more 1-forms than there are vectors, but this isn't true.
+	Vectors were defined in terms of curves: they represent the first order approximations to curves (namely their tangents, and the derivatives along them). 1-Forms are defined in terms of \emph{functions}: they represent the first order approximations of functions (namely their differentials). At first glance, you may think that for a dimension $n$ manifold, there are only $n$ directions to go in, whereas we have seemingly infinite freedom in picking the functions passing through $p$ so there are many more 1-forms than there are vectors, but this isn't true.
 	
-	Just as there are a huge number of functions that we can define at $p$, there are a huge number of curves that go through $p$, but because we only care about \underline{first order behaviour} at $p$ for the curves, many curves give the same tangent vector. Similarly, many functions will give the same 1-form, if they have the same \underline{first order behaviour}. It should start to become clear that there is duality between these two ideas
+	Just as there are a huge number of functions that we can define at $p$, there are a huge number of curves that go through $p$, but because we only care about \underline{first order behaviour} at $p$ for the curves, many curves give the \emph{same} tangent vector. Similarly, many functions will give the \emph{same} 1-form, if they have the same \underline{first order behaviour}. It should start to become clear that there is duality between these two ideas
 	
 	\begin{concept}
-		The first-order behaviour of curves at a point $p$ (i.e. vectors) is dual (in a sense that will be discussed in the next chapter) to the first-order behaviour of the functions at $p$. On a manifold of dimension $n$, both of these are vector spaces of dimension $n$. 
+	The first-order behaviour of curves at a point $p$ (i.e. vectors) is dual (in a sense that will be discussed in the next chapter) to the first-order behaviour of the functions at $p$. On a manifold of dimension $n$, both of these are vector spaces of dimension $n$. 
 	\end{concept}
 	
 	\begin{center}

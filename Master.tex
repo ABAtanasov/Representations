@@ -11,6 +11,8 @@
 \usepackage{epigraph}
 \usepackage{makeidx}
 \usepackage{titlesec}
+\usepackage{thm-restate}
+\usepackage{cleveref}
 \usepackage[english]{babel}
 
 \newcommand{\md}{\text{ \% }}
@@ -75,8 +77,12 @@
 \newtheorem*{nb}{Important Note}		%Don't think we'll use this
 \newtheorem{concept}[theorem]{Concept}
 \newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{obs}[theorem]{Observation}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{prop}[theorem]{Proposition}
+
+\declaretheorem[name=Theorem,numberwithin=section]{thm}
 
 
 

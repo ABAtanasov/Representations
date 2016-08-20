@@ -24,12 +24,13 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	where $R$ is our region and $C$ is its boundary.
 	
 	Perhaps now, the pattern is more evident. In all the above cases, summing up some \emph{differential} of the function on the interior of some region is the same as summing up the function itself at the \emph{boundary} of the region. All these theorems, that on their own look so strange to a first-year calculus student, are part of a much more general statement, the \textbf{General Stokes' Theorem}\index{Stokes' Theorem!General}:
-	
+
 	\begin{theorem}[General Stokes' Theorem]\label{thm:GeneralStokes}
 		\begin{equation} \label{eq:GeneralStokes}
 			\int_\Omega \mathrm d \omega = \int_{\partial \Omega} \omega.
 		\end{equation}
 	\end{theorem}
+
 	
 
 	
@@ -49,7 +50,10 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 
 
 
-\section{The Derivative and the Boundary}
+\section{The Derivative and the Boundary} % (fold)
+\label{sec:the_derivative_and_the_boundary}
+
+% section the_derivative_and_the_boundary (end)
 
 	Let's start working towards understanding Equation~\eqref{eq:GeneralStokes}. First, let's work with what we've already seen to try and explore the relation between integrating within a region and integrating on the boundary. 
 	
@@ -284,92 +288,366 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		\mathrm d \phi = F_x ~ dx + F_y ~ dy = F_\theta ~ d\theta + F_r ~ dr 
 	\end{equation}
 	
-	Because we know how to go from $x,y$ to $r, \theta$ and because this nonlinear change of coordinates is \emph{linear} at every point on the differentials, this would allow us to go between the language of ``x-y force'' and the language of ``torque + radial force about the origin''  at any ponit.
+	Because we know how to go from $x,y$ to $r, \theta$ and because this nonlinear change of coordinates is \emph{linear} at every point on the differentials, this would allow us to go between the language of ``x-y force'' and the language of ``torque + radial force about the origin''  at any point.
 	
 	All forces (including the generalized forces, like torque) are covariant coefficients of the invariant differential form for work. If you're working in a coordinate system $q^i$, whether it be cartesian $x,y,z$ or polar $r, \theta$, then the coefficient corresponding to $dq^i$ is precisely the generalized force associated with that coordinate in your system.\\
-	
-	To go from a 0-form to a 1-form, we applied the exterior derivative operator, which could just be written as:
-	\begin{equation}
-		\mathrm d = dq^i \frac{\partial}{\partial q^i}
-	\end{equation}
-	we can view this $\mathrm d$ operator as a 1-form whose coefficients on each $dq^i$, rather than being numbers, are derivative operators $\partial/\partial q^i$ with respect to the corresponding coordinates.
-	
-	Say we are integrating a 1-form $\omega$ along a small line segment where (without loss of generality) $q^1$ is changing by some very small length $dq^1$. All other coordinates are held fixed, so $dq^i = 0 ~ \forall i \neq 1$. This infinitesimal line segment could be turned into a 2-D parallelogram by adding another \emph{different} $q^i$ into the mix, say (again without loss of generality) $q^2$. Then in multivariable calculus this would be an infinitesimal area element of size $dA = dq^1 dq^2$. This is what we want to do: we want to be able to multiply two one-forms to get a two-form that is meant to be integrated along areas. 
-	
-	This multiplication is not just as straightforward as multiplying the differentials as if they were numbers $dx^i dx^j$ like we did when integrating. The differentials are elements of the vector space of one forms at each point. We want to multiply two vectors (that give values when given a specific direction or infinitesimal line segment $dx^i$) and obtain a new type of object that gives a value when given a specific \emph{plane element}, or infinitesimal parallelogram $dx^i, dx^j$. Extending a length in its own direction would not give rise to an area. We need to define a product $\wedge$ of 1-forms so that $dq^1 \wedge dq^1 = 0$ 
-	
-	\section{The Wedge Product} % (fold)
-	\label{sec:the_wedge_product}
-	
-	When we visualize any vector space, whether physical or abstract algebraic, we can view each component as being an axis, and the vector as being a magnitude and direction along this space. 
-	
-	%% Need to work on this
-	A physical vector takes specific direction (a line passing through the origin) and associates to it a magnitude. The vector's information is the direction of the line, together with ``how far we go along this line". Algebraic vectors are anything that can be added and scaled. Physical vectors $v^i \partial/\partial q^i$ are examples of algebraic vectors, as are 1-forms. 1-forms can also be seen
-	%%
-	
-	
-	\begin{concept}[Wedge Product]
-		The wedge product $dq^1 \wedge dq^2$ should associate an infinitesimal increase of size $dq^1 dq^2$ when integrated along the parallelogram obtained by varying $dq^1$ and $dq^2$ together. 
-	\end{concept}
-	Physically, this two-form $\omega = dq^1 \wedge dq^2$ should represent exactly some flux at a point $p$ in space. Once you give a parallelogram on which to evaluate $\omega$ 
-	
-	This wedge product accomplishes exactly what the cross product does, but it doesn't output a \emph{vector}, but rather this 
-	
-	% section the_wedge_product (end)
 	
 	
 	% \begin{concept}[One-Forms Relate Change to Direction]
 	% 	For a function $\phi$, the one-form $\omega = \mathrm d \phi$ gives the first-order change in $\phi$ along a given direction $(dx^1,\dots, dx^n)$. In general, for a one-form $\omega$ that is not exact, $\omega$ along a given direction $(dx^1,\dots, dx^n)$ gives the change in a quantity that cannot be represented by a function of the coordinates. This occurs, for example, with non-conservative forces such as friction or when calculating heat added to a system.
 	% \end{concept}
 	
-	A classic example of a closed form that is not exact is $d\theta$. We know $\mathrm d (d\theta) = 0$, so it is indeed closed. Although locally, $\theta$ can be defined just by calculating the angle from the $x$ axis, if you go around counterclockwise in a circle containing the origin, then $\theta$ continuously increases. At the end of the revolution, even though you are at the same point, $\theta$ has increased by $2\pi$. So although $d\theta$ makes sense locally as a differential form everywhere in the plane minus the origin, we cannot define a global smooth function representing $\theta$ without a discontinuity. The existence of a closed form that is not exact happens because the manifold on which $d\theta$ is defined is \emph{not} $\mathbb R^2$, but is instead defined on $\mathbb{R}^2$ without the origin (where $d\theta$ would not be well-defined). This change in global geometric structure gives rise to these interesting closed, inexact forms. The study of the closed forms that are not exact is called the \textbf{De-Rham cohomology}\index{De-Rham Cohomology} of a manifold. \\
+	
+	\section{The Exterior Algebra and the Wedge} % (fold)
+	\label{sec:the_exterior_algebra_and_the_wedge}
+	
+	If a $1$-form must be fed a vector of some associated change of coordinates $dq^i$, then what about a $2$ form? A 2-form, $\omega$, should associate a ``flux" out of a plane, so we need $\omega$ to be given a plane associated with \emph{two} directions $v^i, u^i$, and then $\omega$ acting on these two directions would give the associated ``flux'' out of the infinitesimal parallelogram gained by varying $q^i$ in both directions. So if $\omega$ were a 1-form, it would act on one vector as $\omega(\mathbf v)=\omega_i v^i$, but now $\omega$ as a 2-form acts on two vectors:
+	\begin{equation*}
+		\omega(\mathbf u, \mathbf v) \longleftrightarrow \text{Flux Coming out of $\mathbf u$ and $\mathbf v$s Parallelogram}
+	\end{equation*}
+	This is an intuitive \emph{geometric idea}. This is what we want to be true, and the following observations will be \emph{algebraic properties of $\omega$} based on our geometric notions of flux.\\
+	\textbf{DRAW SOMETHING HERE}
 
+	\begin{obs}
+		$\omega(\mathbf v, \mathbf v) = 0$
+	\end{obs}
+	The parallelogram generated by $\mathbf v$ and itself has no second dimension, so it has no area. Therefore there isn't room for any flux to come out of it.
+	\begin{obs}
+		$\omega(2\mathbf u, \mathbf v) = 2 \omega(\mathbf u, \mathbf v)$ and $\omega(\mathbf u,2 \mathbf v) = 2 \omega(\mathbf u, \mathbf v)$.\\
+		Moreover, in general $\omega(a \mathbf u, \mathbf v) = \omega(\mathbf u,a \mathbf v)= a \omega(\mathbf u, \mathbf v)$ for $a>0$.
+	\end{obs}
+	Of course, if we scaled the parallelogram by some positive amount $a$ along one of the sides, then its total area scales by $a$, so that $\omega$ gives $a$ times as much ``stuff'' coming out of the scaled parallelogram. This observation, together with our linear algebraic ideas, suggest that this should naturally extend beyond positive $a$ so that $\omega(-\mathbf u,\mathbf v) = -\omega(\mathbf u, \mathbf v)$, giving us negative flux through the parallelogram. But what does that mean? This means that if one of the vectors gets scaled negatively, the \emph{orientation} of the new parallelogram reverses. 
+	\textbf{DRAW THIS HERE}
+	
+	So now even though the pair $-\mathbf u, \mathbf v$ are on the same plane, the notion of ``out" through their parallelogram has reversed. This makes physical sense, 
+	\begin{concept}
+		What matters, when finding the flux associated with $\omega$ along two directions $\mathbf u, \mathbf v$
+		\begin{enumerate}
+			\item The \emph{plane} that $\mathbf u, \mathbf v$ span, through which the flux is going
+			\item That scaling $\mathbf u$ or $\mathbf v$ also scales the flux.
+			\item The \emph{orientation} for which direction is in and which is out.
+		\end{enumerate}
+	\end{concept}
+	This is exactly what we've seen before with the \textbf{Right-Hand Rule}\index{Right-Hand Rule}. Because of this, and from what we've seen before with objects like cross products, we would \emph{expect} that $\omega(\mathbf u, \mathbf v)$ represents one orientation, and $\omega(\mathbf v, \mathbf u)$ represents the opposite one so that 
+	 \begin{equation*}
+	 	\omega(\mathbf u, \mathbf v) = -\omega(\mathbf v, \mathbf u)
+	 \end{equation*}
+	we can add this as another property \emph{but} we can instead actually prove it if we make just one more geometric observation
+	\begin{obs}
+		$\omega(\mathbf u+\mathbf v, \mathbf w) = \omega(\mathbf u, \mathbf w) + \omega(\mathbf v, \mathbf w)$
+	\end{obs}
+	If $\mathbf u = a \mathbf v$ are linearly dependent then this is just the scaling observation. If $\mathbf v$ is linearly dependent with $\mathbf w, \mathbf u = a \mathbf w$, then this is just the observation that the parallelogram of $(\mathbf u, \mathbf w)$ would have the same amount of associated area if you were to add vectors in the direction of $\mathbf w$ to $\mathbf u$ so $\omega(\mathbf u + a \mathbf w, \mathbf w) = \omega(\mathbf u, \mathbf w)$. It's the same idea if $\mathbf u$ is linearly dependent with $\mathbf w$. Now let's assume all vectors are linearly independent. Geometrically, the two planes associated with $(\mathbf u,\mathbf w)$ and $(\mathbf v,\mathbf w)$, and the plane associated with the sum $(\mathbf u + \mathbf v, \mathbf w)$ can look like:
+	
+	\textbf{FIGURES TO ILLUSTRATE MY GEOMETRIC IDEA, DISCUSS WITH AARON}
+
+	Now $\omega$ represents a constant flux in space. Enclosing a region by these three planes should mean that the flux that goes through the first two is the flux that comes out of the third.
+	
+	The same exact argument can be applied to show this holds for the second slot in $\omega(-,-)$.
+	\begin{cor}
+		The above observations imply that $\omega$ is linear and \emph{\textbf{antisymmetric}} in its arguments so that $\omega(\mathbf u, \mathbf v) = -\omega(\mathbf v, \mathbf u)$. That is, as we expected, reversing the order of $\mathbf u$ and $\mathbf v$ reverses the orientation of the plane.
+	\end{cor}
+	\begin{proof}
+		We have shown that $\omega$ is compatible with scaling and addition in each argument, so it is linear in both.
+		
+		Now consider $\omega(\mathbf u + \mathbf v, \mathbf u + \mathbf v)$. By our first observation, such a parallelogram has no area, so this is zero. On the other hand, by the linearity of $\omega$ in both arguments:
+		\begin{align*}
+			0 &= \omega(\mathbf u, \mathbf u) + \omega(\mathbf u, \mathbf v) + \omega(\mathbf v, \mathbf u) + \omega( \mathbf v , \mathbf v) 
+			\\
+			&= \omega(\mathbf u, \mathbf v) + \omega( \mathbf v, \mathbf u) \\
+			&\Rightarrow \omega(\mathbf u, \mathbf v) = - \omega(\mathbf v, \mathbf u)
+		\end{align*}
+	\end{proof}
+	
+	2-forms are bilinear operators that act on pairs of vectors that represent coordinate changes $(\mathbf u, \mathbf v)$. They associate a flux to a given plane defined by such coordinate changes. 
+	In $\mathbb{R}^3$, the space of 1-forms is spanned by $dx, dy, dz$. We can also know the flux through any plane if we knew the flux on the $xy, yz$, and $zx$ planes, so our basis for our set of 2-forms should also be three dimensional. It is spanned by three elements that we will write as
+	\begin{equation*}
+		dx \wedge dy, ~ dy \wedge dz, ~ dx \wedge dz
+	\end{equation*}
+	The first element represents a flux of magnitude $|dx ~ dy|$ through the $xy$ plane an no flux through the other two. On the other hand $dy \wedge dx$ would represent a flux in the OTHER direction so that $dx \wedge dy = - dy \wedge dx$. We have invented something called the \textbf{wedge product}\index{Wedge Product}.
+	\begin{align*}
+		\text{1-form in $\mathbb R^3$} &= \omega_x dx + \omega_y dy + \omega_z dz\\
+		\text{2-form in $\mathbb R^3$} 
+		&=
+		\omega_{xy} (dx \wedge dy) + \omega_{yz} (dy \wedge dz) + \omega_{xz} (dx \wedge dz) 
+	\end{align*}
 	
 	
+	In multivariable calculus, we would define planes, together with orientations, by specifying a normal vector to those planes. In a general dimension, we aren't able to associate a normal vector to a plane, so we should talk about the plane \emph{itself}. For this reason we define the \textbf{wedge product} 
 	
+	\begin{defn}[The Wedge Product]\label{def:wedge}
+		The product $\wedge$ on a real vector space $V$ defined so as to satisfy the following properties
+		\begin{itemize}
+			\item $ \forall \mathbf a,\mathbf b, \mathbf c \in V, ~ (a \mathbf a + b \mathbf b) \wedge \mathbf c$ = $ a (\mathbf a \wedge \mathbf c) + b (\mathbf b \wedge \mathbf c)$
+			\item $ \forall \mathbf a,\mathbf b, \mathbf c \in V, ~ \mathbf c \wedge (a \mathbf a + b \mathbf b) = a \mathbf c \wedge \mathbf b + b \mathbf c \wedge \mathbf a$
+			\item $\forall \mathbf a\in V, ~ \mathbf a \wedge \mathbf a = 0$
+		\end{itemize}
+	\end{defn}
+	As before, this last condition, together with bi-linearity, implies anti-symmetry of $\wedge$.
+	
+	In our case, when we have a basis $dq^i$ for our cotangent space of 1-forms, the basis for our space of 2-forms can be written as $dq^i \wedge dq^j$ for $i<j$. The 2-form $dq^3 \wedge dq^4$, for example, represents a flux of magnitude $|dq^3 dq^4|$ out of the $q^3q^4$ plane and no flux out of $q^iq^j$ planes for any other $i,j$. On the other hand $dq^4 \wedge dq^3$ would be the same flux in the opposite direction (and again, no flux out of any of the other $q^i q^j$ planes).
+	
+	It may be frustrating to see this new product without any previous background. Let's do an example of wedging two 1-forms in 3D: $\alpha$ and $\beta$, and see what happens.
+	\begin{align*}
+		\alpha \wedge \beta &=(\alpha_x dx + \alpha_y dy + \alpha_z dz) \wedge (\beta_x dx + \beta_y dy + \beta_z dz) \\
+		\\
+		& =  ~~~ \alpha_x \beta_x (dx \wedge dx) + \alpha_x \beta_y (dx \wedge dy) + \alpha _x \beta_z (dx \wedge dz) \\
+		 & ~~~ + \alpha_y \beta_x (dy \wedge dx) + \alpha_y \beta_y (dy \wedge dy) + \alpha_y \beta_z (dy \wedge dz) \\
+		 & ~~~ + \alpha_z \beta_x (dy \wedge dx) + \alpha_z \beta_y (dy \wedge dy) + \alpha_z \beta_z (dy \wedge dz)\\
+		 \\
+		&=(\alpha_x \beta_y - \alpha_y \beta_x)(dx \wedge dy)+ (\alpha_y \beta_z - \alpha_z \beta_y)(dy \wedge dz)\\
+		&  ~~ +(\alpha_z \beta_x - \alpha_x \beta_z)(dz \wedge dx) 
+	\end{align*}
+	
+	\textbf{OK AARON FORMAT THIS IDK HOW}
+	but if we were back in multivariable calculus world, not caring about vectors and forms and writing everything in terms of $\hat{\mathbf{i}}, \hat{\mathbf{j}}, \hat{\mathbf{k}}$, and we identified 
+	\begin{align*}
+		&\hat{\mathbf{i}} \leftrightarrow dx, \hat{\mathbf{j}} \leftrightarrow dy, \hat{\mathbf{k}} \leftrightarrow dz 
+	\end{align*}
+	as well as
+	\begin{align*}
+		&\hat{\mathbf{i}} \leftrightarrow dy \wedge dz, \hat{\mathbf{j}} \leftrightarrow dz \wedge dx, \hat{\mathbf{k}} \leftrightarrow dx \wedge dy
+	\end{align*}
+	then the wedge product becomes \emph{exactly} the cross product. Why wedge then, when we already know the cross product? Because the cross product, going from vectors to vectors, only works in three dimensions. The wedge product taking us from 1-forms to 2-forms, is universally valid.
+	
+	Moreover, now we can go beyond just 2-forms and form higher wedges, $k$-forms\index{Differential Form!$k$-Form}. The wedge of two forms $\alpha \wedge \beta$ will always be linear in both arguments and antisymmetric. For example, we can make 3-forms. In 3-D, the space of 3-forms is one dimensional spanned by $dx \wedge dy \wedge dz$. Any other wedge of these differentials will either be the same, or a negative of this one. It corresponds to the one true infinitesimal 3D volume. What about the sign? It is the distinction between flow ``into'' the volume.
+	
+	\textbf{GRAPHIC of 2-form wedge a 1-form giving ``inward'' orientation, and then wedge the negative of that 1-form to give the ``outward'' orientation}
+	
+	This is more general, in $n$ dimensions the space of $n$-forms is one dimensional, spanned by the form $\bigwedge_{i=1}^n dq^i$. For some terminology:
+	\begin{defn}[\textbf{Exterior Power}\index{Exterior!Power}] For a given vector space $V$, the vector space of of $k$ forms spanned by wedging elements of $V$ with themselves $k$ times is called the $k$th exterior power of $V$, and is denoted by $\Lambda^kV$.
+	\end{defn}
+	Our $V$ in this case is the cotangent space at a point $T^*_p M$: the space of 1-forms and $V = \Lambda^1 V$ always. The space of zero forms $\Lambda^0 (T^*_p M)$ at a point is the set of possible function values so is just $\mathbb R$ in our case, since we are working over the reals. The space of $k$ forms at $p$ is the $k$th exterior power of the cotangent space at $p$: $\Lambda^k T^*_p M$. If we consider all $k$-forms at $p$, then we get the \emph{exterior algebra} of the cotangent space at $p$. 
+	\begin{defn}[\textbf{Exterior Algebra}\index{Exterior!Algebra}]
+		The vector space of \emph{all} $k$-forms is called the exterior algebra of $V$ and is denoted $\Lambda V$.
+	\end{defn}
+	What about the tangent space of vectors? What does the exterior algebra mean there? If $dq^1 \wedge dq^2$ is the form that associates an oriented flux to the $q^1 q^2$ plane, then $\partial_1 \wedge \partial_2$ is the oriented plane \emph{itself}.
+	
+	In this way 
+	\begin{equation*}
+		(\text{Flux} ~ dq^1 \wedge dq^2)(\text{Coordinate Area} ~ \partial_1 \wedge \partial_2) = (\text{Flux}) (\text{Coordinate Area}).
+	\end{equation*} 
+	This is the invariant \emph{total flux} coming out from varying $dq^1$ and $dq^2$ together to sweep out a coordinate area. In general, $k$-wedges of vectors $v^i \partial_i$ represent the oriented $k$-volumes \emph{themselves}, on which $k$-forms act. In Einstein's convention, you can show that in for a general 2-forms and 2-vectors whose coordinates are doubly covariant and contravariant, respectively, we get the invariant value:
+	\begin{align*}
+		(\omega_{ab} dx^a \wedge dx^b) (v^{cd} \partial_c \wedge \partial_d) &= \omega_{ab} v^{cd} (\delta^{a}_c \delta^{b}_d - \delta^{a}_d \delta^{b}_c)\\
+		& = \omega_{ij}v^{ij} - \omega_{ij}v^{ji}.
+	\end{align*}
+	\textbf{It is an exercise to generalize this, and also to check that it makes sense in 3D when our wedges are cross products and areas are normal vectors}
+	
+	As a last note, philosophically, \emph{where does this antisymmetry come from?} We've already seen it in the cross product, and now we have it in this wedge. Geometrically, what is happening? That the wedge product of a form with itself is zero is easy to understand: you cannot geometrically extend an object to higher dimensions without introducing new directions. Antisymmetry, on the other hand, is less obvious.
+	
+	 When we extend a geometric $k$-volume to a $k+1$-volume, there is a notion of orientation. Going from the line to the plane, we need to know ``which direction is out for flux?" Similarly, for the plane to the volume, we have basically the same question ``which direction is in/out for flux?'', and the antisymmetry of the wedge reflects that orientation will always exist for higher $k$ volumes.
+	
+	% section the_exterior_algebra_and_the_wedge (end)
 	
 	\section{Stokes' Theorem} % (fold)
 	\label{sec:stokes_theorem}
 	
 	% section stokes_theorem (end)
-
-	Now instead of having individual quantities like $dx$ to represent an infinitesimal-length line segment, we will want quantities to represent a \emph{infinitesimal areas} that will cover the surface that we integrate on. These areas need to be defined by two directions, $dx^i$ and $dx^j$. 
 	
-	This is different from the vectors and forms that we've encountered before. Forms probably seem very similar to vectors. There are components associated with each $dx^i$. Even though philosophically they are deeply tied with infinitesimal quantities and integration, together with vectors they both correspond to some object that deals with 1-D lengths. 
+	To go from a 0-form $f$ to a 1-form $\omega$, we applied the exterior derivative operator, which could just be written as:
+	\begin{equation}
+		\mathrm df = dq^i \frac{\partial f}{\partial q^i}.
+	\end{equation}
+	Going further, perhaps we could write the exterior derivative operator explicitly asa the invariant: 
+	\begin{equation}\label{eq:exterior_derivative}
+		\mathrm d = dq^i \frac{\partial}{\partial q^i}.
+	\end{equation}
+	We can view this $\mathrm d$ operator as a 1-form whose coefficients on each $dq^i$, rather than being numbers, are derivative operators $\partial/\partial q^i$ with respect to the corresponding coordinates. 
 	
-	A 2-form, on the other hand, is a ``product'' of one forms in a similar way to how area is the product of lengths:
+	Now for a 1-form $\omega = \omega_i dq^i$, we want the exterior derivative to take us to a 2-form. If this $\mathrm d$ operator can be thought of as a 1-form, the obvious way to go to a form one step higher is by wedging, meaning that we would define:
+	\begin{equation}\label{eq:exterior_derivative2}
+		\mathrm d \omega := (dq^i \frac{\partial}{\partial q^i}) \wedge \omega= dq^i \wedge \frac{\partial \omega}{\partial q^i}.
+	\end{equation}
+	Note that the only reason we did this is because of what the \emph{algebra} seemed to tell us to do, independent of any geometric intuition beforehand. This is powerful, but is this right? Is this the derivative operator that will generalize the gradient, divergence, curl, and \emph{everything else}?
+	
+	Let us first check that for a 1-form $\omega$ $\mathrm d \omega$ gives us Stokes' theorem, as we want:
+	
+	\begin{theorem}[Stokes' Theorem for 1-forms]
+		If $\omega$ is a 1-form, then with $\partial$ defined as the boundary operator of a manifold and $\mathrm d$ defined as in Equation~\eqref{eq:exterior_derivative2}, we have
+		\begin{equation*} 
+			\int_\Omega \mathrm d \omega = \int_{\partial \Omega} \omega.
+		\end{equation*}
+	\end{theorem}
+	\begin{proof}
+		Take $\Omega$, and as in all of our proofs in the section Section~\ref{sec:the_derivative_and_the_boundary}, let us cut $\Omega$ into a mesh of infinitesimal parallelograms. If we integrate $\omega$ over the boundary $\partial \Omega$, this is the same as integrating $\omega$ over every single individual parallelogram on the interior, as \emph{BECAUSE OF ORIENTATION}, the integrals over the boundaries of these parallelograms will cancel between neighbors, leaving us with only the boundary, as always.
+		
+		It remains to show that for an arbitrary small parallelogram, Stokes' theorem holds. This parallelogram is obtained by varying $q^i$ along two vectors $u^i \partial_i$ and $v^i \partial_i$. After a suitable linear transformation of coordinates, we can assume WLOG that this parallelogram is obtained by changing $q^1$ by some fixed small amount $dq^1$ and $q^2$ by $dq^2$. Let's integrate $\omega$ on the boundary:
+		
+		Because the parallelogram is small, we can approximate these integrals as:
+		\begin{equation*}
+			(\partial_1 \omega_2 - \partial_2 \omega_1) dq^1 dq^2
+		\end{equation*}
+		On the other hand the exterior derivative is:
+		\begin{align*}
+			\mathrm d \omega 
+			&= dq^i \wedge (\partial_i \omega) \\
+			&= (dq^1 \wedge dq^2) \partial_1 \omega_2 + (dq^2 \wedge dq^1)  \partial_2 \omega_1 + \text{other} \\
+			&= (\partial_1 \omega_2 - \partial_2 \omega_1) dq^1 \wedge dq^2 + \text{other}
+		\end{align*}
+		where the other terms involve wedges that aren't of $q^1,q^2$ and will vanish along integration of this specific parallelogram. Since integrating $(\partial_1 \omega_2 - \partial_2 \omega_1) dq^1 \wedge dq^2$ gives exactly $(\partial_1 \omega_2 - \partial_2 \omega_1) dq^1 dq^2$, we have proven it for this parallelogram, and by linearity and coordinate change for \emph{any} paralellogram. Because adding these parallelograms together forms the bulk of $\Omega$ and they cancel when integrated on neighboring boundaries (if one boundary is associated with $dq^i$, the neighboring one is associated with $-dq^i$), this gives the desired result. 
+	\end{proof}
+	\textbf{WE DONT NEED ANY OTHER COORDINATES}
+	
+	
+	Note that if $q^i = (x,y,z)$ then this is exactly Stokes' theorem in 3-D for the curl! More than this, it generalizes Stokes' theorem in $\mathbb{R}^3$: for any 2-D surface, the circulation of $\omega$ over the boundary is exactly the sum total of the curl $\mathrm d \omega$ over the interior.
+	
+	From this let us prove what we set out to prove in the most general case:
+	{
+	\renewcommand{\thetheorem}{\ref{thm:GeneralStokes}}
+	\begin{theorem}[General Stokes' Theorem]
+		With $\partial$ defined as the boundary operator of a manifold and $\mathrm d$ defined as in Equation~\eqref{eq:exterior_derivative2}, we have for a general differential $k$-form $\omega$ that
+		\begin{equation*} 
+			\int_\Omega \mathrm d \omega = \int_{\partial \Omega} \omega.
+		\end{equation*}
+	\end{theorem}
+	\addtocounter{theorem}{-1}
+	}
+	First, a lemma:
+	
+	\begin{lemma}[Restriction of a Form]
+		If $\omega$ is a $k$ form of $n$ variables that is being integrated over some $k$-dimensional manifold associated with changing only the first $k$ variables, then for the integration, we can work with the restricted $\omega_{\text{res}}$ associated with setting the last $n-k$ $dq^i$ equal to zero, and eliminating any wedge terms holding those $dq^i$.
+	\end{lemma}
+	\begin{proof}
+		This follows from
+	\end{proof}
+	\textbf{IM NOT SURE WE NEED THIS NOW}
+	
+	Now to prove the General Stokes' Theorem:
+	\begin{proof}
+		For a given manifold $\Omega$, divide it's bulk into $k$-volumes that are generalizations of parallelograms to $k$-dimensions. Just like a line's boundary has two points, a parallelogram's has 4 lines, a parallelepiped's has $6$ parallelograms, a $k$-volume's boundary is $2k$ $k-1$ volumes. Again, we can set up local coordinates so that this $k$ volume has each $k-1$ obtained by holding some $q^i$ constant and letting the others vary. For each $q^i$ there are exactly two opposing $k-1$ volumes obtained by holding that coordinate constant, and they have opposite orientation.
+		
+		Now let us perform the integration of $\omega$ over the $k-1$ boundaries. In terms of these coordinates, $\omega$ can be written as a linear combination of wedges of $k-1$ of the $dq^i$, meaning that each such wedge misses exactly one $dq^i$.
+	\end{proof}
+	\textbf{THE PROBLEM WITH THE ABOVE IS THERE COULD BE $n$ $q^i$ and }
+	\begin{prop}
+		$\mathrm d^2 = 0$
+	\end{prop}
+	\begin{proof}
+		For a general form $\omega$, consider
+		\begin{align*}
+			\mathrm d (\mathrm d\omega) &= (dq^j \partial_j)\wedge (dq^i \partial_i \omega) \\
+					& = dq^j \wedge dq^i (\partial_j \partial_i \omega)
+		\end{align*}
+		This is a summation over $i$ and $j$ running from $1$ to $n$. Now pick any specific term in the sum with \emph{specific} indices $a, b$. This corresponds to a term:
+		\begin{equation*}
+			dq^a \wedge dq^b (\partial_{a} \partial_{b} \omega)
+		\end{equation*}
+		in the sum. We can assume $a \neq b$ as otherwise that'd mean $dq^a \wedge dq^b = 0$.
+		But that means we will have another distinct term with those indices reversed $(b,a)$ equal to
+		\begin{equation*}
+			dq^b \wedge dq^a (\partial_{b} \partial_{a} \omega)
+		\end{equation*}
+		Since partials commute but the wedge products anti-commute, this $(b,a)$ term is equal to the \emph{negative} of that first $(a,b)$ term, meaning they will cancel. The whole double-sum will then become a sum of cancelling terms, giving zero.
+	\end{proof}
+	\begin{cor}
+		$\partial^2 = 0$: The boundary of a boundary is nothing. 
+	\end{cor}
+	\begin{proof}
+		Assume we are integrating a form $\mathrm d \omega$ on a boundary. By Stokes' Theorem (twice):
+		\begin{equation*}
+			\int_{\partial^2 \Omega} \omega = \int_{\partial \Omega} \mathrm d \omega = \int_{\Omega} \mathrm d^2 \omega = \int_\Omega 0 = 0
+		\end{equation*}
+	\end{proof}
+	This is an amazing geometric fact that we have gotten, via Stokes' theorem, from the \emph{purely algebraically derived} fact that $\mathrm d^2 = 0$. The duality between forms and the manifolds we integrate them over is a gorgeous duality between algebra and geometry that extends very deeply and profoundlys (c.f. Hodge Theory \textbf{INSERT TEXTS HERE}).
+	
+	We have already seen that differential forms that are the exterior derivatives $\mathrm d \omega$ of some other form $\omega$ are called exact. We know exact 1-forms correspond to conservative vector fields. \textbf{It will be an exercise to show} exact 2-forms in $\mathbb R^3$ correspond to solenoidal vector fields. On the other hand, forms $\omega$ that have $\mathrm d \omega = 0$ are called \textbf{closed}\index{Differential Form!Closed}. Why this language? It is taken for the corresponding geometric language for the boundary operator. If a region has no boundary, it is called closed, so if a form has zero exterior derivative, it will also be called closed. Clearly exact forms are closed, since $\mathrm d^2 = 0$, but are \emph{all} the closed forms exact? In $\mathbf{R}^3$, the answer is yes, but consider this:
+	
+	\begin{example}
+		$d\theta$ is a closed form defined on the punctured plane that is not exact. 
+	\end{example}
+	
+	We know $\mathrm d (d\theta) = 0$, so it is indeed closed. Although locally, a function $\theta$ (that this form represents the change of) can be defined just by calculating the angle from the $x$ axis, if you go around counterclockwise in a circle containing the origin, then $\theta$ continuously increases. At the end of the revolution, even though you are at the same point, $\theta$ has increased by $2\pi$. So although $d\theta$ makes sense locally as a differential form everywhere in the plane minus the origin, we cannot define a global smooth function representing $\theta$ without a discontinuity. The existence of a closed form that is not exact happens because the manifold on which $d\theta$ is defined is \emph{not} $\mathbb R^2$, but is instead defined on $\mathbb{R}^2$ without the origin (where $d\theta$ would not be well-defined). This change in global geometric structure gives rise to these interesting closed, inexact forms. 
+	
+	The study of the closed forms that are not exact on a manifold is called the \textbf{De-Rham cohomology}\index{De-Rham Cohomology} of a manifold. \\
 	
 	\textbf{Insert Graphic Here}
 	
-	We denote the 2-form representing the infinitesimal area formed by one-forms $dx^i$ and $dx^j$ by $dx^i \wedge dx^j$. This is called the wedge product between $dx^i$ and $dx^j$.
+	
+	\section{Distance, a Metric}	
+	
+	
+	\section[Multilinear Algebra: $\oplus, \otimes$ and Tensors]{Multilinear Algebra: $\oplus, \otimes$ and\\ Tensors}
+
+	\section{Movement, Lie's Ideas}
+
+		First, something cool. Euler's identity $\rightarrow e^{a \frac{\partial}{\partial x}}$
+
+	\section{Exercises}
+	
+	% We denote the 2-form representing the infinitesimal area formed by one-forms $dx^i$ and $dx^j$ by $dx^i \wedge dx^j$. This is called the wedge product between $dx^i$ and $dx^j$.
+%
+%
+% 	Note that it is not as easy as just defining the area to be $dx dy$, like a simple scalar. This two-form is a vector-like object. Indeed, the set of all two forms in some dimension form a vector space: we can add them, we can scale them by functions, and we have $0$ to be a trivial two form of no area.
+%
+% 	What properties does this wedge product have?
+%
+% 	\begin{prop}[Properties of $\wedge$]
+% 		The wedge product\index{Wedge Product} satisfies:
+% 		\begin{enumerate}
+% 			\item $dx^i \wedge dx^i = 0$
+% 			\item $(\alpha dx^i) \wedge dx^k = \alpha (dx^i \wedge dx^j)$
+% 			\item $(dx^i + dx^j) \wedge dx^k = dx^i \wedge dx^k + dx^j \wedge dx^k$
+% 		\end{enumerate}
+% 	\end{prop}
+%
+% 	Three forms? Infinitesimal parallelepipeds. Past that, it gets difficult to visualize, but you get the idea. Moreover, the formalism does not change.
+%
+% 	\textbf{Talk about coordinate independence of the FTOC and now how we get it for the proof in the divergence theorem}
+%
+% 	\textbf{Example in 1-D, 2-D, and 3-D}
+%
+%
+%
+%
+%
+% 	If we have the vectors $\mathbf u, \mathbf v$ then there is an associated area between them. In multivariable calculus, to \emph{represent} this area, we would have taken the \textbf{cross product}\index{Cross Product}
+% 	\begin{equation}
+% 		\mathbf u \times \mathbf v = A \hat {\mathbf n}
+% 	\end{equation}
+% 	where $A$ is the area of the parallelogram they generate, and $\mathbf{n}$ defines the normal to that plane. This only worked in three dimensions, where we could take about ``normal vectors to planes'' instead of planes, because every 2-D plane defined just two unique 1D normal vectors (because 3 = 2 + 1).
+% 	\begin{equation}
+% 		\mathbf u \wedge \mathbf v
+% 	\end{equation}
+% 	to be not the normal vector to the plane spanned by $\mathbf u, \mathbf v$ but an area on the plane \emph{itself}. For this reason, just like with the cross product $\mathbf u \wedge \mathbf u = 0$, because we haven't introduced a new direction aside from $u$ to form a plane. Similarly just like the cross product, we want it to be linear in both arguments.
+%
+%
+% 	\begin{cor}[Antisymmetry of $\wedge$]
+% 		From the above properties, it follows that $\mathbf u \wedge \mathbf v = - \mathbf v \wedge \mathbf u$.
+% 	\end{cor}
+% 	\begin{proof}
+% 		Consider $(\mathbf u + \mathbf v) \wedge (\mathbf u + \mathbf v)$. This is a vector wedged with itself, so is zero, on the other hand it expands out to:
+% 		\begin{align*}
+% 			0 &= \mathbf u \wedge \mathbf u + \mathbf u \wedge \mathbf v + \mathbf v \wedge \mathbf u + \mathbf v \wedge \mathbf v \\&= \mathbf u \wedge \mathbf v + \mathbf v \wedge \mathbf u \\
+% 			&\Rightarrow \mathbf u \wedge \mathbf v = - \mathbf v \wedge \mathbf u
+% 		\end{align*}
+% 	\end{proof}
+% 	What does this antisymmetry mean? We had it with the cross product as well, $\mathbf u \times \mathbf v = - \mathbf v \times \mathbf u$. This corresponded to the direction in which the normal vector pointed. It means that not only do we associate an area to the plane which $\mathbf u$ and $\mathbf v$ span, but we associate a \emph{signed area} to it, corresponding to an \textbf{orientation}\index{Orientation}. What does this mean? In multivariable calculus we asked ``How much of our vector field $\mathbf F$ is flowing through an infinitesimal parallelogram?'', but we need to know \emph{which side means ``out''}.
+%
+% 	So if we can take wedge products of elements in a vector space $V$, the resulting space of wedge products is denoted $\Lambda^2 V$ and is called the second \textbf{Exterior Power}\index{Exterior Algebra!Exterior Power} of $V$. The first exterior power is just $\Lambda^1 V = V$, and the zeroth is just the underlying $\Lambda^0 V = \mathbb{R}$.
+%
+% 	 If these coordinates are in the same direction, there
+% 	\begin{equation}
+% 		\omega = \omega_{ij} dx^i \wedge dx^j
+% 	\end{equation}
+%
+% 	So now what is a 2-form? It is an object that is meant to be integrated over a 2D surface $\Omega$, but in multivariable calculus, the formula for $2$-dimensional integration was
+% 	\begin{equation}
+% 		\int_\Omega \mathbf F \cdot d\mathbf S
+% 	\end{equation}
+% 	this calculates the flux of $\mathbf F$ through the surface. The 2-form should then be $\omega = \mathbf F \cdot d\mathbf S$. Now $d\mathbf S$ represents an infinitesimal parallelogram obtained by varying, say, $dq^1$ and $dq^2$ independently.
+%
+% 	Say we are integrating a 1-form $\omega$ along a small line segment where (without loss of generality) $q^1$ is changing by some very small length $dq^1$. All other coordinates are held fixed, so $dq^i = 0 ~ \forall i \neq 1$. This infinitesimal line segment could be turned into a 2-D parallelogram by adding another \emph{different} $q^i$ into the mix, say (again without loss of generality) $q^2$. Then in multivariable calculus this would be an infinitesimal area element of size $dA = dq^1 dq^2$. This is what we want to do: we want to be able to multiply two one-forms to get a two-form that is meant to be integrated along areas.
+%
+% 	This multiplication is not just as straightforward as multiplying the differentials as if they were numbers $dx^i dx^j$ like we did when integrating. The differentials are elements of the vector space of one forms at each point. We want to multiply two vectors (that give values when given a specific direction or infinitesimal line segment $dx^i$) and obtain a new type of object that gives a value when given a specific \emph{plane element}, or infinitesimal parallelogram $dx^i, dx^j$. Extending a length in its own direction would not give rise to an area. We need to define a product $\wedge$ of 1-forms so that $dq^1 \wedge dq^1 = 0$
+%
+%
+% 	When we visualize any vector space, whether physical or abstract algebraic, we can view each component as being an axis, and the vector as being a magnitude and direction along this space.
+%
+% 	%% Need to work on this
+% 	A physical vector takes specific direction (a line passing through the origin) and associates to it a magnitude. The vector's information is the direction of the line, together with ``how far we go along this line". Algebraic vectors are anything that can be added and scaled. Physical vectors $v^i \partial/\partial q^i$ are examples of algebraic vectors, as are 1-forms. 1-forms can also be seen
+% 	%%
+%
+
 	
 
-	Note that it is not as easy as just defining the area to be $dx dy$, like a simple scalar. This two-form is a vector-like object. Indeed, the set of all two forms in some dimension form a vector space: we can add them, we can scale them by functions, and we have $0$ to be a trivial two form of no area. 
-	
-	What properties does this wedge product have? 
-	
-	\begin{prop}[Properties of $\wedge$]
-		The wedge product\index{Wedge Product} satisfies:
-		\begin{enumerate}
-			\item $dx^i \wedge dx^i = 0$
-			\item $(\alpha dx^i) \wedge dx^k = \alpha (dx^i \wedge dx^j)$
-			\item $(dx^i + dx^j) \wedge dx^k = dx^i \wedge dx^k + dx^j \wedge dx^k$
-		\end{enumerate}
-	\end{prop}
-	
-	Three forms? Infinitesimal parallelepipeds. Past that, it gets difficult to visualize, but you get the idea. Moreover, the formalism does not change.
-
-	\textbf{Talk about coordinate independence of the FTOC and now how we get it for the proof in the divergence theorem}
-	
-	\textbf{Example in 1-D, 2-D, and 3-D}
-
-\section{The Spaces of Vectors, Forms, and Tensors}
-
-\section{Distance, a Metric}
-
-\section{Movement, Lie's Ideas}
-
-	First, something cool. Euler's identity $\rightarrow e^{a \frac{\partial}{\partial x}}$
-
-\section{Exercises}
 
