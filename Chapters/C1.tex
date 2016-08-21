@@ -440,13 +440,13 @@
 	A dot product between $\mathbf v$ and itself would simply be $\mathbf v\cdot \mathbf v = v_i v_i$ in Einstein's convention. Note since $i$ is an index that is summed over (and doesn't appear in the end result), we could just as well replace it by any symbol $v_i v_i = v_j v_j = v_{\ddot \smile} v_{\ddot \smile} = \mathbf v \cdot \mathbf v$.
 	
 	Now returning back to co-variance and contra-variance, this scheme makes every equation in the chapter shockingly short. Equation~\eqref{eq:RepU} becomes $\mathbf u = a^i \mathbf v_i$, Equation~\eqref{eq:CovariantTransform2} becomes $\mathbf v_i' = A^j_i \mathbf v_j$, Equation~\eqref{eq:ContravariantTransform2} becomes $a_i' = (A^{-1})^j_i a_j$. Equation~\eqref{eq:partial_transform2} is further reduced to just 
-	\begin{equation*}
+	\begin{equation}\label{eq:covariant_einstein}
 		\frac{\partial}{\partial {x'}^i} = \frac{\partial x^j}{\partial {x'}^i} \frac{\partial}{\partial x^j}.
-	\end{equation*}
+	\end{equation}
 	Similarly the transformation of infinitesimal coordinate changes is now just
-	\begin{equation*}
+	\begin{equation}\label{eq:contravariant_einstein}
 		dx'^i = \frac{\partial {x'}^i}{\partial x^j} dx^j.
-	\end{equation*}
+	\end{equation}
 	and both of these are really just the chain rule plain and simple.
 	
 	\textbf{EXERCISE: Check invariance quickly using this method.}

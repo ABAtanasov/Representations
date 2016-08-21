@@ -234,7 +234,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 % 			\downarrow ^{\text{Integrated}}_{\text{~~~along}} \downarrow & & 			\downarrow ^{\text{Integrated}}_{\text{~~~along}} \downarrow \\
 		\end{matrix}
 	\end{equation*}
-	where $\partial$ is the \textbf{boundary operator}\index{Boundary Operator} that takes us from an $n$ dimensional manifold to its $n-1$ dimensional boundary. At this point, we won't be afraid to use our new word: manifold, when referring collectively to curves, surfaces, volumes, or any of their higher dimensional generalizations (points too, as the degenerate 0 dimensional case). 
+	where $\partial$ is the \textbf{boundary operator}\index{Boundary Operator} that takes us from an $n$ dimensional manifold to its $n-1$ dimensional boundary. At this point, we won't be afraid to use our new word: manifold\index{Manifold}, when referring collectively to curves, surfaces, volumes, or any of their higher dimensional generalizations (points too, as the degenerate 0 dimensional case). 
 	
 	As a final note of this section, let us try to give a sketch for why on a region $\Omega$, we denote its boundary with the partial derivative symbol as $\partial \Omega$. Picture in your mind a ball (interior of a sphere) of radius $r$,  $B_r$. If we increase the radius by a tiny amount $h$ then we have a slightly larger radius $B_{r+h}$. If we took the difference $B_{r+h} - B_r$, by which we mean all the points of $B_{r+h}$ that are not in $B_r$, we would be left with a thin shell. In the limit as $h \rightarrow 0$, this becomes a sphere of radius $r$, precisely the boundary of $B_r$ (note that a sphere is always the two-dimensional boundary of the ball). See how similar this is to taking derivatives. This is why $\partial B_r$ is what we use to denote the sphere boundary of the ball. 
 	
@@ -543,10 +543,11 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		$\partial^2 = 0$: The boundary of a boundary is nothing. 
 	\end{cor}
 	\begin{proof}
-		Assume we are integrating a form $\mathrm d \omega$ on a boundary. By Stokes' Theorem (twice):
+		For any $k$-form $\omega$, assume we are integrating a form $\mathrm d \omega$ on a $(k+1)$-boundary. By Stokes' Theorem (twice):
 		\begin{equation*}
-			\int_{\partial^2 \Omega} \omega = \int_{\partial \Omega} \mathrm d \omega = \int_{\Omega} \mathrm d^2 \omega = \int_\Omega 0 = 0
+			\int_{\partial^2 \Omega} \omega = \int_{\partial \Omega} \mathrm d \omega = \int_{\Omega} \mathrm d^2 \omega = \int_\Omega 0 = 0.
 		\end{equation*}
+		Since $\omega$ was any arbitrary form, we must have $\partial^2 \Omega = 0$.
 	\end{proof}
 	This is an amazing geometric fact that we have gotten, via Stokes' theorem, from the \emph{purely algebraically derived} fact that $\mathrm d^2 = 0$. The duality between forms and the manifolds we integrate them over is a gorgeous duality between algebra and geometry that extends very deeply and profoundlys (c.f. Hodge Theory \textbf{INSERT TEXTS HERE}).
 	
@@ -565,13 +566,374 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	
 	\section{Distance, a Metric}	
 	
+	\index{Metric Tensor|(}\index{Tensor!Metric|(}\index{Manifold!Metric|(}
 	
+	
+	\emph{Why have we been making such a difference between vectors and forms?! In multivariable calculus I could have done all the 3-D calculation working only with my regular vector fields using $\hat{\mathbf{i}}$ and the rest. Why can't I just turn these forms into vector fields?}.\\
+	
+	These are the types of questions you might ask, were this book written in dialogue. It's a fair point. For some reason, in multivariable calculus, there seemed to be no problem just using the language of vector fields for gradients, curls, and integration. What are all these forms doing here? The reason, as we've said before, is because we've no longer assumed that we were working in an ``orthogonal reference frame''. In fact, up until now we have been working in vector spaces of tangent vectors and forms that had \emph{no notion of distance whatsoever}. Accordingly, we made no assumptions that our manifolds themselves had any notion of distance and length either. Even though we talked about wedge products as associated with area, it was not true area of euclidean space but merely a (contravariant) number obtained by multiplying the changes of coordinates $dq^i$ together. 
+	
+	
+	But we know that in the physical world there \emph{is} a notion of length. It is not just affine space. There is in fact a notion of \emph{being perpendicular}. If we had this notion, something powerful happens. Every 1-form, as we know from the previous chapter, can be viewed of as local function behavior, and therefore visualized in terms of level curves of that function. If we had a notion of being perpendicular, then we have a unique direction \emph{perpendicular to the level curves of the first order behavior} along which $\omega$ increases. We can then associate a specific, invariant vector $\mathbf v = v^i \partial_i$ that is perpendicular to the level curves of $\omega$, and along which omega increases by exactly $|\mathbf v|^2$. 
+	
+	Conversely, if we have a notion of being perpendicular, then to a specific vector, we can pick a unique 1-form $\omega = \omega_i dx^i$ whose level curves are perpendicular to the direction of $\mathbf v$ and such that the increase of $\omega$ along $\mathbf v$ is $|\mathbf v|^2$.
+	
+	What we want is to associate an invariant \emph{physical length element} to a small local change of coordinates $v^i$ around any point. In 3-dimensional Euclidean space $\mathbf E^3$, with an orthogonal coordinate system $x,y,z$ we know how to obtain a physical change in length from the changes of the coordinates
+	\begin{equation}
+		ds^2 = dx^2 + dy^2 + dz^2
+	\end{equation}
+		%
+	% Since such a change is a vector, to get something invariant the first guess might be to have a 1-form $\omega^*$ that takes in a direction $\mathbf v$ and associates the invariant magnitude  $\omega^* \mathbf v$ to it. But then if $\omega^* \mathbf v$ were positive then $\omega^* (-\mathbf v)$ would be negative, and we want distance to be a positive quantity.
+	
+	
+	
+	We are let by Pythogoras: In euclidean space $\mathbb E^n$, for an orthogonal frame, the length associated with a change of coordinates is 
+	\begin{equation}
+		|x| = \sqrt{\sum x_i^2} \Rightarrow |x|^2 = x_i x_i
+	\end{equation}
+	where we've used lower indices for coordinates because in an orthogonal frame there's no big deal between covariance and contravariance. More generally, in an orthogonal frame, $\mathbf E^n$ has a dot product producing a scalar $\mathbf x \cdot \mathbf y = x_i y_i$. 
+	In general coordinates, though, we've already seen $v^i v^i$ is not invariant just by noting the two upper indices, and also by analyzing how it trasforms directly in Section~\ref{sec:the_notion_of_length_on_vector_spaces}. 
+	
+	We want to define an \emph{invariant} \textbf{inner product}\index{Inner Product} $\left< \mathbf v | \mathbf w \right>$ on our tangent space, bilinear in both arguments, just like the one in $\mathbf E^n$. Then we will write:
+	\begin{equation}
+		\begin{aligned}
+			\left< \mathbf v | \mathbf w \right> &= \left< v^i \partial_i | w^j \partial_j \right> \\
+			&= v^i w^i \left< \partial_i | \partial_j \right>
+		\end{aligned}
+	\end{equation}
+	This object, $\left< \partial_i | \partial_j \right>$, is the inner product between just the basis vectors themselves. Its double co-variance cancels out the double contra-variance of the coordinates themselves to give an invariant quantity to this inner product. In an orthonormal frame, since the vectors are orthonormal we would have $\left< \partial_i | \partial_j \right> = \delta_{ij}$ so that the inner product $\delta_{ij} v^i w^j$ is exactly the same as the dot product we are used to. 
+	
+	Now we can get the length of a vector:
+	\begin{equation}
+		|\mathbf v|^2 = \left< \mathbf v | \mathbf v \right> = v^i v^j \left< \partial_i | \partial_j \right> 
+	\end{equation}
+	in general, for an \emph{arbitrary} change of coordinates $dq^i$, we can finally associate a \emph{physical length} in space by:
+	\begin{equation}
+		ds^2 = dq^i dq^j  \left< \partial_i | \partial_j \right> 
+	\end{equation}
+	Because of the significance of this object $\left< \partial_i | \partial_j \right>$, we will them by $g_{ij}$. All together, this invariant inner product that takes in two coordinate changes:
+	\begin{equation}
+		ds^2 = g_{ij} {(dq^1)}^i {(dq^2)}^j 
+	\end{equation}
+	will be called the \textbf{metric} on our tangent space. 
+	
+	At a very far glance, you might ask if this thing is some sort of 2-form, but it certainly is not. There are no wedges between the differentials, and in fact since the dot product (which is the inner product in orthonormal basis) is symmetric, $\mathbf u \cdot \mathbf v = \mathbf v \cdot \mathbf u$, this holds true in general, so in fact $g_{ij} = g_{ji}$ is symmetric as a matrix. This is a different type of product of 1-forms, that will be discussed in the next section. For now, it is the tool by which we can associate a length with a coordinate change $dq^i$, and how we can take scalar products of two vectors together. 
+	
+	To avoid abstraction without geometric concreteness, let's do a simple but nontrivial example. In cartesian coordinates on Euclidean space, $g_{ij} = \delta_{ij}$, but in polar coordinates, we now have $\partial_r, \partial_\theta$. At each point, these vectors are orthogonal, and $\partial_r$ corresponds to a unit increase in $r$, meaning that it has magnitude $1$. On the other hand, $\partial_\theta$ corresponds to a unit increase in theta. Increasing $\theta$ by $d\theta$ on a circle of radius $r$ gives an infinitesimal length of $r d\theta$. The total line element then is
+	\begin{equation}
+		ds^2 = dr^2 + r^2 d\theta^2 \Rightarrow g_{ij} = 
+		\begin{pmatrix}
+			1 & 0 \\
+			0 & r^2 
+		\end{pmatrix}.
+	\end{equation}
+	At every point, this gives the \emph{physical} length associated with any local infinitesimal change of coordinates $(dr, d\theta) = v^i$ that form the components of a vector.
+	
+	Immediately, being able to associate an invariant length to a tangent vector on our space allows us to be able to define the length of any curve on our manifold. For a curve $\gamma(t) \in M$ parameterized by $t$. For a coordinate patch, we get $q^i = \varphi^i(\gamma)$. On each tangent space we have the tangent vector to $\gamma$:
+	\begin{equation}
+		\mathbf v_{\gamma,t} = \frac{d}{dt} \left[ \varphi^i(\gamma(t)) \right] \frac{\partial}{\partial q^i}
+	\end{equation}
+	for which we can now calculate an associated length: 
+	\begin{equation}
+		|\mathbf v_{\gamma,t}|^2 = g_{ij} ~ \dot \varphi^i(\gamma) \dot \varphi^j(\gamma).
+	\end{equation}
+	\begin{prop}[The Metric Defines the Length of Curves]
+		The length of a curve $\gamma$ parameterized by $t$ on a manifold $M$ with metric $g$ is
+		\begin{equation}
+			\int_{t_i}^{t_f} \sqrt{g_{ij} ~ \dot \varphi^i(\gamma(t)) \dot \varphi^j(\gamma(t))} ~ dt
+		\end{equation}
+		and can be more clearly seen as
+		\begin{equation}
+			\int_{\gamma} \sqrt{g_{ij} \frac{dq^i}{dt} \frac{dq^j}{dt}} dt = \int_{\gamma} \sqrt{g_{ij} dq^i dq^j}
+		\end{equation}
+		where $dq^i$ is the infinitesimal coordinate change along the curve at that point.
+	\end{prop}
+	We said that the integrals over curves should be one-forms, but the integrand doesn't look like it is. Note, however, that $\sqrt{g_{ij} dq^i dq^j}$ is exactly the ``square root of a 1-form product'', which could be viewed as the ``norm'' of a 1-form in some sense. This object is not a 1-form, it is a \textbf{measure}\index{Measure}. The difference between the two is that while a 1-form will give a negative of its original value if integrated in the opposite direction of the curve, a measure will \emph{always} associate a positive value to any region it is integrated over. These are centrally important to calculating positive geometric invariants like length, volume, etc. 
+	
+	In the polar example, this automatically gives us the equation for arc-length:
+	\begin{equation}
+		\int_{\gamma} \sqrt{dr^2 + r^2 d\theta^2} 
+		= \int_{t_i}^{t_f} \sqrt{\left( \frac{dr}{dt}\right)^2+ r^2 \left( \frac{d\theta}{dt} \right)^2 } dt
+	\end{equation}
+	and indeed, once $g$ is known, we can find the equation for arc length in \emph{any} coordinate system. \textbf{THERE WILL BE EXERCISES ON THIS}.
+	
+	
+	Now note, the metric tensor was not something that we had before on a general manifold $M$. It is added information. A manifold doesn't need a metric or any notion of distance to be well-defined. After all, its definition is just topological. When $M$ is endowed with with a metric $g$ at every tangent space $T_p M$, we say it is a \textbf{Riemannian manifold}\index{Manifold!Riemannian}. 
+	\begin{defn}[Riemannian Manifold]
+		A Riemannian manifold is a smooth manifold $M$ with a positive definite bilinear form $g(\mathbf u, \mathbf v)$ on each tangent space. This form is called a \emph{\textbf{metric}} or a \emph{\textbf{Riemannian metric}}.
+		
+		$g$ is positive definite in the sense that $g(\mathbf u, \mathbf u) \geq 0$ always, and equals zero iff $\mathbf u = 0$. This defines our positive-definite inner product. 
+	\end{defn}
+	This condition ensures that every nonzero vector has positive length. Now, endowed with a metric, we can measure lengths of curves, and much more. 
+	\begin{prop}[The Metric Defines Angles]
+		If two curves $\gamma_1, \gamma_2$ intersect at a point $p$ on a Riemannian manifold, the angle between them can be calculated in terms of their respective tangent vectors, $\mathbf u, \mathbf v$ by
+		\begin{equation}
+			\cos(\theta)=\frac{g_{ij} u^i v^i}{|u| |v|}
+		\end{equation}
+	\end{prop}
+	This is the obvious analogue of the Euclidean definition, now we've just extended the dot product of vectors to general coordinates. This is how we will \emph{define} the notion of angle in a manifold. Note under general linear transformations, angles between two vectors can appear sheared and stretched. It is the \emph{metric} that holds us steady and tells us ``this frame is orthogonal, this one is not, it's distorted and so the dot product here should be $g_{ij}$ instead to recover the right notion of angle''.
+	
+	It is also worth noting a simple fact
+	\begin{lemma}
+		The metric tensor $g_{ij}$ is invertible as a matrix.
+	\end{lemma}
+	\begin{proof}
+		Assume $g$ isn't invertible. Then there is a nontrivial null space for $g$. Then there exists a nonzero vector $\mathbf u$ with $g \mathbf u = 0$, but that means $g(\mathbf u, \mathbf u) = 0$ without $u=0$, contradicting the positive definiteness of the metric.
+	\end{proof}
+	Now since a metric gives us an inner product, to each vector $\mathbf v$ is associated a corresponding $\left< \mathbf v | - \right>$ operation that wants to take in a vector. But this is \emph{exactly} what a 1-form is. We then have:
+	\begin{prop}[Metric Defines an Isomorphism Between Vectors and Covectors]
+		A given metric $g$ associates to each vector $\mathbf u$ a corresponding 1-form $\omega_\mathbf{u}$ in the sense that for all vectors, $\mathbf v$, $\omega_\mathbf u$ acts according to inner product
+		\begin{equation}
+			\omega_\mathbf{u} \mathbf v =  \left< \mathbf u | \mathbf v \right>, \omega = g \mathbf u
+		\end{equation}
+		In coordinate notation, we have that for $\mathbf u = u^i \partial_i$ give rise to 
+		\begin{equation}
+			(\omega_\mathbf u)_i dx^i = (g_{ij} dx^i dx^j)(u^j \partial_j) = (g_{ij} u^j) dx^i
+		\end{equation}
+	\end{prop}
+	so the tuple of coefficients for the form corresponding is the matrix $g_{ij}$ multiplying the tuple $u^j$ for the vector (note we could have had it multiplying $u^i$ since $g_{ij}$ is symmetric so we can switch $i$ and $j$ above). 
+	
+	Of course, in an orthonormal frame, where $g_{ij}=\delta_{ij}$ is just the identity, this means that the form corresponding to $\partial_i$ is just $dx^i$ and things are simple. It is for this reason that forms and vectors have been interchangeable in our orthonormal frames with trivial metric. In any interesting coordinate system, however, this breaks immediately. 
+	
+	Note, then, that if $g \mathbf v = \omega$ gives a form associated to a vector, and this is just a matrix-vector equation then we would expect that 
+	\begin{equation}
+		g^{-1} \omega = \mathbf v
+	\end{equation}
+	gives a \emph{vector} associated to every 1-form. In index notation
+	\begin{equation}
+		(g^{-1})^{ij} \omega_j = v^i
+	\end{equation}
+	For this reason, $g$ and its inverse\footnote{Note that often $(g^{-1})^{ij}$ is often just written as $g^{ij}$ in the literature simply because upper indices automatically mean that we have inverted the covariant $g_{ij}$, and so no confusion ensues.} are said to ``raise and lower indices''. This inverse $g$ then gives us an inner product on the cotangent space:
+	\begin{equation}
+		\left< \alpha | \beta \right> = g^{ij} \alpha_i \beta_j
+	\end{equation} 
+	its easy (almost immediate) to check that the inner product of 1-forms gives the same number as the inner product of their corresponding vectors.
+	
+	Mathematicians, who often write vectors and forms just as $\mathbf v$ and $\omega$, without ever resorting to index notation have invented a very creative notation for the way that $g$ associates vectors to their 1-forms.
+	\begin{prop}[Musical Isomorphisms]
+		At each point $p$ on a Riemannian manifold $M$, the metric $g$ induces an isomorphism between the tangent space $T_pM$ and the cotangent space $T^*_pM$:
+		\begin{equation}
+			\flat: T_pM \rightarrow T^*_pM
+		\end{equation}
+		so that for each vector $\mathbf v \in T_pM$, $\omega = \mathbf v^\flat$ is the associated 1-form. The inverse of the metric gives the opposite direction
+		\begin{equation}
+			\sharp: T^*_pM \rightarrow T_pM
+		\end{equation}
+		so that $\mathbf v = \omega^\sharp$ is the associated vector to the 1-form $\omega$.
+	\end{prop}
+	\textbf{LOL DRAW A DIAGRAM OF THIS}
+
+	As mentioned in the beginning of this section, since the metric gives the notion of ``orthogonality'' to the tangent space, geometrically the form corresponding to a vector $\mathbf v$ is the local linear behavior of a function with level curves perpendicular to $\mathbf v$, and increasing in the direction of $\mathbf v$ so that $\omega_{\mathbf v}(\mathbf v) = |\mathbf v|^2$. $\mathbf v$ would then be exactly the \emph{gradient vector} to this local behavior, pointing in the direction of greatest ascent. 
+	
+		This means we can define the gradient\index{Gradient Operator} vector to a function, finally.
+		\begin{defn}[The Gradient Vector]
+			For a function $f$, we define $\nabla f$ as the vector field 
+			\begin{equation}
+				\nabla f = (\mathrm df)^\sharp.
+			\end{equation}
+			In a coordinate system $q^i$ this is:
+			\begin{equation}
+				(\nabla f)^k \partial_k = \left(g^{ij} \frac{\partial f}{\partial q^j} \right) \partial_i
+			\end{equation}
+		\end{defn}
+		That is, we take the form corresponding to the first-order behavior of $f$ and because of the metric we now have the vector field corresponding to the \emph{direction of greatest ascent}.
+		Comparing components, we have that 
+		\begin{equation}
+			\nabla^i f = g^{ij} (\partial_j f) \Rightarrow \nabla^i = g^{ij} \partial_j
+		\end{equation}
+		So the gradient operator is the ``contravariant" version of the partial derivative. Often it is just written as the ``raised partial" $\partial^i$ to avoid confusion with what $\nabla$ will denote in later sections. The powerful thing about knowing the metric is that it allows us to define the gradient operator in \emph{any} coordinate system. In the polar example, this is
+		\begin{align*}
+			g^{ij} = 
+			\begin{pmatrix}
+				1 & 0 \\
+				0 & 1/r^2 
+			\end{pmatrix}
+			\Rightarrow \nabla f = \frac{\partial f}{\partial r} \partial_r + \frac{1}{r^2} \frac{\partial f}{\partial \theta} \partial_\theta.
+		\end{align*}
+		Often, engineers want to define this in terms of the ``normalized basis vectors'' of length 1: $\hat {\mathbf r} = \partial_r$, $\hat \theta = \partial_\theta/r$ so that 
+		\begin{equation*}
+			\nabla f = \frac{\partial f}{\partial r} \hat{\mathbf r} + \frac{1}{r} \frac{\partial f}{\partial \theta} \hat{\mathbf \theta}.
+		\end{equation*}
+		
+	
+	\index{Metric Tensor|)}\index{Tensor!Metric|)}\index{Manifold!Metric|)}
+
 	\section[Multilinear Algebra: $\oplus, \otimes$ and Tensors]{Multilinear Algebra: $\oplus, \otimes$ and\\ Tensors}
+	
+	\index{Tensor|(}
+	
+	\textbf{INSERT SOME QUOTE ABOUT HOW LIKE 97\% OF MATH IS JUST TERMINOLOGY}
+	
+	Before moving on to completing the study of differential geometry, it is worth reflecting on the mathematical machinery that we have developed. 
+	
+	We began differential geometry seriously in Section~\ref{sec:vectors_reimagined} by noting that there were two first order behaviors that were dual: vectors, which represented the first order behavior of curves and gave rise to direction, and forms, which represented the first order behavior of functions, and represented an operator that took a direction and gave us an associated change.
+	
+	Both sets of first order behavior had the property of being vector spaces: their elements could be added together and scaled. From this we defined the tangent and cotangent spaces. If we changed our coordinate system $q^i$, on both spaces this induced a linear transformation (since nonlinear coordinate transforms are locally linear, c.f. Section~\ref{sec:nonlinear_coordinate_systems_are_locally_linear}) on the  \emph{components} of the vectors. The tangent space would have its components transform one way and the cotangent space would have the components transform the other way. As a result, these two spaces were not naturally isomorphic.
+	
+	With the introduction of the metric $g_{ij}$, whose components are ``doubly'' covariant, we get a linear map that lets us go from the contra-variant components $v^i$ of a vector to the covariant $\omega_i$ of a form. This also gives us an inner product. 
+	
+	While $v_i$ and $\omega_i$ could both be represented by a tuple, a list of numbers that changed either with or against the basis $\partial_i$ when we changed coordinates, $g_{ij}$ is represented by a \emph{matrix} of numbers. In fact this matrix is symmetric. The metric, $g$, is and object that's neither a vector nor a covector but something ``higher''.
+	% OH MASTERRRRRR 
+	% SHOW ME SOMETHING HIGHGHGHGHGHGHEERRRR
+	
+	We will work towards making intuitive and rigorous the concept of a \textbf{tensor}, which generalizes that of a vector and covector from before:
+	\begin{concept}[Tensor]
+		A tensor is a physical quantity that can be represented by a multidimensional array of $k$ indices. Because the numbers within the tensor depend on the coordinate system, they will change (either co-variantly or contra-variantly). Components associated with some indices can be covariant, coordinates associated with other indices can be contravariant. 
+	\end{concept}
+	We've already seen before: a $k$-form, the wedge product of $k$ $1$-forms is a tensor with $k$ components. For a set of indices $i_k$ (which we will call a \textbf{multi-index}\index{Multi-Index}), we associate the flux that is going through the $k$-volume $dq^{i_1} \wedge dq^{i_2} \wedge \dots \wedge dq^{i_k}$. This tensor has the property that if we flip any two neighboring $i_k$, say $i_1$ with $i_2$, then the value at that new multi-index is the negative of the value of the old, because $\wedge$ is anti-symmetric. This tensor is thus called anti-symmetric: flipping neighboring indices flips the sign.
+	
+	In order to appreciate this all better, however, we need to go back and better our understanding of the language of vector spaces. \\
+	
+	Consider an $n$-dimensional vector space, $V$ with a basis $\{ \mathbf v_i \}$ and an $m$-dimensional vector space $W$ with basis $\{ \mathbf w_i \}$. 
+	\begin{defn}
+		The \emph{\textbf{direct sum}}\index{Direct Sum} $V \oplus W$ is the $n+m$-dimensional vector space of ordered pairs $(\mathbf v, \mathbf w)$ with $\mathbf v \in V$, $\mathbf w \in W$, with addition defined component-wise.
+	\end{defn}
+	
+	\textbf{GRAPHIC: DIRECT SUM, R with R, and R with $\mathbf R^2$}
+	
+	The direct sum is one of the easiest concepts to grasp. It is exactly what it seems, at first glance, a addition of new directions to $V$. The only possible uncertainty is ``what if the two bases overlap?''. But when taking the direct sum, $V$ and $W$ are assumed to be entirely different vector spaces from the start, and we assume they share no elements. For this reason, we can take $\mathbb{R} \oplus \mathbb{R} = \mathbb{R}^2$ even though the two vector spaces are the same.
+	
+	The direct sum is simply the addition of new possibilities, new directions to $V$ by $W$. It is clearly commutative $V \oplus W = W \oplus V$. We can write a direct sum of the individual elements as:
+	
+	\begin{equation}
+		\begin{pmatrix}
+			v_1 \\ \vdots \\v_n 
+		\end{pmatrix}
+		\oplus
+		\begin{pmatrix}
+			w_1 \\ \vdots \\w_m
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			v_1 \\ \vdots \\v_n \\
+			w_1 \\ \vdots \\w_m
+		\end{pmatrix}
+	\end{equation}
+	
+	An element in the direct sum $V \oplus W$ corresponds uniquely to a vector in $V$ paired with a vector in $W$. If a given vector space can be written as a direct sum of two nontrivial sub-spaces, we say it can be \textbf{decomposed}\index{Direct Sum!Decomposition}. 
+	\begin{example}
+		A plane in $\mathbb R^3$ can be \textbf{decomposed} as a direct sum of any two distinct lines going through it. On the other hand $\mathbb R^3$ clearly cannot be decomposed into a direct sum of that plane and a line going through that same plane. Even though the plane and the line are isomorphic to $\mathbb R^2$ and $\mathbb R$, in context, since their embedding in this 3-space is linearly dependent, their combined span is not $\mathbb{R}^3$.
+		
+		On the other hand, there \emph{is} a way to pick a plane and a line so that their combined span is $\mathbb R^3$ so $\mathbb R^3$ \emph{is} decomposable into $\mathbb R^2$ and $\mathbb R$. It depends on \emph{which} $\mathbb R^2$ and \emph{which} $\mathbb R$ we choose inside $\mathbb R^3$.
+	\end{example}
+	
+	The notion of a direct sum is so broad and general that it will be seen for the remainder of this book. It is the idea that $V$ and $W$ are two entirely different worlds, and $V \oplus W$ is their combination. 
+	
+	A very intuitive way to understand the direct product further comes, oddly enough, from a quantum mechanical-type language. In quantum mechanics, the various states that something can have are represented by vectors. Say something can be one of three shapes
+	\begin{equation*}
+		\{ \square, ~ \triangle,  ~ \bigcirc \}
+	\end{equation*}
+	Now in quantum mechanics we can mix states so something could look like $\frac{1}{\sqrt 2} \square + \frac{1}{\sqrt 2} \triangle$, so these form a vector space $V$ with vectors $a \square + b \triangle + c \bigcirc$. If we had another two states, say $\ddot \smile$ and $\ddot \frown$ that formed a space of vectors $a \ddot \smile + b \ddot \frown$ labelled $W$ then the direct sum $V \oplus W$ would be spanned by the basis:
+	\begin{equation*}
+		\{ \square, ~ \triangle,  ~ \bigcirc, ~ \ddot \smile, \ddot \frown \}
+	\end{equation*}
+	The idea of the direct sum should resemble exactly how you learned addition as a toddler.
+	
+	Within \emph{this} scheme, it is easy to explain the \textbf{direct product}\index{Tensor!Tensor Product}\index{Direct Product} also known as the \textbf{tensor product}. Say we have the same two vector spaces $V$ and $W$, spanned by $\{ \square, ~ \triangle,  ~ \bigcirc \}$ and $\{ \ddot \smile, \ddot \frown \}$, respectively. Then the tensor product $V \otimes W$ has a basis the represents all the states of a \emph{composite system} of an object that has a state in $V$ and another object that has a state in $W$:
+	\begin{equation}
+		\begin{Bmatrix}
+		 \square \otimes \ddot \smile, & \triangle \otimes \ddot \smile,  & \bigcirc  \otimes \ddot \smile, \\
+		\square \otimes \ddot \frown, & \triangle \otimes \ddot \frown,  & \bigcirc  \otimes \ddot \frown~	
+		\end{Bmatrix}
+	\end{equation}
+	this is a completely different space from $V$ or $W$, and unlike the direct sum, neither of the original vector space are a part of this new space. The dimension of this tensor product space is the product of the two original dimensions.
+	
+	\textbf{IDK HOW TO FINISH THIS, BUT I WANNA MOTIVATE THE TENSOR PRODUCT INTUITIVELY AND WHY PRODUCTS OF CHANGES $dq^i \otimes dq^j$ cant just be represented in the direct sum by $(dq^i, dq^j)$}
+	
+	\textbf{Then maybe we wanna say: }
+
+	\begin{obs}
+		A metric $g$ is an element of the space $T^*_p M \otimes T^*_p M$
+	\end{obs}
+
+	Going back to studying transformation laws: if we change from $q^i$ to $q'^i$, then the basis vectors/covectors at a point $p$ change according to Equations~\eqref{eq:covariant_einstein},\eqref{eq:contravariant_einstein} and their components change in the respectively opposite ways depending on the Jacobian matrix $J = \frac{\partial q^j}{\partial q^i}$ and its inverse, $J^{-1} = \frac{\partial q^i}{\partial q^j}$ at $p$,
+	\begin{equation}
+		v'^i = \frac{\partial q'^i}{\partial q^j} v^j, ~~ \omega'_i = \frac{\partial q^j}{\partial q'^i} \omega_j.
+	\end{equation}
+	On the other hand, the metric tensor would change like:
+	\begin{equation}
+		g'_{ij} = \frac{\partial q^k}{\partial q'^i} \frac{\partial q^l}{\partial q'^j} g_{kl}
+	\end{equation}
+	That is, because the invariant length of a vector $g_{ij} v^i v^j$ involves the contra-variant components twice, $g$ must co-variantly change twice (once for each index) to keep that inner product invariant. We'd say that $g$ is a tensor with two covariant indices, or a $(0,2)$-tensor. 
+	
+	\begin{defn}[An $(a,b)$-Tensor]
+		A tensor of $a$ contra-variant indices and $b$ covariant indices is called an $(a,b)$-tensor, and can be written in local coordinates at a point $p$ on $M$ as:
+		\begin{equation*}
+			T_{j_1 \dots j_b}^{i_1 \dots i_a}  \partial_{i_1} \otimes \dots \otimes \partial_{i_a} \otimes dx^{j_1} \otimes \dots \otimes dx^{j_b}  \in (T_p M)^{\otimes a} \otimes (T_p^* M)^{\otimes b} 
+		\end{equation*}
+	\end{defn}
+	and we know how $T_{i_1, \dots, i_a}^{j_1, \dots, j_b}$ linearly transforms on each index. Moments like this are when we should be grateful to Einstein's summation convention for saving us $a+b$ summation signs out front. 
+
+	
+	\index{Tensor|)}
+
+	\section{The Hodge Star and the Laplacian} % (fold)
+	\label{sec:the_hodge_star_and_the_laplacian}
+	
+	Plan for this section:
+	\begin{itemize}
+		\item Get volume form Vol from the metric. 
+		\item Then: We saw metric defines inner product on forms, this extends to the tensor products of forms as well (what does this mean physically?). Then this \emph{descends} down to the exterior algebra, giving us the ability to take products of k forms. We'll define $\star \alpha$ on a $k$ form to be the $n-k$ form so that $(\star \alpha) \wedge \beta = \left< \alpha | \beta \right> \mathrm{Vol}$
+		\item Use this to define a divergence on vectors by
+		\begin{equation}
+			\text{div} ~ \mathbf v = \star \mathrm d \star (\mathbf v^\flat)
+		\end{equation}
+		\item Use that to get the Laplacian
+		\begin{equation}
+			\triangle f = \text{div} ~ \text{grad} ~ f 
+			= \star \mathrm d \star \mathrm d f
+			= (\star \mathrm d)^2 f
+		\end{equation}
+		\item Fun aside: from the metric giving us the Hodge star, we get a conjugated $\mathrm d$ operator that takes us UP from $k$ forms to $k-1$ forms:
+		\begin{equation}
+			\delta := \star \mathrm d \star
+		\end{equation}
+		so that $\triangle f = \delta \mathrm d f$, and on general forms: $\triangle = \delta \mathrm d + \mathrm d \delta$. 
+		
+		And like that, we've literally exhausted every human representation of the letter $D$ in this chapter: $\mathrm D, \mathrm d, d, \nabla, \partial, \delta, \triangle$ to mean some janky-ass derivative operator. 
+		
+	\end{itemize}
+	 
+	
+	\textbf{GOTTA GET TO HERE}
+	
+	Let's go further and see what the metric gives us when we work with $k$-forms. For a manifold of dimension $n$, not only does the metric give us a notion of length, but it also gives us a \emph{volume form}. That is, for a coordinate system of $n$ $q^i$, we can associate a volume with a change $dq^i$. This form must be top-dimensional, i.e. it must have the maximal degree, $n$. 
+	
+
+	
+	\begin{theorem}[Volume Form]
+		On an oriented\footnote{This is a big subtlety. On manifolds like the Mobius band that are not oriented, it's not possible to say which way is out vs in. On local patches, we can always chose a volume form, but globally we may not be able to.} Riemannian manifold, the metric gives rise to the invariant volume form 
+		\begin{equation}
+			\mathrm{Vol} = \sqrt{|g|} ~ dq^1 \wedge \dots \wedge dq^n 
+		\end{equation}
+	\end{theorem}
+	
+	
+	% section the_hodge_star_and_the_laplacian (end)
 
 	\section{Movement, Lie's Ideas}
 
-		First, something cool. Euler's identity $\rightarrow e^{a \frac{\partial}{\partial x}}$
-
+		To end this chapter, lets begin with something beautiful. 
+		\begin{equation*}
+			e^{i \pi} + 1 = 0
+		\end{equation*}
+		Hopefully this equation is familiar to the reader. More generally, though manipulating Taylor series in calculus class, it is known that
+		\begin{equation}
+			e^{i \theta} = \cos(\theta) + i \sin(\theta).
+		\end{equation}
+		
+		Now from here lets talk about
+		\begin{itemize}
+			\item $e^{\partial_x}$ on the real line and what that means (its translation)
+			\item $e^{\partial_i}$ in general is flow along a coordinate
+			\item Vector fields can be exponentiated to give the flow along that field $e^{\mathbf v}$! WOWWW (and that is literally what the exponential map should intuitively mean).
+			\item For coordinates, flow along $\partial_i + \partial_j$ is just $e^{\partial_i + \partial_j} = e^{\partial_i} e^{\partial_j}$. Not all fields are just coordinate fields. We don't have this nice property. What's going wrong?? 
+			\item Obtain commutator from taylor expansion
+			\item Explain commutator intuitively (I got a good idea for this)
+			\item This is a derivative of one field along another without moving tangent spaces, so now we have $L_X Y$
+			\item IMPORTANT POINT: NO NEED FOR A METRIC TO DEFINE THIS DERIVATIVE
+		\end{itemize}
+		
 	\section{Exercises}
 	
 	% We denote the 2-form representing the infinitesimal area formed by one-forms $dx^i$ and $dx^j$ by $dx^i \wedge dx^j$. This is called the wedge product between $dx^i$ and $dx^j$.
