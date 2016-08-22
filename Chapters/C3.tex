@@ -433,6 +433,10 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	\end{align*}
 	\textbf{It is an exercise to generalize this, and also to check that it makes sense in 3D when our wedges are cross products and areas are normal vectors}
 	
+	You may have a question, concerning the fact that for 1-forms, we expect them to act on vectors representing infinitesimal displacements. Therefore, $k$-forms should act on something as well! Do they act on wedges of vectors, representing infinitesimal $k$-volumes? Yes, and in addition to this, we can act on a $k$ form by a vector (or you can say act on a vector by a $k$ form, no difference here) in the form of an \textbf{interior product}\index{Interior Product}. 
+	
+	\textbf{WELL FINISH THIS LATER... isn't that bad}
+	
 	As a last note, philosophically, \emph{where does this antisymmetry come from?} We've already seen it in the cross product, and now we have it in this wedge. Geometrically, what is happening? That the wedge product of a form with itself is zero is easy to understand: you cannot geometrically extend an object to higher dimensions without introducing new directions. Antisymmetry, on the other hand, is less obvious.
 	
 	 When we extend a geometric $k$-volume to a $k+1$-volume, there is a notion of orientation. Going from the line to the plane, we need to know ``which direction is out for flux?" Similarly, for the plane to the volume, we have basically the same question ``which direction is in/out for flux?'', and the antisymmetry of the wedge reflects that orientation will always exist for higher $k$ volumes.
@@ -750,9 +754,9 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 			\end{pmatrix}
 			\Rightarrow \nabla f = \frac{\partial f}{\partial r} \partial_r + \frac{1}{r^2} \frac{\partial f}{\partial \theta} \partial_\theta.
 		\end{align*}
-		Often, engineers want to define this in terms of the ``normalized basis vectors'' of length 1: $\hat {\mathbf r} = \partial_r$, $\hat \theta = \partial_\theta/r$ so that 
+		Often, engineers want to define this in terms of the ``normalized basis vectors'' of length 1: $\hat {\mathbf r} = \partial_r$, $\hat{\boldsymbol \theta}= \partial_\theta/r$ so that 
 		\begin{equation*}
-			\nabla f = \frac{\partial f}{\partial r} \hat{\mathbf r} + \frac{1}{r} \frac{\partial f}{\partial \theta} \hat{\mathbf \theta}.
+			\nabla f = \frac{\partial f}{\partial r} \hat{\mathbf r} + \frac{1}{r} \frac{\partial f}{\partial \theta} \hat{\boldsymbol \theta}.
 		\end{equation*}
 		
 	
@@ -838,15 +842,71 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	\end{equation}
 	this is a completely different space from $V$ or $W$, and unlike the direct sum, neither of the original vector space are a part of this new space. The dimension of this tensor product space is the product of the two original dimensions.
 	
-	\textbf{IDK HOW TO FINISH THIS, BUT I WANNA MOTIVATE THE TENSOR PRODUCT INTUITIVELY AND WHY PRODUCTS OF CHANGES $dq^i \otimes dq^j$ cant just be represented in the direct sum by $(dq^i, dq^j)$}
+	The tensor product can first be motivated by the action of a bilinear forms. We've seen the metric as an example of a (symmetric) bilinear form on the tangent space. Moreover two any two vectors we can also associate an area $A(\mathbf u, \mathbf v)$ to be the signed area of the parallelogram that they span. This is an antisymmetric bilinear form.
 	
-	\textbf{Then maybe we wanna say: }
+	Consider now a general bilinear form $B(\mathbf v, \mathbf w)$ acting on a vectors $\mathbf v,\mathbf w$ in a space $V$. In fact, to go to greater generality, consider $B(\mathbf v, \mathbf w)$ acting on vectors $\mathbf v \in V$ for its first argument, and vectors $\mathbf w$ in another space $W$ for the second argument. $B$ takes a vector from $V$ and a vector to $W$ and sends them to a scalar. $B$ need not be positive definite, symmetric, define a dot product, and can have a null space. It can be anything.
+	
+	If $\{\mathbf v_i \}$ is a basis for $V$ and $\{\mathbf w_i \}$ for $W$ then we will know how $B$ acts on any pair of vectors in $(V, W)$ iff we know $B(\mathbf v_i, \mathbf w_j)$ for every pair $(\mathbf v_i, \mathbf w_j)$. We need $\dim V \times \dim W$ dimensions of information know the action of $B$.
+	In full notation:
+	\begin{equation}
+		B(\mathbf a, \mathbf b) = B(a^i \mathbf v_i, b^j \mathbf w_j) = a^i b^j B(\mathbf v_i, \mathbf w_j)
+	\end{equation}
+	Just as in differential geometry, a 1-form's coefficient $\omega_i$ was defined by its action on \emph{each} $\partial_i = \mathbf v_i$, this \emph{bilinear} form's coefficient $B(\mathbf v_i, \mathbf w_j)$ is defined by its action on each \emph{pair} of basis vectors $\mathbf v_i, \mathbf w_j$. Let us form a vector space whose basis is not $\mathbf v_i$ or $\mathbf w_j$ but instead all possible \emph{pairs} of the form $\mathbf v_i \otimes \mathbf w_j$. $B$ is acting exactly on these pairs. 
+	
+	So vectors in this space look like linear combinations of the basis vectors $c^{ij} \mathbf v_i \otimes \mathbf w_j$ and $B$ acts as a \emph{linear operator} on this space: $B(c^{ij} \mathbf v_i \otimes \mathbf w_j) = c^{ij} B(\mathbf v_i \otimes \mathbf w_j)$. But besides looking at the pairs $\mathbf v_i \otimes \mathbf w_j$, can we take such a product between any two vectors, $\mathbf a \otimes \mathbf b$? We'll define $\otimes$ exactly so that it gives us what we want:
+	\begin{align*}
+		B(a^i \mathbf v_i, b^j \mathbf w_j) = a^i b^j B(\mathbf v_i, \mathbf w_j)\\ \Rightarrow (a^i \mathbf v_i) \otimes (b^j \mathbf w_j) = a^i b^j \mathbf v_i \otimes \mathbf w_j
+	\end{align*}
+	That is, the tensor product is \emph{defined} to be bilinear so that $B(\mathbf u, \mathbf v)$ corresponds exactly to $B(\mathbf u \otimes \mathbf v)$ on the tensor product space.
+	
+	\begin{defn}[Tensor Product]
+		For two vector spaces $V,W$, we define $V \otimes W$ as the vector space of all products $\mathbf v \otimes \mathbf w$ satisfying the following bi-linearity conditions:
+		\begin{enumerate}
+			\item $(a \mathbf v) \otimes \mathbf w = a (\mathbf v \otimes \mathbf w)$ and $\mathbf v \otimes (a \mathbf w) = a (\mathbf v \otimes \mathbf w)$
+			\item $(\mathbf v_1 + \mathbf v_2) \otimes \mathbf w = \mathbf v_1 \otimes \mathbf w + \mathbf v_2 \otimes \mathbf w$ and\\ $\mathbf v\otimes (\mathbf w_1 + \mathbf w_2) = \mathbf v \otimes \mathbf w_1 + \mathbf v \otimes \mathbf w_2$
+		\end{enumerate}
+	\end{defn}
+	
+	Bilinear operators are important, however they seem less compatible with the tools of linear algebra. We don't want to generalize ``linear'' algebra to ``quadratic'' or ``cubic'' algebra because that'd be wildly more complicated and less elegant. Therefore, we view all bilinear operators as \emph{linear} operators acting on \emph{tensor spaces}, and the only bilinear operator we have to worry about from now on is $\otimes$ itself. 
 
+	
+	\begin{defn}[Universal Property of the Tensor Product]
+		For two vector spaces $V,W$, we define a bilinear map $\mathbf \varphi$ from\footnote{In general, for a function with $2$ arguments: the first in a set $A$, the second in a set $B$, we say the function's domain is $A\times B$. This is just notation.} $V \times W$ into their tensor product space $V \otimes W$. The tensor product space satisfies the \emph{universal property} that for any bilinear map $B(-,-): V \times W \rightarrow Z$ into a space $Z$, there is a \emph{unique} linear map $\tilde B(-)$ induced on $V \otimes W$ so that the following diagram commutes:
+		
+		\[ 
+		\begin{tikzcd}
+		V \times W \arrow{r}{\varphi} \arrow[dashrightarrow]{rd}{B} & V \otimes W \arrow{d}{\tilde B} \\
+		  & Z \\
+		\end{tikzcd}
+		\]
+		
+	\end{defn}
+	\begin{nb}
+		Although $\mathbf a \otimes \mathbf b$ is an element in the tensor product space, not \emph{all} elements in this space are tensor products of two vectors. The ones that are are called \emph{\textbf{simple tensors}}\index{Tensor!Simple}. It's easy to see that not all tensors are simple, as a tensor of the form $\mathbf a \otimes \mathbf b$ really holds only $\dim V + \dim W$ pieces of information, less than the dimension of the whole space.
+	\end{nb}
+	
+	So we can view the metric $g$ as acting on the tensor product space $T_p M \otimes T_p M$ spanned by tensors of tangent vectors $\partial_i \otimes \partial_j$. For each such basis element we have a corresponding element $dq^i \otimes dq^j$ in our dual basis. This means that the proper way to write the metric in this tensor language is 
+	\begin{equation}
+		g = g_{ij} ~ dq^i \otimes dq^j
+	\end{equation}
+	For this reason, $g$ is referred to as not just a metric but a \textbf{metric tensor}\index{metric tensor}.
 	\begin{obs}
-		A metric $g$ is an element of the space $T^*_p M \otimes T^*_p M$
+		A metric $g$ is a linear functional on $T_p M \otimes T_p M$, making it an element of the dual space $(T_p M \otimes T_p M)^*$.
 	\end{obs}
+	We see how given a tensor product basis $\partial_i \otimes \partial_j$, the dual basis is just tensors of the dual vectors of the original space $dq^i \otimes dq^j$. This means that: 
+	\begin{obs}
+		For finite dimensional vector spaces, $(V\otimes W)^* = V^* \otimes W^*$.
+	\end{obs}
+	An element in a tensor space will have components that are described by two indices $i$ and $j$, each of which can be either co/contravariant. 
+	\begin{example}
+		In $T_p M \otimes T_p M$ a general element will be written as $c^{ij} ~\partial_i \otimes \partial_j$. On the other hand in $T_p^* M \otimes T_p^* M$, an element is written as $c_{ij}~dq^i \otimes dq^j$ (and a metric tensor is such and element). We could abstractly define $T_p M \otimes T_p* M$ as a vector space, and there each element would be written as $c^i_j~\partial_i \otimes dq^j$, with one index co-variant, one index contra-variant.
+	\end{example}
+	
+	\begin{nb}
+		Tensor spaces are still vector spaces, as we can add and scale their elements. This is a weird thing to get used to, as it doesn't feel right to say ``tensors are vectors'', but this is due to the multiple meanings associated with the word ``vector'', some of which are not compatible with the notion of a tensor.
+	\end{nb}
 
-	Going back to studying transformation laws: if we change from $q^i$ to $q'^i$, then the basis vectors/covectors at a point $p$ change according to Equations~\eqref{eq:covariant_einstein},\eqref{eq:contravariant_einstein} and their components change in the respectively opposite ways depending on the Jacobian matrix $J = \frac{\partial q^j}{\partial q^i}$ and its inverse, $J^{-1} = \frac{\partial q^i}{\partial q^j}$ at $p$,
+	In this vein of covariant and contravariant indices, let us go back to transformation laws. If we change from $q^i$ to $q'^i$, then the basis vectors/covectors at a point $p$ change according to Equations~\eqref{eq:covariant_einstein},\eqref{eq:contravariant_einstein}. Their components change in the respectively opposite ways depending on the Jacobian matrix $J = \frac{\partial q^j}{\partial q^i}$ and its inverse, $J^{-1} = \frac{\partial q^i}{\partial q^j}$ at $p$:
 	\begin{equation}
 		v'^i = \frac{\partial q'^i}{\partial q^j} v^j, ~~ \omega'_i = \frac{\partial q^j}{\partial q'^i} \omega_j.
 	\end{equation}
@@ -856,6 +916,38 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	\end{equation}
 	That is, because the invariant length of a vector $g_{ij} v^i v^j$ involves the contra-variant components twice, $g$ must co-variantly change twice (once for each index) to keep that inner product invariant. We'd say that $g$ is a tensor with two covariant indices, or a $(0,2)$-tensor. 
 	
+	Of course, we can take tensor products of tensor products and form higher rank tensors. For a tensor living in $V_1 \otimes \dots \otimes V_r$ we call its \textbf{rank}\index{Tensor!Rank} $r$. Vectors and covectors are rank 1, scalars are rank 0, and the metric tensor is rank 2. We use the notation $V^{\otimes r}$ to denote $V \otimes \dots \otimes V$ $r$ times, and save space.
+	
+	Higher tensor spaces also satisfy a similar universal property on \textbf{multilinear maps}.
+	\begin{defn}[Multilinear Map]
+		A multilinear map $M$ into some vector space $Z$
+		\begin{equation}
+			M: V_1 \times \dots \times V_r \rightarrow Z 
+		\end{equation}
+		is a map with $r$ arguments, with the $i$th argument taking a vector from $V_i$ that is \emph{linear in each argument}. 
+	\end{defn}
+	
+	
+	\begin{example}
+		The function giving the signed $k$-volume enclosed by a set of $k$ vectors is a multilinear map. 
+	\end{example}
+	
+	\begin{prop}[Universal Property of Higher Tensor Spaces]
+		For a multilinear map $M: V_1 \times \dots \times V_r \rightarrow Z$, there is a multilinear map into their tensor product space
+		\begin{equation}
+			\mathbf \varphi: V_1 \times \dots \times V_r \rightarrow V_1 \otimes \dots \otimes V_r
+		\end{equation}
+		so that any multilinear map $M$ induces a \emph{unique} linear map $\tilde M$ on the tensor space so that the following diagram commutes. 
+		\[ 
+		\begin{tikzcd}
+		V_1 \times \dots \times V_r \arrow{r}{\varphi} \arrow[dashrightarrow]{rd}{M} & V_1 \otimes \dots \otimes V_r \arrow{d}{\tilde M} \\
+		  & Z \\
+		\end{tikzcd}
+		\]
+	\end{prop}
+	
+	
+	
 	\begin{defn}[An $(a,b)$-Tensor]
 		A tensor of $a$ contra-variant indices and $b$ covariant indices is called an $(a,b)$-tensor, and can be written in local coordinates at a point $p$ on $M$ as:
 		\begin{equation*}
@@ -863,55 +955,280 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		\end{equation*}
 	\end{defn}
 	and we know how $T_{i_1, \dots, i_a}^{j_1, \dots, j_b}$ linearly transforms on each index. Moments like this are when we should be grateful to Einstein's summation convention for saving us $a+b$ summation signs out front. 
+	
+	If we have a vector space $V$ and we want to consider ALL the tensors we can get from applying $V \otimes V$ to itself any number of times, then we get the \textbf{tensor algebra}\index{Tensor!Algebra}\index{Algebra!Of Tensors} $T^\cdot V$ of $V$, defined as
+	\begin{equation}
+		\bigoplus_{r=1}^\infty V^{\otimes r}
+	\end{equation}
+	In this algebra, we have our addition operation $+$ as before, and $\otimes$ becomes a multiplication operation.\\
+	\textbf{EXERCISE ON A GRADED ALGEBRA}\\
+	\textbf{OMG GIVE SOME EXAMPLES JEEZ}
 
+	We gave the example of $k$-forms are antisymmetric tensors of rank $k$, and the wedge product $\wedge$ does have all of the properties of $\otimes$, but it includes the extra property that $\omega \wedge \omega = 0$, which gives it its anti-symmetry. If we exchange any two indices in the component $\omega_{j_1, \dots, j_k}$ of a tensor representing a $k$-form, the new component is the opposite sign. The tensors that satisfy this property are called \textbf{anti-symmetric}\index{Tensor!Anti-symmetric}. 
+	
+	Alternatively, we can define the space of anti-symmetric tensors of rank $r$ to be the space of tensors of rank $r$ with the additional constraint that $T \otimes T = 0$ for any tensor $T$ in that space. This gives us an antisymmetric space. 
+	
+	Performing this anti-symmetrization on $V^{\otimes k}$ gives the $k$th exterior power\index{Exterior!Power} $\Lambda^k V$. Anti-symmetrizing the whole tensor algebra gives the whole \emph{exterior algebra}\index{Exterior!Algebra}\index{Algebra!Alternating} $\Lambda V$ from before. 
+	
+	On the other hand, the metric tensor is \emph{symmetric}, in that exchanging the indices of a component $g_{ij}$ gives a new component $g{ij}$ with the same value. Such tensors whose components \emph{don't} change if you permute the indices are called \textbf{symmetric}\index{Tensor!Symmetric}. Alternatively for the space of rank $r$ tensors over $V$, $V^{\otimes r}$, we can define the subspace space of symmetric tensors of rank $r$ by taking $V^{\otimes r}$ and identifying $\mathbf v_1 \otimes \mathbf v_2 = \mathbf v_2 \otimes \mathbf v_1$ for any vectors $\mathbf v_1, \mathbf v_2 \in V$. Doing this on the whole tensor algebra gives the \textbf{Symmetric Algebra}\index{Symmetric Algebra}\index{Algebra!Symmetric}.
 	
 	\index{Tensor|)}
 
-	\section{The Hodge Star and the Laplacian} % (fold)
+	\section{The Hodge Star and the Laplacian (\emph{Optional})} % (fold)
 	\label{sec:the_hodge_star_and_the_laplacian}
 	
-	Plan for this section:
-	\begin{itemize}
-		\item Get volume form Vol from the metric. 
-		\item Then: We saw metric defines inner product on forms, this extends to the tensor products of forms as well (what does this mean physically?). Then this \emph{descends} down to the exterior algebra, giving us the ability to take products of k forms. We'll define $\star \alpha$ on a $k$ form to be the $n-k$ form so that $(\star \alpha) \wedge \beta = \left< \alpha | \beta \right> \mathrm{Vol}$
-		\item Use this to define a divergence on vectors by
+	We've seen how we can get length of curve from the metric associating an infinitesimal length to a coordinate change $dq^i$. We should expect, then, that we can get volumes in our space as well.  
+	
+	For a point $p$ on a manifold, let us choose coordinates $x^i$ so that we have an \emph{orthonormal basis} $\hat \partial_i$ at $p$, so that $g_{ij} = \delta_{ij}$. That means that the differential form for this orthonormal basis:
+	\begin{equation}
+		\omega = dx^1 \wedge \dots \wedge dx^n
+	\end{equation}
+	gives exactly the area of a generalized parallelogram (in fact generalized rectangle) associated with $n$ changes in the $x^i$. Of course.. in an orthonormal basis we didn't need to use the language of forms. The magnitude of the volume is just $|dx^1 \dots dx^n|$.
+	
+	Now say we \emph{change} our $\hat \partial_i$ to a new arbitrary coordinate system $q'^i$ with local basis $\partial_i'$ by $\partial_i'=A^j_i \hat \partial_j$. Now, from linear algebra, we know that for a transformation $\mathbf A$ acting on an orthonormal basis $\mathbf e_i$, the determinant of $\mathbf A$ is the volume enclosed by the new vectors $\mathbf e'_i = \mathbf A \mathbf e_i$ the absolute value of the volume enclosed by our original choice of unit vectors must have been scaled by $|\det \mathbf A|$.
+	
+	For an arbitrary basis, we don't keep track of ``how to go back to an orthonormal basis'' but we \emph{do} always keep track of the metric. An if originally $g_{ij} = \left< \hat \partial_i| \hat \partial_j \right> = \delta_{ij}$ then now $g'_{ij} = A^{k}_i A^{l}_j g_{ij}$. The determinant of these matrices, on the other hand is:
+	\begin{align*}
+		\det g_{ij} &= \det \delta_ij =1\\
+		 \Rightarrow \det g'_{ij} &= \det(A^{k}_i A^{l}_j g_{ij})\\
+		 & = \det A^j_i \det A^l_j \det g_{ij} \\
+		 & = (\det A)^2
+	\end{align*}
+	This means that the absolute value of the volume enclosed by the new vectors $\partial_i'$ is \emph{in general} equal to $\sqrt{\det g_{ij}}$. Then we have a corresponding \textbf{volume form}\index{Volume Form}\index{Differential Form!Volume Form}.
+	\begin{defn}[Volume Form]
+		For an $n$-dimensional Riemannian manifold $M$ with metric $g$, the invariant volume form $\mathrm{Vol}_n$ is given by
 		\begin{equation}
-			\text{div} ~ \mathbf v = \star \mathrm d \star (\mathbf v^\flat)
+			\mathrm{Vol}_n = \sqrt{\det g_{ij}} ~ dq^1 \wedge \dots \wedge dq^n
 		\end{equation}
-		\item Use that to get the Laplacian
+		This associates to each infinitesimal $n$ volume given by $n$ changes in the coordinates $dq^i$, an invariant physical volume.
+	\end{defn}
+	
+	With a metric, we can take an inner product not only on the tangent space at a point $p$ but also on the cotangent space as well. Can we extend our inner product to act on exterior powers of the cotangent space? That is, can we take an inner product of $k$-forms if we have an inner product on the 1-forms?
+	
+	Answering this question is a good example of when actually going to \emph{higher} abstraction helps guide us along and give us the right answer. It's what we've been doing so far, to be able to formulate differential geometry universally and independent of an orthogonal frame. Let us then ask the more general question: given an inner-product space $V$ and an inner product space $W$ is there a natural inner product structure on $V \otimes W$?
+	
+	Say our basis for $V \otimes W$, as before is $\mathbf v_i \otimes \mathbf w_j$. We want to imagine a way to take:
+	\begin{equation*}
+		\left< \mathbf v_i \otimes \mathbf w_j | \mathbf v_k \otimes \mathbf w_l \right>
+	\end{equation*}
+	The naive guess would be to just let this become
+	\begin{equation}\label{eq:tensor_inner_product_def}
+		\left< \mathbf v_i \otimes \mathbf w_j | \mathbf v_k \otimes \mathbf w_l \right> = \left< \mathbf v_i | \mathbf v_k \right> \left< \mathbf w_j | \mathbf w_l \right> 
+	\end{equation}
+	so that for general tensors $\mathbf{T}, \mathbf{S} \in V \otimes W$ we would want to extend it bilinearly so that:
+	\begin{equation}\label{eq:bilinear_tensor_inner_product}
+		\left< \mathbf{T} | \mathbf{S} \right> 
+		= \left< T^{ij} \mathbf v_i \otimes \mathbf w_j | S^{kl} \mathbf v_k \otimes \mathbf w_l \right> =  
+		T^{ij} S^{kl} \left< \mathbf v_i | \mathbf v_k \right> \left< \mathbf w_j | \mathbf w_l \right> 
+	\end{equation}
+	
+	Is this bilinear and positive definite? If so, it's a valid inner product on the tensor space, uniquely defined.
+	\begin{prop}[Inner Product on $V \otimes W$]
+		The above construction defines an inner product on the tensor space.
+	\end{prop} 
+	\begin{proof}
+		We see that the inner product must be bilinear for Equation~\eqref{eq:bilinear_tensor_inner_product} to hold. In fact, bilinearity follows just by definition because
+		\begin{align*}
+			\left< \mathbf{T} | \mathbf{S} \right> 
+			&= \left< T^{ij} \mathbf v_i \otimes \mathbf w_j | S^{kl} \mathbf v_k \otimes \mathbf w_l \right> & \\
+			&= \left< (T^{ij} \mathbf v_i) \otimes \mathbf w_j | (S^{kl} \mathbf v_k) \otimes \mathbf w_l \right>  & \text{(Property of $\otimes$)}\\
+			& =\left< T^{ij} \mathbf v_i | S^{kl} \mathbf v_k \right> \left< \mathbf w_j | \mathbf w_l \right> & \text{Construction, Eq.~\eqref{eq:tensor_inner_product_def}}\\
+			& = T^{ij} S^{kl} \left< \mathbf v_i | \mathbf v_k \right> \left< \mathbf w_j | \mathbf w_l \right> & \text{By Inner Product on $V$}
+		\end{align*}
+		note that on something like the tangent space this would become:
 		\begin{equation}
-			\triangle f = \text{div} ~ \text{grad} ~ f 
+			\left< \mathbf{T} | \mathbf{S} \right> = g_{ik} g_{ij} T^{ij} S^{kl}
+		\end{equation}
+		Positive definiteness is simple to show as well. Pick the bases $\mathbf v_i, \mathbf w_i$ on each space to be orthonormal. 
+		\begin{align*}
+			\left< \mathbf{T} | \mathbf{T} \right> 
+			&= T^{ij} T^{kl} \left< \mathbf v_i | \mathbf v_k \right> \left< \mathbf w_j | \mathbf w_l \right> \\
+			&= T^{ij} T^{kl} \delta_{ik} \delta_{jl} \\
+			&= \sum_{i, j} (T^{ij})^2 \geq 0
+		\end{align*}
+		and is only equal to zero when $T^{ij}=0$ always, i.e. $\mathbf T = 0$. Since this metric assigns positive value to any vector, it is positive definite. The fact that we used an orthonormal basis doesn't change this invariant property, it just makes the proof easier. 
+		\textbf{BUT CAN WE DO IT WITHOUT USING AN ORTHONORMAL BASIS PLS?}
+	\end{proof}
+	An example of an inner product on $V$ lifting to a tensor space is when we define an inner product on the set of matrices:
+	\begin{example}[Inner Product of Matrices]
+		On a tensors space $V \otimes V$ we can always interpret the tensor coefficients themselves as matrices and considering $\mathbf e_i \otimes \mathbf e_j = \mathbf e_{ij}$ corresponding to the $i,j$ th entry. If we have an orthogonal basis $\mathbf e_i$ for both, then an inner product on $V$ gives rise to an inner product on these matrices of $V \otimes V$ by
+		\begin{equation}\label{eq:tensor_basis_produt}
+			\left< \mathbf e_{ij} | \mathbf e_{kl} \right> = \delta_{ik} \delta_{jl}
+		\end{equation}
+		this means each of the $n^2$ entries $\mathbf e_{ij}$ is orthogonal from the others and we have an orthogonal basis for our matrix space.
+	\end{example}
+	Moreover this gives rise to the \emph{matrix norm} in an orthonormal basis
+	\begin{equation}
+		|A|^2 = \sum_{ij} (A^{ij})^2
+	\end{equation}
+	or in a general basis, with a metric $g$ this is 
+	\begin{equation}
+		|A|^2 = g_{i k} g_{j l} A^{i j} A^{k l}
+	\end{equation}
+	which collapses to what we would get using Equation~\eqref{eq:tensor_basis_produt} when $g_{ij} = \delta_{ij}$. 
+	\begin{prop}[Inner Product on $V^{\otimes r}$]
+		$V$ has an inner product structure, then so does $V^{\otimes r}$.
+	\end{prop}
+	\begin{proof}
+		By induction, the base case $r=1$ our assumption and for the inductive step, we have just shown that if $V,W$ have inner product structure, so does $V \otimes W$. Let $W = V^{\otimes(r-1)}$ and we are done.
+	\end{proof}
+	
+	But then if we can take inner products of abitrary rank tensors, then we can \emph{restrict} our inner product to just the antisymmetric tensors and get
+
+	\begin{defn}[Inner Product on $k$-forms]
+		The inner product on the $k$th exterior power is the restriction of the inner product defined above on $\mathbf V^{\otimes k}$ to the subspace of antisymmetric tensors $\Lambda^k V$.
+		
+		In particular, since the cotangent space $T^*_pM$ has inner product given by $g^{ij}$, then the space of $k$ forms $\Lambda^k T^*_pM$ inherits an inner product:
+		\begin{equation}
+			\left< \alpha | \beta \right> = g^{i_1 j_1} \dots g^{i_k j_k} \alpha_{i_1\dots i_k} \beta_{j_1 \dots j_k}
+		\end{equation}
+	\end{defn}
+	
+	So now we can find norms of differential forms, which should correspond in some way to areas and $k$-volumes. There is one differential form in particular that is worth seeing the norm of: the top one, the $n$-form of our manifold:
+	\begin{equation}
+		\left< dq^1 \wedge \dots \wedge dq^n | dq^1 \wedge \dots \wedge dq^n \right>
+	\end{equation}
+	Now this is $n$ times contravariant. As a specific anti-symmetric tensor in the space, it should be written
+	\begin{equation}
+		\omega_{i_1\dots i_n} dq^{i_1} \wedge \dots \wedge dq^{i_n}
+	\end{equation}
+	where $\omega$ is antisymmetric so that $\omega_{12\dots n} = +1/n!$ and any permutation that flips the indices an \emph{even} number of times is $+1/n!$ while any permutation that flips an \emph{odd} number of times (associated with the volume oriented the other way) is $-1/n!$. Because there are $n!$ permutations, this will add up to produce a coefficient of $1$ in front of the oriented volume $dq^1 \wedge \dots \wedge dq^n$, as desired. Then the inner product of this form with itself is:
+	\begin{equation}
+		g^{i_1 j_1} \dots g^{i_n j_n} \omega_{i_1 \dots i_n} \omega_{j_1 \dots j_n}
+	\end{equation}
+	Since $i_1 \dots i_n$ need to be some permutation of $1 \dots n$ ,this can be written as a sum over \emph{all} permutations of the $n$ numbers:
+	\begin{equation}
+		\sum_{\sigma, \pi} g^{\sigma(1) \pi(1)} \dots g^{\sigma(n) \pi(n)} \omega_{\sigma(1) \dots \sigma(n)}  \omega_{\pi(1) \dots \pi(n)}
+	\end{equation}
+	where $\sigma, \pi$ denote permutations on $1 \dots n$ numbers. If we're careful with the combinatorics, though, and write $i_1=\sigma(1) \dots i_n = \sigma(n)$ this is the same sum as:
+	\begin{equation}
+		\sum_{i_1, \dots i_n, \rho} g^{i_1 \rho(i_1)} \dots g^{i_n \rho(i_n)} \omega_{i_1 \dots i_n} \omega_{\rho(i_1) \dots \rho(i_n)}
+	\end{equation}
+	where $\rho = \sigma^{-1} \pi$ is the relative permutation from the first one. Since $\omega_{i_1 \dots i_n}$ is $\pm 1/n!$ depending on the order, $\omega_{i_1 \dots i_n}$ \emph{times} $\omega_{\rho(i_1) \dots \rho(i_n)}$ will be \emph{+} $1/n!$ if $\rho$ is an \emph{even} number of interchanges and $-1/n!$ if $\rho$ is an odd number of changes so this becomes:
+	\begin{equation}
+		\frac{1}{n!^2} \sum_{i_1 \dots i_n, \rho}  \text{sgn}(\rho) ~ g^{i_1 \rho(i_1)} \dots g^{i_n \rho(i_n)}
+	\end{equation}
+	Recognize that this is exactly 
+	\begin{equation}
+		\frac{1}{n!^2} \det(g^{ij})
+	\end{equation}
+	So that the norm of this 1-form is
+	\begin{equation}
+		|dq^1 \wedge \dots \wedge dq^n| = \frac{\sqrt{\det g^{ij}}}{k!} = \frac{1}{k!} \frac{1}{\sqrt{\det{g_{ij}}}}
+	\end{equation}
+	Again, the determinant has appeared. This is another way to get that our volume form $\sqrt{\det g_{ij}} ~ dq^1 \wedge \dots \wedge dq^n$ is an invariant form with norm $1/n!$. In general inner products between $k$-forms involve these $k$ determinants that make the calculation difficult. The important thing is to know that such inner products do exist.\\
+	
+	Consider a $k$ form and an $(n-k)$-form (note these spaces have the same dimension, as shown in \textbf{an exercise}). Necessarily, their wedge is an $n$ form. All 0-forms (functions) are invariant, and they are a 1-dimensional space. On the other hand, now that we have a notion of metric, we have an invariant object ``on the other side'' of the tower of forms: at $\Lambda^n (T^*_p M)$, namely the volume form $\mathrm{Vol}_n$. 
+	
+	On one hand, for something like a 1-form we would say vectors are functionals bringing us to 1-dimensional space of invariant real numbers representing function values at $p$: $\Lambda^0 T^*_p M$. On the \emph{other} hand we could say that $(n-1)$-forms bring us to $\Lambda^n T^*_p M$ which is \emph{another} one-dimensional space. And for a given basis $dq^i$ we have a dual basis in the $(n-1)$ forms of all $(n-1)$ wedges missing a $dq^i$, appropriately oriented, ready to send us to $\Lambda^n T^*_p M$. The same happens for $k$-forms and their sister $(n-k)$-forms.
+	
+	Just like our metric lets us go between the 1-forms and their dual space of vectors because we have a notion of associating ``vector $\mathbf v_\omega$ perpendicular to the first order behavior of the form'' in such a way so that $\mathbf v_\omega(\omega) = \left< \omega | \omega \right>$ or more generally, using the notation $\omega^\sharp = \mathbf v_\omega$ then the dual to $\beta$, $\beta^\sharp$ is such that: 
+	\begin{equation}
+		\alpha(\beta^\sharp) = \left< \alpha, \beta^\sharp \right>.
+	\end{equation}
+	for all 1-forms $\alpha$.
+		
+	Similarly, now for a given $k$-form $\alpha$ we define its \textbf{Hodge dual} or \textbf{Hodge star}\index{Hodge Star} to be an $n-k$ form $\star \alpha$ such that:
+	\begin{defn}[Hodge Star]
+		For a given $k$-form $\beta$, we define the operator $\star: \Lambda^k T_p^*M \rightarrow \Lambda^{n-k} T_p^*M$ so that for any other $k$-form $\alpha$
+		\begin{equation}
+			\alpha \wedge (\star \beta) = \left< \alpha | \beta \right> \mathrm{Vol}_n
+		\end{equation}
+	\end{defn}
+	
+	The hodge star fundamentally stems from the same idea that says ``If we have a notion of being orthogonal from a metric, then as soon as we have an area element for an oriented plane in $\mathbb{R^3}$, we can associate a normal vector of that area'' which allowed us to integrate vector fields. That idea is exactly how a 2-form $\omega$ representing flux, in Euclidean space can just be represented by a vector field $(\star \omega)^\sharp$. This is more general, though: to any $k$-volume there is (upon choosing orientation) and $n-k$ that is orthogonal to it. Correspondingly, to a $k$ form there is an associated $n-k$ form. 
+	
+	It is worth doing a calculation:
+	\begin{obs}[Hodge Star of $dq^i$]
+		We have
+		\begin{equation}
+			\star dq^i = \omega~\mathrm{ s.t. }~ (dq^j \wedge \omega = \left<dq^j |  dq^i \right> \mathrm{Vol}_n )
+		\end{equation}
+		and since
+		\begin{equation}
+			\left<dq^j |  dq^i \right> \mathrm{Vol}_n  = g^{ij} \sqrt{\det g_{ij}} ~ dq^1 \wedge \dots \wedge dq^n
+		\end{equation}
+		and
+		\begin{equation}
+			dq^1 \wedge \dots \wedge dq^n = (-1)^{j+1} dq^j \wedge dq^1 \wedge \dots \wedge dq^{j-1} \wedge dq^{j+1} \wedge \dots \wedge dq^n
+		\end{equation}
+		then
+		\begin{equation}
+			\star dq^i = (-1)^{j+1} g^{ij} \sqrt{\det g_{ij}} dq^1 \wedge \dots \wedge dq^{j-1} \wedge dq^{j+1} \wedge \dots \wedge dq^n
+		\end{equation}
+	\end{obs}
+	 
+	 It is not too difficult to see that the hodge star applied twice, since it brings us back to $k$ forms, gives the same form \emph{up to a sign} that depends on $n$ and $k$. 
+	 
+	Now the divergence operator should tell us how much is going into some infinitesimal volume. It is associated with applying the exterior derivative to a $n-1$ form representing the oriented ``flux'' through each side of this volume. However, with the metric, we now have a way of taking a 1-form $\omega$ and getting an $n-1$ form by using our Hodge star to get $\star \omega$. 
+	 
+	More intuitively, why this works is that for an $n-1$ plane in $n$ dimensions, we can associate to it just a \emph{unit normal} (because we can define the notion of ``perpendicular'' using the metric). The flux going through this plane as an $n-1$ form can just as well be described by a $1$ form representing the component of flow along that normal vector. With all this, for any vector field, we can form an associated 1-form using the metric, and from \emph{that} another associated $n-1$ form. Then, we can take an exterior derivative to get:
+	 
+	\begin{defn}[The Divergence]
+		The \textbf{divergence}\index{Divergence} of a vector field $\mathbf v$ is defined as 
+		\begin{equation}
+			\mathrm{div} ~ \mathbf v = \star \mathrm d \star (\mathbf v^\flat)
+		\end{equation}
+	\end{defn} 
+	
+	This answers a question from before: in two dimensions, the exterior derivative gave us a chain like:
+	
+		\begin{equation*}
+			~~~~~~
+			\begin{matrix}
+				\text{0-forms} & \overbrace{\longrightarrow}^\mathrm d & 
+				\text{1-forms} & \overbrace{\longrightarrow}^\mathrm d & 
+				\text{2-forms}  \\
+				\downarrow & & \downarrow & & \downarrow \\
+				^{\text{Evaluated}}_{\text{~~~~~at}} & & 
+				^{\text{Integrated}}_{\text{~~~along}} & &
+				^{\text{Integrated}}_{\text{~~~along}} & &\\
+				\downarrow & & \downarrow & & \downarrow \\
+				\text{Points} & \underbrace{\longleftarrow}_\partial & 
+				\text{Curves} & \underbrace{\longleftarrow}_\partial & 
+				\text{Surfaces} 
+			
+				% \downarrow ^{\text{Evaluated}}_{\text{~~~~~at}} \downarrow & &
+	% 			\downarrow ^{\text{Integrated}}_{\text{~~~along}} \downarrow & &
+	% 			\downarrow ^{\text{Integrated}}_{\text{~~~along}} \downarrow & & 			\downarrow ^{\text{Integrated}}_{\text{~~~along}} \downarrow \\
+			\end{matrix}
+		\end{equation*}
+		The first $\mathrm d$ stood for the gradient's analogue on forms, and the second for the curl's, but we know there is also a divergence in 2 dimensions. Where is it's corresponding analogue with forms? We needed a metric to define it. That gives an operation $\star \mathrm d \star$ between 1-forms and 0-forms. For the interest of the reader, in general the operator $\star \mathrm d \star$ is called the \textbf{codifferential}\index{Codifferential}\footnote{This is up to an annoying factor of a sign, depending on $n$ and $k$.}, $\delta$. It is dual to $\mathrm d$ in the sense that it is a differential operator taking us from $k$-forms to $k-1$-forms now. 
+	
+	Aside from this, having a definition for the divergence operator is incredibly useful because it gives rise to the central differential operator in all of physics:
+	
+	\begin{defn}[The Laplacian]
+		The \textbf{Laplacian}\index{Laplacian} operator on a function (0-form) $f$ is defined as 
+		\begin{equation}
+			\triangle f = \mathrm{div} ~ \mathrm{grad} ~ f 
 			= \star \mathrm d \star \mathrm d f
 			= (\star \mathrm d)^2 f
 		\end{equation}
-		\item Fun aside: from the metric giving us the Hodge star, we get a conjugated $\mathrm d$ operator that takes us UP from $k$ forms to $k-1$ forms:
+	\end{defn}
+	
+	Again, purely for the interest of the reader: the Laplacian on $0$-forms can be written as $\delta \mathrm d$, and on general $k$-forms the natural definition can be shown to be
 		\begin{equation}
-			\delta := \star \mathrm d \star
+			\triangle = \delta \mathrm d + \mathrm d \delta
 		\end{equation}
-		so that $\triangle f = \delta \mathrm d f$, and on general forms: $\triangle = \delta \mathrm d + \mathrm d \delta$. 
-		
-		And like that, we've literally exhausted every human representation of the letter $D$ in this chapter: $\mathrm D, \mathrm d, d, \nabla, \partial, \delta, \triangle$ to mean some janky-ass derivative operator. 
-		
-	\end{itemize}
-	 
+	this allows for the definition of the wave equation (and others) on $k$-forms.
 	
-	\textbf{GOTTA GET TO HERE}
+	For calculations, it is important to have the Laplacian of a function, $f$, explicitly:
+	\begin{align*}
+		\triangle f &=   \star \mathrm d ((\star{dq^i}) ~ \partial_i f ) 
+				\\&= \star \mathrm d \left[ (-1)^{i+1} g^{ij} \sqrt{\det g} ~ \partial_i f ~ dq^1 \wedge \dots \wedge dq^{j-1} \wedge  dq^{j+1} \wedge \dots \wedge dq^n \right]
+				\\&= \star \left[ \partial_j (g^{ij} \sqrt{\det g} ~ \partial_i f ) ~ dq^1 \wedge \dots \wedge dq^n \right]
+				\\&= \partial_j (g^{ij} \sqrt{\det g} ~ \partial_i f ) ~ \star\left[ dq^1 \wedge \dots \wedge dq^n\right]
+				\\&= \frac{1}{\sqrt{\det g}} \partial_j (g^{ij} \sqrt{\det g} ~ \partial_i f )
+				\\&= \frac{1}{\sqrt{\det g}} \partial_j \left(\sqrt{\det g}~ \partial^j f\right)
+	\end{align*}
+	Of course with a simple metric $\delta_{ij}$ in an orthonormal frame this becomes just $\partial_j \partial^j f$, the sum of all second derivatives.
 	
-	Let's go further and see what the metric gives us when we work with $k$-forms. For a manifold of dimension $n$, not only does the metric give us a notion of length, but it also gives us a \emph{volume form}. That is, for a coordinate system of $n$ $q^i$, we can associate a volume with a change $dq^i$. This form must be top-dimensional, i.e. it must have the maximal degree, $n$. 
-	
-
-	
-	\begin{theorem}[Volume Form]
-		On an oriented\footnote{This is a big subtlety. On manifolds like the Mobius band that are not oriented, it's not possible to say which way is out vs in. On local patches, we can always chose a volume form, but globally we may not be able to.} Riemannian manifold, the metric gives rise to the invariant volume form 
-		\begin{equation}
-			\mathrm{Vol} = \sqrt{|g|} ~ dq^1 \wedge \dots \wedge dq^n 
-		\end{equation}
-	\end{theorem}
-	
+	We can even understand what this is saying intuitively. There is a function $f$. There is an associated vector field $\partial^i f$ along the direction of increase of this function. Say something (like energy) moves according to this field, wanting to go in the direction of maximum increase. For a given point $p$, we calculate the associated $n-1$ form of the flux of this thing and turn that back into a scalar that tells us the ``influx'' per unit volume of this thing. If there is just as much coming in as coming out, then $\triangle f = 0$ (Laplace's equation) and we are in equilibrium. Otherwise $\triangle f$ tells us there is a source/sink $\rho$ within this volume (Poisson's equation). 
 	
 	% section the_hodge_star_and_the_laplacian (end)
 
 	\section{Movement, Lie's Ideas}
+	\index{Exponential Map|(}
 
 		To end this chapter, lets begin with something beautiful. 
 		\begin{equation*}
@@ -921,13 +1238,98 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		\begin{equation}
 			e^{i \theta} = \cos(\theta) + i \sin(\theta).
 		\end{equation}
+		The exponential function gives uniquely fascinating results on imaginary numbers.
+		
+		But now, we will consider something even stranger than exponentiating an imaginary number. Imagine we are working on the simplest manifold that we have been used to: the 1-dimensional real line $\mathbb R$. Consider
+		\begin{equation*}
+			e^{\frac{\partial}{\partial x}}
+		\end{equation*}
+		What could this nonsensical looking thing possibly mean? As before, work through using the known Taylor series of $e^x$. We get:
+		\begin{align}
+			e^{\partial_x} &= 1 + \frac{\partial}{\partial x} + \frac{1}{2} \left( \frac{\partial}{\partial x} \right)^2 + \frac{1}{3!} \left( \frac{\partial}{\partial x} \right)^3 + \dots\\
+			&= \sum_{k=1}^\infty \frac{1}{k!} \frac{\partial^k}{\partial x^k}
+		\end{align}
+		This is a formal sum of powers of the derivative operator. This object, when acting on a function gives:
+		\begin{equation}
+			e^{\partial_x} f = \sum_{k=1}^\infty \frac{1}{k!} \frac{\partial^k f}{\partial x^k}
+		\end{equation} 
+		This takes $f$ and operates on the function giving a \emph{new} one. But if we \emph{recognize this as a Taylor series} then evaluating this at a point $x_0$ gives:
+		\begin{equation}
+			(e^{\partial_x} f)(x_0) = \sum_{k=1}^\infty \frac{1}{k!} \frac{\partial^k f (x_0)}{\partial x^k} = f(x_0 + 1)
+		\end{equation}
+		This thing, $e^{\partial_x}$ \emph{evaluates $f$ to the right of $x_0$ by $1$}. It is the \textbf{translation} operator\index{Lie Group!Translations on $\mathbf R$} for functions on $\mathbb R$. But then more generally: 
+		\begin{equation}
+			(e^{a \partial_x} f) (x_0) = f(x_0 + a)
+		\end{equation}
+		so that $e^{a \partial_x}$ translates the argument of $f$ over by $a$. This is a remarkably simple and beautiful (not to mention unexpected) result about the exponential function and its action on derivatives.
+		
+		By the exact same logic, in much fuller generality, say we are on a manifold $M$ and we have set up coordinates $q^i$ with associated tangent vector fields $\partial_i$ on each point $p$ on the coordinate patch. Then the \emph{exact} same argument, using Taylor series says that for a multivariable function $f$ on $M$
+		\begin{equation}
+			(e^{X^i \partial_i} f)(q^i) = f(q^i + X^i)
+		\end{equation}
+		It evaluates $f$ over by a coordinate change $X^i$ from the starting point $q^i$.
+		
+		The exponential map is then fundamental! It takes us from a vector field $X$ defined locally on the tangent spaces of $M$ and \emph{moves us} along the flow of the vector field on $M$. The exponential map allows vector fields to becomes actual \emph{flows} along the manifold. 
+		\begin{defn}
+			For a manifold $M$, a flow $\varphi$ is a mapping
+			\begin{equation}
+				\varphi: M \times \mathbf R \rightarrow M
+			\end{equation}
+			such that for all points $p$ on the manifold and all real numbers $s,t$:
+			\begin{itemize}
+				\item $\varphi(p,0) = p$
+				\item $\varphi(p,s+t) = \varphi(\varphi(p,s),t)$
+			\end{itemize}
+			and such that the mapping is \emph{continuous} (with respect to the topology of $M$).
+		\end{defn}
+		This means that starting at a point $p$, a flow gives rise to a curve $\gamma = \varphi(p,t)$. The vector field of the tangent vectors to $\gamma$ at the points that it passes through can be \textbf{exponentiated} to give the flow along $\gamma$.
+		
+		Starting at $p$ and given a vector field $X$ on $M$, getting a curve $\gamma$ associated with flowing along $X$ means solving the differential equation:
+		\begin{equation}\label{eq:ODE_curve}
+			\frac{d}{dt} q^i = X^i.
+		\end{equation}
+		The solutions of many dynamical systems in physics and engineering can be seen as curves found by solving differential equations that end up amounting to  Equation~\eqref{eq:ODE_curve}. Much more on this will be discussed in Chapter~\ref{ch:Symplectic}. 
+		
+		\begin{nb}
+			Certainly there are pathological vector fields that don't generate flows, and not all vector fields are guaranteed to generate global flows on the manifold. The study of when vector fields generate global flows, and the subtleties arising therein will be glossed over in this text.
+		\end{nb}
+		
+		Now since vector fields on a manifold form a vector space, what does it mean to exponentiate $c X$? It gives rise to the same curve, but parameterized by a parameter $t$ that traverses it $c$ times as fast. For negative $c$ this would mean reversing direction. 
+		
+		What about a sum of two vector fields? Naively we'd say that moving along the flow of $X$ and then moving along the flow of $Y$ should be the same as moving along the flow of $X+Y$, which should in turn be the same as moving along the flow of $Y$ and \emph{then} along the flow of $X$. For translations $\partial_x, \partial_y$ in $\mathbb R^2$, this turns out to be true. Consider however the sphere, with $X$ and $Y$ defined so as to generate circles like in the graphic below. Then moving along the flows of $X$ or $Y$ corresponds to rotating the sphere around the $z$ or $x$ axis, respectively. 
+		\textbf{MAKE A GRAPHIC OF X,Y ON THE SPHERE}
+		
+		What happens algebraically? Just exponentiating two \textbf{coordinate vector fields}\index{Coordinate Vector Field} $\partial_i, \partial_j$ associated with coordinates $q^i, q^j$
+		\begin{align*}
+			e^{\partial_i + \partial_j} &= 1 + (\partial_i + \partial_j) + \frac{1}{2}(\partial_i + \partial_j)^2 + \dots\\
+			&= 1 + (\partial_i + \partial_j) + \frac{1}{2}(\partial_i^2 + \partial^2_j + \partial_i \partial_j + \partial_j \partial_i) + \dots\\
+			&= (1+\partial_i + \frac{1}{2}\partial_i^2+\dots)(1+\partial_j + \frac{1}{2} \partial_j^2+\dots)\\
+			&= e^{\partial_i} e^{\partial_j}
+		\end{align*}
+		Since in this case partials commute and behave just like real numbers, the same algebra giving $e^{a+b} = e^a e^b$ still holds. This was for \emph{coordinate vector fields}. This would still hold, of course, if we put \emph{constants} in front of the vectors $e^{a \partial_i + b \partial_j}$ because constants commute as well. 
+		
+		On the other hand, if we took an exponential of a sum of \emph{two arbitrary vector fields} $X=X^i \partial_i, Y = Y^i \partial_i$ whose components \emph{themselves} were functions of $p \in M$ so the $\partial_i X^j \neq X^j \partial_i$, then we would see something else. Just to second order: 
+		\begin{equation}
+			e^{X^i \partial_i + Y^i \partial_i} = 1 + (X^i + Y^i) \partial_i + \frac{1}{2} (X^i \partial_i + Y^i \partial_i)^2 + \dots
+		\end{equation} 
+		the second order squared term can be expanded, and using the product rule $\partial_i (X^j \partial_j) = (\partial_i X^j) \partial_j + \partial_i \partial_j$
+		\begin{align*}
+			 X^i \partial_i &(X^j \partial_j) + Y^i \partial_i (Y^j \partial_j) + X^i \partial_i (Y^j \partial_j) + Y^i \partial_i (X^j \partial_j) \\
+			 &= \left[ X^i (\partial_i X^j)+ Y^i (\partial_i Y^j) + X^i (\partial_i Y^j) + Y^i (\partial_i X^j) \right] \partial_j \\ 
+			 & ~~~ + (X^i X^j + Y^i Y^j + X^i Y^j + Y^i X^j) \partial_i \partial_j
+		\end{align*}
+		On the other hand $e^{X} e^{Y}$ has just the second term. 
+		\begin{equation*}
+			(X^i X^j + Y^i Y^j + X^i Y^j + Y^i X^j) \partial_i \partial_j
+		\end{equation*}
+		This first term in the second order part of the expansion doesn't give a second order derivative but in fact only a \emph{first order} one.	It's hard to interpret what's happening here but one thing is for certain: for \emph{general vector fields}, we should expect that the exponential of the sum is the product of the exponentials.
+		
+		
+		\index{Exponential Map|)}
 		
 		Now from here lets talk about
 		\begin{itemize}
-			\item $e^{\partial_x}$ on the real line and what that means (its translation)
-			\item $e^{\partial_i}$ in general is flow along a coordinate
-			\item Vector fields can be exponentiated to give the flow along that field $e^{\mathbf v}$! WOWWW (and that is literally what the exponential map should intuitively mean).
-			\item For coordinates, flow along $\partial_i + \partial_j$ is just $e^{\partial_i + \partial_j} = e^{\partial_i} e^{\partial_j}$. Not all fields are just coordinate fields. We don't have this nice property. What's going wrong?? 
+			\item  Not all fields are just coordinate fields. We don't have this nice property. What's going wrong?? 
 			\item Obtain commutator from taylor expansion
 			\item Explain commutator intuitively (I got a good idea for this)
 			\item This is a derivative of one field along another without moving tangent spaces, so now we have $L_X Y$
