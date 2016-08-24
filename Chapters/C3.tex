@@ -1,5 +1,5 @@
 
-\chapter{Differential Geometry}
+\chapter{Differential Geometry}\thispagestyle{empty}
 
 In calculus class, the fundamental theorem of calculus is introduced: that the total difference of a function's value at the end of an interval from its value at the beginning is the sum of the infinitesimal changes in the function over the points of the interval:
 
@@ -264,7 +264,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 
 	Even simpler than one-forms are the \textbf{zero forms}, with no differentials appearing. A zero-form precisely a scalar function at $f(p)$ each point $p$. Regardless of how we change our coordinate system, the value of the \emph{function} at point $p$ is the same.
 	
-	We are now in a good place to define $\mathrm d$, at least for going from functions (zero-forms) to one-forms. Given a function $f$, $\mathrm d f$ will produce a form representing the local change in $f$ depending on the displacement. We call $\mathrm d$ the \textbf{exterior derivative} \index{Exterior Derivative} operator.
+	We are now in a good place to define $\mathrm d$, at least for going from functions (zero-forms) to one-forms. Given a function $f$, $\mathrm d f$ will produce a form representing the local change in $f$ depending on the displacement. We call $\mathrm d$ the \textbf{exterior derivative}\index{Exterior!Derivative} operator.
 	
 	For example, for a potential energy function $\phi$, $\mathrm d \phi$ can be written as 
 	
@@ -384,7 +384,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	\end{defn}
 	As before, this last condition, together with bi-linearity, implies anti-symmetry of $\wedge$.
 	
-	In our case, when we have a basis $dq^i$ for our cotangent space of 1-forms, the basis for our space of 2-forms can be written as $dq^i \wedge dq^j$ for $i<j$. The 2-form $dq^3 \wedge dq^4$, for example, represents a flux of magnitude $|dq^3 dq^4|$ out of the $q^3q^4$ plane and no flux out of $q^iq^j$ planes for any other $i,j$. On the other hand $dq^4 \wedge dq^3$ would be the same flux in the opposite direction (and again, no flux out of any of the other $q^i q^j$ planes).
+	In our case, when we have a basis $dq^i$ for our cotangent space of 1-forms\index{Manifold!Tangent Space}\index{Tangent Space}, the basis for our space of 2-forms can be written as $dq^i \wedge dq^j$ for $i<j$. The 2-form $dq^3 \wedge dq^4$, for example, represents a flux of magnitude $|dq^3 dq^4|$ out of the $q^3q^4$ plane and no flux out of $q^iq^j$ planes for any other $i,j$. On the other hand $dq^4 \wedge dq^3$ would be the same flux in the opposite direction (and again, no flux out of any of the other $q^i q^j$ planes).
 	
 	It may be frustrating to see this new product without any previous background. Let's do an example of wedging two 1-forms in 3D: $\alpha$ and $\beta$, and see what happens.
 	\begin{align*}
@@ -571,7 +571,6 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	\section{Distance, a Metric}	
 	
 	\index{Metric Tensor|(}\index{Tensor!Metric|(}\index{Manifold!Metric|(}
-	
 	
 	\emph{Why have we been making such a difference between vectors and forms?! In multivariable calculus I could have done all the 3-D calculation working only with my regular vector fields using $\hat{\mathbf{i}}$ and the rest. Why can't I just turn these forms into vector fields?}.\\
 	
@@ -889,7 +888,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	\begin{equation}
 		g = g_{ij} ~ dq^i \otimes dq^j
 	\end{equation}
-	For this reason, $g$ is referred to as not just a metric but a \textbf{metric tensor}\index{metric tensor}.
+	For this reason, $g$ is referred to as not just a metric but a \textbf{metric tensor}\index{Metric Tensor}.
 	\begin{obs}
 		A metric $g$ is a linear functional on $T_p M \otimes T_p M$, making it an element of the dual space $(T_p M \otimes T_p M)^*$.
 	\end{obs}
@@ -1244,7 +1243,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		\begin{equation*}
 			e^{\frac{\partial}{\partial x}}
 		\end{equation*}
-		What could this nonsensical looking thing possibly mean? As before, work through using the known Taylor series of $e^x$. We get:
+		What could this nonsensical looking thing possibly mean? As before, by working through using the known Taylor series of $e^x$ we get:
 		\begin{align}
 			e^{\partial_x} &= 1 + \frac{\partial}{\partial x} + \frac{1}{2} \left( \frac{\partial}{\partial x} \right)^2 + \frac{1}{3!} \left( \frac{\partial}{\partial x} \right)^3 + \dots\\
 			&= \sum_{k=1}^\infty \frac{1}{k!} \frac{\partial^k}{\partial x^k}
@@ -1273,7 +1272,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		\begin{defn}
 			For a manifold $M$, a flow $\varphi$ is a mapping
 			\begin{equation}
-				\varphi: M \times \mathbf R \rightarrow M
+				\varphi: M \times \mathbb R \rightarrow M
 			\end{equation}
 			such that for all points $p$ on the manifold and all real numbers $s,t$:
 			\begin{itemize}
@@ -1297,7 +1296,10 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		Now since vector fields on a manifold form a vector space, what does it mean to exponentiate $c X$? It gives rise to the same curve, but parameterized by a parameter $t$ that traverses it $c$ times as fast. For negative $c$ this would mean reversing direction. 
 		
 		What about a sum of two vector fields? Naively we'd say that moving along the flow of $X$ and then moving along the flow of $Y$ should be the same as moving along the flow of $X+Y$, which should in turn be the same as moving along the flow of $Y$ and \emph{then} along the flow of $X$. For translations $\partial_x, \partial_y$ in $\mathbb R^2$, this turns out to be true. Consider however the sphere, with $X$ and $Y$ defined so as to generate circles like in the graphic below. Then moving along the flows of $X$ or $Y$ corresponds to rotating the sphere around the $z$ or $x$ axis, respectively. 
-		\textbf{MAKE A GRAPHIC OF X,Y ON THE SPHERE}
+		
+		\textbf{MAKE A GRAPHIC: Two vectors at different points on a sphere.. what's their difference? Two paths getting two different results.}
+		
+		For these vector fields on the sphere, $e^{X}e^{Y}\neq e^{X+Y} \neq e^Y e^X$. 
 		
 		What happens algebraically? Just exponentiating two \textbf{coordinate vector fields}\index{Coordinate Vector Field} $\partial_i, \partial_j$ associated with coordinates $q^i, q^j$
 		\begin{align*}
@@ -1306,37 +1308,220 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 			&= (1+\partial_i + \frac{1}{2}\partial_i^2+\dots)(1+\partial_j + \frac{1}{2} \partial_j^2+\dots)\\
 			&= e^{\partial_i} e^{\partial_j}
 		\end{align*}
-		Since in this case partials commute and behave just like real numbers, the same algebra giving $e^{a+b} = e^a e^b$ still holds. This was for \emph{coordinate vector fields}. This would still hold, of course, if we put \emph{constants} in front of the vectors $e^{a \partial_i + b \partial_j}$ because constants commute as well. 
+		Since in this case partials commute and behave just like real numbers, the same algebra giving $e^{a+b} = e^a e^b$ still holds. This was for \emph{coordinate vector fields}. This would still hold, of course, if we put \emph{constants} in front of the vectors $X = a \partial_i, Y=\partial_j$, then $e^{X+Y}=e^X e^Y = e^Y e^X$ because constants commute as well. 
 		
 		On the other hand, if we took an exponential of a sum of \emph{two arbitrary vector fields} $X=X^i \partial_i, Y = Y^i \partial_i$ whose components \emph{themselves} were functions of $p \in M$ so the $\partial_i X^j \neq X^j \partial_i$, then we would see something else. Just to second order: 
-		\begin{equation}
-			e^{X^i \partial_i + Y^i \partial_i} = 1 + (X^i + Y^i) \partial_i + \frac{1}{2} (X^i \partial_i + Y^i \partial_i)^2 + \dots
-		\end{equation} 
-		the second order squared term can be expanded, and using the product rule $\partial_i (X^j \partial_j) = (\partial_i X^j) \partial_j + \partial_i \partial_j$
-		\begin{align*}
-			 X^i \partial_i &(X^j \partial_j) + Y^i \partial_i (Y^j \partial_j) + X^i \partial_i (Y^j \partial_j) + Y^i \partial_i (X^j \partial_j) \\
-			 &= \left[ X^i (\partial_i X^j)+ Y^i (\partial_i Y^j) + X^i (\partial_i Y^j) + Y^i (\partial_i X^j) \right] \partial_j \\ 
-			 & ~~~ + (X^i X^j + Y^i Y^j + X^i Y^j + Y^i X^j) \partial_i \partial_j
-		\end{align*}
-		On the other hand $e^{X} e^{Y}$ has just the second term. 
-		\begin{equation*}
-			(X^i X^j + Y^i Y^j + X^i Y^j + Y^i X^j) \partial_i \partial_j
-		\end{equation*}
-		This first term in the second order part of the expansion doesn't give a second order derivative but in fact only a \emph{first order} one.	It's hard to interpret what's happening here but one thing is for certain: for \emph{general vector fields}, we should expect that the exponential of the sum is the product of the exponentials.
 		
+		\begin{align*}
+			e^{X^i \partial_i} e^{Y^i \partial_i} &= (1 + X^i \partial_i + \frac{1}{2} {(X^i \partial_i)^2})(1 + Y^i \partial_i + \frac{1}{2} {Y^i \partial_i^2})\\
+			& = 1 + (X^i + Y^i) \partial_i + \frac{1}{2} (X^i \partial_i)^2 + \frac{1}{2}(Y^i \partial_i)^2 + X^i \partial_i (Y^j \partial_j)
+		\end{align*}
+		on the other hand 
+		\begin{align*}
+			e^{Y^i \partial_i} e^{X^i \partial_i} &= (1 + Y^i \partial_i + \frac{1}{2} {(Y^i \partial_i)^2})(1 + X^i \partial_i + \frac{1}{2} {X^i \partial_i^2})\\
+			& = 1 + (Y^i + X^i) \partial_i + \frac{1}{2} (Y^i \partial_i)^2 + \frac{1}{2}(X^i \partial_i)^2 + Y^i \partial_i (X^j \partial_j)
+		\end{align*}
+		These share all the same terms in common except their last:
+		\begin{equation*}
+			X^i \partial_i (Y^j \partial_j) ~\text{ vs. }~ Y^i \partial_i (X^j \partial_j)
+		\end{equation*}
+		These terms correspond exactly to the products $XY$ and $YX$ of the derivatives. The lowest order difference between $e^X e^Y$ and $e^Y e^X$ lies in the difference $XY - YX$. 
+		
+		The product rule can be applied to expand both, giving
+		\begin{equation*}
+			\Rightarrow (X^i \partial_i Y^j) \partial_j + X^i Y^j \partial_i \partial_j  ~\text{ vs. }~ (Y^i \partial_i X^j) \partial_j + Y^i X^j \partial_i \partial_j
+		\end{equation*}
+		The second terms on both expressions are equal because $\partial_i \partial_j$ is symmetric as a tensor in $T_p M \otimes T_p M$, since partials commute. This means that the lowest order difference between $e^X e^Y$ and $e^Y e^X$ lies just in:
+		\begin{equation}\label{eq:first_commutator}
+			XY - YX = \left[  (X^i \partial_i Y^j) - (Y^i \partial_i X^j) \right] \partial_j 
+		\end{equation}
+		
+		From the fact that the second order terms in the taylor series expansions of these two flows differ, you can see that there is a difference that depends on the \emph{order} that we flow in, just like the example of the sphere illustrated. For general vector fields, we shouldn't expect that the exponential of the sum is the product of the exponentials either. % This difference isn't even second order (something small that can be ignored to first order), the squared terms gave rise to differing coefficients in the \emph{first order derivative} $\partial_j$.
+		This failure to commute further means that general vector fields can't be represented as coordinate fields  $\frac{\partial}{\partial q_i}$ in some coordinate system $q^i$. 
+		
+		Something even more interesting has been revealed: we took two vector fields $X$ and $Y$ on $M$, and were able to get a \emph{third} vector field: $XY-YX$. Indeed, note that Equation~\eqref{eq:first_commutator} is a vector field. It is called the \textbf{commutator}\index{Commutator!Of Vector Fields} vector field of $X$ and $Y$.
+		\begin{defn}[Commutator]
+			The commutator (also called the \textbf{\emph{Lie bracket}}\index{Lie Bracket}) of two vector fields $X$ and $Y$, denoted by $[X,Y]$, is a bilinear anti-symmetric operation defined as
+			\begin{equation}
+				[X,Y] := X Y - Y X 
+			\end{equation}
+		\end{defn}
+		This seems to be telling us to what extent two vector fields are \emph{incompatible}, but how can we see that this more intuitively and geometrically? \\
+		
+		To do this we need to develop two concepts associated with flow: the \textbf{pullback}\index{pullback} and the \textbf{pushforward}\index{Pushforward}. Consider two manifolds, $M$ and $N$ and a smooth map $\varphi: M \rightarrow N$. In general $\varphi$ will not have an inverse.
+		\begin{defn}[Pullback of a Function]
+			If we have a function $f$ defined on $N$, we can \emph{pull it back} to $M$ using $\phi$ by defining the pullback of $f$ as
+			\begin{equation*}
+				\varphi^* f = f \circ \varphi
+			\end{equation*}
+		\end{defn}
+		Because $\varphi$ doesn't have an inverse in general, we can't in general make a construction to do the opposite: taking a function on $M$ to a function on $N$. The pullback illustrates a \textbf{duality} that was first hinted at by vectors and 1-forms. There, the duality was between the first order behavior of curves on the manifold against the first order behavior of functions. Here, $\varphi$ allows us to take \emph{curves} on $M$ forward into curves on $N$ and its pullback allows us to take \emph{functions} on $N$ back to functions on $M$. 
+		
+		A special case of all this is when $U \subseteq M$ and $\varphi: U_\alpha \rightarrow \mathbb R^n$ is a coordinate patch on $M$. Coordinate patches allow us to take functions on $\mathbb R^n$ (in particular the coordinates $x^i$) and associate them to functions on $U$ (in particular coordinates $q^i$) but in general function on $U$ will be pushed forward to functions on the range of $\varphi \in \mathbb R^n$, that don't in general extend to functions on all of $\mathbb R^n$.
+		
+		So we cant push forward functions from $M$ to $N$ in general (although if $\varphi^{-1}$ existed, we could). On the other hand, for a vector field $X$ on $M$ it \emph{is} in general possible to associate a vector field on $N$. The reason is that because vector fields are determined by their actions $Xf = X^i \partial_i f$ on functions, then we can act by $X$ on a function $f \in C^{\infty} (N)$ as follows:
+		\begin{defn}[Pushforward of a Vector Field]
+			For a vector field $X \in TM$ we define its pushforward $\varphi_*(X) \in TN$ by its action on $f \in C^\infty(N)$
+			\begin{equation*}
+				\varphi_*(X)(f) = X (\varphi^*(f))
+			\end{equation*}
+		\end{defn}
+		To understand this better let's do a small example. 
+		
+		\textbf{INSERT PUSHFORWARD EXAMPLE HERE}
+		
+		Being able to push forward vector fields along $\varphi$ will be very useful. Now we will specialize to when $\varphi = \varphi_X(t): M \rightarrow M$ is a flow associated with a vector field $X$.\\
+	
+		
+		% \begin{equation}
+		% 	e^{X^i \partial_i + Y^i \partial_i} = 1 + (X^i + Y^i) \partial_i + \frac{1}{2} (X^i \partial_i + Y^i \partial_i)^2 + \dots
+		% \end{equation}
+		% the second order squared term can be expanded, and using the product rule $\partial_i (X^j \partial_j) = (\partial_i X^j) \partial_j + \partial_i \partial_j$
+		% \begin{align*}
+		% 	 \frac{1}{2} \Big[ X^i \partial_i &(X^j \partial_j) + Y^i \partial_i (Y^j \partial_j) + X^i \partial_i (Y^j \partial_j) + Y^i \partial_i (X^j \partial_j) \Big]
+		% 	  \\
+		% 	 &= \frac{1}{2} \left[ X^i (\partial_i X^j)+ Y^i (\partial_i Y^j) + X^i (\partial_i Y^j) + Y^i (\partial_i X^j) \right] \partial_j \\
+		% 	 & ~~~ + \frac{1}{2} (X^i X^j + Y^i Y^j + X^i Y^j + Y^i X^j) \partial_i \partial_j
+		% \end{align*}
+		
+		
+		% On the other hand $e^{X} e^{Y}$ gives:
+		% \begin{align*}
+		% 	e^{X^i \partial_i} e^{Y^i \partial_i} &= (1 + X^i \partial_i + \frac{1}{2} {(X^i \partial_i)^2})(1 + Y^i \partial_i + \frac{1}{2} {Y^i \partial_i^2})\\
+		% 	& = 1 + (X^i + Y^i) \partial_i + \frac{1}{2} (X^i \partial_i)^2 + \frac{1}{2}(Y^i \partial_i)^2 + X^i \partial_i (Y^j \partial_j)
+		% \end{align*}
+		% This shares the terms $1+(X^i + Y^i) \partial_i$ with the expansion for $e^{X+Y}$, however the last three terms of the above expression expand to:
+		% \begin{align*}
+		% 	&\frac{1}{2} (X^i (\partial_i X^j) + Y^i (\partial_i Y^j)+ X^i \partial_i Y^j) \partial_j  \\
+		% 	& ~~~+ \frac{1}{2}(X^i X^j + Y^i Y^j + X^i Y^j)\partial_i \partial_j
+		% \end{align*}
+
+
+		
+		
+		 % Another result that follows from the fact that derivatives $\partial_i$ and functions $X^i$ don't commute is that $e^{X} e^{Y}$ is \emph{not} in general equal to $e^{Y} e^{X}$, and neither of these is in general equal to $e^{X + Y}$. This is easy to check. $e^Y e^X$ has second order terms:
+ % 		\begin{align*}
+ % 			&\frac{1}{2} (X^i (\partial_i X^j) + Y^i (\partial_i Y^j)+ Y^i (\partial_i X^j)) \partial_j  \\
+ % 			& ~~~+ \frac{1}{2}(X^i X^j + Y^i Y^j + Y^i X^j)\partial_i \partial_j.
+ % 		\end{align*}
+ % 		This is almost the same as $e^{X} e^{Y}$ except for in the first lines of both, while one has $(X^i \partial_i Y^j) \partial_j$ the other has $(Y^i \partial_i X^j) \partial_j$.
+ %
+ % 		Ignoring higher order derivatives, the difference
+ % 		\begin{equation}
+ % 			e^{X} e^{Y} - e^{Y} e^{X} = (X^i \partial_i Y^j - Y^i \partial_i X^j) \partial_j + \text{higher order $\partial_i$s}
+ % 		\end{equation}
+ % 		This first derivative operator arose exactly from the $XY-YX$ differences in the expansion. Two flows along vector fields in general don't commute because in some sense, the vector fields \emph{themselves} don't commute. \\
+		
+	We know that if we have a function $f$ we can find its change along a vector field $X = X^i \partial_i$ immediately: $Xf$. We'll denote the ``change of an object along $X$" by the symbol $\mathcal L_X$. So the change of $f$ along $X$ is denoted $\mathcal L_X f := Xf$. Using flows, we could write this to get a limit definition of the derivative:
+		\begin{align*}
+			\mathcal L_X f(p) = \lim_{t \rightarrow 0} \frac{f(\varphi_X(p,t)) - f(p)}{t}\\\
+			\Rightarrow \mathcal L_X f = \lim_{t \rightarrow 0} \frac{[\varphi_X(t)]^* f - f}{t}
+		\end{align*}
+		The pullback here means that we are \emph{pulling back} the value of $f$ from a point later along the flow and comparing it to the value of $f$ at the current point.
+		
+		
+		But now, it is natural to go more general and ask \emph{how does a vector field $Y$ change along $X$?}. That is, what is $\mathcal L_X Y$? We expect it to be a vector that point in the direction that $Y$ will change in the next instant if we flow along $X$. 
+		
+		Consider the radial vector field $\partial_r$ and the circulatory field $\partial_\theta$. If we are flowing along $\partial_\theta$, we do \emph{not} see $\partial_r$ change at all! If $\partial_r$ was the only vector field that we cared about, then flowing along $\partial_\theta$ would be like changing \emph{nothing}. How can we make idea this more mathematical? The flow curves associated with $\partial_r$ do not change as we flow along $\partial_\theta$
+		
+		
+		The naive guess of $\mathcal L_X Y = XY$ doesn't produce a vector. It would produce something like 
+		\begin{equation}
+			XY = (X^i \partial_i) (Y^j \partial_j) = X^i (\partial_i Y^j) \partial_j + (X^i Y^j) \partial_i \partial_j
+		\end{equation}
+		which is some strange mix of a vector and a higher derivative. What did we do wrong? When we act on an object by the derivative operator $X$ at a point $p$, it corresponds to a limiting process of changing the coordinates $q^i$ in the direction $X^i dt$ and taking the difference between the value at that new point $p'$ and the old one $p$, then dividing that by $dt$ as $dt$ goes to zero. In terms of flows it compares $[\varphi_X(t)]^* f$, which pulls back the value of $f$ from the point $t$ along the flow of $X$ against the value of $f$ now: 
+		\begin{equation}
+			Xf(p) = \lim_{dt \rightarrow 0} \frac{f(\varphi_X (p,dt)) - f(p)}{dt}
+		\end{equation}
+		For functions, there's no problem in doing this. On the other hand, for a vector field $Y^j$ we would get:
+		\begin{equation}
+			XY(p) = \lim_{h \rightarrow 0} \frac{Y(\varphi_X (p,dt)) - Y(p)}{dt}
+		\end{equation}
+		In the numerator, there is a problem: $Y(\varphi_X (p,dt))$ is an element of the tangent space at $\varphi_X (p,dt)$ while $Y(p)$ is an element of the tangent space at $p$. These are two entirely different vector spaces, so we can't just pretend the vectors are in the same space. We can't \emph{a-priori} compare vectors on different tangent spaces. Intuitively, though, in the real world we locally \emph{do} compare vectors at different places on our manifold $M$. We will see in chapter \ref{ch:GR} how the metric allows us to do this by using a \emph{connection}.  
+		
+		Although we can't compare vectors at different points, we \emph{can} flow the other way by $\varphi_{X}(-t)$ and \emph{push forward} $Y(\varphi_X (p,t))$ along the \emph{backwards} flow to get a vector back at $T_p$:
+\\		\textbf{GRAPHIC HERE}
+		\begin{equation}\label{eq:pushforward_backwards}
+			[\varphi_X(-t)]_* \big(Y(\varphi_X(p, t))\big) \in T_pM
+		\end{equation}
+		and as $t \rightarrow 0$ this is just $Y$, so it is worth looking at
+		\begin{equation*}
+			\lim_{t \rightarrow 0} \frac{[\varphi_X(-t)]_* \big(Y(\varphi_X(p, t))\big)-Y(p)}{t}
+		\end{equation*}
+		This gives us a notion of derivative, which we will call the \textbf{Lie derivative}\index{Lie Derivative}\index{Derivative!Lie} of $Y$ along the flow of $X$. Note that at no point did we ever need to use a metric, or any notion of distance/orthogonality in defining this derivative.
+		 
+		If we wrote \label{eq:pushforward_backwards} in terms of exponentials of the vector fields, then it would be:
+		\begin{equation*}
+			 [\varphi_X(-t)]_* (e^{tX} Y(p))
+		\end{equation*}
+		by the definition of pullback, we must have 
+		\begin{equation*}
+			\Big([\varphi_X(-t)]_* (e^{tX} Y(p)) \Big) (f) = \big(e^{tX} Y(p) \big) (f(\varphi_X(-t))) = e^{tX} Y e^{-tX} f
+		\end{equation*}
+		Note how interesting that this initially complex thing became just a ``conjugation" of $Y$ by $e^{tX}$. The limit definition becomes:
+		\begin{equation}
+			\mathcal L_X Y = \lim_{t \rightarrow 0} 
+			\frac{e^{tX} Y e^{-tX} - Y}{t}
+		\end{equation}
+		But expanding the exponentials to first order in $t$ gives something remarkable:
+		\begin{equation}
+			\mathcal L_X Y = \lim_{t \rightarrow 0} \frac{(1+tX)Y(1-tX) - Y}{t} = XY-YX
+		\end{equation}
+		The Lie derivative along $X$ of $Y$ is the commutator $[X,Y]$. 
+		
+		Intuitively why is it a difference of each vector field acting on the other, in both orders? There were two steps that we took when taking the Lie derivative:
+		\begin{enumerate}
+			\item We moved from $p$ along the flow of $X$, $e^{tX} Y$, getting $Y$ at a neighboring point $p'$.
+			\item We pushed that vector $Y(p')$ \emph{back} along the flow of $X$, by defining it acting on translated functions $[\varphi_X(-t)]_* Y(p') f = Y(p') e^{-tX} f$ flowed back along the field of $X$
+		\end{enumerate}
+		
+		Note the first step resulted in a change in $Y$: the $Y(p')$ at $p'$ is a change from our original $Y(p)$ at $p$ because of how the coordinates $Y^i$ are functions that change in space. We cared about how $Y^i$ changed as we moved along that flow, giving us $XY$, but we didn't care about taking changes in $X$. 
+		
+		In the second step, we now \emph{had} our changed $Y(p')$ at the neighboring point, and we wanted to bring it back, using $X$'s flow, and compare it to our starting $Y(p)$. We did that by defining its action on functions that have been ``flown'' backwards long $X$. These functions distorted by the flow-lines of $X$ so we wanted to see how the flow back along $X$ varied in the $Y$ direction, giving the $-YX$. 
+		
+		\textbf{CAN DO BETTER ON THIS LAST ONE}
+		
+		To end this entire chapter, it is worth looking back at the start of the section, to Euler's identity. Can this all be interpreted within the ideas of flows? 
 		
 		\index{Exponential Map|)}
 		
-		Now from here lets talk about
-		\begin{itemize}
-			\item  Not all fields are just coordinate fields. We don't have this nice property. What's going wrong?? 
-			\item Obtain commutator from taylor expansion
-			\item Explain commutator intuitively (I got a good idea for this)
-			\item This is a derivative of one field along another without moving tangent spaces, so now we have $L_X Y$
-			\item IMPORTANT POINT: NO NEED FOR A METRIC TO DEFINE THIS DERIVATIVE
-		\end{itemize}
-		
+	
 	\section{Exercises}
+
+	\textbf{WILL FORMAT THIS LATER}
+
+Nothing stops us from going from our starting point $p$, moving along $X$ by $dt$ and at least seeing how the flow of $Y$ looks there, namely:
+	\begin{equation}
+		\varphi_{Y} (\varphi_{X}(p, dt), s)
+	\end{equation}
+	As $s$ varies, this defines a curve $\gamma_{Y,p'}$ passing through the point $p'$ associated with $q^i + X^i dt$. Similarly, nothing stops us from then \emph{pulling BACK} $\gamma_{Y,p'}$ along $X^i$ by acting \emph{inversely} by $\varphi_X$ at each point of $\gamma_{Y,p'}$.
+	\begin{equation}
+		\varphi^{-1}_X (\varphi_Y (\varphi_X(p, dt), s), dt)
+		 = \varphi_X (\varphi_Y(\varphi_X(p, dt), s), -dt)
+	\end{equation}
+	\textbf{TOTALLY DRAWING A GRAPHIC HERE}
+	Denote the pulled back curve by $\gamma_{Y,p}'$. Note this at this curve also passes through $p$ at $s=0$. The corresponding tangent vector to $\gamma_Y'$ at $p$ which we can call $Y'(p)$ will approach $Y(p)$ as $dt \rightarrow 0$. We can define this difference:
+	\begin{equation}
+		\mathcal L_X Y = \lim_{dt \rightarrow 0} \frac{Y'(p) - Y(p)}{dt}
+	\end{equation}
+
+	If we write out the flow of $\gamma'(s)$ explicitly through exponential maps and let $t\rightarrow 0$, we can get an easier definition
+	\begin{align*}
+		\varphi_X (\varphi_Y(\varphi_X(p, dt), s), -dt) = e^{-dt X} e^{s T} e^{dt X} \\
+		&= (1 - dt X)(1 + s Y) (1 + dt X) =
+	\end{align*}
+
+
+	But there's also a symmetry to the drawing above. At a specific $dt$, if we start at $p$ and flow along the $Y'$ for that $dt$ by $\varphi_{Y'}(p, t)$ to $p''$, then the curve $\gamma_{X, p''}$, when pulled back along $Y$ becomes \emph{exactly} the flow $\gamma_{X,p}$ of $X$ at $p$.
+	\textbf{REDRAW DIAGRAM}.
+	\begin{equation}
+		\varphi_Y (\varphi_X (\varphi_{Y'} (p, dt), s), -dt) =  \varphi_X(s)
+	\end{equation}
+	Intuitively, it seems that if we flowed for $dt$ along $Y$ instead of $Y'$, then pulling that back would produce a curve who's tangent vector is off, to first order, by $Y-Y' = - \mathcal L_X Y dt$. But flowing along $Y$ and comparing the tangent vector to the pulled back level curve for $X$ is exactly $\mathcal L_Y X$. This gives some intuition for us to expect a striking symmetry:
+	\begin{equation}
+		\mathcal L_X Y = - \mathcal L_Y X
+	\end{equation}
+
 	
 	% We denote the 2-form representing the infinitesimal area formed by one-forms $dx^i$ and $dx^j$ by $dx^i \wedge dx^j$. This is called the wedge product between $dx^i$ and $dx^j$.
 %
