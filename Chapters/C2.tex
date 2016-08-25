@@ -257,7 +257,7 @@
 	
 	Similarly, a \emph{vector field} is also an invariant physical thing! The components $\mathbf F^i$ of the vector field, of course, \emph{will} depend on the coordinate system we use, but the field $\mathbf{F}$ itself will \emph{not}. Just like the wind doesn't change its motion across the earth when we change the coordinate system we use for measuring it, $\mathbf{F} = \mathbf{F}^i \mathbf e_i$ will remain invariant at every point. Only the components $\mathbf{F}^i$ will contra-vary against our co-variant $\mathbf e_i$.
 	
-	Using these ideas from $\mathbb{R}^n$, consider a manifold $M$. A scalar function on $M$ is no difficult thing to define: it associates to each point $p \in M$ a value $f(p)$. Because we can form an atlas of charts $(U_\alpha, \varphi_\alpha)$, we can locally form a function $f \circ \varphi_\alpha^{-1} : \mathbb{R}^n \rightarrow \mathbb R$ on Euclidean $\mathbb{R}^n$. Then we can say $f$ is continuous/differentiable/smooth if every $f \circ \varphi_\alpha^{-1}$ is.
+	Using these ideas from $\mathbb{R}^n$, consider a manifold $M$. A scalar function on $M$ is no difficult thing to define: it associates to each point $p \in M$ a value $f(p)$. Because we can form an atlas of charts $(U_\alpha, \varphi_\alpha)$, we can locally form a function $f \circ \varphi_\alpha^{-1} : \mathbb{R}^n \rightarrow \mathbb R$ on Euclidean $\mathbb{R}^n$. Then we can say $f$ is continuous/differentiable/smooth if every $f \circ \varphi_\alpha^{-1}$ is. In physics, we will frequently be concerned with smooth functions in particular. They are natural objects of study. The set of smooth, infinitely differentiable functions on a manifold $M$ will be denoted by $C^\infty(M)$, while the space of continuous functions will be denoted by $C^0(M)$.
 	
 	The $\varphi_\alpha^{-1}$ allow us to take a tuple of $n$ coordinates $q^1, \dots, q^n$ on $\mathbb{R}^n$ and associate that to a unique point on $M$ that is part of $U$. So we see how a scalar field $f: M \rightarrow R$ can descend to a function on the local coordinates. 
 	
@@ -368,6 +368,9 @@
 	 To differentiate\newline \underline{functions} along &
 	 To be integrated\newline along \underline{curves} \\
 	 \hline
+	 Act on 1-Forms &
+	 Act on Vectors \\
+	 \hline
 	 Contravariant components & Covariant components \\
 	 \hline
 	 Space of dimension $n$ & Space of dimension $n$ \\ [1ex] 
@@ -382,6 +385,41 @@
 	In $3$D vectors would look the same, and forms could be visualized by the local level-planes of the function at $p$.
 	
 	\textbf{Exercise on constructing a dual basis of forms to a vector}
+	
+	If we are given a coordinate system $q^i$ then on a given vector $\mathbf v = v^i \partial_i$ representing a direction, a form $\omega_i dx^i$ representing the first order behavior of a function can \emph{act} on $\mathbf v$ to give the first order change along $\mathbf v$. 
+	
+	\begin{lemma}
+		For a basis $\frac{\partial}{\partial q^i}$ of the tangent space $T_p M$ at a point $p$, the associated first order behavior corresponding to first order change only along one coordinate $dq^i$ forms a basis for the cotangent space \emph{and} we have $\partial_i dq^j = \delta^j_i$
+	\end{lemma}
+	\begin{proof}
+		The fact that $dq^i$ form a basis for the set of differentials of functions at $p$ is clear since every function has the first order approximation $df = \partial_i f dq^i = \omega_i dq^i$, exactly in the span of the $dq^i$. \\
+		For the second part, for a specific coordinate $q^i$, $\partial_i$ corresponds to finding a change along $q^i$, holding all other $q^j$ fixed. If the local behavior of a function was just $dq^j$ for a specific $j$ different from $i$, then since this does not result in a change by varying $i$, we get that $\partial_i dq^j = 0$ if $i\neq j$. On the other hand for $dq^i$, representing the local behavior of a function that goes up by $1$ unit for a unit change in $dq^i$, we'd get $\partial_i$ of such a function is exactly $1$, so we write $\partial_i dq^i = 1$ (no summation) for any specific $i$, so that in general $\partial_i dq^j = \delta_i^j$ exactly.
+	\end{proof}
+	
+	From this, we know how forms act on vectors $\omega(\mathbf v)$:
+	\begin{equation}
+		\omega(\mathbf v) = \omega_i dq^i (v^j \partial_j) = \omega_i v^j ~ dq^i \partial_j = \omega_i v^j \delta^j_i = \omega_i v^i
+	\end{equation}
+	
+	For a real vector space $V$ (in this case our tangent space), linear maps $\alpha: V \rightarrow \mathbb R$ that send vectors in $\mathbf v \in V$ to real numbers $\alpha(\mathbf v)$ are called \textbf{linear functionals}\index{Functional, Linear} on the vector space. Note that a linear combination of two linear functionals $a \alpha + b \beta$ is still a linear functional that acts by $(a \alpha + b \beta)(\mathbf v) = a \alpha(\mathbf v) + b \beta(\mathbf v) \in \mathbb R$. This is exactly what one forms are, they act on vectors and send them to real numbers corresponding to the first order change along $\mathbf v$ of $\omega$. In general, for a vector space $V$, the vector space of linear functionals on $V$ is called the \textbf{dual space}\index{Dual Space}, denoted $V^*$.
+	\begin{defn}
+		For a finite-dimensional vector space $V$, the set of all linear maps $\alpha: V \rightarrow \mathbb R$ forms a vector space $V^*$ called the dual space of $V$. 
+	\end{defn}
+	\textbf{EXERCISE: show $(V^*)^*=V$}
+	
+	In linear algebra, perhaps this idea is \emph{too} simple. If our vector space is represented as column vectors, the linear functionals are the row vectors.
+	
+	\begin{prop}
+		An element in $V^*$ is determined entirely by its action on a basis $\mathbf v_i$ of $V$. In particular this means that $\dim V^* = \dim V$.
+	\end{prop}
+	\begin{proof}
+		Say two functionals $\alpha, \beta$ act exactly the same on the basis $\mathbf v_i$, then by their linearity they will act exactly the same everywhere: 
+		\begin{align*}
+			\alpha(\mathbf v)= \alpha(a^i \mathbf v_i) = a^i \alpha(\mathbf v_i) &= a^i \beta(\mathbf v_i)= \beta(a^i \mathbf v_i) = \beta(\mathbf v)\\
+			\Rightarrow \alpha &= \beta
+		\end{align*}
+		This means a basis for the dual space can be built by the $(\mathbf v^*)^i \in V^*$ defined so that $(\mathbf v^*)^i$ acts as zero on all basis vectors $\mathbf v_j$ except $\mathbf v_i$, on which it's action gives $1$, i.e. $(\mathbf v^*)^i \mathbf v_j = \delta^i_j$. 
+	\end{proof}
 	
 	\index{Vector!As a Derivation|)}
 	\index{Manifold|)}

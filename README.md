@@ -41,11 +41,10 @@ Most of the material is written up. Need to explain differential forms more intu
 	
 
   Alex: 
-    Lie Derivatives, through examples just like the ISSYP lecture
+    Finish some Lie derivative summaries
 
-  Aaron: 
-	Add in pullbacks/pushforwards somewhere here... 
-    Uhh connections? <3 (nope, save for GR)
+  Aaron:  
+    Do we want another section on connections here or in GR? 
 
 
 ### 4) Harmonics: Fourier Analysis
@@ -60,7 +59,7 @@ Most of the material is written up. Need to explain differential forms more intu
 
   Alex: 
 
-    Get to here before may!
+    Get to here before September
 
 ## Part 2: Physics
 

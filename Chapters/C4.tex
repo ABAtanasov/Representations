@@ -1,26 +1,190 @@
 \chapter[Harmonics: Fourier Analysis]{Harmonics:\\ Fourier Analysis}
 
+	This chapter develops the ideas of Fourier analysis, an idea whose reach now extends across mathematics and physics, and moreover has great influence in the engineering disciplines. There is no argument against the fact that it is one of the most powerful tools that mathematics has ever developed, not just for real-world application, and not just for formulating physical theories, but going further and influencing the way mathematics itself is done. 
+	
+	Another mathematical idea that has had similar impact across the scientific fields is linear algebra, the in-depth reach of studying the phenomenon of linearity. Aside from allowing us to go between coordinate representations of physical space and datasets in science (which, as philosophically important as it may be, is not so central in application), linear algebra gives another powerful tool that, as of yet, has not been touched upon: that of the eigenvector. Eigenvectors give us a \emph{natural} way of looking at an object that is represented by a matrix or linear operator, whether that object is the stress tensor of a material (principal axes), a high dimensional dataset (principal-component analysis), or the long-term behavior of a system (eigenvectors for markov chains and stochastic processes). 
+	
+	In this section, we will not just reflect on the uses and power of linear algebra and Fourier analysis in engineering, physics, and mathematics, but we will go further and show that they are one and the same: Fourier analysis, viewed through the right lense, is plain linear algebra. This will set a solid stage for which the next chapter will give us the real spectacle: generalizing the ideas of Fourier analysis and linear algebra to get something much more unified and powerful, which it can be said constitutes the backbone of modern mathematics: Representation Theory. 
+
+\section{Towards the Spectral Theorem} % (fold)
+\label{sec:towards_the_spectral_theorem}
+
+\index{Eigenvalue|(}
+
+Going back to elementary linear algebra, when we studied a linear transformation $T: V \rightarrow V$ on a real vector space $V$ of dimension $n$. $T$ takes a vector $\mathbf v_i$ and maps it to another vector $T\mathbf v_i \in V$. If we pick a specific basis $B \{ \mathbf e_i \}$ for our space, then $T$ can be represented by a \textbf{matrix}\index{Matrix}, $A^i_j$ whose $ij$th entries in the basis $B$ can be explicitly found: 
+	\begin{equation}
+		A^i_j = \begin{pmatrix}
+			& & \\
+			T(\mathbf e_1) & \dots & T(\mathbf e_n)\\
+			& &
+		\end{pmatrix}_B
+		=\begin{pmatrix}
+			T(\mathbf e_1)^1 & \dots & T(\mathbf e_n)^1 \\
+			\vdots & \dots & \vdots\\
+			T(\mathbf e_1)^n & \dots & T(\mathbf e_n)^n
+		\end{pmatrix}_B
+	\end{equation}
+	Note this same transformation can be viewed through many different perspectives (i.e. bases), producing different matrix representations depending on the basis. Therefore we should realize, just like tuples of numbers only represented physical vectors once a coordinate system was chosen, the same is true for how matrices only \emph{represent} the linear operators we care about. In particular, since we can write matrix multiplication in a basis as
+	\begin{equation}
+		(Tv)^i = A^i_j v^j
+	\end{equation}
+	Now if we change basis from $B$ to $B'$ and we have a matrix $Q_i^j$ that takes the components $v^i$ of a vector in the $B$ basis and gives us the $B'$ basis $(v')^i = Q_i^j v^j$ then we can transform $A^i_j$ according to:
+	\begin{equation}
+		(A^i_j)_{B'} = Q^i_k (A^k_l)_B (Q^{-1})^l_j 
+	\end{equation}
+	Accordingly, $A_{B'} = Q A_B Q^{-1}$. This should make perfect sense: if we're given a vector's components ${v'}^i$ in the $B'$ basis, first we act by $Q^{-1}$ to get back into the $B$ basis, then we act by $A$, since we know how $T$ acts in this basis, and then we map that vector back into the $B'$ basis with $Q$.
+	
+	One operator can be represented by many different matrices. Here, we will attempt to \emph{classify} all the possible linear operators on a space. This would be a great thing, since linear operators can be so diverse, ranging from stretching to shearing to rotating the space, and much more. 
+	
+	We start with the \textbf{trivial} linear operator, $0$. Nothing can be more basic than the action of this. The simplest linear transformation that isn't just $0$ is multiplication by a scalar, $\lambda$. This is basic multiplication, and as a matrix is represented just as
+	\begin{equation*}
+		\lambda = \lambda I=
+		\begin{pmatrix}
+			\lambda & 0 & \dots & 0 \\
+			0 & \lambda & \dots & 0 \\
+			\vdots & \vdots & \ddots & \vdots \\
+			0 & 0 & \dots & \lambda
+		\end{pmatrix}  = \lambda \delta^i_j
+	\end{equation*}
+	Note that if we change basis, the matrix representation for scalar multiplication \emph{doesn't} change: regardless of how you look at it, multiplication by $\lambda$ is multiplication by $\lambda$. The set of linear operators that are just simple scalar multiplication form a subspace of all linear operators, and are called \textbf{simple}\index{Simple!Linear Operator}. Simple linear operators are literally just numbers, acting on the space by scaling everything the same way. Note the trivial $0$ operator is an example of a simple operator.
+	
+	Of course, the set of linear operators that are simple is a very small subset of the set of all linear operators. A linear operator on $V$ does not in general act simply on $V$, but the next best thing we could hope for is that $T$ becomes simple when its action is restricted to a \emph{subspace} of $V$. 
+	
+	
+% , one of the things we were most interested in was its \textbf{kernel}\index{Kernel} $\ker T$, sometimes called its \textbf{null space}\index{Null Space|see {Kernel}}.
+% \begin{defn}[Review of Kernel]
+% 	The kernel $\ker T$ of a linear transformation is the set of vectors $\mathbf v \in V$ such that $T \mathbf v = 0$.
+% \end{defn}
+% 	This forms a vector space: if $\mathbf v, \mathbf w \in \ker T$ then $T(a \mathbf v + b \mathbf w) = a T(\mathbf v) + b T(\mathbf w) = 0$. The kernel is important as it tells us ``along which directions in $V$ does $T$ lose information?''. Using other language, however, we could reformulate this as asking ``along which directions in $V$ does $T$ act exactly like $0$?''.
+%
+% 	This is the central point: for vectors in the kernel $\ker T$, acting by $T$ is \emph{exactly} like just multiplying by the number $0$. There is no difference between a linear transformation and the \emph{scalar} $0$. Of course, scalars themselves are linear transformations, but they are definitely the easiest ones to deal with.
+	
+	% Motivated by this, there is another more general question we can ask: ``along which directions in $V$ does $T$ act exactly like $\lambda$?'', for any number $\lambda$.
+	
+	What would this mean, mathematically? We want to find vectors $\mathbf v$ so that
+	\begin{equation}\label{eq:eigen_1}
+		T \mathbf v = \lambda \mathbf v
+	\end{equation}
+	Note that such a set of $\mathbf v$ is \emph{also} a vector space.
+	\begin{prop}
+	The set of vectors where $T \mathbf v = \lambda \mathbf v$, for some specific $\lambda$, is a vector space, denoted $V_\lambda$. 
+	\end{prop}
+	\begin{proof}
+		If $\mathbf v, \mathbf w$ have
+		\begin{equation*}
+			T \mathbf v = \lambda \mathbf v, T \mathbf w = \lambda \mathbf w
+		\end{equation*}
+		then
+		\begin{equation*}
+			T(a \mathbf v + b \mathbf w) = a T(\mathbf v) + b T(\mathbf w) = a \lambda \mathbf v + b \lambda \mathbf w = \lambda(a \mathbf v + b \mathbf w)
+		\end{equation*}
+	\end{proof}
+	We then have that $V_\lambda$ is exactly the subspace where $T$ acts simply as $\lambda$.
+	When $\lambda = 0$ this is exactly what we referred to as $\ker T$. How can we find this subspace? The trick all lies in noting that the number $\lambda$ is \emph{itself} just a linear transformation. Then finding when Equation~\eqref{eq:eigen_1} is satisfied is the same as finding when:
+	\begin{equation}
+		(T - \lambda) \mathbf v = 0
+	\end{equation}
+	So this is no different from calculating a kernel of the shifted operator $T - \lambda$. If we know how to find the kernel, the subspace where $T = 0$, we also know how to find the subspace where $T = \lambda$ by finding the kernel where $T - \lambda = 0$. It's a really simple idea.
+	
+	But it's worth asking the question ``does $T-\lambda$ even \emph{have} a nontrivial kernel?". That is, for which $\lambda$ is $V_\lambda$ nontrivial? We know a quick way to answer this question. $T - \lambda$ will have a nontrivial kernel exactly when:
+	\begin{equation}
+		\det ( T - \lambda ) = 0
+	\end{equation}
+	In a specific basis, $T$ can be represented by a matrix $T_{ij}$ and $\lambda$ as a operator is always the matrix $\lambda I = \lambda \delta_{ij}$ so that we can directly compute this in a basis by computing the matrix determinant $\det(T_{ij} - \lambda \delta_{ij})$. It is not hard to see that this is a polynomial 
+	\begin{equation}
+		\begin{pmatrix}
+			T_{1}^1 - \lambda & \dots & T_{1}^n\\
+			\vdots &	   & \vdots\\
+			T_{1}^n & \dots & T_{n}^n - \lambda 
+		\end{pmatrix}
+	\end{equation}
+	
+	 It's not difficult to see that the resulting determinant becomes a \emph{polynomial of degree $n$} in $\lambda$. It is called the \textbf{characteristic polynomial}\index{characteristic polynomial} $p_T(\lambda)$ of the transformation $T$.
+	 
+	 The determinant of a transformation is itself independent of the coordinate system we use, so the characteristic polynomial is an invariant, not dependent on the basis that gives us our $T_{ij}$. The roots of this polynomial are special numbers, characteristic of the transformation. These ``characteristic values'' or, from German, \textbf{eigenvalues}, of $T$ are thus also invariants independent of coordinate system. They are exactly the values for which $V_\lambda$ is nontrivial, so that $T$ acts simply as one of these $\lambda_i$ on each $V_{\lambda_i}$. 
+	 
+	 But over the reals, there are transformations that don't even have eigenvalues:
+	 \begin{example}
+	 	The transformation representing counterclockwise rotation of the basis, which can be represented by the real matrix $\begin{pmatrix}
+	 		0 & -1 \\ 1 & 0
+	 	\end{pmatrix}$
+		has no real eigenvalues.
+	 \end{example}
+	 We see this immediately since its characteristic polynomial is $\lambda^2 + 1$ which has no real roots. It does, however, have complex roots $\lambda = \pm i$ and we shouldn't ignore this fact. If we want to find a vector subspace on which this transformation acts simply as $\pm i$, we need to \emph{extend} the number system that we are working over, from the reals to the complex numbers. In fact, working over the complex numbers is completely \emph{ideal} if we want $p_T(\lambda)$ to have roots, giving us eigenvalues. The reason is because of this foundational theorem:
+	 
+	 \begin{theorem}[Fundamental Theorem of Algebra]
+	 	Every non-constant polynomial with coefficients in $\mathbb{C}$ has a root in $\mathbb C$.
+	 \end{theorem}
+	 \begin{proof}
+	 	The easiest way to do this is by use of complex analysis. Any introductory text in complex analysis will give the tools necessary to form this proof. If the reader is familiar with Cauchy's integral formula (\textbf{which can be derived in one of the exercises in the preceding chapter}), then he can understand the following:\\
+		
+		\begin{small}
+		
+		For a polynomial $p$ of a complex variable $z$, assume $p(z)$ did not have a root in $\mathbb{C}$. Then $f(z):= 1/p(z)$ is bounded on $\mathbb{C}$ so that $|f(z)|\leq B$, and is also holomorphic in fact entire on the complex plane. This means it admits a Taylor series about $z=0$
+		\begin{equation}
+			f(z) = \sum_{k=0}^\infty a_k z^k
+		\end{equation}
+		with $a_k$ obtained from the Cauchy integral formula by:
+		\begin{equation}
+			a_k = \frac{f^{(k)}(0)}{k!} = \frac{1}{2\pi i} \oint_{\partial D_R(0)} \frac{f(\zeta)}{\zeta^{k+1}} d\zeta
+		\end{equation}
+		We are integrating over the boundary of the disk of radius $R$ enclosing zero. Since this can be any disk, we let $R$ becomes large so that $|\zeta| = |R e^{i\theta}| = |R|$ also becomes large, and so 
+		\begin{align*}
+			|a_k| &= \frac{1}{2\pi} \left|\oint_{\partial D_R (0)} \frac{f(\zeta)}{\zeta^{k+1}} d\zeta \right| \\
+			&\leq \frac{1}{2\pi} \oint_{D_R(0)} \frac{|f(\zeta)|}{R^{k+1}} |d\zeta|\\
+			&\leq \frac{1}{2\pi} (2 \pi R) \max_{\partial D_R (0)} \frac{f}{R^{k+1}}\\
+			&\leq \frac{B}{R^k}
+		\end{align*}
+		since $R$ can be anything, we let it go to infinity and obtain $|a_k| \leq 0$ for all $k \geq 1$. This gives us that $f(z)$ is constant, and also a powerful theorem in general:
+		\begin{theorem}[Liouville]
+			Any bounded entire function on $\mathbb C$ is constant.
+		\end{theorem}
+		In particular $1/p(z)$ is a constant, so $p(z)$ must be a constant as well. If a polynomial does not have roots in $\mathbb{C}$, it must be a constant function.
+		\end{small}
+	 \end{proof}
+	 
+	 Since every polynomial $p$ has a root $r$, we can write it as $p(z) = (z-r_1) p'(z)$, with $p'$ a polynomial of degree $n-1$.
+	 Applying the fundamental theorem to $p'$, now, and continuing inductively immediately shows that.
+	 \begin{cor}\label{cor:FTA2}
+	 	Every non-constant polynomial with coefficients in $\mathbb{C}$ has exactly $n$ roots, counted with multiplicity, in $\mathbb C$. 
+	 \end{cor}
+	 That means that a polynomial over $\mathbb C$, $p(x) = \sum_{i = 0}^n a_i x^i$ splits entirely into a product of linear factors $c (x-r_1) \dots (x-r_n)$ over $\mathbb C$. In particular, this means that our characteristic polynomial will have $n$ roots, counted with multiplicity. Although the complex numbers are less intuitive to be introduced to than the real numbers were, they have actually made things \emph{easier} and much more interesting. So instead of disregarding these numbers because we think they are are unphysical, let us accept them, and later try to physically interpret what they mean!
+	 
+	 
+	The key word of Corollary \ref{cor:FTA2} is ``with multiplicity''. Our polynomial will always have exactly $n$ roots, but they need not all be distinct. Let's say that $k$ of them are distinct $\lambda_1 \dots \lambda_k$, each with multiplicity $m_i$ (so $\sum_{i=1}^k m_i = n$). We can write the polynomial as
+	\begin{equation}
+		p_A(t)  = (-1)^n \prod_{i=1}^k (t - \lambda_i)^{m_i}
+	\end{equation}
+	
+	First let's assume no root is repeated for this polynomial. Then we have $\lambda_1 \dots \lambda_n$ distinct. Each $\lambda_i$ gives rise to a corresponding eigenvector $\mathbf v_i$.
+	There is another word you may have heard in place of semisimple, which means the same thing: \textbf{diagonalizable}\index{Diagonalizable}. 
+
+
+\index{Eigenvalue|)}
+
+% section towards_the_spectral_theorem (end)
+
 \section{Functions form a Vector Space} % (fold)
 \label{sec:functions_form_a_vector_space}
 
 % section functions_form_a_vector_space (end)
 
-\section{Trigonometric Series} % (fold)
-\label{sec:trigonometric_series}
+\section{Operators give a Natural Basis for the Space} % (fold)
+\label{sec:operators_give_a_natural_basis_for_the_space}
 
-% section trigonometric_series (end)
+% section operators_give_a_natural_basis_for_the_space (end)
 
 \section{The Fourier Transform is a Change of Basis} % (fold)
 \label{sec:the_fourier_transform_is_a_change_of_basis}
 
 % section the_fourier_transform_is_a_change_of_basis (end)
 
+\section{Multiplication of Functions} % (fold)
+\label{sec:multiplication_of_functions}
+
+% section multiplication_of_functions (end)
+
 \section{Waves and Heat} % (fold)
 \label{sec:waves_and_heat}
 
 % section waves_and_heat (end)
-
-\section{Moving Further: To Abelian Groups} % (fold)
-\label{sec:moving_further_to_abelian_groups}
-
-% section moving_further_to_abelian_groups (end)

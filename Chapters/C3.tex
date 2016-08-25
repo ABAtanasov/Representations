@@ -618,9 +618,9 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	\begin{equation}
 		ds^2 = g_{ij} {(dq^1)}^i {(dq^2)}^j 
 	\end{equation}
-	will be called the \textbf{metric} on our tangent space. 
+	will be called the \textbf{metric} on our tangent space. A metric turns the tangent space into an \textbf{inner product space}\index{Inner Product Space}
 	
-	At a very far glance, you might ask if this thing is some sort of 2-form, but it certainly is not. There are no wedges between the differentials, and in fact since the dot product (which is the inner product in orthonormal basis) is symmetric, $\mathbf u \cdot \mathbf v = \mathbf v \cdot \mathbf u$, this holds true in general, so in fact $g_{ij} = g_{ji}$ is symmetric as a matrix. This is a different type of product of 1-forms, that will be discussed in the next section. For now, it is the tool by which we can associate a length with a coordinate change $dq^i$, and how we can take scalar products of two vectors together. 
+	At a very far glance, you might ask if this thing is some sort of 2-form, but it is not an anti-symmetric two-form associated with integrating over areas. There are no wedges between the differentials, and in fact since the dot product (which is the inner product in orthonormal basis) is symmetric, $\mathbf u \cdot \mathbf v = \mathbf v \cdot \mathbf u$, this holds true here, so in fact $g_{ij} = g_{ji}$ is symmetric as a matrix. This is a different type of product of 1-forms, that will be discussed in the next section. For now, it is the tool by which we can associate a length with a coordinate change $dq^i$, and how we can take scalar products of two vectors together. 
 	
 	To avoid abstraction without geometric concreteness, let's do a simple but nontrivial example. In cartesian coordinates on Euclidean space, $g_{ij} = \delta_{ij}$, but in polar coordinates, we now have $\partial_r, \partial_\theta$. At each point, these vectors are orthogonal, and $\partial_r$ corresponds to a unit increase in $r$, meaning that it has magnitude $1$. On the other hand, $\partial_\theta$ corresponds to a unit increase in theta. Increasing $\theta$ by $d\theta$ on a circle of radius $r$ gives an infinitesimal length of $r d\theta$. The total line element then is
 	\begin{equation}
@@ -761,7 +761,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	
 	\index{Metric Tensor|)}\index{Tensor!Metric|)}\index{Manifold!Metric|)}
 
-	\section[Multilinear Algebra: $\oplus, \otimes$ and Tensors]{Multilinear Algebra: $\oplus, \otimes$ and\\ Tensors}
+	\section[Multilinear Algebra: Views]{Multilinear Algebra: $\oplus, \otimes$ and\\ Tensors}
 	
 	\index{Tensor|(}
 	
@@ -1348,7 +1348,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		\end{defn}
 		This seems to be telling us to what extent two vector fields are \emph{incompatible}, but how can we see that this more intuitively and geometrically? \\
 		
-		To do this we need to develop two concepts associated with flow: the \textbf{pullback}\index{pullback} and the \textbf{pushforward}\index{Pushforward}. Consider two manifolds, $M$ and $N$ and a smooth map $\varphi: M \rightarrow N$. In general $\varphi$ will not have an inverse.
+		To do this we need to develop two concepts associated with flow: the \textbf{pullback}\index{Pullback|(} and the \textbf{pushforward}\index{Pushforward|(}. Consider two manifolds, $M$ and $N$ and a smooth map $\varphi: M \rightarrow N$. In general $\varphi$ will not have an inverse.
 		\begin{defn}[Pullback of a Function]
 			If we have a function $f$ defined on $N$, we can \emph{pull it back} to $M$ using $\phi$ by defining the pullback of $f$ as
 			\begin{equation*}
@@ -1361,17 +1361,33 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		
 		So we cant push forward functions from $M$ to $N$ in general (although if $\varphi^{-1}$ existed, we could). On the other hand, for a vector field $X$ on $M$ it \emph{is} in general possible to associate a vector field on $N$. The reason is that because vector fields are determined by their actions $Xf = X^i \partial_i f$ on functions, then we can act by $X$ on a function $f \in C^{\infty} (N)$ as follows:
 		\begin{defn}[Pushforward of a Vector Field]
-			For a vector field $X \in TM$ we define its pushforward $\varphi_*(X) \in TN$ by its action on $f \in C^\infty(N)$
+			For a vector field $X \in \text{Vec}(M)$ we define its pushforward, denoted by $\varphi_*(X) \in TN$ or $d\varphi X$ by its action on $f \in C^\infty(N)$
 			\begin{equation*}
 				\varphi_*(X)(f) = X (\varphi^*(f))
 			\end{equation*}
+			Or in general $\varphi_* X= X \varphi^*$
 		\end{defn}
-		To understand this better let's do a small example. 
+		To understand this better let's do a small general example.
+		Say we have a manifold $M$ a map $\varphi$ into $N$. If we have coordinates $q^i$ on $M$ and $q'^i$ on $N$, then $\varphi$ maps a point $p \in M$ specified by $q^i$ to a $p'\in N$ specified by $q'^i = \varphi^i (p) = \varphi^i(q_1 \dots q_n)$
+		 If we have a field written in local coordinates on $M$ as $X=X^i \frac{\partial}{\partial q^i}$, how do we push this forward? For a function $f$ on $N$, we get
+		\begin{align*}
+			\varphi_* \Big(X^i \frac{\partial}{\partial q^i}\Big)(f) &= X^i \frac{\partial}{\partial q^i} [f\circ \varphi] &\\
+			&= X^i \frac{\partial \varphi^j}{\partial q^i} \frac{\partial f}{\partial q'^j} & \text{(Chain Rule)}\\
+			&= \Big(X^i \frac{\partial q'^j}{\partial q^i} \frac{\partial}{\partial q'^j}\Big)(f)
+		\end{align*}
+		So we get our coordinate expression of the pushforward in terms of $\partial/\partial q'^i$. The Jacobian $\partial q'^i/\partial q^j$ is a pushforward if we view a coordinate change $\varphi:M \rightarrow M$ as an active transformation on the  manifold itself. 
+			
+		Being able to push forward vector fields along $\varphi$ will be very useful. Now we will specialize to when $\varphi = \varphi_X(t): M \rightarrow M$ is a flow associated with a vector field $X$. Sowing together the language of pushforwards and pullbacks with the language of flows gives:
+		\begin{obs}
+			A flow along a field $X$ gives rise to a family of invertible maps, one for each $\varphi_X(t): M \rightarrow M$ over $t \in \mathbb R$. At a point $p$ we can pull back $f(\varphi_X(t)(p))$ and push forward another field $Y(p)$ to act at $Y(\varphi_X(t)(p))$ by
+			\begin{align}
+				[\varphi_X (t)]^* (f) &= e^{t X} f  \\
+				[\varphi_X (t)]_* (Y) &= Y [\varphi_X (t)]^*  = Y e^{tX}
+			\end{align}
+		\end{obs}
+		The pullback of a function along a flow is obvious. It answers ``what is the value $f$ takes on later along the flow?''. The pushforward of a field $Y$ along $X$'s flow is more interesting. The pushed forward $Y$ in the new tangent space $T_{p'} M$ will act on functions $f$ at $p'$ just like $Y$ would act on them if you were to pull them back to $p$. Now with a good language of flows, we can try to generalize the notion of a derivative along a field by taking a limit of pushforwards/pullbacks. \\
 		
-		\textbf{INSERT PUSHFORWARD EXAMPLE HERE}
 		
-		Being able to push forward vector fields along $\varphi$ will be very useful. Now we will specialize to when $\varphi = \varphi_X(t): M \rightarrow M$ is a flow associated with a vector field $X$.\\
-	
 		
 		% \begin{equation}
 		% 	e^{X^i \partial_i + Y^i \partial_i} = 1 + (X^i + Y^i) \partial_i + \frac{1}{2} (X^i \partial_i + Y^i \partial_i)^2 + \dots
@@ -1484,7 +1500,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		To end this entire chapter, it is worth looking back at the start of the section, to Euler's identity. Can this all be interpreted within the ideas of flows? 
 		
 		\index{Exponential Map|)}
-		
+		\index{Pullback|)}\index{Pushforward|)}
 	
 	\section{Exercises}
 
@@ -1504,13 +1520,6 @@ Nothing stops us from going from our starting point $p$, moving along $X$ by $dt
 	\begin{equation}
 		\mathcal L_X Y = \lim_{dt \rightarrow 0} \frac{Y'(p) - Y(p)}{dt}
 	\end{equation}
-
-	If we write out the flow of $\gamma'(s)$ explicitly through exponential maps and let $t\rightarrow 0$, we can get an easier definition
-	\begin{align*}
-		\varphi_X (\varphi_Y(\varphi_X(p, dt), s), -dt) = e^{-dt X} e^{s T} e^{dt X} \\
-		&= (1 - dt X)(1 + s Y) (1 + dt X) =
-	\end{align*}
-
 
 	But there's also a symmetry to the drawing above. At a specific $dt$, if we start at $p$ and flow along the $Y'$ for that $dt$ by $\varphi_{Y'}(p, t)$ to $p''$, then the curve $\gamma_{X, p''}$, when pulled back along $Y$ becomes \emph{exactly} the flow $\gamma_{X,p}$ of $X$ at $p$.
 	\textbf{REDRAW DIAGRAM}.
