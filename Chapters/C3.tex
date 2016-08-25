@@ -1497,7 +1497,34 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		
 		\textbf{CAN DO BETTER ON THIS LAST ONE}
 		
+		Another identity that can be derived from the notion of this Lie derivative is that since $e^{X} e^{Y} - e^{Y} e^{X} = [X,Y]$ to first order, the \emph{infinitesimal} flow along $Y$ followed by the flow along $X$ of a vector $Z$ minus the infinitesimal flow along $X$ followed by the flow along $Y$ of that same vector should equal the flow along $[X,Y]$ of that vector. In terms of commutators:
+		
+		\begin{align}
+			\mathcal L_X (\mathcal L_Y Z) - \mathcal L_Y (\mathcal L_X Z) &= \mathcal L_{[X,Y]} Z 
+			\\ \Rightarrow [X,[Y,Z]] - [Y,[X,Z]] &= [[X,Y],Z]
+		\end{align}
+		This is called the \textbf{Jacobi identity}\index{Jacobi Identity}. It can easily be rewritten, using the anti-symmetry of $[-,-]$ in the elegant form:
+		\begin{equation*}
+			[X, [Y,Z]] + [Y, [X,Z]] + [Z, [X,Y]] = 0.
+		\end{equation*}
+		
+		The fact that $X$ and $Y$ can be joined together through a bilinear operation to produce another vector means that the space of vector field on a manifold $\text{Vect}(M)$ is endowed with a structure that is bilinear and antisymmetric. This Lie bracket turns the vector space of vector fields on $M$ into a \textbf{Lie Algebra}\index{Lie Algebra}.
+		\begin{defn}[Lie Algebra]
+			A Lie Algebra is a vector space $V$ together with a bilinear operation called the \textbf{commutator}\index{Commutator!Of a Lie Algebra} of the Lie algebra
+			\begin{equation*}
+				[-,-]: V \times V \rightarrow V
+			\end{equation*}
+			That satisfies $[X, X] = 0$ for all $X \in V$ (so is anti-symmetric), as well as the Jacobi identity. 
+		\end{defn} 
+		The Jacobi identity needs to be added for the definition of a Lie algebra because it gives all the information the failure of the commutator to have associativity $[X,[Y,Z]] \neq [[X,Y],Z]$, and Jacobi's identity shows that the difference between these two can be expressed as another commutator ($[Y,[X,Z]]$).
+		
+		Lie algebras are of central importance to studying manifolds and their geometry as it relates to symmetry, and we will return to them in later chapters. \\
+		
 		To end this entire chapter, it is worth looking back at the start of the section, to Euler's identity. Can this all be interpreted within the ideas of flows? 
+		
+		
+		\textbf{IDK CAN WE?? DO IT AARON}
+		
 		
 		\index{Exponential Map|)}
 		\index{Pullback|)}\index{Pushforward|)}
