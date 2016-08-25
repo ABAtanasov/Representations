@@ -6,12 +6,14 @@
 	
 	In this section, we will not just reflect on the uses and power of linear algebra and Fourier analysis in engineering, physics, and mathematics, but we will go further and show that they are one and the same: Fourier analysis, viewed through the right lense, is plain linear algebra. This will set a solid stage for which the next chapter will give us the real spectacle: generalizing the ideas of Fourier analysis and linear algebra to get something much more unified and powerful, which it can be said constitutes the backbone of modern mathematics: Representation Theory. 
 
+
 \section{Towards the Spectral Theorem} % (fold)
 \label{sec:towards_the_spectral_theorem}
 
 \index{Eigenvalue|(}
 
-Going back to elementary linear algebra, when we studied a linear transformation $T: V \rightarrow V$ on a real vector space $V$ of dimension $n$. $T$ takes a vector $\mathbf v_i$ and maps it to another vector $T\mathbf v_i \in V$. If we pick a specific basis $B \{ \mathbf e_i \}$ for our space, then $T$ can be represented by a \textbf{matrix}\index{Matrix}, $A^i_j$ whose $ij$th entries in the basis $B$ can be explicitly found: 
+
+When we studied a linear transformation $T: V \rightarrow V$ on a real vector space $V$ of dimension $n$. $T$ takes a vector $\mathbf v_i$ and maps it to another vector $T\mathbf v_i \in V$. If we pick a specific basis $B \{ \mathbf e_i \}$ for our space, then $T$ can be represented by a \textbf{matrix}\index{Matrix}, $A^i_j$ whose $ij$th entries in the basis $B$ can be explicitly found: 
 	\begin{equation}
 		A^i_j = \begin{pmatrix}
 			& & \\
@@ -99,7 +101,7 @@ Going back to elementary linear algebra, when we studied a linear transformation
 		\end{pmatrix}
 	\end{equation}
 	
-	 It's not difficult to see that the resulting determinant becomes a \emph{polynomial of degree $n$} in $\lambda$. It is called the \textbf{characteristic polynomial}\index{characteristic polynomial} $p_T(\lambda)$ of the transformation $T$.
+	 It's not difficult to see that the resulting determinant becomes a \emph{polynomial of degree $n$} in $\lambda$. It is called the \textbf{characteristic polynomial}\index{Characteristic Polynomial} $p_T(\lambda)$ of the transformation $T$.
 	 
 	 The determinant of a transformation is itself independent of the coordinate system we use, so the characteristic polynomial is an invariant, not dependent on the basis that gives us our $T_{ij}$. The roots of this polynomial are special numbers, characteristic of the transformation. These ``characteristic values'' or, from German, \textbf{eigenvalues}, of $T$ are thus also invariants independent of coordinate system. They are exactly the values for which $V_\lambda$ is nontrivial, so that $T$ acts simply as one of these $\lambda_i$ on each $V_{\lambda_i}$. 
 	 
@@ -115,8 +117,8 @@ Going back to elementary linear algebra, when we studied a linear transformation
 	 \begin{theorem}[Fundamental Theorem of Algebra]
 	 	Every non-constant polynomial with coefficients in $\mathbb{C}$ has a root in $\mathbb C$.
 	 \end{theorem}
-	 \begin{proof}
-	 	The easiest way to do this is by use of complex analysis. Any introductory text in complex analysis will give the tools necessary to form this proof. If the reader is familiar with Cauchy's integral formula (\textbf{which can be derived in one of the exercises in the preceding chapter}), then he can understand the following:\\
+	 \begin{proof}[Proof. (Optional, for those familia with complex analysis)]
+	 The easiest way to do this is by use of complex analysis. Any introductory text in complex analysis will give the tools necessary to form this proof. If the reader is familiar with Cauchy's integral formula (\textbf{which can be derived in one of the exercises in the preceding chapter}), then he can understand the following:\\
 		
 		\begin{small}
 		
@@ -157,8 +159,80 @@ Going back to elementary linear algebra, when we studied a linear transformation
 	\end{equation}
 	
 	First let's assume no root is repeated for this polynomial. Then we have $\lambda_1 \dots \lambda_n$ distinct. Each $\lambda_i$ gives rise to a corresponding eigenvector $\mathbf v_i$.
-	There is another word you may have heard in place of semisimple, which means the same thing: \textbf{diagonalizable}\index{Diagonalizable}. 
+	\begin{lemma}\label{lemma:distinct_eigenval_spaces_indep}
+		Eigenvectors corresponding to distinct eigenvalues are linearly independent. 
+	\end{lemma}
+	\begin{proof}
+		Let $\mathbf v_1$ correspond to $\lambda_1$, $\mathbf v_2$ to $\lambda_2$. If they are linearly dependent then
+		\begin{equation}
+			\exists a,b \ne 0 ~ \mathrm{s.t.} ~ a \mathbf v_1 + b \mathbf v_2 = 0
+		\end{equation}
+		But then
+		\begin{equation}
+			T(0) = T(a \mathbf v_1 + b \mathbf v_2) = a \lambda_1 \mathbf v_1 + b \mathbf v_2 = 0
+		\end{equation}
+		Subtracting from this $\lambda_1$ times the above equation, we get that $b (\lambda_2 - \lambda_1) \mathbf v_2 = 0$, and since $b \ne 0, \mathbf v_1 \ne 0$, we get $\lambda_1 = \lambda_2$.
+	\end{proof}
+	So when all the $\lambda_i$ are distinct, this gives rise to $n$ pairwise linearly independent eigenvectors $\mathbf v_i$ of eigenvalue $\lambda_i$. But this forms a \emph{basis} for our vector space! In this basis, we get that 
+	\begin{equation}\label{eq:distinct_root_semisimple}
+		A = \begin{pmatrix}
+			\lambda_1 & 0 & \dots & 0\\
+			0 & \lambda_2 &\dots & 0\\
+			\vdots & \vdots & \ddots & \vdots\\
+			0 & 0 & \dots & \lambda_n
+		\end{pmatrix}
+	\end{equation}
+	This means on \emph{each} 1-dimensional subspace $V_{\lambda_i} = \text{span}\{\mathbf v_i\}$, $T$ acts simply, and the entire space $V$ can be written as a \emph{direct sum} (c.f. Section~\ref{sec:views}) of the $V_{\lambda_i}$
+	\begin{equation}
+		V = \bigoplus_{i=1}^n V_{\lambda_i}
+	\end{equation}
+	When the space $V$ can be decomposed as a direct sum of subspaces $V_i$ on which the operator $T$ acts simply, $T$ is called \textbf{semisimple}. There is another word you may have heard in place of semisimple in the past, which means the same thing: \textbf{diagonalizable}\index{Diagonalizable}. 
+	\begin{defn}[Semisimplicity]
+		A linear operator $T \in \mathrm{End}(V)$ is called \emph{semisimple} or \emph{diagonalizable} if there exists a decomposition 
+		\begin{equation}
+			V = \bigoplus_i V_i
+		\end{equation}
+		such that $T$ acts simply, as $\lambda_i$ on each $V_i$. We write that the operator $T$ itself can be written as a direct sum of the simple linear operators:
+		\begin{equation}
+			T = \bigoplus_i T_i
+		\end{equation}
+		Where $T_i$ is the restriction of $T$ to $V_i$, $T|_{V_i}$.
+	\end{defn}
+	\textbf{LETS ACTUALLY INSERT A GRAPHIC HERE}\\
+	Note Equation~\eqref{eq:distinct_root_semisimple} was a special case of semisimplicity, when all $V_i$ had dimension $1$. In general, a semisimple matrix when viewed in a basis $\mathbf v_j$ so that each $\mathbf v_j$ lies in one of the $\mathbf V_i$ will look just like Equation~\eqref{eq:distinct_root_semisimple}, \emph{allowing} for repeated $\lambda_i$.
+	
+	But from our previous analysis, this implies that for a linear operator whose characteristic polynomial \emph{doesn't} have repeated roots (i.e  all roots are \textbf{simple}\index{Simple!Polynomial Root}) that there the eigenvectors form a basis for the space, in which the operator looks diagonal. 
+	\begin{theorem}[Semisimplicity for $T$ Lacking Repeated Eigenvalues]\label{thm:semisimple_lacking_repeated_eigs}
+		If the characteristic polynomial of a linear operator $T$ does not have repeated roots, then $T$ is semisimple, and $V$ decomposes as.
+		\begin{equation}
+			V = \bigoplus_{i=1}^n \ker(T - \lambda_i)
+		\end{equation}
+	\end{theorem}
+	\begin{proof}
+		To reiterate the idea, this follows immediately from Lemma~\ref{lemma:distinct_eigenval_spaces_indep}, which means the eigenvectors form a basis for $V$. So $V$ can be decomposed as a direct sum of the eigenvector spaces, on each of which $T$ acts simply by definition, so $T$ is semisimple. 
+	\end{proof}
+	
+	Now note that almost all polynomials do not have repeated roots. An intuitive sketch of this is that if you pick a polynomial at random, the roots will have some random distribution on $\mathbb{C}$. The chance that two roots will happen to be at the exact same point and form a double root is infinitesimal: the same as the chance of picking a random real number and getting an integer. So a linear operator picked at random, we'd expect, would not have any double roots. That is \emph{almost all linear operators are semisimple}. There's a way to view almost any operator so that the operator looks diagonal.
+	
+	The converse of Theorem~\ref{thm:semisimple_lacking_repeated_eigs} is not true. The characteristic polynomial can have repeated roots and the operator can still be semisimple. For example simple operators $\lambda$ are trivially semisimple and their characteristic polynomials are $(t-\lambda)^n$. Are all operators just semisimple, diagonal when viewed in the right eigenbasis?
+	
+	The classic example of an operator that is not semisimple is the one represented by the matrix
+	\begin{equation*}
+		A= \begin{pmatrix}
+			 0 & 1 \\
+			 0 & 0
+		\end{pmatrix}
+	\end{equation*}
+	The characteristic polynomial for this is $p_A(t) = t^2$, the same as the characteristic polynomial for the zero matrix, however the eigenspace $V_0 = \ker A$ is only one-dimensional, and the characteristic polynomial tells us there are no other eigenspaces. 
+	
 
+	\begin{theorem}[Primary Decomposition of a Linear Operator]
+		For a general $T \in \mathrm{End}(V)$, with its distinct eigenvalue roots to its characteristic polynomial labelled by $\lambda_1, \dots, \lambda_k$, and each $\lambda_i$ with multiplicity denoted $m_i$, we can decompose $V$ as a direct sum:
+		\begin{equation}
+			V = \bigoplus_{i=1}^k \ker \left[ (T - \lambda_i)^{m_i} \right]
+		\end{equation}
+	\end{theorem}
+	There is in fact a connection between this statement and how an integer $n$ can be decomposed into a product of power of ``simple'' integers: primes, as $n = p_1 ^{\alpha_1} \dots p_n ^{\alpha_n}$.
 
 \index{Eigenvalue|)}
 

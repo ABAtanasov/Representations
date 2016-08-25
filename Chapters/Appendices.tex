@@ -1,0 +1,54 @@
+\begin{appendices}
+	
+
+\appendixpage
+\noappendicestocpagenum
+%\addappheadtotoc
+
+\chapter*{Category Theory}
+
+	We begin by going back to elementary linear algebra. Linear transformations\index{Linear Algebra!Linear Transformation} between vector spaces $T: V \rightarrow W$ satisfy 
+	\begin{equation}
+		T(a \mathbf v + b \mathbf w) = a T(\mathbf v) + b T(\mathbf w)
+	\end{equation}
+	That is, they respect linear combinations of vectors.
+
+	In more abstract language, transformations that respect algebraic structure (like linear transformations respect vector space structure) generally called \textbf{homomorphisms}. We denote the set of linear transformations from $V$ to $W$ by $\text{Hom}(V,W)$. Linear transformations from $V$ to itself, $\text{Hom}(V,V)$ are called \textbf{endomorphisms} and are denoted by $\text{End}(V):= \text{Hom}(V,V)$. A particularly special endomorphism on $V$ is the \emph{identity} map $1_V$ that acts trivially on $V$, sending every vector to itself.
+	
+	
+	Each linear transformation in $T \in \text{Hom}(V,W)$ has two important subspaces associated with it: its kernel and its image. We say the kernel, $\ker T$ is the subspace of $V$ that $T$ sends to zero. The image $\im ~ T$ is the subspace of $W$ that $T$ maps into.
+		
+	Now certain linear transformations have the property that they map every vector $\mathbf v \in V$ to a \emph{unique} vector in $W$. Section~\ref{sec:Linear Algebra & Coordinates} has shown that this is equivalent to $\ker T = 0$. Such linear transformations are called one-to-one, and they are also called \textbf{injective}\index{Injection}. 
+	
+	On the other side, linear transformations can also have the property that they map \emph{to} every vector $w \in W$. That is, $\im~T = W$. Such linear transformations are called onto, or \textbf{surjective}\index{Surjection}.
+	
+	When a linear transformation is both injective and surjective, it is \textbf{bijective}, meaning there is an inverse $T^{-1}:V \rightarrow W$ so that $T\circ T^{-1} = 1_V$ and $T^{-1} \circ T = 1_W$. These are called \textbf{bijections}\index{Bijection} and also \textbf{isomorphisms}\index{Isomorphism} between $V$ and $W$. Endomorphisms from $V$ to itself that are isomorphisms are called \textbf{automorphisms}\index{Automorphism} and are denoted by $\text{Aut}(V)$ or $\mathrm{GL}(V)$. 
+
+	
+	This is the inspiration for the much more general setting: Category Theory. 
+	
+	A \textbf{category}\index{Category} is simply something that consists of \textbf{objects}\index{Object} that are linked together by arrows called \textbf{morphisms}\index{Morphism}, also just called \textbf{maps}\index{Map}. A morphism $f$ takes the \textbf{source object}\index{Source Object} $A$ to a \textbf{target object}\index{Target Object} $B$. Such morphisms can be drawn using \textbf{diagrams}\index{Commutative Diagram} as
+	\[ 
+	\begin{tikzcd}
+	A \arrow[r, "f"] & B
+	\end{tikzcd}
+	\]
+	We denote the class of morphisms from $A$ to $B$ by $\hom(A,B)$. A morphism from $A$ to itself is called an \textbf{endomorphism}\index{Endomorphism} and the class of endomorphisms is denoted by $\text{end}(A) = \hom(A,A)$. If $f$ is a morphism from object $A$ to $B$ and $g$ is a morphism from object $B$ to $C$ then we can \textbf{compose}\index{Composition} $g$ with $f$ to form another morphism $g \circ f$ according to the following diagram.
+	\[ 
+	\begin{tikzcd}
+	A \arrow[r, "f"]  \arrow[dashrightarrow, rd, "g \circ f" below] & B \arrow[d, "g"] \\
+	  & C \\
+	\end{tikzcd}
+	\]
+	We say ``the diagram commutes'' to mean that we can go either direction in the diagram, along $f$ then $g$ or just along $g \circ f$ and get the same result.
+	
+	Further, there is a special morphism to every object $A$, the \textbf{identity morphism}\index{Identity Morphism} denoted by $1_A$ such that for any morphism $f: B \rightarrow A$ into $A$, $1_A \circ f = f$ and for any morphism $g: A \rightarrow B$ out of $A$, we have $g \circ 1_A = g$. Note this implies that the identity is unique, as if there were another $1'_A$, then by these properties, $1_A' = 1_A \circ 1_A' = 1_A$.
+	
+	The class of all vector spaces forms a category, denoted $\text{\textbf{Vect}}$, where morphisms are linear maps. This was our motivating example. Further along the same line of thought, groups and rings are categories, whose morphisms are exactly the algebraic homomorphisms associated with those algebraic structures. Abelian groups also form a category, that is a \textbf{subcategory}\index{Category!Subcategory} of the category of groups. A subcategory $S$ of $C$ is a category whose objects and morphisms are objects and morphisms in $C$, respectively.
+	
+	Even more simply, the class\footnote{We keep using the word class instead of set exactly because we don't want to run into the paradox of saying ``the set of all sets''. The word ``class'' refers to a mathematical construction designed to avoid this, which is not focused on here.} of all sets forms a category, $\text{\textbf{Set}}$, where morphisms are exactly functions between sets.
+	
+	More interestingly, the class of all \emph{topological spaces}\index{Topology!Topological Space} forms a category, with morphisms being the \emph{continuous functions}\index{Topology!Continuous Functions}. A sub-category of this is the category of manifolds\index{Manifold!As a Category} $\text{\textbf{Man}}$. If we instead want our morphisms to be smooth maps, we can form the subcategory of smooth manifolds, denoted $\text{\textbf{Man}}^\infty$.
+	
+	
+\end{appendices}

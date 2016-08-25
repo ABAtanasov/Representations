@@ -12,8 +12,10 @@
 \usepackage{makeidx}
 \usepackage{titlesec}
 \usepackage{tikz-cd}
+\usepackage[T1]{fontenc}
+\usepackage{mathabx}
 \usepackage[english]{babel}
-
+\usepackage[titletoc]{appendix}
 \newcommand{\md}{\text{ \% }}
 \newcommand{\bld}{\texttextbf}
 \newcommand{\Z}{\mathbb{Z}}
@@ -32,7 +34,10 @@
 \newcommand{\vol}{\text{vol}}
 \newcommand{\re}{\text{re}}
 \newcommand{\im}{\text{im}}
-
+\def\lacts{\ensuremath{%
+  \reflectbox{\rotatebox[origin=c]{180}{$\circlearrowleft$}}}}
+\def\racts{\ensuremath{%
+    \reflectbox{\rotatebox[origin=c]{180}{$\circlearrowright$}}}}
 
 
 \usepackage{xcolor}
@@ -224,6 +229,8 @@
 
 \chapter*{Conclusion}\thispagestyle{empty}
 \addcontentsline{toc}{chapter}{\emph{Conclusion}}
+
+\subfile{Chapters/Appendices}
 
 %Right, Notation
 \chapter*{Notation}\thispagestyle{empty}
