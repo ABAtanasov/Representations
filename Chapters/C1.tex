@@ -3,13 +3,15 @@
 %
 % \begin{document}
 %
+
+
 \chapter{Old Notions Revisited}\thispagestyle{empty}
 \section{The Cartesian Coordinate System} % (fold)
 \label{sec:Cartesian}
 	
-	One of the most important revolutions in mathematics and physics was brought about from an idea of the seventeenth century mathematician and philosopher Ren\'{e} Descartes. The idea was that any point $P$ in the Euclidean plane could be represented by a pair of numbers $(x,y)$. The numbers themselves represented distances along two perpendicular axes that met at a point $(0,0)$, called the origin. By introducing this concept, he had done something amazing. He had related the \emph{geometry} of the plane to the \emph{algebra} of variables and equations. Algebra could be \emph{represented} geometrically, and conversely geometric problems could be solved by going into the realm of algebra. 
+	One of the most important revolutions in mathematics and physics was brought about from an idea of the seventeenth century mathematician and philosopher Ren\'{e} Descartes. The idea was that any point $P$ in the Euclidean plane could be represented by a pair of numbers $(x,y)$. The numbers themselves represented distances along two perpendicular axes that met at a point $(0,0)$, called the origin. By introducing this concept, he had done something amazing. He had related the \emph{geometry} of the plane to the \emph{algebra} of variables and equations. Algebra could be \emph{represented} geometrically, and conversely geometric problems could be solved by going into the realm of algebra.
 	
-	\textbf{Insert 2D Plane with Coordinates}
+	\todofig{Insert 2D Plane with Coordinates}
 	
 	Coordinates soon became more than just pairs of numbers $(x,y)$. Their use was extended to 3D space, and later to arbitrarily high dimensions. They would subsequently be used to lay the foundations for modern physics and mathematics. Linear algebra, multivariable calculus, and all the connections between algebra and geometry begin with the concept of a coordinate.
 	
@@ -17,7 +19,7 @@
 	
 	When studying a geometric phenomenon in some $n$-dimensional space, say $\mathbb{R}^n$, we pick an origin and axes to form our coordinate system. For a ball falling, we could set the origin at some point on the ground, and pick one axis parallel to the ground, and one perpendicular. We can decide to measure the axes in meters, or we could decide to do it in feet (nothing stops us from making bad choices). The physical point $P$ where the ball lies is represented by $(x,y)=(0~ \mathrm m,10~ \mathrm m)$. The coordinate $y$ is a natural choice of coordinate, as it corresponds to our intuitive notion of height. 
 	
-	\textbf{Insert Ball Falling}
+	\todofig{Insert Ball Falling}
 	
 	We can now study $y$, free of geometry, as just a function which we can do arithmetic and calculus on. If we are given an equations of motion, say 
 	\begin{equation*}
@@ -56,7 +58,7 @@
 	
 	The traditional concept of a coordinate system, a series of perpendicular lines that together associate ordered tuples of numbers to each point in $n$-dimensional space, is not representative of all coordinate systems. For one, we do not need the requirement that the lines be perpendicular. Our coordinate system could instead look like this:
 	
-	\textbf{Graphic of non-perp lines and representing a point like that}
+	\todofig{Graphic of non-perp lines and representing a point like that}
 	
 	In the language of linear algebra: once we choose an origin, choosing a set of coordinate axes is the same as choosing a basis for the space (a coordinate basis). For any point in space, we can relate coordinates $x_i'$ in the new system in terms of coordinates $x_i$ in the old system by matrix multiplication: $x_i' = \sum_{j=1}^n \mathbf A_{ij} x_j$. This is exactly what's called a change of basis in linear algebra. Transformations between coordinate bases are exactly the invertible \textbf{linear transformations} \index{Linear Algebra!Linear Transformation}.
 	
@@ -83,7 +85,7 @@
 	
 	Bases that don't span, or are not linearly independent, would lead to coordinate systems like these:
 	
-	\textbf{Show a 2-D basis in a 3-D space, and a basis of 3 vectors in 2-D space}
+	\todofig{Show a 2-D basis in a 3-D space, and a basis of 3 vectors in 2-D space}
 
 	Very often in mathematics, we ask ``does a solution exist?'', and ``if there is a solution, is it unique?''. These two questions are dual to one another. If a set of vectors spans the space, then there \emph{exists} a way to represent any point (at least one way to represent any point). If a set of vectors is linearly independent, then \emph{if} you can represent a point, that representation is \emph{unique} (no more than one way to represent any point).
 	
@@ -118,7 +120,7 @@
 		\mathbf v_1' &= ~~ \frac{\sqrt 2}{2} \mathbf v_1 + \frac{\sqrt 2}{2} \mathbf v_2\\
 		\mathbf v_2' &= - \frac{\sqrt 2}{2}\mathbf v_1 + \frac{\sqrt 2}{2}\mathbf v_2.
 	\end{align*}
-	\textbf{PUT GRAPHIC HERE}
+	\todofig{elementary transform with $1/\sqrt{2}$s}
 	
 	
 	As a matrix transform, we can write this as\footnote{The tuple of basis vectors $\mathbf v_i$ is written as a row rather than a column to be consistent with Equation~\eqref{eq:RepU}. Then the coordinates are represented in a column. Because of the way we do matrix multiplication, then the matrix acts on the right. It's an issue of styling and indexing, and not physically meaningful. If we were to write this coordinate transform using columns \& not rows, we'd get a matrix that's the transpose of the one above, and matrix transposes would appear in subsequent equations, making them less tidy.}:
@@ -240,11 +242,11 @@
 			a_1 \\ \vdots \\ a_n
 		\end{pmatrix}
 	\end{equation*}
-	as desired. \textbf{THIS WOULD BE A GOOD EXERCISE: PROVE IT HAS TO BE A INVERSE}
+	as desired. \todoex{EXERCISE: PROVE IT HAS TO BE A INVERSE}
 	
 	We say that the basis vectors $\mathbf v_i$ \textbf{co-vary}\index{Vector!Covariant} and the coordinates $a_i$ \textbf{contra-vary}\index{Vector!Contravariant} with the change of basis. The idea, although it sounds simple, is rather hard to get the feel of. It's worth thinking a good bit about how coordinates and bases need to vary in opposite ways so that the physical object represented by the coordinates stays the same regardless of how we look at it. 
 	
-	\textbf{This will be a caption for a sketch of a 3-D rotation}
+	\todofig{This will be a caption for a sketch of a 3-D rotation}
 	
 	 When you rotate your character in a video game (and in real life too, by the way), the world rotates \emph{contrary} to the direction that you've rotated in. That's because the coordinates of what you see have \emph{contra-varied} while your basis vectors, given by the direction you face have \emph{co-varied}. The end result is that despite changing your coordinate system, physics stays the same: invariant. The universe did not rotate itself just because you did. This extends beyond just rotations to \emph{all} linear transformations point. \\
 	
@@ -262,7 +264,7 @@
 	\end{align*}
 	It's easy to compute the inverse of this matrix and see how the new coordinates should work, but it worthwhile looking at this geometrically. It is not a rotation, but more of a ``stretching''. Notice that while in our original perspective, if we viewed $\mathbf v_1$ and $\mathbf v_2$ as orthogonal vectors, in the \emph{new} perspective, they are \emph{no longer} orthogonal. This is very important: linear transformations in general do not preserve orthogonality.
 	
-	\textbf{Include graphic here}
+	\todofig{Graphic of orthogonality being changed under affine transform}
 	
 	In particular, this linear transformation has \emph{stretched} our vector space and changed the notion of distance. Even though rotations keep distances preserved, general linear transformations don't care about a notion of distance. 
 	
@@ -276,8 +278,8 @@
 	
 	Euclidean space, as well as the world in which we live in, both have an natural way to measure length between two points that is invariant of the coordinate system used. A vector space on its own does not, and so it is called an \emph{affine space}\index{Affine Space}. In affine space, although there are notions like ``parallel'', there is not a notion of distance. Adding an inner product to affine space gives rise to Euclidean space\index{Euclidean Space}.
 	
-	\textbf{Insert graphic here, with an affine transformation of the plane}
-	\textbf{Caption something like ``If Euclid's space allowed for not just rotations/translations but also general linear transformations like this, being perpendicular would be a coordinate-dependent idea. Note parallel lines, on the other hand, stay parallel, so affine space \emph{does} have a notion of parallel''}
+	\todofig{Insert graphic here, with an affine transformation of the plane}
+	\todoadd{Caption something like ``If Euclid's space allowed for not just rotations/translations but also general linear transformations like this, being perpendicular would be a coordinate-dependent idea. Note parallel lines, on the other hand, stay parallel, so affine space \emph{does} have a notion of parallel''}
 	
 	This will be discussed in much greater detail in the following two chapters. 
 	
@@ -301,7 +303,7 @@
 	
 	We could use something like a polar system of $(r,\theta)$ or a spherical system $(r, \phi, \theta)$. These coordinate systems are not representable in terms of axes, but instead look like this:
 	
-	\textbf{Graphic of polar coordinate system/spherical} 
+	\todofig{Graphic of polar coordinate system/spherical} 
 	
 	This is an example of a non-linear coordinate transformation. They are more commonly referred to as \textbf{curvilinear}. Whereas linear ones map lines to lines, curvilinear ones more generally map lines to curves. The idea for making sure that the equations of physics still stay true for non-linear coordinate transformations is to note that just like a curve locally looks like a line, a \emph{non-linear} transformation locally looks like a \emph{linear} one. The linear transformation that it locally looks like is called the \textbf{Jacobian} \index{Jacobian} $J$. If the laws of physics are invariant under linear transformations locally at each point, then \emph{globally}, they will be invariant under non-linear ones as well. That is why we cared about studying covariance and contravariance for linear transformations: more complicated cases can be reduced to their local linear behavior.
 	
@@ -447,7 +449,7 @@
 	\end{equation}
 	and both of these are really just the chain rule plain and simple.
 	
-	\textbf{EXERCISE: Check invariance quickly using this method.}
+	\todoex{EXERCISE: Check invariance quickly using this method.}
 
 	By doing exercises, this method is very quick and steady to get the hang of. We will adopt it for the rest of the book.
 	

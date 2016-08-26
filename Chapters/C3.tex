@@ -125,9 +125,9 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	\end{equation*} 
 	We want to relate the total flux coming out of the region to the infinitesimal flux at each point inside the region. To do this, as before, we will subdivide the region. This time, it will not be into a series of intervals, but instead into a mesh of increasingly small \emph{cubes}, as below.
 	
-	\textbf{PUT A GRAPHIC HERE}
+	\todofig{Flux Graphic}
 	
-	See that the flux out a side of each cube is cancelled out by the corresponding side on its neighboring cube. That means that the only sides that do not cancel are for the cubes at the boundary$^1$\footnote{You may be worried that the cubes do not perfectly fit into the boundary when it is not rectangular. As the mesh gets smaller and smaller, it approximates the region better so this does not pose a problem. This idea can be made rigorous (c.f. \textbf{GIVE A REFERNCE HERE})}, giving us the desired flux out.
+	See that the flux out a side of each cube is cancelled out by the corresponding side on its neighboring cube. That means that the only sides that do not cancel are for the cubes at the boundary$^1$\footnote{You may be worried that the cubes do not perfectly fit into the boundary when it is not rectangular. As the mesh gets smaller and smaller, it approximates the region better so this does not pose a problem. This idea can be made rigorous (c.f. \todoref{Stokes' Theorem Rigor})}, giving us the desired flux out.
 	
 	So if we sum the fluxes over all infinitesimal cubes, we will get the total flux out of the boundary. For a single cube of sides $dx,dy,dz$, drawn below, the total flux will be the sum over each side. 
 	\begin{align*}
@@ -135,7 +135,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 						   & + F_y (x,y+dy/2,z) dx dz - F_y (x,y-dy/2,z) dx dz \\ 
 						   & + F_x (x+dx/2,y,z) dy dz - F_x (x-dx/2,y,z) dy dz \\ 
 	\end{align*}
-	\textbf{SHOW GRAPHIC HERE}
+	\todofig{Figure of infinitesimal flux on a cube: Stokes' proof}
 	
 	But we can write this as: 
 	\begin{align*}
@@ -160,7 +160,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	
 	For Equation~\eqref{eq:Stokes}, we have a vector field $\mathbf F$ evaluated on the boundary in the form of a contour integral around a region. This is the total circulation of $\mathbf{F}$ around the region. Let us chop the region into little pieces. 
 	
-	\textbf{INSERT GRAPHIC HERE}
+	\todofig{Figure of infinitesimal circulation on a sqauare: Stokes' proof}
 	
 	On an infinitesimal square, we get that the circulation is:
 	\begin{align*}
@@ -177,7 +177,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 			\int_C \mathbf{F} \cdot d\mathbf r = \int_S \nabla \times \mathbf{F} ~ dA
 		\end{equation}
 	\end{theorem}
-	Exercise \textbf{(MAKE AN EXERCISE)} generalizes this to a surface in 3D, to get the 3D version of Stokes' theorem \index{Stokes' Theorem!For Curl}:
+	Exercise \textbf{(MAKE AN EXERCISE)}\todoex{Make an exercise to generalize classical Stokes' to 3D} generalizes this to a surface in 3D, to get the 3D version of Stokes' theorem \index{Stokes' Theorem!For Curl}:
 	
 	\begin{equation}
 		\int_C \mathbf{F} \cdot d\mathbf r = \int_S (\nabla \times \mathbf{F}) \cdot d\mathbf S 
@@ -306,7 +306,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		\omega(\mathbf u, \mathbf v) \longleftrightarrow \text{Flux Coming out of $\mathbf u$ and $\mathbf v$s Parallelogram}
 	\end{equation*}
 	This is an intuitive \emph{geometric idea}. This is what we want to be true, and the following observations will be \emph{algebraic properties of $\omega$} based on our geometric notions of flux.\\
-	\textbf{DRAW SOMETHING HERE}
+	\todofig{1-form giving flux out of a parallelogram.. how is this even drawn?}
 
 	\begin{obs}
 		$\omega(\mathbf v, \mathbf v) = 0$
@@ -317,7 +317,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		Moreover, in general $\omega(a \mathbf u, \mathbf v) = \omega(\mathbf u,a \mathbf v)= a \omega(\mathbf u, \mathbf v)$ for $a>0$.
 	\end{obs}
 	Of course, if we scaled the parallelogram by some positive amount $a$ along one of the sides, then its total area scales by $a$, so that $\omega$ gives $a$ times as much ``stuff'' coming out of the scaled parallelogram. This observation, together with our linear algebraic ideas, suggest that this should naturally extend beyond positive $a$ so that $\omega(-\mathbf u,\mathbf v) = -\omega(\mathbf u, \mathbf v)$, giving us negative flux through the parallelogram. But what does that mean? This means that if one of the vectors gets scaled negatively, the \emph{orientation} of the new parallelogram reverses. 
-	\textbf{DRAW THIS HERE}
+	\todofig{Oriented Parallelograms}
 	
 	So now even though the pair $-\mathbf u, \mathbf v$ are on the same plane, the notion of ``out" through their parallelogram has reversed. This makes physical sense, 
 	\begin{concept}
@@ -338,7 +338,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	\end{obs}
 	If $\mathbf u = a \mathbf v$ are linearly dependent then this is just the scaling observation. If $\mathbf v$ is linearly dependent with $\mathbf w, \mathbf u = a \mathbf w$, then this is just the observation that the parallelogram of $(\mathbf u, \mathbf w)$ would have the same amount of associated area if you were to add vectors in the direction of $\mathbf w$ to $\mathbf u$ so $\omega(\mathbf u + a \mathbf w, \mathbf w) = \omega(\mathbf u, \mathbf w)$. It's the same idea if $\mathbf u$ is linearly dependent with $\mathbf w$. Now let's assume all vectors are linearly independent. Geometrically, the two planes associated with $(\mathbf u,\mathbf w)$ and $(\mathbf v,\mathbf w)$, and the plane associated with the sum $(\mathbf u + \mathbf v, \mathbf w)$ can look like:
 	
-	\textbf{FIGURES TO ILLUSTRATE MY GEOMETRIC IDEA, DISCUSS WITH AARON}
+	\todofig{Proving additivity for forms, sum of planes. Need to discuss about this argument}
 
 	Now $\omega$ represents a constant flux in space. Enclosing a region by these three planes should mean that the flux that goes through the first two is the flux that comes out of the third.
 	
@@ -372,7 +372,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	\end{align*}
 	
 	
-	In multivariable calculus, we would define planes, together with orientations, by specifying a normal vector to those planes. In a general dimension, we aren't able to associate a normal vector to a plane, so we should talk about the plane \emph{itself}. For this reason we define the \textbf{wedge product} 
+	In multivariable calculus, we would define planes, together with orientations, by specifying a normal vector to those planes. In a general dimension, we aren't able to associate a normal vector to a plane, so we should talk about the plane \emph{itself}. For this reason we define the \textbf{wedge product}. 
 	
 	\begin{defn}[The Wedge Product]\label{def:wedge}
 		The product $\wedge$ on a real vector space $V$ defined so as to satisfy the following properties
@@ -398,7 +398,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		&  ~~ +(\alpha_z \beta_x - \alpha_x \beta_z)(dz \wedge dx) 
 	\end{align*}
 	
-	\textbf{OK AARON FORMAT THIS IDK HOW}
+	\todochange{Very bad equation formatting here, Aaron probs knows how to fix}
 	but if we were back in multivariable calculus world, not caring about vectors and forms and writing everything in terms of $\hat{\mathbf{i}}, \hat{\mathbf{j}}, \hat{\mathbf{k}}$, and we identified 
 	\begin{align*}
 		&\hat{\mathbf{i}} \leftrightarrow dx, \hat{\mathbf{j}} \leftrightarrow dy, \hat{\mathbf{k}} \leftrightarrow dz 
@@ -411,7 +411,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	
 	Moreover, now we can go beyond just 2-forms and form higher wedges, $k$-forms\index{Differential Form!$k$-Form}. The wedge of two forms $\alpha \wedge \beta$ will always be linear in both arguments and antisymmetric. For example, we can make 3-forms. In 3-D, the space of 3-forms is one dimensional spanned by $dx \wedge dy \wedge dz$. Any other wedge of these differentials will either be the same, or a negative of this one. It corresponds to the one true infinitesimal 3D volume. What about the sign? It is the distinction between flow ``into'' the volume.
 	
-	\textbf{GRAPHIC of 2-form wedge a 1-form giving ``inward'' orientation, and then wedge the negative of that 1-form to give the ``outward'' orientation}
+	\todofig{GRAPHIC of 2-form wedge a 1-form giving ``inward'' orientation, and then wedge the negative of that 1-form to give the ``outward'' orientation}
 	
 	This is more general, in $n$ dimensions the space of $n$-forms is one dimensional, spanned by the form $\bigwedge_{i=1}^n dq^i$. For some terminology:
 	\begin{defn}[\textbf{Exterior Power}\index{Exterior!Power}] For a given vector space $V$, the vector space of of $k$ forms spanned by wedging elements of $V$ with themselves $k$ times is called the $k$th exterior power of $V$, and is denoted by $\Lambda^kV$.
@@ -431,11 +431,11 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		(\omega_{ab} dx^a \wedge dx^b) (v^{cd} \partial_c \wedge \partial_d) &= \omega_{ab} v^{cd} (\delta^{a}_c \delta^{b}_d - \delta^{a}_d \delta^{b}_c)\\
 		& = \omega_{ij}v^{ij} - \omega_{ij}v^{ji}.
 	\end{align*}
-	\textbf{It is an exercise to generalize this, and also to check that it makes sense in 3D when our wedges are cross products and areas are normal vectors}
+	\todoex{Exercise to generalize $n$ forms acting on $n$ vectors, and also to check that it makes sense in 3D when our wedges are cross products and areas are normal vectors}
 	
 	You may have a question, concerning the fact that for 1-forms, we expect them to act on vectors representing infinitesimal displacements. Therefore, $k$-forms should act on something as well! Do they act on wedges of vectors, representing infinitesimal $k$-volumes? Yes, and in addition to this, we can act on a $k$ form by a vector (or you can say act on a vector by a $k$ form, no difference here) in the form of an \textbf{interior product}\index{Interior Product}. 
 	
-	\textbf{WELL FINISH THIS LATER... isn't that bad}
+	\todoadd{Interior Product}
 	
 	As a last note, philosophically, \emph{where does this antisymmetry come from?} We've already seen it in the cross product, and now we have it in this wedge. Geometrically, what is happening? That the wedge product of a form with itself is zero is easy to understand: you cannot geometrically extend an object to higher dimensions without introducing new directions. Antisymmetry, on the other hand, is less obvious.
 	
@@ -490,6 +490,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		\end{align*}
 		where the other terms involve wedges that aren't of $q^1,q^2$ and will vanish along integration of this specific parallelogram. Since integrating $(\partial_1 \omega_2 - \partial_2 \omega_1) dq^1 \wedge dq^2$ gives exactly $(\partial_1 \omega_2 - \partial_2 \omega_1) dq^1 dq^2$, we have proven it for this parallelogram, and by linearity and coordinate change for \emph{any} paralellogram. Because adding these parallelograms together forms the bulk of $\Omega$ and they cancel when integrated on neighboring boundaries (if one boundary is associated with $dq^i$, the neighboring one is associated with $-dq^i$), this gives the desired result. 
 	\end{proof}
+	\todochange{Fix Stokes' Theorem Proof}
 	\textbf{WE DONT NEED ANY OTHER COORDINATES}
 	
 	
@@ -555,7 +556,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	\end{proof}
 	This is an amazing geometric fact that we have gotten, via Stokes' theorem, from the \emph{purely algebraically derived} fact that $\mathrm d^2 = 0$. The duality between forms and the manifolds we integrate them over is a gorgeous duality between algebra and geometry that extends very deeply and profoundlys (c.f. Hodge Theory \textbf{INSERT TEXTS HERE}).
 	
-	We have already seen that differential forms that are the exterior derivatives $\mathrm d \omega$ of some other form $\omega$ are called exact. We know exact 1-forms correspond to conservative vector fields. \textbf{It will be an exercise to show} exact 2-forms in $\mathbb R^3$ correspond to solenoidal vector fields. On the other hand, forms $\omega$ that have $\mathrm d \omega = 0$ are called \textbf{closed}\index{Differential Form!Closed}. Why this language? It is taken for the corresponding geometric language for the boundary operator. If a region has no boundary, it is called closed, so if a form has zero exterior derivative, it will also be called closed. Clearly exact forms are closed, since $\mathrm d^2 = 0$, but are \emph{all} the closed forms exact? In $\mathbf{R}^3$, the answer is yes, but consider this:
+	We have already seen that differential forms that are the exterior derivatives $\mathrm d \omega$ of some other form $\omega$ are called exact. We know exact 1-forms correspond to conservative vector fields. \textbf{It will be an exercise to show} exact 2-forms in $\mathbb R^3$ correspond to solenoidal vector fields.\todoex{Exact 2-forms on $\mathbb R^3$ are correspond to solenoidal vector fields} On the other hand, forms $\omega$ that have $\mathrm d \omega = 0$ are called \textbf{closed}\index{Differential Form!Closed}. Why this language? It is taken for the corresponding geometric language for the boundary operator. If a region has no boundary, it is called closed, so if a form has zero exterior derivative, it will also be called closed. Clearly exact forms are closed, since $\mathrm d^2 = 0$, but are \emph{all} the closed forms exact? In $\mathbf{R}^3$, the answer is yes, but consider this:
 	
 	\begin{example}
 		$d\theta$ is a closed form defined on the punctured plane that is not exact. 
@@ -565,7 +566,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	
 	The study of the closed forms that are not exact on a manifold is called the \textbf{De-Rham cohomology}\index{De-Rham Cohomology} of a manifold. \\
 	
-	\textbf{Insert Graphic Here}
+	\todofig{Punctured Plane for De-Rham Cohomology}
 	
 	
 	\section{Distance, a Metric}	
@@ -658,7 +659,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		\int_{\gamma} \sqrt{dr^2 + r^2 d\theta^2} 
 		= \int_{t_i}^{t_f} \sqrt{\left( \frac{dr}{dt}\right)^2+ r^2 \left( \frac{d\theta}{dt} \right)^2 } dt
 	\end{equation}
-	and indeed, once $g$ is known, we can find the equation for arc length in \emph{any} coordinate system. \textbf{THERE WILL BE EXERCISES ON THIS}.
+	and indeed, once $g$ is known, we can find the equation for arc length in \emph{any} coordinate system. \todoex{Arc Length in worthwhile coordinate systems}
 	
 	
 	Now note, the metric tensor was not something that we had before on a general manifold $M$. It is added information. A manifold doesn't need a metric or any notion of distance to be well-defined. After all, its definition is just topological. When $M$ is endowed with with a metric $g$ at every tangent space $T_p M$, we say it is a \textbf{Riemannian manifold}\index{Manifold!Riemannian}. 
@@ -724,7 +725,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		\end{equation}
 		so that $\mathbf v = \omega^\sharp$ is the associated vector to the 1-form $\omega$.
 	\end{prop}
-	\textbf{LOL DRAW A DIAGRAM OF THIS}
+	\todofig{Diagram of Musical Isomorphisms}
 
 	As mentioned in the beginning of this section, since the metric gives the notion of ``orthogonality'' to the tangent space, geometrically the form corresponding to a vector $\mathbf v$ is the local linear behavior of a function with level curves perpendicular to $\mathbf v$, and increasing in the direction of $\mathbf v$ so that $\omega_{\mathbf v}(\mathbf v) = |\mathbf v|^2$. $\mathbf v$ would then be exactly the \emph{gradient vector} to this local behavior, pointing in the direction of greatest ascent. 
 	
@@ -765,7 +766,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	\label{sec:views}
 	\index{Tensor|(}
 	
-	\textbf{INSERT SOME QUOTE ABOUT HOW LIKE 97\% OF MATH IS JUST TERMINOLOGY}
+	\todoadd{INSERT SOME QUOTE ABOUT HOW LIKE 97\% OF MATH IS JUST TERMINOLOGY}
 	
 	Before moving on to completing the study of differential geometry, it is worth reflecting on the mathematical machinery that we have developed. 
 	
@@ -792,7 +793,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		The \emph{\textbf{direct sum}}\index{Direct Sum} $V \oplus W$ is the $n+m$-dimensional vector space of ordered pairs $(\mathbf v, \mathbf w)$ with $\mathbf v \in V$, $\mathbf w \in W$, with addition defined component-wise.
 	\end{defn}
 	
-	\textbf{GRAPHIC: DIRECT SUM, R with R, and R with $\mathbf R^2$}
+	\todofig{GRAPHIC: DIRECT SUM, R with R, and R with $\mathbf R^2$}
 	
 	The direct sum is one of the easiest concepts to grasp. It is exactly what it seems, at first glance, a addition of new directions to $V$. The only possible uncertainty is ``what if the two bases overlap?''. But when taking the direct sum, $V$ and $W$ are assumed to be entirely different vector spaces from the start, and we assume they share no elements. For this reason, we can take $\mathbb{R} \oplus \mathbb{R} = \mathbb{R}^2$ even though the two vector spaces are the same.
 	
@@ -960,8 +961,8 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		\bigoplus_{r=1}^\infty V^{\otimes r}
 	\end{equation}
 	In this algebra, we have our addition operation $+$ as before, and $\otimes$ becomes a multiplication operation.\\
-	\textbf{EXERCISE ON A GRADED ALGEBRA}\\
-	\textbf{OMG GIVE SOME EXAMPLES JEEZ}
+	\todoex{EXERCISE ON A GRADED ALGEBRA}
+	\todoex{Some examples of tensors}
 
 	We gave the example of $k$-forms are antisymmetric tensors of rank $k$, and the wedge product $\wedge$ does have all of the properties of $\otimes$, but it includes the extra property that $\omega \wedge \omega = 0$, which gives it its anti-symmetry. If we exchange any two indices in the component $\omega_{j_1, \dots, j_k}$ of a tensor representing a $k$-form, the new component is the opposite sign. The tensors that satisfy this property are called \textbf{anti-symmetric}\index{Tensor!Anti-symmetric}. 
 	
@@ -1046,7 +1047,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 			&= \sum_{i, j} (T^{ij})^2 \geq 0
 		\end{align*}
 		and is only equal to zero when $T^{ij}=0$ always, i.e. $\mathbf T = 0$. Since this metric assigns positive value to any vector, it is positive definite. The fact that we used an orthonormal basis doesn't change this invariant property, it just makes the proof easier. 
-		\textbf{BUT CAN WE DO IT WITHOUT USING AN ORTHONORMAL BASIS PLS?}
+		\todochange{Do this proof without going into an orthonormal basis maybe?}
 	\end{proof}
 	An example of an inner product on $V$ lifting to a tensor space is when we define an inner product on the set of matrices:
 	\begin{example}[Inner Product of Matrices]
@@ -1072,7 +1073,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		By induction, the base case $r=1$ our assumption and for the inductive step, we have just shown that if $V,W$ have inner product structure, so does $V \otimes W$. Let $W = V^{\otimes(r-1)}$ and we are done.
 	\end{proof}
 	
-	But then if we can take inner products of abitrary rank tensors, then we can \emph{restrict} our inner product to just the antisymmetric tensors and get
+	But then if we can take inner products of arbitrary rank tensors, then we can \emph{restrict} our inner product to just the antisymmetric tensors and get
 
 	\begin{defn}[Inner Product on $k$-forms]
 		The inner product on the $k$th exterior power is the restriction of the inner product defined above on $\mathbf V^{\otimes k}$ to the subspace of antisymmetric tensors $\Lambda^k V$.
@@ -1282,6 +1283,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 			and such that the mapping is \emph{continuous} (with respect to the topology of $M$).
 		\end{defn}
 		This means that starting at a point $p$, a flow gives rise to a curve $\gamma = \varphi(p,t)$. The vector field of the tangent vectors to $\gamma$ at the points that it passes through can be \textbf{exponentiated} to give the flow along $\gamma$.
+		\todofig{Flow of exponentiated vector field}
 		
 		Starting at $p$ and given a vector field $X$ on $M$, getting a curve $\gamma$ associated with flowing along $X$ means solving the differential equation:
 		\begin{equation}\label{eq:ODE_curve}
@@ -1297,7 +1299,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		
 		What about a sum of two vector fields? Naively we'd say that moving along the flow of $X$ and then moving along the flow of $Y$ should be the same as moving along the flow of $X+Y$, which should in turn be the same as moving along the flow of $Y$ and \emph{then} along the flow of $X$. For translations $\partial_x, \partial_y$ in $\mathbb R^2$, this turns out to be true. Consider however the sphere, with $X$ and $Y$ defined so as to generate circles like in the graphic below. Then moving along the flows of $X$ or $Y$ corresponds to rotating the sphere around the $z$ or $x$ axis, respectively. 
 		
-		\textbf{MAKE A GRAPHIC: Two vectors at different points on a sphere.. what's their difference? Two paths getting two different results.}
+		\todofig{MAKE A GRAPHIC: Two vectors at different points on a sphere.. what's their difference? Two paths getting two different results.}
 		
 		For these vector fields on the sphere, $e^{X}e^{Y}\neq e^{X+Y} \neq e^Y e^X$. 
 		
@@ -1523,7 +1525,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		To end this entire chapter, it is worth looking back at the start of the section, to Euler's identity. Can this all be interpreted within the ideas of flows? 
 		
 		
-		\textbf{IDK CAN WE?? DO IT AARON}
+		\todoadd{Relate this all to the complex exponential from the beginning of the section}
 		
 		
 		\index{Exponential Map|)}
@@ -1532,6 +1534,8 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	\section{Exercises}
 
 	\textbf{WILL FORMAT THIS LATER}
+
+	\todoex{Alternative definition for commutator}
 
 Nothing stops us from going from our starting point $p$, moving along $X$ by $dt$ and at least seeing how the flow of $Y$ looks there, namely:
 	\begin{equation}
@@ -1542,14 +1546,14 @@ Nothing stops us from going from our starting point $p$, moving along $X$ by $dt
 		\varphi^{-1}_X (\varphi_Y (\varphi_X(p, dt), s), dt)
 		 = \varphi_X (\varphi_Y(\varphi_X(p, dt), s), -dt)
 	\end{equation}
-	\textbf{TOTALLY DRAWING A GRAPHIC HERE}
+	\todofig{Alternative intuition for commutator}
 	Denote the pulled back curve by $\gamma_{Y,p}'$. Note this at this curve also passes through $p$ at $s=0$. The corresponding tangent vector to $\gamma_Y'$ at $p$ which we can call $Y'(p)$ will approach $Y(p)$ as $dt \rightarrow 0$. We can define this difference:
 	\begin{equation}
 		\mathcal L_X Y = \lim_{dt \rightarrow 0} \frac{Y'(p) - Y(p)}{dt}
 	\end{equation}
 
 	But there's also a symmetry to the drawing above. At a specific $dt$, if we start at $p$ and flow along the $Y'$ for that $dt$ by $\varphi_{Y'}(p, t)$ to $p''$, then the curve $\gamma_{X, p''}$, when pulled back along $Y$ becomes \emph{exactly} the flow $\gamma_{X,p}$ of $X$ at $p$.
-	\textbf{REDRAW DIAGRAM}.
+	\todofig{And dual diagram to that}
 	\begin{equation}
 		\varphi_Y (\varphi_X (\varphi_{Y'} (p, dt), s), -dt) =  \varphi_X(s)
 	\end{equation}

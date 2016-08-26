@@ -11,6 +11,7 @@
 \label{sec:towards_the_spectral_theorem}
 
 \index{Eigenvalue|(}
+\todochange{This section will go towards the back}
 
 This first section will derive essentially everything that there is to know about the eigenvalues of linear operators on finite dimensional vector spaces. \\
 
@@ -121,7 +122,7 @@ When we studied a linear transformation $T: V \rightarrow V$ on a real vector sp
 	 	Every non-constant polynomial with coefficients in $\mathbb{C}$ has a root in $\mathbb C$.
 	 \end{theorem}
 	 \begin{proof}[Proof. (Optional, for those familia with complex analysis)]
-	 The easiest way to do this is by use of complex analysis. Any introductory text in complex analysis will give the tools necessary to form this proof. If the reader is familiar with Cauchy's integral formula (\textbf{which can be derived in one of the exercises in the preceding chapter}), then he can understand the following:\\
+	 The easiest way to do this is by use of complex analysis. Any introductory text in complex analysis will give the tools necessary to form this proof. If the reader is familiar with Cauchy's integral formula (\textbf{which can be derived in one of the exercises in the preceding chapter})\todoex{Make an exercise in the preceding chapter to derive all of complex analysis' integral formulae}, then he can understand the following:\\
 		
 		\begin{small}
 		
@@ -201,7 +202,9 @@ When we studied a linear transformation $T: V \rightarrow V$ on a real vector sp
 		\end{equation}
 		Where $T_i$ is the restriction of $T$ to $V_i$, $T|_{V_i}$.
 	\end{defn}
-	\textbf{LETS ACTUALLY INSERT A GRAPHIC HERE}\\
+	
+	\todofig{Graphic of restriction of an operator to subspaces, and now its just a constant scalar}
+	
 	Note Equation~\eqref{eq:distinct_root_semisimple} was a special case of semisimplicity, when all $V_i$ had dimension $1$. In general, a semisimple matrix when viewed in a basis $\mathbf v_j$ so that each $\mathbf v_j$ lies in one of the $V_i$ will look just like Equation~\eqref{eq:distinct_root_semisimple}, \emph{allowing} for repeated $\lambda_i$.
 	
 	But from our previous analysis, this implies that for a linear operator whose characteristic polynomial \emph{doesn't} have repeated roots (i.e  all roots are \textbf{simple}\index{Simple!Polynomial Root}) that there the eigenvectors form a basis for the space, in which the operator looks diagonal. 
@@ -259,7 +262,7 @@ When we studied a linear transformation $T: V \rightarrow V$ on a real vector sp
 	
 	The linear combinations of functions on $[0,1]$ when restricted to these $5$ points are then just linear combinations of these vectors in $\mathbb{R}^5$. In numerics, this would be a \emph{low resolution} way to view the function, equivalent to something like the graphic.
 
-	\textbf{PLOT HERE OF 5 BOX FUNCTIONS INTERPOLATING $f$}
+	\todofig{5 box functions interpolating $f$}
 	
 	If we increased the number of points we sampled at, say $f(k/n)$ as $k$ runs from $0$ to $n$, then we represent functions by vectors in $\mathbb{R}^{n+1}$. As $n$ gets big our resolution gets better and better. In general, though, infinitely many different functions will get sent to the same representation as a vector in $\mathbb{R}^{n+1}$ (so this discrete approximation from the set of all functions on $[0,1]$ to just $n+1$ evenly-spaced points has a huge kernel).
 	
@@ -300,9 +303,9 @@ When we studied a linear transformation $T: V \rightarrow V$ on a real vector sp
 		\frac{\left< f | g \right>}{||f|| ~ ||g||}
 	\end{equation*}
 	is geometrically what the cosine of the angle between two vectors was in $\mathbb R^{n+1}$. Functions that are ``in the same direction'' would have a positive cosine, while functions ``pointing in opposite directions'' would have a negative one. Uncorrelated, orthogonal functions would have a cosine of zero.
-	\textbf{EXERCISE ON THIS}
+	\todoex{Exercise on correlation of functions and the inner product}
 	
-	So the vector space of square-integrable functions on $[0,1]$ is an inner product space\index{Inner Product Space}. It is denoted\footnote{\textbf{HERE SAY SOMETHING ABOUT LEBESGUE VS RIEMANN INTEGRATION}} by $L^2[0,1]$. 
+	So the vector space of square-integrable functions on $[0,1]$ is an inner product space\index{Inner Product Space}. It is denoted\footnote{\textbf{HERE SAY SOMETHING ABOUT LEBESGUE VS RIEMANN INTEGRATION}\todoadd{Riemann vs Lebesgue in a footnote}} by $L^2[0,1]$. 
 	
 % section functions_form_a_vector_space (end)
 

@@ -11,11 +11,16 @@
 \usepackage{epigraph}
 \usepackage{makeidx}
 \usepackage{titlesec}
+\usepackage{xargs}
 \usepackage{tikz-cd}
 \usepackage[T1]{fontenc}
 \usepackage{mathabx}
 \usepackage[english]{babel}
 \usepackage[titletoc]{appendix}
+\usepackage[colorinlistoftodos,prependcaption,draft]{todonotes}
+\usepackage{xcolor}
+\reversemarginpar
+
 \newcommand{\md}{\text{ \% }}
 \newcommand{\bld}{\texttextbf}
 \newcommand{\Z}{\mathbb{Z}}
@@ -39,6 +44,12 @@
 \def\racts{\ensuremath{%
     \reflectbox{\rotatebox[origin=c]{180}{$\circlearrowright$}}}}
 
+
+\newcommandx{\todofig}[2][1=inline]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\todochange}[2][1=inline]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\todoref}[2][1=inline]{\todo[linecolor=green,backgroundcolor=green!25,bordercolor=green,#1]{#2}}
+\newcommandx{\todoadd}[2][1=inline]{\todo[linecolor=cyan,backgroundcolor=cyan!25,bordercolor=cyan,#1]{#2}}
+\newcommandx{\todoex}[2][1=inline]{\todo[linecolor=yellow,backgroundcolor=yellow!25,bordercolor=yellow,#1]{#2}}
 
 \usepackage{xcolor}
 \usepackage{titlesec}
@@ -112,6 +123,13 @@
 \begin{document}
 \maketitle
 
+\pagenumbering{roman}
+
+\listoftodos
+\newpage
+\thispagestyle{empty}
+\setcounter{page}{0}
+
 %Back of title page, Right, copyrights and publisher data
 
 %Left, preface, for around 3-5 pages
@@ -144,10 +162,9 @@
 \end{center}
 
 
+%Right, blank (or include quote)
 \newpage
 
-
-%Right, blank (or include quote)
 
 
 
@@ -178,15 +195,15 @@
 \end{large}
 
 %Right, blank page
+\newpage
 
-
-
-%Chapter 1: Old Notions Revisited
-
+%Now the book starts, so lets use actual numbers
+\pagenumbering{arabic}
+\setcounter{page}{1}
 
 \part{Prerequisite Material}
 
-
+%Chapter 1: Old Notions Revisited
 \subfile{chapters/C1}
 
 %Chapter 2: New Horizons
@@ -243,6 +260,8 @@
 
 %Index, 
 \printindex
+
+
 
 \end{document} 
 

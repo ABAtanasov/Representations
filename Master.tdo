@@ -1,0 +1,61 @@
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Insert 2D Plane with Coordinates}{2}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Insert Ball Falling}{3}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Graphic of non-perp lines and representing a point like that}{5}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Show a 2-D basis in a 3-D space, and a basis of 3 vectors in 2-D space}{6}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ elementary transform with $1/\sqrt {2}$s}{8}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ EXERCISE: PROVE IT HAS TO BE A INVERSE}{10}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ This will be a caption for a sketch of a 3-D rotation}{10}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Graphic of orthogonality being changed under affine transform}{11}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Insert graphic here, with an affine transformation of the plane}{12}
+\contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ Caption something like ``If Euclid's space allowed for not just rotations/translations but also general linear transformations like this, being perpendicular would be a coordinate-dependent idea. Note parallel lines, on the other hand, stay parallel, so affine space \emph {does} have a notion of parallel''}{12}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Graphic of polar coordinate system/spherical}{13}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ EXERCISE: Check invariance quickly using this method.}{18}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Figure 8 and cone aren't manifolds}{21}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Parallelogram with opposite sides identified}{22}
+\contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ AARON EXPLAIN WHY MANIFOLDS ARE USEFUL I DONT KNOW ANYTHING PRACTICAL}{23}
+\contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ Possibly talk about the algebra of open/closed sets?}{26}
+\contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ ELABORATE HERE: coffee cup = doughnut}{26}
+\contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ Charts on the sphere}{28}
+\contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ The whole embeddings section. Talk about how we always picture manifolds as embedded into Euclidean space, but nothing about them \emph {intrinsically demands it}}{28}
+\contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ Mention any $n$-dimensional manifold can be embedded in $\mathbb {R}^{2n}$}{28}
+\contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ Talk about how the torus is exactly the space in Example \ref {ex:secret_torus}}{28}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Show a graph of the curves for coordinates $q_i$}{30}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Ball with a vector field on it}{30}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ GRAPHIC: Vector on the left, form on the right}{35}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Exercise on constructing a dual basis of forms to a vector}{35}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ EXERCISE: show $(V^*)^*=V$}{36}
+\contentsline {todo}{\color@fb@x {}{blue}{}{blue!25}{\leavevmode {\color {blue!25}o}}\ Fix the ``What Follows'' section according to the course of the book}{36}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Flux Graphic}{45}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Figure of infinitesimal flux on a cube: Stokes' proof}{45}
+\contentsline {todo}{\color@fb@x {}{green}{}{green!25}{\leavevmode {\color {green!25}o}}\ Stokes' Theorem Rigor}{45}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Figure of infinitesimal circulation on a sqauare: Stokes' proof}{46}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Make an exercise to generalize classical Stokes' to 3D}{47}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ 1-form giving flux out of a parallelogram.. how is this even drawn?}{52}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Oriented Parallelograms}{53}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Proving additivity for forms, sum of planes. Need to discuss about this argument}{53}
+\contentsline {todo}{\color@fb@x {}{blue}{}{blue!25}{\leavevmode {\color {blue!25}o}}\ Very bad equation formatting here, Aaron probs knows how to fix}{55}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ GRAPHIC of 2-form wedge a 1-form giving ``inward'' orientation, and then wedge the negative of that 1-form to give the ``outward'' orientation}{56}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Exercise to generalize $n$ forms acting on $n$ vectors, and also to check that it makes sense in 3D when our wedges are cross products and areas are normal vectors}{57}
+\contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ Interior Product}{57}
+\contentsline {todo}{\color@fb@x {}{blue}{}{blue!25}{\leavevmode {\color {blue!25}o}}\ Fix Stokes' Theorem Proof}{60}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Exact 2-forms on $\mathbb R^3$ are correspond to solenoidal vector fields}{62}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Punctured Plane for De-Rham Cohomology}{62}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Arc Length in worthwhile coordinate systems}{66}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Diagram of Musical Isomorphisms}{69}
+\contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ INSERT SOME QUOTE ABOUT HOW LIKE 97\% OF MATH IS JUST TERMINOLOGY}{70}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ GRAPHIC: DIRECT SUM, R with R, and R with $\mathbf R^2$}{71}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ EXERCISE ON A GRADED ALGEBRA}{77}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Some examples of tensors}{77}
+\contentsline {todo}{\color@fb@x {}{blue}{}{blue!25}{\leavevmode {\color {blue!25}o}}\ Do this proof without going into an orthonormal basis maybe?}{80}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Flow of exponentiated vector field}{88}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ MAKE A GRAPHIC: Two vectors at different points on a sphere.. what's their difference? Two paths getting two different results.}{89}
+\contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ Relate this all to the complex exponential from the beginning of the section}{96}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Alternative definition for commutator}{97}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Alternative intuition for commutator}{97}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ And dual diagram to that}{97}
+\contentsline {todo}{\color@fb@x {}{blue}{}{blue!25}{\leavevmode {\color {blue!25}o}}\ This section will go towards the back}{99}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Make an exercise in the preceding chapter to derive all of complex analysis' integral formulae}{103}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Graphic of restriction of an operator to subspaces, and now its just a constant scalar}{105}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ 5 box functions interpolating $f$}{108}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Exercise on correlation of functions and the inner product}{109}
+\contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ Riemann vs Lebesgue in a footnote}{109}

@@ -56,7 +56,7 @@
 		The figure-eight and the cone are not manifolds.
 	\end{example}
 	
-	\textbf{DRAW IT}
+	\todofig{Figure 8 and cone aren't manifolds}
 	
 	Both of these objects have a ``cusp-like" point where multiple lines intersect. Zooming in near that point will preserve these cusps, and so the space does not look like Euclidean space near that point. There is no tangent space for the figure eight at the point of intersection that looks like a line: it would look like two lines intersecting. Similarly for the cone, there would not be a tangent space at the cusp that looks like a plane. At that point, the manifold looks like a continuum of intersecting lines. Intuitively, then, manifolds cannot have sharp cusps. As a result, the cube and triangle are not examples of manifolds. \\
 	
@@ -66,7 +66,7 @@
 		Consider a two-dimensional parallelogram, with opposite sides identified as the same. This is a manifold.
 	\end{example}\index{Torus}
 	
-	\textbf{DRAW THIS}
+	\todofig{Parallelogram with opposite sides identified}
 	
 	This is like a room, where if you exit on one side, you come back on the other side. The one dimensional version of this is a circle, and we will show how this space can be thought of as a ``product of circles'' or a ``circle of circles'' in two dimensions. Clearly this parallelogram locally looks like euclidean two-space in the neighborhood of any point on the interior. The only possible problem is at the edges. Because each edge is identified with its opposite one, however, a neighborhood of a point at the edge of the parallelogram will simple wrap around to the other side, and look just as euclidean as the neighborhood around any other point.
 	
@@ -90,7 +90,7 @@
 	\end{prop}
 	Oftentimes, we care about studying the possible states that a system can have, like the ways that an object can rotate, as in the prior example. This goes much beyond possible rotations, and can go as far as 
 	
-	\textbf{AARON EXPLAIN WHY ITS USEFUL I DONT KNOW ANYTHING PRACTICAL}
+	\todoadd{AARON EXPLAIN WHY MANIFOLDS ARE USEFUL I DONT KNOW ANYTHING PRACTICAL}
 	
 	
 	% section examples_of_manifolds (end)
@@ -153,10 +153,8 @@
 	\end{defn}
 	Note that on $\mathbb{R}$, the closed intervals $[a,b]$ are the complements of the unions of open sets informally denoted by $(-\infty, a) \cup (b, \infty)$.
 	
-	We can always arbitrarily define a topology and call ``these sets, and all their  arbitrary unions'' open, but it is better to work with a natural topologies like the Euclidean one discussed above.
-	
-	
-	\textbf{Talk about the algebra of open/closed sets?}\\
+	We can always arbitrarily define a topology and call ``these sets, and all their  arbitrary unions'' open, but it is better to work with a natural topologies like the Euclidean one discussed above.\\
+	\todoadd{Possibly talk about the algebra of open/closed sets?}
 	
 	
 	Why do we care about open sets so much? They allow us to define a notion of continuity for functions between any topological spaces:
@@ -176,7 +174,7 @@
 	\end{defn}
 	
 	An example of a homeomorphism that is one of the most common ideas associated with topology is that something like a coffee cup is homeomorphic to a doughnut as a topological space. \\
-	\textbf{ELABORATE HERE: COFFEE CUP = DOUGHNUT}
+	\todoadd{ELABORATE HERE: coffee cup = doughnut}
 	
 	In order to talk about manifolds \emph{locally} looking like Euclidean space, we need to be able to have a rigorous way of talking about things \emph{locally}. We want a good way of defining a \emph{neighborhood} around a point $p$. Certainly an open ball containing $p$ is a neighborhood of $p$ because it contains ``All the points near $p$''. In the Euclidean topology, any open set $U$ containing $p$ also contains a ball of some radius around $p$, and thus contains a neighborhood of $p$. We could say that a neighborhood is any open set containing $p$, or more generally:
 	
@@ -203,7 +201,7 @@
 	\begin{example}[Charts on the Sphere]
 		The sphere has a \textbf{\emph{stereographic projection}}\index{Sphere!Stereographic Projection} to the plane that covers every point of the sphere except the north pole. 
 	\end{example}
-	\textbf{FINISH THIS}
+	\todoadd{Charts on the sphere}
 	
 	We would like to be able to patch up the whole manifold with coordinate charts, so that we can work globally. Such a patch that covers the entire manifold is called an \emph{atlas}.
 	
@@ -221,12 +219,12 @@
 	\section{Embeddings vs. Intrinsic Geometry} % (fold)
 	\label{sec:embeddings_vs._intrinsic_geometry}
 	
-	\textbf{Talk about how we always picture manifolds as embedded into Euclidean space, but nothing about them \emph{intrinsically demands it}}\\ 
+	\todoadd{The whole embeddings section. Talk about how we always picture manifolds as embedded into Euclidean space, but nothing about them \emph{intrinsically demands it}}
 	
-	\textbf{Mention any $n$-dimensional manifold can be embedded in $\mathbb{R}^{2n}$}\\
+	\todoadd{Mention any $n$-dimensional manifold can be embedded in $\mathbb{R}^{2n}$}
 
 	
-	\textbf{Talk about how the torus is exactly the space in Example \ref{ex:secret_torus}}
+	\todoadd{Talk about how the torus is exactly the space in Example \ref{ex:secret_torus}}
 	
 	% section embeddings_vs._intrinsic_geometry (end)
 	
@@ -261,13 +259,13 @@
 	
 	The $\varphi_\alpha^{-1}$ allow us to take a tuple of $n$ coordinates $q^1, \dots, q^n$ on $\mathbb{R}^n$ and associate that to a unique point on $M$ that is part of $U$. So we see how a scalar field $f: M \rightarrow R$ can descend to a function on the local coordinates. 
 	
-	\textbf{Show a graph of the curves for coordinates $q_i$}
+	\todofig{Show a graph of the curves for coordinates $q_i$}
 	
 	The question now is what about a \emph{vector field} $\mathbf{F}$ on our manifold $M$? What does this thing mean? We want to associate to each point on $M$ a vector at that point. Note that this doesn't mean we want to associate to each point on $M$ just some tuple in $\mathbb{R}^n$, because a vector is \emph{not} just a tuple of numbers (that's coordinate dependent). We want to associate a physical vector at that point. 
 	
 	 Intuitively it should make sense what we mean by this: 
 	
-	\textbf{PICTURE OF A BALL WITH A VECTOR FIELD ON IT}
+	\todofig{Ball with a vector field on it}
 	
 	In Section~\ref{sec:nonlinear_coordinate_systems_are_locally_linear}, we showed how when adopting polar coordinates, the corresponding vectors $\hat{\mathbf{r}},\hat{\mathbf{\theta}}$ change direction depending on the point $p$ we're describing. Each of them points in the direction of an increase in the corresponding coordinate. So for a general curvilinear coordinate system on a manifold $q^i$, the associated vectors $\mathbf e_i$ would be tangent to the paths traced out by varying $q_i$. 
 	
@@ -380,11 +378,11 @@
 	
 	This is all well and good, but how can we \emph{visualize} these two concepts. Visualizing vectors is easy, we've been doing it since calculus class, if not before. They are ``arrows'', tangent to curves, showing the first-order behaviour of that curve. 1-forms on the other hand are a different story. If we pick a point $p$ in $2$D, then the first order behavior of a function can be visualized by adding in a dimension and showing the local tangent plane approximating that function. Alternatively, we can stay in 2-D and just show the local \emph{level curves} (these are lines for tangent plane). 
 	
-	\textbf{GRAPHIC HERE, VECTOR ON THE LEFT, FORM ON THE RIGHT}
+	\todofig{GRAPHIC: Vector on the left, form on the right}
 	
 	In $3$D vectors would look the same, and forms could be visualized by the local level-planes of the function at $p$.
 	
-	\textbf{Exercise on constructing a dual basis of forms to a vector}
+	\todoex{Exercise on constructing a dual basis of forms to a vector}
 	
 	If we are given a coordinate system $q^i$ then on a given vector $\mathbf v = v^i \partial_i$ representing a direction, a form $\omega_i dx^i$ representing the first order behavior of a function can \emph{act} on $\mathbf v$ to give the first order change along $\mathbf v$. 
 	
@@ -405,7 +403,7 @@
 	\begin{defn}
 		For a finite-dimensional vector space $V$, the set of all linear maps $\alpha: V \rightarrow \mathbb R$ forms a vector space $V^*$ called the dual space of $V$. 
 	\end{defn}
-	\textbf{EXERCISE: show $(V^*)^*=V$}
+	\todoex{EXERCISE: show $(V^*)^*=V$}
 	
 	In linear algebra, perhaps this idea is \emph{too} simple. If our vector space is represented as column vectors, the linear functionals are the row vectors.
 	
@@ -425,10 +423,9 @@
 	\index{Manifold|)}
 	\section{What Follows} % (fold)
 	\label{sec:what_follows}
+
+	\todochange{Fix the ``What Follows'' section according to the course of the book}
 	
-	\begin{center}
-		\textbf{\emph{{Tentative:}}}\\
-	\end{center}
 	The rest of this book will expand both on the geometry of fields and manifolds, and also on the larger ideas of groups, homogenous spaces, and representations. \\
 	
 	In Chapter 3, we will continue studying the fields that live on manifolds. We'll prove the General Stokes' theorem, an elegant generalization of the divergence, curl, and line integral theorems that have been taught in multivariable calculus. From there, we will study more thoroughly the concept of distance on a vector space and on a manifold using a metric, and how this relates vector fields to differential forms. The notion of a derivative will be extended to manifolds, and will take the form of a ``Lie Derivative''.\\
