@@ -19,6 +19,7 @@
 \usepackage[titletoc]{appendix}
 \usepackage[colorinlistoftodos,prependcaption,draft]{todonotes}
 \usepackage{xcolor}
+\usepackage{wasysym}
 \reversemarginpar
 
 \newcommand{\md}{\text{ \% }}
@@ -87,15 +88,23 @@
 \makeindex
 
 
-\newtheorem{theorem}{Theorem}[chapter]
-\newtheorem{defn}[theorem]{Definition}
+
+
 \newtheorem*{nb}{Important Note}		%Don't think we'll use this
-\newtheorem{concept}[theorem]{Concept}
+\newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
 \newtheorem{cor}[theorem]{Corollary}
 \newtheorem{obs}[theorem]{Observation}
+
+
+\theoremstyle{definition}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{concept}[theorem]{Concept}
+\newtheorem{view}{View}
+
 \newtheorem{example}[theorem]{Example}
-\newtheorem{prop}[theorem]{Proposition}
+
 
 %\declaretheorem[name=Theorem,numberwithin=section]{thm}
 
@@ -213,7 +222,7 @@
 %Chapter 3: Differential Geometry (large chapter)
 
 
-\part{A Better Language}\thispagestyle{empty}
+\part{A Language for Nature}\thispagestyle{empty}
 
 \subfile{chapters/C3}
 
@@ -247,7 +256,9 @@
 \chapter*{Conclusion}\thispagestyle{empty}
 \addcontentsline{toc}{chapter}{\emph{Conclusion}}
 
-\subfile{Chapters/Appendices}
+
+
+ \subfile{Chapters/Appendices}
 
 %Right, Notation
 \chapter*{Notation}\thispagestyle{empty}
@@ -260,7 +271,6 @@
 
 %Index, 
 \printindex
-
 
 
 \end{document} 

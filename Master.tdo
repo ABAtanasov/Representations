@@ -6,6 +6,7 @@
 \contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ EXERCISE: PROVE IT HAS TO BE A INVERSE}{10}
 \contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ This will be a caption for a sketch of a 3-D rotation}{10}
 \contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Graphic of orthogonality being changed under affine transform}{11}
+\contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ I wanna really elaborate how an inner product \emph {picks} a frame to be orthogonal, promoting it above all the others.}{12}
 \contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Insert graphic here, with an affine transformation of the plane}{12}
 \contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ Caption something like ``If Euclid's space allowed for not just rotations/translations but also general linear transformations like this, being perpendicular would be a coordinate-dependent idea. Note parallel lines, on the other hand, stay parallel, so affine space \emph {does} have a notion of parallel''}{12}
 \contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Graphic of polar coordinate system/spherical}{13}
@@ -44,18 +45,29 @@
 \contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Diagram of Musical Isomorphisms}{69}
 \contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ INSERT SOME QUOTE ABOUT HOW LIKE 97\% OF MATH IS JUST TERMINOLOGY}{70}
 \contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ GRAPHIC: DIRECT SUM, R with R, and R with $\mathbf R^2$}{71}
-\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ EXERCISE ON A GRADED ALGEBRA}{77}
-\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Some examples of tensors}{77}
-\contentsline {todo}{\color@fb@x {}{blue}{}{blue!25}{\leavevmode {\color {blue!25}o}}\ Do this proof without going into an orthonormal basis maybe?}{80}
-\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Flow of exponentiated vector field}{88}
-\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ MAKE A GRAPHIC: Two vectors at different points on a sphere.. what's their difference? Two paths getting two different results.}{89}
-\contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ Relate this all to the complex exponential from the beginning of the section}{96}
-\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Alternative definition for commutator}{97}
-\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Alternative intuition for commutator}{97}
-\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ And dual diagram to that}{97}
-\contentsline {todo}{\color@fb@x {}{blue}{}{blue!25}{\leavevmode {\color {blue!25}o}}\ This section will go towards the back}{99}
-\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Make an exercise in the preceding chapter to derive all of complex analysis' integral formulae}{103}
-\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Graphic of restriction of an operator to subspaces, and now its just a constant scalar}{105}
-\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ 5 box functions interpolating $f$}{108}
-\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Exercise on correlation of functions and the inner product}{109}
-\contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ Riemann vs Lebesgue in a footnote}{109}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ EXERCISE ON A GRADED ALGEBRA}{78}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Some examples of tensors}{78}
+\contentsline {todo}{\color@fb@x {}{blue}{}{blue!25}{\leavevmode {\color {blue!25}o}}\ Do this proof without going into an orthonormal basis maybe?}{81}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Flow of exponentiated vector field}{89}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ MAKE A GRAPHIC: Two vectors at different points on a sphere.. what's their difference? Two paths getting two different results.}{90}
+\contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ Relate this all to the complex exponential from the beginning of the section}{97}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Alternative definition for commutator}{98}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Alternative intuition for commutator}{98}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ And dual diagram to that}{98}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ 5 box functions interpolating $f$}{100}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Exercise on correlation of functions and the inner product}{103}
+\contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ Riemann vs Lebesgue in a footnote}{103}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Ex: Show this is the same as forming a Cauchy sequence}{104}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Figure: All vectors being within a neighborhood of $x_N$, accumulating.}{104}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Ex: Being complete is with respect to a metric, not a topology (reals are homeomorphic to incomplete $[0,1]$)}{104}
+\contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ Provide a measure theory reference for $L^2$ being complete, like Stein, but probably not Stein tb$\hbar $.}{105}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Draw A String for the Wave equation}{105}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Make an exercise for the total spring constant}{105}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Make a heat equation derivation exercise, from Newton's law of COOLING this time}{108}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Draw a figure of a graph}{108}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Random scrambled graph ``where's your derivative now, fam?"}{111}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Applications to Molecular Orbital Theory}{112}
+\contentsline {todo}{\color@fb@x {}{blue}{}{blue!25}{\leavevmode {\color {blue!25}o}}\ Should this just be an appendix section?}{124}
+\contentsline {todo}{\color@fb@x {}{cyan}{}{cyan!25}{\leavevmode {\color {cyan!25}o}}\ IDK how to make chapter -> appendix which is a big problem here}{124}
+\contentsline {todo}{\color@fb@x {}{yellow}{}{yellow!25}{\leavevmode {\color {yellow!25}o}}\ Make an exercise in the preceding chapter to derive all of complex analysis' integral formulae}{128}
+\contentsline {todo}{\color@fb@x {}{red}{}{red!25}{\leavevmode {\color {red!25}o}}\ Graphic of restriction of an operator to subspaces, and now its just a constant scalar}{130}

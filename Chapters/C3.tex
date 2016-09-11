@@ -1,5 +1,5 @@
 
-\chapter{Differential Geometry}\thispagestyle{empty}
+\chapter{Differential Geometry}\label{ch:diffgeo}\thispagestyle{empty}
 
 In calculus class, the fundamental theorem of calculus is introduced: that the total difference of a function's value at the end of an interval from its value at the beginning is the sum of the infinitesimal changes in the function over the points of the interval:
 
@@ -264,7 +264,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 
 	Even simpler than one-forms are the \textbf{zero forms}, with no differentials appearing. A zero-form precisely a scalar function at $f(p)$ each point $p$. Regardless of how we change our coordinate system, the value of the \emph{function} at point $p$ is the same.
 	
-	We are now in a good place to define $\mathrm d$, at least for going from functions (zero-forms) to one-forms. Given a function $f$, $\mathrm d f$ will produce a form representing the local change in $f$ depending on the displacement. We call $\mathrm d$ the \textbf{exterior derivative}\index{Exterior!Derivative} operator.
+	We are now in a good place to define $\mathrm d$, at least for going from functions (zero-forms) to one-forms. Given a function $f$, $\mathrm d f$ will produce a form representing the local change in $f$ depending on the displacement. We call $\mathrm d$ the \textbf{exterior derivative}\index{Exterior!Derivative}\index{Derivative!Exterior} operator.
 	
 	For example, for a potential energy function $\phi$, $\mathrm d \phi$ can be written as 
 	
@@ -554,7 +554,7 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 		\end{equation*}
 		Since $\omega$ was any arbitrary form, we must have $\partial^2 \Omega = 0$.
 	\end{proof}
-	This is an amazing geometric fact that we have gotten, via Stokes' theorem, from the \emph{purely algebraically derived} fact that $\mathrm d^2 = 0$. The duality between forms and the manifolds we integrate them over is a gorgeous duality between algebra and geometry that extends very deeply and profoundlys (c.f. Hodge Theory \textbf{INSERT TEXTS HERE}).
+	This is an amazing geometric fact that we have gotten, via Stokes' theorem, from the \emph{purely algebraically derived} fact that $\mathrm d^2 = 0$. The duality between forms and the manifolds we integrate them over is a gorgeous duality between algebra and geometry that extends very deeply and profoundly (c.f. Hodge Theory \textbf{INSERT TEXTS HERE}).
 	
 	We have already seen that differential forms that are the exterior derivatives $\mathrm d \omega$ of some other form $\omega$ are called exact. We know exact 1-forms correspond to conservative vector fields. \textbf{It will be an exercise to show} exact 2-forms in $\mathbb R^3$ correspond to solenoidal vector fields.\todoex{Exact 2-forms on $\mathbb R^3$ are correspond to solenoidal vector fields} On the other hand, forms $\omega$ that have $\mathrm d \omega = 0$ are called \textbf{closed}\index{Differential Form!Closed}. Why this language? It is taken for the corresponding geometric language for the boundary operator. If a region has no boundary, it is called closed, so if a form has zero exterior derivative, it will also be called closed. Clearly exact forms are closed, since $\mathrm d^2 = 0$, but are \emph{all} the closed forms exact? In $\mathbf{R}^3$, the answer is yes, but consider this:
 	
@@ -823,24 +823,63 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	
 	The notion of a direct sum is so broad and general that it will be seen for the remainder of this book. It is the idea that $V$ and $W$ are two entirely different worlds, and $V \oplus W$ is their combination. 
 	
-	A very intuitive way to understand the direct product further comes, oddly enough, from a quantum mechanical-type language. In quantum mechanics, the various states that something can have are represented by vectors. Say something can be one of three shapes
+	A very intuitive way to understand the direct product further comes, oddly enough, from quantum mechanical language. In quantum mechanics, the various states that something can have are represented by vectors. Say something can be one of three shapes
 	\begin{equation*}
 		\{ \square, ~ \triangle,  ~ \bigcirc \}
 	\end{equation*}
-	Now in quantum mechanics we can mix states so something could look like $\frac{1}{\sqrt 2} \square + \frac{1}{\sqrt 2} \triangle$, so these form a vector space $V$ with vectors $a \square + b \triangle + c \bigcirc$. If we had another two states, say $\ddot \smile$ and $\ddot \frown$ that formed a space of vectors $a \ddot \smile + b \ddot \frown$ labelled $W$ then the direct sum $V \oplus W$ would be spanned by the basis:
+	Now in quantum mechanics we can mix states so something could look like $\frac{1}{\sqrt 2} \square + \frac{1}{\sqrt 2} \triangle$, so these form a vector space $V$ with vectors $a \square + b \triangle + c \bigcirc$. If we had another two states, say $\smiley$ and $\frownie$ that formed a space of vectors $a \smiley + b \frownie$ labelled $W$ then the direct sum $V \oplus W$ would be spanned by the basis:
 	\begin{equation*}
-		\{ \square, ~ \triangle,  ~ \bigcirc, ~ \ddot \smile, \ddot \frown \}
+		\{ \square, ~ \triangle,  ~ \bigcirc, ~ \smiley,  \frownie \}
 	\end{equation*}
 	The idea of the direct sum should resemble exactly how you learned addition as a toddler.
 	
-	Within \emph{this} scheme, it is easy to explain the \textbf{direct product}\index{Tensor!Tensor Product}\index{Direct Product} also known as the \textbf{tensor product}. Say we have the same two vector spaces $V$ and $W$, spanned by $\{ \square, ~ \triangle,  ~ \bigcirc \}$ and $\{ \ddot \smile, \ddot \frown \}$, respectively. Then the tensor product $V \otimes W$ has a basis the represents all the states of a \emph{composite system} of an object that has a state in $V$ and another object that has a state in $W$:
-	\begin{equation}
-		\begin{Bmatrix}
-		 \square \otimes \ddot \smile, & \triangle \otimes \ddot \smile,  & \bigcirc  \otimes \ddot \smile, \\
-		\square \otimes \ddot \frown, & \triangle \otimes \ddot \frown,  & \bigcirc  \otimes \ddot \frown~	
-		\end{Bmatrix}
-	\end{equation}
-	this is a completely different space from $V$ or $W$, and unlike the direct sum, neither of the original vector space are a part of this new space. The dimension of this tensor product space is the product of the two original dimensions.
+	Within \emph{this} scheme, it is easy to explain the \textbf{direct product}\index{Tensor!Tensor Product}\index{Direct Product} also known more commonly as the \textbf{tensor product}. 
+	\begin{view}[3-Year-Old's Perspective]
+		The tensor product of a space spanned by $\{ \square, ~ \triangle,  ~ \bigcirc \}$ with a space spanned by $\{ \smiley, \frownie \}$ gives rise to a new space, spanned by the \emph{composite pairs}
+		\begin{equation*}
+			\begin{Bmatrix}
+			 \square \otimes \smiley, & \triangle \otimes \smiley,  & \bigcirc  \otimes  \smiley, \\
+			\square \otimes \frownie, & \triangle \otimes \frownie,  & \bigcirc  \otimes \frownie ~	
+			\end{Bmatrix}
+		\end{equation*}
+		This is a space of dimension $\dim V \times \dim W$.
+	\end{view}
+	The tensor product $V \otimes W$ represents all the states of a \emph{composite system} of one object that has a state in $V$ and another object that has a state in $W$. It's especially important to stress is that $V \otimes W$ is a \emph{completely different space} from either $V$ or $W$, and unlike the direct sum, neither of the original vector spaces are a part of this new space.
+	
+	
+	So in general, for a space $V$ with basis $\mathbf v_i$ and a space $W$ with basis $\mathbf w_i$, the tensor product space is simply a ``product'' of $V$ and $W$ in the sense that it is spanned by the abstract new vectors $\mathbf v_i \otimes \mathbf w_j$. There is no more structure to the tensor product other than requiring that $\otimes$ is distributive, just like multiplication is: $\mathbf a \otimes (\mathbf b + \mathbf c) = \mathbf a \otimes \mathbf b + \mathbf a \otimes \mathbf c$, and vice versa for $(\mathbf a + \mathbf b) \otimes \mathbf c$. Also, we say $\mathbf a \otimes (c \mathbf b) = c (\mathbf a \otimes \mathbf b)$. So tensoring with $c$ times a vector gives $c$ times the tensor with that vector. This is the exact same distributivity that ordinary multiplication has $x(cy) = c (xy)$. The tensor product is no more than a new space of ``formal multiplication of vectors, satisfying distributivity''.
+	
+	
+	\begin{defn}[Tensor Product]
+		For two vector spaces $V,W$, we define $V \otimes W$ as the vector space of all products $\mathbf v \otimes \mathbf w$ satisfying the following bi-linearity conditions:
+		\begin{enumerate}
+			\item $(a \mathbf v) \otimes \mathbf w = a (\mathbf v \otimes \mathbf w)$ and $\mathbf v \otimes (a \mathbf w) = a (\mathbf v \otimes \mathbf w)$
+			\item $(\mathbf v_1 + \mathbf v_2) \otimes \mathbf w = \mathbf v_1 \otimes \mathbf w + \mathbf v_2 \otimes \mathbf w$ and\\ $\mathbf v\otimes (\mathbf w_1 + \mathbf w_2) = \mathbf v \otimes \mathbf w_1 + \mathbf v \otimes \mathbf w_2$
+		\end{enumerate}
+	\end{defn}
+	
+	 Now we can relate pairs of vectors $\mathbf v \in V$ and $\mathbf w \in W$ to an element in the tensor product basis by writing $\mathbf v, \mathbf w$ in terms of the $\mathbf v_i$ and $\mathbf w_i$ bases and using distributivity of $\otimes$:
+	\begin{equation*}
+		\mathbf v \otimes \mathbf w = (v^i \mathbf v_i) \otimes (w^i \mathbf w_i) = v^i w^i \mathbf v_i \otimes \mathbf w_i
+	\end{equation*}
+
+	The second view is the easy answer given when a student asks ``what is a tensor?''. A professor may reply ``you can just think of it as a matrix''. This is also exactly the right way for computer scientist to view tensors, but their language refers to vectors as ``arrays'' and tensors, consequently, as ``double arrays''.
+	\begin{view}[Computer Scientist's Perspective]
+		For elements in $V$ represented as lists of $n$ numbers, and elements in $W$ represented as lists of $m$ numbers, the elements of $V \otimes W$ are represented as $n \times m$ tables $A_{ij}$ so that the entry of $A_{ij}$ is the coefficient of basis element $\mathbf v_i \otimes \mathbf w_j$.
+	\end{view}
+	By distributivity, for individual lists $v^i$ and $w^j$ their associated tensor product $\mathbf v \otimes \mathbf w$ has entries $v^i w^j$.
+	
+	The third view is similar. If we start with a vector space $V$, $V \oplus W$ is similar to saying that ``we now have more vectors'' that we can add into $V$. That means the operation `$+$' an act not just between vectors in $V$ but also between vectors in $V$ and vectors in $W$. We have ``extended the set of vectors we can add together'' to include $W$, giving the resulting larger space of $V \oplus W$.
+	
+	In this vein, the tensor product can be viewed as an extension of \emph{scalar multiplication}
+	
+	\begin{view}[Extension of Scalars]
+		We view $V \otimes W$ as extending the vectors in $V$ from having \emph{scalars} as their components to having \emph{vectors} in $W$ as their components. That is, we ``extend scalars'' from the one-dimensional $\mathbb R$ to the higher space $W$.
+	\end{view}
+	Then a general vector $\mathbf a$ in $V \otimes W$ can be viewed as a vector in $\mathbf V$ whose components are not scalars, but are themselves vectors in $\mathbf W$. This is really the same perspective as the computer scientist's.
+	
+	The last view is probably the least intuitive, but is the one that every mathematician will call the ``correct'' way to define the tensor product. What it lacks in intuition, it makes up for in motivating why this tensor product operation is worth studying \emph{at all}.
+	
 	
 	The tensor product can first be motivated by the action of a bilinear forms. We've seen the metric as an example of a (symmetric) bilinear form on the tangent space. Moreover two any two vectors we can also associate an area $A(\mathbf u, \mathbf v)$ to be the signed area of the parallelogram that they span. This is an antisymmetric bilinear form.
 	
@@ -859,16 +898,14 @@ And later, in multivariable calculus, more elaborate integral formulae are encou
 	\end{align*}
 	That is, the tensor product is \emph{defined} to be bilinear so that $B(\mathbf u, \mathbf v)$ corresponds exactly to $B(\mathbf u \otimes \mathbf v)$ on the tensor product space.
 	
-	\begin{defn}[Tensor Product]
-		For two vector spaces $V,W$, we define $V \otimes W$ as the vector space of all products $\mathbf v \otimes \mathbf w$ satisfying the following bi-linearity conditions:
-		\begin{enumerate}
-			\item $(a \mathbf v) \otimes \mathbf w = a (\mathbf v \otimes \mathbf w)$ and $\mathbf v \otimes (a \mathbf w) = a (\mathbf v \otimes \mathbf w)$
-			\item $(\mathbf v_1 + \mathbf v_2) \otimes \mathbf w = \mathbf v_1 \otimes \mathbf w + \mathbf v_2 \otimes \mathbf w$ and\\ $\mathbf v\otimes (\mathbf w_1 + \mathbf w_2) = \mathbf v \otimes \mathbf w_1 + \mathbf v \otimes \mathbf w_2$
-		\end{enumerate}
-	\end{defn}
+	
 	
 	Bilinear operators are important, however they seem less compatible with the tools of linear algebra. We don't want to generalize ``linear'' algebra to ``quadratic'' or ``cubic'' algebra because that'd be wildly more complicated and less elegant. Therefore, we view all bilinear operators as \emph{linear} operators acting on \emph{tensor spaces}, and the only bilinear operator we have to worry about from now on is $\otimes$ itself. 
 
+	
+	\begin{view}[Category Theorist's Perspective]
+		The tensor product is defined so that the following definition holds.
+	\end{view}
 	
 	\begin{defn}[Universal Property of the Tensor Product]
 		For two vector spaces $V,W$, we define a bilinear map $\mathbf \varphi$ from\footnote{In general, for a function with $2$ arguments: the first in a set $A$, the second in a set $B$, we say the function's domain is $A\times B$. This is just notation.} $V \times W$ into their tensor product space $V \otimes W$. The tensor product space satisfies the \emph{universal property} that for any bilinear map $B(-,-): V \times W \rightarrow Z$ into a space $Z$, there is a \emph{unique} linear map $\tilde B(-)$ induced on $V \otimes W$ so that the following diagram commutes:

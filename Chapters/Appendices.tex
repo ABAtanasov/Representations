@@ -5,7 +5,248 @@
 \noappendicestocpagenum
 %\addappheadtotoc
 
-\chapter*{Category Theory}
+
+
+\chapter[Eigenvalues and the Jordan Normal Form]{Eigenvalues and the\\Jordan Normal Form}
+
+\index{Eigenvalue|(}
+\todochange{Should this just be an appendix section?}
+\todoadd{IDK how to make chapter -> appendix which is a big problem here}
+
+% This first section will derive essentially everything that there is to know about the eigenvalues of linear operators on finite dimensional vector spaces. \\
+
+Eigenvalues of a linear tranformation and their associated eigenvectors hold great value, The eigenvectors determine subspaces of $V$ where the action of the transformation becomes as \emph{simple as possible}: literally scalar multiplication. If we can decompose $V$, by using eigenvectors, into a series of spaces along which the transformation is simply scaling, we can \textbf{diagonalize} the matrix, and all the information and dynamics that it represents become extraordinarily simple to work with. The difficult-to-work-with process of matrix multiplication collapses down to multiplication by scalars. \\
+
+When we studied a linear transformation $T: V \rightarrow V$ on a real vector space $V$ of dimension $n$. $T$ takes a vector $\mathbf v_i$ and maps it to another vector $T\mathbf v_i \in V$. If we pick a specific basis $B \{ \mathbf e_i \}$ for our space, then $T$ can be represented by a \textbf{matrix}\index{Matrix}, $A^i_j$ whose $ij$th entries in the basis $B$ can be explicitly found: 
+	\begin{equation}
+		A^i_j = \begin{pmatrix}
+			& & \\
+			T(\mathbf e_1) & \dots & T(\mathbf e_n)\\
+			& &
+		\end{pmatrix}_B
+		=\begin{pmatrix}
+			T(\mathbf e_1)^1 & \dots & T(\mathbf e_n)^1 \\
+			\vdots & \dots & \vdots\\
+			T(\mathbf e_1)^n & \dots & T(\mathbf e_n)^n
+		\end{pmatrix}_B
+	\end{equation}
+	Note this same transformation can be viewed through different bases $\mathbf e_i'$, producing different matrix representations depending on the basis. Therefore we should realize, just like tuples of numbers only represented physical vectors once a coordinate system was chosen, the same is true for how matrices only \emph{represent} the linear operators we care about. In particular, since we can write matrix multiplication in a basis as
+	\begin{equation}
+		(Tv)^i = A^i_j v^j
+	\end{equation}
+	Now if we change basis from $B$ to $B'$ and we have a matrix $Q_i^j$ that takes the components $v^i$ of a vector in the $B$ basis and gives us the $B'$ basis $(v')^i = Q_i^j v^j$ then we can transform $A^i_j$ according to:
+	\begin{equation}
+		(A^i_j)_{B'} = Q^i_k (A^k_l)_B (Q^{-1})^l_j 
+	\end{equation}
+	Accordingly, $A_{B'} = Q A_B Q^{-1}$. This should make perfect sense: if we're given a vector's components ${v'}^i$ in the $B'$ basis, first we act by $Q^{-1}$ to get back into the $B$ basis, then we act by $A$, since we know how $T$ acts in this basis, and then we map that vector back into the $B'$ basis with $Q$.
+	
+	One operator can be represented by many different matrices. Here, we will attempt to \emph{classify} all the possible linear operators on a space. This would be a great thing, since linear operators can be so diverse, ranging from stretching to shearing to rotation, and much more. 
+	
+	We start with the \textbf{trivial} linear operator, $0$. Nothing can be more basic than the action of sending everything to zero. The simplest linear transformation that isn't just $0$ is multiplication by a scalar, $\lambda$. This is basic multiplication, and as a matrix is represented just as
+	\begin{equation*}
+		\lambda = \lambda I=
+		\begin{pmatrix}
+			\lambda & 0 & \dots & 0 \\
+			0 & \lambda & \dots & 0 \\
+			\vdots & \vdots & \ddots & \vdots \\
+			0 & 0 & \dots & \lambda
+		\end{pmatrix}  = \lambda \delta^i_j
+	\end{equation*}
+	Note that if we change basis, the matrix representation for scalar multiplication \emph{doesn't} change: regardless of how you look at it, multiplication by $\lambda$ is multiplication by $\lambda$. The set of linear operators that are just simple scalar multiplication form a subspace of all linear operators, and are called \textbf{simple}\index{Simple!Linear Operator}. Simple linear operators are literally just numbers, acting on the space by scaling everything the same way. Note the trivial $0$ operator is an example of a simple operator.
+	
+	Of course, the set of linear operators that are simple is a very small subset of the set of all linear operators. A linear operator on $V$ does not in general act simply on $V$, but the next best thing we could hope for is that $T$ becomes simple when its action is restricted to a \emph{subspace} of $V$. 
+	
+	
+% , one of the things we were most interested in was its \textbf{kernel}\index{Kernel} $\ker T$, sometimes called its \textbf{null space}\index{Null Space|see {Kernel}}.
+% \begin{defn}[Review of Kernel]
+% 	The kernel $\ker T$ of a linear transformation is the set of vectors $\mathbf v \in V$ such that $T \mathbf v = 0$.
+% \end{defn}
+% 	This forms a vector space: if $\mathbf v, \mathbf w \in \ker T$ then $T(a \mathbf v + b \mathbf w) = a T(\mathbf v) + b T(\mathbf w) = 0$. The kernel is important as it tells us ``along which directions in $V$ does $T$ lose information?''. Using other language, however, we could reformulate this as asking ``along which directions in $V$ does $T$ act exactly like $0$?''.
+%
+% 	This is the central point: for vectors in the kernel $\ker T$, acting by $T$ is \emph{exactly} like just multiplying by the number $0$. There is no difference between a linear transformation and the \emph{scalar} $0$. Of course, scalars themselves are linear transformations, but they are definitely the easiest ones to deal with.
+	
+	% Motivated by this, there is another more general question we can ask: ``along which directions in $V$ does $T$ act exactly like $\lambda$?'', for any number $\lambda$.
+	
+	What would this mean, mathematically? We want to find vectors $\mathbf v$ so that
+	\begin{equation}\label{eq:eigen_1}
+		T \mathbf v = \lambda \mathbf v
+	\end{equation}
+	Note that such a set of $\mathbf v$ is \emph{also} a vector space.
+	\begin{prop}
+	The set of vectors where $T \mathbf v = \lambda \mathbf v$, for some specific $\lambda$, is a vector space, denoted $V_\lambda$. 
+	\end{prop}
+	\begin{proof}
+		If $\mathbf v, \mathbf w$ have
+		\begin{equation*}
+			T \mathbf v = \lambda \mathbf v, T \mathbf w = \lambda \mathbf w
+		\end{equation*}
+		then
+		\begin{equation*}
+			T(a \mathbf v + b \mathbf w) = a T(\mathbf v) + b T(\mathbf w) = a \lambda \mathbf v + b \lambda \mathbf w = \lambda(a \mathbf v + b \mathbf w)
+		\end{equation*}
+	\end{proof}
+	We then have that $V_\lambda$ is exactly the subspace where $T$ acts simply as $\lambda$.
+	When $\lambda = 0$ this is exactly what we referred to as $\ker T$. How can we find this subspace? The trick all lies in noting that the number $\lambda$ is \emph{itself} just a linear transformation. Then finding when Equation~\eqref{eq:eigen_1} is satisfied is the same as finding when:
+	\begin{equation}
+		(T - \lambda) \mathbf v = 0
+	\end{equation}
+	So this is no different from calculating a kernel of the shifted operator $T - \lambda$. If we know how to find the kernel, the subspace where $T = 0$, we also know how to find the subspace where $T = \lambda$ by finding the kernel where $T - \lambda = 0$. It's a really simple idea.
+	
+	But it's worth asking the question ``does $T-\lambda$ even \emph{have} a nontrivial kernel?". That is, for which $\lambda$ is $V_\lambda$ nontrivial? We know a quick way to answer this question. $T - \lambda$ will have a nontrivial kernel exactly when:
+	\begin{equation}
+		\det ( T - \lambda ) = 0
+	\end{equation}
+	In a specific basis, $T$ can be represented by a matrix $T_{ij}$ and $\lambda$ as a operator is always the matrix $\lambda I = \lambda \delta_{ij}$ so that we can directly compute this in a basis by computing the matrix determinant $\det(T_{ij} - \lambda \delta_{ij})$. It is not hard to see that this is a polynomial 
+	\begin{equation}
+		\begin{pmatrix}
+			T_{1}^1 - \lambda & \dots & T_{1}^n\\
+			\vdots &	   & \vdots\\
+			T_{1}^n & \dots & T_{n}^n - \lambda 
+		\end{pmatrix}
+	\end{equation}
+	
+	 It's not difficult to see that the resulting determinant becomes a \emph{polynomial of degree $n$} in $\lambda$. It is called the \textbf{characteristic polynomial}\index{Characteristic Polynomial} $p_T(\lambda)$ of the transformation $T$.
+	 
+	 The determinant of a transformation is itself independent of the coordinate system we use, so the characteristic polynomial is an invariant, not dependent on the basis that gives us our $T_{ij}$. The roots of this polynomial are special numbers, characteristic of the transformation. These ``characteristic values'' or, from German, \textbf{eigenvalues}, of $T$ are thus also invariants independent of coordinate system. They are exactly the values for which $V_\lambda$ is nontrivial, so that $T$ acts simply as one of these $\lambda_i$ on each $V_{\lambda_i}$. 
+	 
+	 But over the reals, there are transformations that don't even have eigenvalues:
+	 \begin{example}
+	 	The transformation representing counterclockwise rotation of the basis, which can be represented by the real matrix $\begin{pmatrix}
+	 		0 & -1 \\ 1 & 0
+	 	\end{pmatrix}$
+		has no real eigenvalues.
+	 \end{example}
+	 We see this immediately since its characteristic polynomial is $\lambda^2 + 1$ which has no real roots. It does, however, have complex roots $\lambda = \pm i$ and we shouldn't ignore this fact. If we want to find a vector subspace on which this transformation acts simply as $\pm i$, we need to \emph{extend} the number system that we are working over, from the reals to the complex numbers. In fact, working over the complex numbers is completely \emph{ideal} if we want $p_T(\lambda)$ to have roots, giving us eigenvalues. The reason is because of this foundational theorem:
+	 
+	 \begin{theorem}[Fundamental Theorem of Algebra]
+	 	Every non-constant polynomial with coefficients in $\mathbb{C}$ has a root in $\mathbb C$.
+	 \end{theorem}
+	 \begin{proof}[Proof. (Optional, for those familia with complex analysis)]
+	 The easiest way to do this is by use of complex analysis. Any introductory text in complex analysis will give the tools necessary to form this proof. If the reader is familiar with Cauchy's integral formula (\textbf{which can be derived in one of the exercises in the preceding chapter})\todoex{Make an exercise in the preceding chapter to derive all of complex analysis' integral formulae}, then he can understand the following:\\
+		
+		\begin{small}
+		
+		For a polynomial $p$ of a complex variable $z$, assume $p(z)$ did not have a root in $\mathbb{C}$. Then $f(z):= 1/p(z)$ is bounded on $\mathbb{C}$ so that $|f(z)|\leq B$, and is also holomorphic in fact entire on the complex plane. This means it admits a Taylor series about $z=0$
+		\begin{equation}
+			f(z) = \sum_{k=0}^\infty a_k z^k
+		\end{equation}
+		with $a_k$ obtained from the Cauchy integral formula by:
+		\begin{equation}
+			a_k = \frac{f^{(k)}(0)}{k!} = \frac{1}{2\pi i} \oint_{\partial D_R(0)} \frac{f(\zeta)}{\zeta^{k+1}} d\zeta
+		\end{equation}
+		We are integrating over the boundary of the disk of radius $R$ enclosing zero. Since this can be any disk, we let $R$ becomes large so that $|\zeta| = |R e^{i\theta}| = |R|$ also becomes large, and so 
+		\begin{align*}
+			|a_k| &= \frac{1}{2\pi} \left|\oint_{\partial D_R (0)} \frac{f(\zeta)}{\zeta^{k+1}} d\zeta \right| \\
+			&\leq \frac{1}{2\pi} \oint_{D_R(0)} \frac{|f(\zeta)|}{R^{k+1}} |d\zeta|\\
+			&\leq \frac{1}{2\pi} (2 \pi R) \max_{\partial D_R (0)} \frac{f}{R^{k+1}}\\
+			&\leq \frac{B}{R^k}
+		\end{align*}
+		since $R$ can be anything, we let it go to infinity and obtain $|a_k| \leq 0$ for all $k \geq 1$. This gives us that $f(z)$ is constant, and also a powerful theorem in general:
+		\begin{theorem}[Liouville]
+			Any bounded entire function on $\mathbb C$ is constant.
+		\end{theorem}
+		In particular $1/p(z)$ is a constant, so $p(z)$ must be a constant as well. If a polynomial does not have roots in $\mathbb{C}$, it must be a constant function.
+		\end{small}
+	 \end{proof}
+	 
+	 Since every polynomial $p$ has a root $r$, we can write it as $p(z) = (z-r_1) p'(z)$, with $p'$ a polynomial of degree $n-1$.
+	 Applying the fundamental theorem to $p'$, now, and continuing inductively immediately shows that.
+	 \begin{cor}\label{cor:FTA2}
+	 	Every non-constant polynomial with coefficients in $\mathbb{C}$ has exactly $n$ roots, counted with multiplicity, in $\mathbb C$. 
+	 \end{cor}
+	 That means that a polynomial over $\mathbb C$, $p(x) = \sum_{i = 0}^n a_i x^i$ splits entirely into a product of linear factors $c (x-r_1) \dots (x-r_n)$ over $\mathbb C$. In particular, this means that our characteristic polynomial will have $n$ roots, counted with multiplicity. Although the complex numbers are less intuitive to be introduced to than the real numbers were, they have actually made things \emph{easier} and much more interesting. So instead of disregarding these numbers because we think they are are unphysical, let us accept them, and later try to physically interpret what they mean!
+	 
+	 
+	The key word of Corollary \ref{cor:FTA2} is ``with multiplicity''. Our polynomial will always have exactly $n$ roots, but they need not all be distinct. Let's say that $k$ of them are distinct $\lambda_1 \dots \lambda_k$, each with multiplicity $m_i$ (so $\sum_{i=1}^k m_i = n$). We can write the polynomial as
+	\begin{equation}
+		p_A(t)  = (-1)^n \prod_{i=1}^k (t - \lambda_i)^{m_i}
+	\end{equation}
+	
+	First let's assume no root is repeated for this polynomial. Then we have $\lambda_1 \dots \lambda_n$ distinct. Each $\lambda_i$ gives rise to a corresponding eigenvector $\mathbf v_i$.
+	\begin{lemma}\label{lemma:distinct_eigenval_spaces_indep}
+		Eigenvectors corresponding to distinct eigenvalues are linearly independent. 
+	\end{lemma}
+	\begin{proof}
+		Let $\mathbf v_1$ correspond to $\lambda_1$, $\mathbf v_2$ to $\lambda_2$. If they are linearly dependent then
+		\begin{equation}
+			\exists a,b \ne 0 ~ \mathrm{s.t.} ~ a \mathbf v_1 + b \mathbf v_2 = 0
+		\end{equation}
+		But then
+		\begin{equation}
+			T(0) = T(a \mathbf v_1 + b \mathbf v_2) = a \lambda_1 \mathbf v_1 + b \mathbf v_2 = 0
+		\end{equation}
+		Subtracting from this $\lambda_1$ times the above equation, we get that $b (\lambda_2 - \lambda_1) \mathbf v_2 = 0$, and since $b \ne 0, \mathbf v_1 \ne 0$, we get $\lambda_1 = \lambda_2$.
+	\end{proof}
+	So when all the $\lambda_i$ are distinct, this gives rise to $n$ pairwise linearly independent eigenvectors $\mathbf v_i$ of eigenvalue $\lambda_i$. But this forms a \emph{basis} for our vector space! In this basis, we get that 
+	\begin{equation}\label{eq:distinct_root_semisimple}
+		A = \begin{pmatrix}
+			\lambda_1 & 0 & \dots & 0\\
+			0 & \lambda_2 &\dots & 0\\
+			\vdots & \vdots & \ddots & \vdots\\
+			0 & 0 & \dots & \lambda_n
+		\end{pmatrix}
+	\end{equation}
+	This means on \emph{each} 1-dimensional subspace $V_{\lambda_i} = \text{span}\{\mathbf v_i\}$, $T$ acts simply, and the entire space $V$ can be written as a \emph{direct sum} (c.f. Section~\ref{sec:views}) of the $V_{\lambda_i}$
+	\begin{equation}
+		V = \bigoplus_{i=1}^n V_{\lambda_i}
+	\end{equation}
+	When the space $V$ can be decomposed as a direct sum of subspaces $V_i$ on which the operator $T$ acts simply, $T$ is called \textbf{semisimple}. There is another word you may have heard in place of semisimple in the past, which means the same thing: \textbf{diagonalizable}\index{Diagonalizable}. 
+	\begin{defn}[Semisimplicity]
+		A linear operator $T \in \mathrm{End}(V)$ is called \emph{semisimple} or \emph{diagonalizable} if there exists a decomposition 
+		\begin{equation}
+			V = \bigoplus_i V_i
+		\end{equation}
+		such that $T$ acts simply, as $\lambda_i$ on each $V_i$. We write that the operator $T$ itself can be written as a direct sum of the simple linear operators:
+		\begin{equation}
+			T = \bigoplus_i T_i
+		\end{equation}
+		Where $T_i$ is the restriction of $T$ to $V_i$, $T|_{V_i}$.
+	\end{defn}
+	
+	\todofig{Graphic of restriction of an operator to subspaces, and now its just a constant scalar}
+	
+	Note Equation~\eqref{eq:distinct_root_semisimple} was a special case of semisimplicity, when all $V_i$ had dimension $1$. In general, a semisimple matrix when viewed in a basis $\mathbf v_j$ so that each $\mathbf v_j$ lies in one of the $V_i$ will look just like Equation~\eqref{eq:distinct_root_semisimple}, \emph{allowing} for repeated $\lambda_i$.
+	
+	But from our previous analysis, this implies that for a linear operator whose characteristic polynomial \emph{doesn't} have repeated roots (i.e  all roots are \textbf{simple}\index{Simple!Polynomial Root}) that there the eigenvectors form a basis for the space, in which the operator looks diagonal. 
+	\begin{theorem}[Semisimplicity for $T$ Lacking Repeated Eigenvalues]\label{thm:semisimple_lacking_repeated_eigs}
+		If the characteristic polynomial of a linear operator $T$ does not have repeated roots, then $T$ is semisimple, and $V$ decomposes as.
+		\begin{equation}
+			V = \bigoplus_{i=1}^n \ker(T - \lambda_i)
+		\end{equation}
+	\end{theorem}
+	\begin{proof}
+		To reiterate the idea, this follows immediately from Lemma~\ref{lemma:distinct_eigenval_spaces_indep}, which means the eigenvectors form a basis for $V$. So $V$ can be decomposed as a direct sum of the eigenvector spaces, on each of which $T$ acts simply by definition, so $T$ is semisimple. 
+	\end{proof}
+	
+	Now note that almost all polynomials do not have repeated roots. An intuitive sketch of this is that if you pick a polynomial at random, the roots will have some random distribution on $\mathbb{C}$. The chance that two roots will happen to be at the exact same point and form a double root is infinitesimal: the same as the chance of picking a random real number and getting an integer. So a linear operator picked at random, we'd expect, would not have any double roots. That is \emph{almost all linear operators are semisimple}. There's a way to view almost any operator so that the operator looks diagonal.
+	
+	The converse of Theorem~\ref{thm:semisimple_lacking_repeated_eigs} is not true. The characteristic polynomial can have repeated roots and the operator can still be semisimple. For example simple operators $\lambda$ are trivially semisimple and their characteristic polynomials are $(t-\lambda)^n$. Are all operators just semisimple, diagonal when viewed in the right eigenbasis?
+	
+	The classic example of an operator that is not semisimple is the one represented by the matrix
+	\begin{equation*}
+		A= \begin{pmatrix}
+			 0 & 1 \\
+			 0 & 0
+		\end{pmatrix}
+	\end{equation*}
+	The characteristic polynomial for this is $p_A(t) = t^2$, the same as the characteristic polynomial for the zero matrix, however the eigenspace $V_0 = \ker A$ is only one-dimensional, and the characteristic polynomial tells us there are no other eigenspaces. So although the eigenvalue $0$ has \textbf{algebraic multiplicity}\index{Algebraic Multiplicity} $2$, we say the associated eigenspace only has \textbf{geometric multiplicity}\index{Geometric Multiplicity} $1$, since $\ker T - \lambda = 1$.
+	
+	This operator is on the other side of the coin from semisimple: it is \textbf{nilpotent}\index{Nilpotent Operator}. A nilpotent operator $T$ is one so that $T^k = 0$ for some number $k$. The minimum such $k$ for which $T^k = 0$ is called the \textbf{nilpotence degree}\index{Nilpotence Degree} of $T$.
+	
+
+	\begin{theorem}[Primary Decomposition of a Linear Operator]
+		For a general $T \in \mathrm{End}(V)$, with its distinct eigenvalue roots to its characteristic polynomial labelled by $\lambda_1, \dots, \lambda_k$, and each $\lambda_i$ with multiplicity denoted $m_i$, we can decompose $V$ as a direct sum:
+		\begin{equation}
+			V = \bigoplus_{i=1}^k \ker \left[ (T - \lambda_i)^{m_i} \right]
+		\end{equation}
+	\end{theorem}
+	There is in fact a connection between this statement and how an integer $n$ can be decomposed into a product of power of ``simple'' integers: primes, as $n = p_1 ^{\alpha_1} \dots p_n ^{\alpha_n}$.
+
+\index{Eigenvalue|)}
+
+
+
+\chapter{Category Theory}
 
 	We begin by going back to elementary linear algebra. Linear transformations\index{Linear Algebra!Linear Transformation} between vector spaces $T: V \rightarrow W$ satisfy 
 	\begin{equation}
@@ -50,5 +291,5 @@
 	
 	More interestingly, the class of all \emph{topological spaces}\index{Topology!Topological Space} forms a category, with morphisms being the \emph{continuous functions}\index{Topology!Continuous Functions}. A sub-category of this is the category of manifolds\index{Manifold!As a Category} $\text{\textbf{Man}}$. If we instead want our morphisms to be smooth maps, we can form the subcategory of smooth manifolds, denoted $\text{\textbf{Man}}^\infty$.
 	
-	
+
 \end{appendices}

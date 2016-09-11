@@ -7,247 +7,11 @@
 	In this section, we will not just reflect on the uses and power of linear algebra and Fourier analysis in engineering, physics, and mathematics, but we will go further and show that they are one and the same: Fourier analysis, viewed through the right lense, is plain linear algebra. This will set a solid stage for which the next chapter will give us the real spectacle: generalizing the ideas of Fourier analysis and linear algebra to get something much more unified and powerful, which it can be said constitutes the backbone of modern mathematics: Representation Theory. 
 
 
-\section{Towards the Spectral Theorem} % (fold)
-\label{sec:towards_the_spectral_theorem}
 
-\index{Eigenvalue|(}
-\todochange{This section will go towards the back}
+\section{Vector Spaces of Functions} % (fold)
+\label{sec:vector_spaces_of_functions}
 
-This first section will derive essentially everything that there is to know about the eigenvalues of linear operators on finite dimensional vector spaces. \\
 
-Eigenvalues of a linear tranformation and their associated eigenvectors hold great value, The eigenvectors determine subspaces of $V$ where the action of the transformation becomes as \emph{simple as possible}: literally scalar multiplication. If we can decompose $V$, by using eigenvectors, into a series of spaces along which the transformation is simply scaling, we can \textbf{diagonalize} the matrix, and all the information and dynamics that it represents become extraordinarily simple to work with. The difficult-to-work-with process of matrix multiplication collapses down to multiplication by scalars. \\
-
-When we studied a linear transformation $T: V \rightarrow V$ on a real vector space $V$ of dimension $n$. $T$ takes a vector $\mathbf v_i$ and maps it to another vector $T\mathbf v_i \in V$. If we pick a specific basis $B \{ \mathbf e_i \}$ for our space, then $T$ can be represented by a \textbf{matrix}\index{Matrix}, $A^i_j$ whose $ij$th entries in the basis $B$ can be explicitly found: 
-	\begin{equation}
-		A^i_j = \begin{pmatrix}
-			& & \\
-			T(\mathbf e_1) & \dots & T(\mathbf e_n)\\
-			& &
-		\end{pmatrix}_B
-		=\begin{pmatrix}
-			T(\mathbf e_1)^1 & \dots & T(\mathbf e_n)^1 \\
-			\vdots & \dots & \vdots\\
-			T(\mathbf e_1)^n & \dots & T(\mathbf e_n)^n
-		\end{pmatrix}_B
-	\end{equation}
-	Note this same transformation can be viewed through many different perspectives (i.e. bases), producing different matrix representations depending on the basis. Therefore we should realize, just like tuples of numbers only represented physical vectors once a coordinate system was chosen, the same is true for how matrices only \emph{represent} the linear operators we care about. In particular, since we can write matrix multiplication in a basis as
-	\begin{equation}
-		(Tv)^i = A^i_j v^j
-	\end{equation}
-	Now if we change basis from $B$ to $B'$ and we have a matrix $Q_i^j$ that takes the components $v^i$ of a vector in the $B$ basis and gives us the $B'$ basis $(v')^i = Q_i^j v^j$ then we can transform $A^i_j$ according to:
-	\begin{equation}
-		(A^i_j)_{B'} = Q^i_k (A^k_l)_B (Q^{-1})^l_j 
-	\end{equation}
-	Accordingly, $A_{B'} = Q A_B Q^{-1}$. This should make perfect sense: if we're given a vector's components ${v'}^i$ in the $B'$ basis, first we act by $Q^{-1}$ to get back into the $B$ basis, then we act by $A$, since we know how $T$ acts in this basis, and then we map that vector back into the $B'$ basis with $Q$.
-	
-	One operator can be represented by many different matrices. Here, we will attempt to \emph{classify} all the possible linear operators on a space. This would be a great thing, since linear operators can be so diverse, ranging from stretching to shearing to rotation, and much more. 
-	
-	We start with the \textbf{trivial} linear operator, $0$. Nothing can be more basic than the action of sending everything to zero. The simplest linear transformation that isn't just $0$ is multiplication by a scalar, $\lambda$. This is basic multiplication, and as a matrix is represented just as
-	\begin{equation*}
-		\lambda = \lambda I=
-		\begin{pmatrix}
-			\lambda & 0 & \dots & 0 \\
-			0 & \lambda & \dots & 0 \\
-			\vdots & \vdots & \ddots & \vdots \\
-			0 & 0 & \dots & \lambda
-		\end{pmatrix}  = \lambda \delta^i_j
-	\end{equation*}
-	Note that if we change basis, the matrix representation for scalar multiplication \emph{doesn't} change: regardless of how you look at it, multiplication by $\lambda$ is multiplication by $\lambda$. The set of linear operators that are just simple scalar multiplication form a subspace of all linear operators, and are called \textbf{simple}\index{Simple!Linear Operator}. Simple linear operators are literally just numbers, acting on the space by scaling everything the same way. Note the trivial $0$ operator is an example of a simple operator.
-	
-	Of course, the set of linear operators that are simple is a very small subset of the set of all linear operators. A linear operator on $V$ does not in general act simply on $V$, but the next best thing we could hope for is that $T$ becomes simple when its action is restricted to a \emph{subspace} of $V$. 
-	
-	
-% , one of the things we were most interested in was its \textbf{kernel}\index{Kernel} $\ker T$, sometimes called its \textbf{null space}\index{Null Space|see {Kernel}}.
-% \begin{defn}[Review of Kernel]
-% 	The kernel $\ker T$ of a linear transformation is the set of vectors $\mathbf v \in V$ such that $T \mathbf v = 0$.
-% \end{defn}
-% 	This forms a vector space: if $\mathbf v, \mathbf w \in \ker T$ then $T(a \mathbf v + b \mathbf w) = a T(\mathbf v) + b T(\mathbf w) = 0$. The kernel is important as it tells us ``along which directions in $V$ does $T$ lose information?''. Using other language, however, we could reformulate this as asking ``along which directions in $V$ does $T$ act exactly like $0$?''.
-%
-% 	This is the central point: for vectors in the kernel $\ker T$, acting by $T$ is \emph{exactly} like just multiplying by the number $0$. There is no difference between a linear transformation and the \emph{scalar} $0$. Of course, scalars themselves are linear transformations, but they are definitely the easiest ones to deal with.
-	
-	% Motivated by this, there is another more general question we can ask: ``along which directions in $V$ does $T$ act exactly like $\lambda$?'', for any number $\lambda$.
-	
-	What would this mean, mathematically? We want to find vectors $\mathbf v$ so that
-	\begin{equation}\label{eq:eigen_1}
-		T \mathbf v = \lambda \mathbf v
-	\end{equation}
-	Note that such a set of $\mathbf v$ is \emph{also} a vector space.
-	\begin{prop}
-	The set of vectors where $T \mathbf v = \lambda \mathbf v$, for some specific $\lambda$, is a vector space, denoted $V_\lambda$. 
-	\end{prop}
-	\begin{proof}
-		If $\mathbf v, \mathbf w$ have
-		\begin{equation*}
-			T \mathbf v = \lambda \mathbf v, T \mathbf w = \lambda \mathbf w
-		\end{equation*}
-		then
-		\begin{equation*}
-			T(a \mathbf v + b \mathbf w) = a T(\mathbf v) + b T(\mathbf w) = a \lambda \mathbf v + b \lambda \mathbf w = \lambda(a \mathbf v + b \mathbf w)
-		\end{equation*}
-	\end{proof}
-	We then have that $V_\lambda$ is exactly the subspace where $T$ acts simply as $\lambda$.
-	When $\lambda = 0$ this is exactly what we referred to as $\ker T$. How can we find this subspace? The trick all lies in noting that the number $\lambda$ is \emph{itself} just a linear transformation. Then finding when Equation~\eqref{eq:eigen_1} is satisfied is the same as finding when:
-	\begin{equation}
-		(T - \lambda) \mathbf v = 0
-	\end{equation}
-	So this is no different from calculating a kernel of the shifted operator $T - \lambda$. If we know how to find the kernel, the subspace where $T = 0$, we also know how to find the subspace where $T = \lambda$ by finding the kernel where $T - \lambda = 0$. It's a really simple idea.
-	
-	But it's worth asking the question ``does $T-\lambda$ even \emph{have} a nontrivial kernel?". That is, for which $\lambda$ is $V_\lambda$ nontrivial? We know a quick way to answer this question. $T - \lambda$ will have a nontrivial kernel exactly when:
-	\begin{equation}
-		\det ( T - \lambda ) = 0
-	\end{equation}
-	In a specific basis, $T$ can be represented by a matrix $T_{ij}$ and $\lambda$ as a operator is always the matrix $\lambda I = \lambda \delta_{ij}$ so that we can directly compute this in a basis by computing the matrix determinant $\det(T_{ij} - \lambda \delta_{ij})$. It is not hard to see that this is a polynomial 
-	\begin{equation}
-		\begin{pmatrix}
-			T_{1}^1 - \lambda & \dots & T_{1}^n\\
-			\vdots &	   & \vdots\\
-			T_{1}^n & \dots & T_{n}^n - \lambda 
-		\end{pmatrix}
-	\end{equation}
-	
-	 It's not difficult to see that the resulting determinant becomes a \emph{polynomial of degree $n$} in $\lambda$. It is called the \textbf{characteristic polynomial}\index{Characteristic Polynomial} $p_T(\lambda)$ of the transformation $T$.
-	 
-	 The determinant of a transformation is itself independent of the coordinate system we use, so the characteristic polynomial is an invariant, not dependent on the basis that gives us our $T_{ij}$. The roots of this polynomial are special numbers, characteristic of the transformation. These ``characteristic values'' or, from German, \textbf{eigenvalues}, of $T$ are thus also invariants independent of coordinate system. They are exactly the values for which $V_\lambda$ is nontrivial, so that $T$ acts simply as one of these $\lambda_i$ on each $V_{\lambda_i}$. 
-	 
-	 But over the reals, there are transformations that don't even have eigenvalues:
-	 \begin{example}
-	 	The transformation representing counterclockwise rotation of the basis, which can be represented by the real matrix $\begin{pmatrix}
-	 		0 & -1 \\ 1 & 0
-	 	\end{pmatrix}$
-		has no real eigenvalues.
-	 \end{example}
-	 We see this immediately since its characteristic polynomial is $\lambda^2 + 1$ which has no real roots. It does, however, have complex roots $\lambda = \pm i$ and we shouldn't ignore this fact. If we want to find a vector subspace on which this transformation acts simply as $\pm i$, we need to \emph{extend} the number system that we are working over, from the reals to the complex numbers. In fact, working over the complex numbers is completely \emph{ideal} if we want $p_T(\lambda)$ to have roots, giving us eigenvalues. The reason is because of this foundational theorem:
-	 
-	 \begin{theorem}[Fundamental Theorem of Algebra]
-	 	Every non-constant polynomial with coefficients in $\mathbb{C}$ has a root in $\mathbb C$.
-	 \end{theorem}
-	 \begin{proof}[Proof. (Optional, for those familia with complex analysis)]
-	 The easiest way to do this is by use of complex analysis. Any introductory text in complex analysis will give the tools necessary to form this proof. If the reader is familiar with Cauchy's integral formula (\textbf{which can be derived in one of the exercises in the preceding chapter})\todoex{Make an exercise in the preceding chapter to derive all of complex analysis' integral formulae}, then he can understand the following:\\
-		
-		\begin{small}
-		
-		For a polynomial $p$ of a complex variable $z$, assume $p(z)$ did not have a root in $\mathbb{C}$. Then $f(z):= 1/p(z)$ is bounded on $\mathbb{C}$ so that $|f(z)|\leq B$, and is also holomorphic in fact entire on the complex plane. This means it admits a Taylor series about $z=0$
-		\begin{equation}
-			f(z) = \sum_{k=0}^\infty a_k z^k
-		\end{equation}
-		with $a_k$ obtained from the Cauchy integral formula by:
-		\begin{equation}
-			a_k = \frac{f^{(k)}(0)}{k!} = \frac{1}{2\pi i} \oint_{\partial D_R(0)} \frac{f(\zeta)}{\zeta^{k+1}} d\zeta
-		\end{equation}
-		We are integrating over the boundary of the disk of radius $R$ enclosing zero. Since this can be any disk, we let $R$ becomes large so that $|\zeta| = |R e^{i\theta}| = |R|$ also becomes large, and so 
-		\begin{align*}
-			|a_k| &= \frac{1}{2\pi} \left|\oint_{\partial D_R (0)} \frac{f(\zeta)}{\zeta^{k+1}} d\zeta \right| \\
-			&\leq \frac{1}{2\pi} \oint_{D_R(0)} \frac{|f(\zeta)|}{R^{k+1}} |d\zeta|\\
-			&\leq \frac{1}{2\pi} (2 \pi R) \max_{\partial D_R (0)} \frac{f}{R^{k+1}}\\
-			&\leq \frac{B}{R^k}
-		\end{align*}
-		since $R$ can be anything, we let it go to infinity and obtain $|a_k| \leq 0$ for all $k \geq 1$. This gives us that $f(z)$ is constant, and also a powerful theorem in general:
-		\begin{theorem}[Liouville]
-			Any bounded entire function on $\mathbb C$ is constant.
-		\end{theorem}
-		In particular $1/p(z)$ is a constant, so $p(z)$ must be a constant as well. If a polynomial does not have roots in $\mathbb{C}$, it must be a constant function.
-		\end{small}
-	 \end{proof}
-	 
-	 Since every polynomial $p$ has a root $r$, we can write it as $p(z) = (z-r_1) p'(z)$, with $p'$ a polynomial of degree $n-1$.
-	 Applying the fundamental theorem to $p'$, now, and continuing inductively immediately shows that.
-	 \begin{cor}\label{cor:FTA2}
-	 	Every non-constant polynomial with coefficients in $\mathbb{C}$ has exactly $n$ roots, counted with multiplicity, in $\mathbb C$. 
-	 \end{cor}
-	 That means that a polynomial over $\mathbb C$, $p(x) = \sum_{i = 0}^n a_i x^i$ splits entirely into a product of linear factors $c (x-r_1) \dots (x-r_n)$ over $\mathbb C$. In particular, this means that our characteristic polynomial will have $n$ roots, counted with multiplicity. Although the complex numbers are less intuitive to be introduced to than the real numbers were, they have actually made things \emph{easier} and much more interesting. So instead of disregarding these numbers because we think they are are unphysical, let us accept them, and later try to physically interpret what they mean!
-	 
-	 
-	The key word of Corollary \ref{cor:FTA2} is ``with multiplicity''. Our polynomial will always have exactly $n$ roots, but they need not all be distinct. Let's say that $k$ of them are distinct $\lambda_1 \dots \lambda_k$, each with multiplicity $m_i$ (so $\sum_{i=1}^k m_i = n$). We can write the polynomial as
-	\begin{equation}
-		p_A(t)  = (-1)^n \prod_{i=1}^k (t - \lambda_i)^{m_i}
-	\end{equation}
-	
-	First let's assume no root is repeated for this polynomial. Then we have $\lambda_1 \dots \lambda_n$ distinct. Each $\lambda_i$ gives rise to a corresponding eigenvector $\mathbf v_i$.
-	\begin{lemma}\label{lemma:distinct_eigenval_spaces_indep}
-		Eigenvectors corresponding to distinct eigenvalues are linearly independent. 
-	\end{lemma}
-	\begin{proof}
-		Let $\mathbf v_1$ correspond to $\lambda_1$, $\mathbf v_2$ to $\lambda_2$. If they are linearly dependent then
-		\begin{equation}
-			\exists a,b \ne 0 ~ \mathrm{s.t.} ~ a \mathbf v_1 + b \mathbf v_2 = 0
-		\end{equation}
-		But then
-		\begin{equation}
-			T(0) = T(a \mathbf v_1 + b \mathbf v_2) = a \lambda_1 \mathbf v_1 + b \mathbf v_2 = 0
-		\end{equation}
-		Subtracting from this $\lambda_1$ times the above equation, we get that $b (\lambda_2 - \lambda_1) \mathbf v_2 = 0$, and since $b \ne 0, \mathbf v_1 \ne 0$, we get $\lambda_1 = \lambda_2$.
-	\end{proof}
-	So when all the $\lambda_i$ are distinct, this gives rise to $n$ pairwise linearly independent eigenvectors $\mathbf v_i$ of eigenvalue $\lambda_i$. But this forms a \emph{basis} for our vector space! In this basis, we get that 
-	\begin{equation}\label{eq:distinct_root_semisimple}
-		A = \begin{pmatrix}
-			\lambda_1 & 0 & \dots & 0\\
-			0 & \lambda_2 &\dots & 0\\
-			\vdots & \vdots & \ddots & \vdots\\
-			0 & 0 & \dots & \lambda_n
-		\end{pmatrix}
-	\end{equation}
-	This means on \emph{each} 1-dimensional subspace $V_{\lambda_i} = \text{span}\{\mathbf v_i\}$, $T$ acts simply, and the entire space $V$ can be written as a \emph{direct sum} (c.f. Section~\ref{sec:views}) of the $V_{\lambda_i}$
-	\begin{equation}
-		V = \bigoplus_{i=1}^n V_{\lambda_i}
-	\end{equation}
-	When the space $V$ can be decomposed as a direct sum of subspaces $V_i$ on which the operator $T$ acts simply, $T$ is called \textbf{semisimple}. There is another word you may have heard in place of semisimple in the past, which means the same thing: \textbf{diagonalizable}\index{Diagonalizable}. 
-	\begin{defn}[Semisimplicity]
-		A linear operator $T \in \mathrm{End}(V)$ is called \emph{semisimple} or \emph{diagonalizable} if there exists a decomposition 
-		\begin{equation}
-			V = \bigoplus_i V_i
-		\end{equation}
-		such that $T$ acts simply, as $\lambda_i$ on each $V_i$. We write that the operator $T$ itself can be written as a direct sum of the simple linear operators:
-		\begin{equation}
-			T = \bigoplus_i T_i
-		\end{equation}
-		Where $T_i$ is the restriction of $T$ to $V_i$, $T|_{V_i}$.
-	\end{defn}
-	
-	\todofig{Graphic of restriction of an operator to subspaces, and now its just a constant scalar}
-	
-	Note Equation~\eqref{eq:distinct_root_semisimple} was a special case of semisimplicity, when all $V_i$ had dimension $1$. In general, a semisimple matrix when viewed in a basis $\mathbf v_j$ so that each $\mathbf v_j$ lies in one of the $V_i$ will look just like Equation~\eqref{eq:distinct_root_semisimple}, \emph{allowing} for repeated $\lambda_i$.
-	
-	But from our previous analysis, this implies that for a linear operator whose characteristic polynomial \emph{doesn't} have repeated roots (i.e  all roots are \textbf{simple}\index{Simple!Polynomial Root}) that there the eigenvectors form a basis for the space, in which the operator looks diagonal. 
-	\begin{theorem}[Semisimplicity for $T$ Lacking Repeated Eigenvalues]\label{thm:semisimple_lacking_repeated_eigs}
-		If the characteristic polynomial of a linear operator $T$ does not have repeated roots, then $T$ is semisimple, and $V$ decomposes as.
-		\begin{equation}
-			V = \bigoplus_{i=1}^n \ker(T - \lambda_i)
-		\end{equation}
-	\end{theorem}
-	\begin{proof}
-		To reiterate the idea, this follows immediately from Lemma~\ref{lemma:distinct_eigenval_spaces_indep}, which means the eigenvectors form a basis for $V$. So $V$ can be decomposed as a direct sum of the eigenvector spaces, on each of which $T$ acts simply by definition, so $T$ is semisimple. 
-	\end{proof}
-	
-	Now note that almost all polynomials do not have repeated roots. An intuitive sketch of this is that if you pick a polynomial at random, the roots will have some random distribution on $\mathbb{C}$. The chance that two roots will happen to be at the exact same point and form a double root is infinitesimal: the same as the chance of picking a random real number and getting an integer. So a linear operator picked at random, we'd expect, would not have any double roots. That is \emph{almost all linear operators are semisimple}. There's a way to view almost any operator so that the operator looks diagonal.
-	
-	The converse of Theorem~\ref{thm:semisimple_lacking_repeated_eigs} is not true. The characteristic polynomial can have repeated roots and the operator can still be semisimple. For example simple operators $\lambda$ are trivially semisimple and their characteristic polynomials are $(t-\lambda)^n$. Are all operators just semisimple, diagonal when viewed in the right eigenbasis?
-	
-	The classic example of an operator that is not semisimple is the one represented by the matrix
-	\begin{equation*}
-		A= \begin{pmatrix}
-			 0 & 1 \\
-			 0 & 0
-		\end{pmatrix}
-	\end{equation*}
-	The characteristic polynomial for this is $p_A(t) = t^2$, the same as the characteristic polynomial for the zero matrix, however the eigenspace $V_0 = \ker A$ is only one-dimensional, and the characteristic polynomial tells us there are no other eigenspaces. So although the eigenvalue $0$ has \textbf{algebraic multiplicity}\index{Algebraic Multiplicity} $2$, we say the associated eigenspace only has \textbf{geometric multiplicity}\index{Geometric Multiplicity} $1$, since $\ker T - \lambda = 1$.
-	
-	This operator is on the other side of the coin from semisimple: it is \textbf{nilpotent}\index{Nilpotent Operator}. A nilpotent operator $T$ is one so that $T^k = 0$ for some number $k$. The minimum such $k$ for which $T^k = 0$ is called the \textbf{nilpotence degree}\index{Nilpotence Degree} of $T$.
-	
-
-	\begin{theorem}[Primary Decomposition of a Linear Operator]
-		For a general $T \in \mathrm{End}(V)$, with its distinct eigenvalue roots to its characteristic polynomial labelled by $\lambda_1, \dots, \lambda_k$, and each $\lambda_i$ with multiplicity denoted $m_i$, we can decompose $V$ as a direct sum:
-		\begin{equation}
-			V = \bigoplus_{i=1}^k \ker \left[ (T - \lambda_i)^{m_i} \right]
-		\end{equation}
-	\end{theorem}
-	There is in fact a connection between this statement and how an integer $n$ can be decomposed into a product of power of ``simple'' integers: primes, as $n = p_1 ^{\alpha_1} \dots p_n ^{\alpha_n}$.
-
-\index{Eigenvalue|)}
-
-% section towards_the_spectral_theorem (end)
-
-\section{Functions form a Vector Space} % (fold)
-\label{sec:functions_form_a_vector_space}
 
 	We will work with functions just over $\mathbb R$ at first, the setting that we are most used to. It is no great surprise that functions $f:\mathbb{R} \rightarrow \mathbb R$ form a vector space, since we can add and scale any two functions $a f + b g$ and get another function as their linear combination. We can therefore try to apply ideas from linear algebra to this vector space. Note first that it is infinite dimensional. 
 	
@@ -298,33 +62,309 @@ When we studied a linear transformation $T: V \rightarrow V$ on a real vector sp
 	\end{equation}
 	Looking at it this way, it is \emph{exactly} the same as how we defined a dot product: multiply the corresponding components together and sum that up. The difference is that now ``components'' have become ``functional values'' and the sum has become an integral.
 	
-	Moreover this inner product is far from useless. If both $|f|=1$ and $|g|=1$ have length then the inner product, in some well-defined sense, measures how \emph{correlated} $f$ is with $g$. If the integral of $f$ against $g$ is zero then there's no way to predict the behavior of $g$ based on the behavior of $f$. If it is positive, then a positive $f$ means a positive $g$ \emph{more often than not}, while if the integral is negative then a positive $f$ means a \emph{negative} $g$ more often than not. Such a quantity in general: 
+	Naturally, we can define an inner product on any interval $[a,b]$ between square integrable functions on that interval:
+	\begin{equation}
+		\left< f | g\right> = \int_a^b f(x)g(x) dx
+	\end{equation}
+	 It is similarly possible to define an inner product for square-integrable functions on the \emph{whole} real line:
+	\begin{equation}
+		\left< f | g \right> = \lim_{L \rightarrow \infty} \int_{-L}^L f(x) g(x) dx = \int_{\mathbb R} f(x) g(x) dx
+	\end{equation}
+	
+	As in Chapter~\ref{ch:diffgeo}, an inner product on a real vector space is as follows. 
+	\begin{defn}[Real Inner Product]
+		For a real vector space $V$, an inner product $\left<-|-\right>$ on $V$ is a bilinear map into $\mathbb R$ so that:
+		\begin{enumerate}
+			\item (Linear) $\left<a \mathbf x + b \mathbf y | \mathbf z\right> = a \left< \mathbf x | \mathbf z \right> + b \left< \mathbf y | \mathbf z \right>$
+			\item (Symmetric) $\left<\mathbf x | \mathbf y\right> = \left< \mathbf y | \mathbf x\right>$
+			\item (Positive-definite) $\left< \mathbf x | \mathbf x \right> \geq 0$ and equality holds iff $\mathbf x = 0$. A vector space that possesses an inner product is called an \emph{\textbf{inner product space}}.
+		\end{enumerate}
+	\end{defn}
+	
+	Inner product spaces are specific examples of \textbf{Metric Spaces}\index{Metric Space}. 
+	\begin{defn}[Metric Space]
+		A set $X$ is a metric space if there is a non-negative function $d:X\times X \rightarrow \mathbb R$ that satisfies
+		\begin{enumerate}
+			\item (Symmetry) $d(x,y)=d(y,x)$
+			\item (Positive Definite) $d(x,y)$=0 iff $x=y$
+			\item (Triangle Inequality) $d(x,z) \leq d(x,y) + d(y,z)$
+		\end{enumerate}
+	\end{defn}
+	Just as on the real line and on $\mathbb{R}^n$, having a notion of distance allowed us to define closed and open sets, the same is true on metric spaces. In particular, inner product spaces have a natural topology defined by open and closed balls defining neighborhoods, and so as vector spaces that are also topological spaces, they are called \textbf{Topological Vector Spaces}.\\
+	
+	Returning back to the inner product space of functions on $\mathbb R$ this inner product is far from useless. If both $|f|=1$ and $|g|=1$ have length then the inner product, in some well-defined sense, measures how \emph{correlated} $f$ is with $g$. If the integral of $f$ against $g$ is zero then there's no way to predict the behavior of $g$ based on the behavior of $f$. If it is positive, then a positive $f$ means a positive $g$ \emph{more often than not}, while if the integral is negative then a positive $f$ means a \emph{negative} $g$ more often than not. Such a quantity in general: 
 	\begin{equation*}
 		\frac{\left< f | g \right>}{||f|| ~ ||g||}
 	\end{equation*}
 	is geometrically what the cosine of the angle between two vectors was in $\mathbb R^{n+1}$. Functions that are ``in the same direction'' would have a positive cosine, while functions ``pointing in opposite directions'' would have a negative one. Uncorrelated, orthogonal functions would have a cosine of zero.
 	\todoex{Exercise on correlation of functions and the inner product}
 	
-	So the vector space of square-integrable functions on $[0,1]$ is an inner product space\index{Inner Product Space}. It is denoted\footnote{\textbf{HERE SAY SOMETHING ABOUT LEBESGUE VS RIEMANN INTEGRATION}\todoadd{Riemann vs Lebesgue in a footnote}} by $L^2[0,1]$. 
+	So the vector space of square-integrable functions on $[0,1]$ is an inner product space\index{Inner Product Space}. It is denoted\footnote{\textbf{HERE SAY SOMETHING ABOUT LEBESGUE VS RIEMANN INTEGRATION}\todoadd{Riemann vs Lebesgue in a footnote}} by $L^2[0,1]$\index{Hilbert Space!$L^2$}. Similarly, for a general interval $[a,b]$ we denote the square integrable functions as $L^2 [a,b]$, and for functions square-integrable on the \emph{entire real line}, we write $L^2 (\mathbb R)$
 	
-% section functions_form_a_vector_space (end)
+	The space $L^2[0,1]$ is more than just an inner product space. It is a \textbf{Hilbert space}\index{Hilbert Space}, an object that is of central importance in quantum mechanics, signal processing, and mathematical analysis. A Hilbert space is a vector space that allows us to take limits of vectors, too, not just finite sums, so that we can do analysis on it.
+	
+	If we have a sequence of vectors $x_n$ on our Hilbert space that \emph{accumulates}, in the sense that for any $\varepsilon$ we can pick an $N$ large enough so that all the $x_i$ after $x_N$ are within $\varepsilon$ of $x_N$
+	\begin{equation}
+		|x_N - x_i| < \varepsilon
+	\end{equation}
+	\todoex{Ex: Show this is the same as forming a Cauchy sequence}
+	\todofig{Figure: All vectors being within a neighborhood of $x_N$, accumulating.}
+	Then, if we were working in $\mathbb R^n$, this would mean that the sequence should converge within some closed ball $B_{\varepsilon}(x_N)$. In fact, convergent sequences are \emph{exactly} the ones that accumulate like this. 
+	
+	We want a Hilbert space $H$, infinite-dimensional or otherwise, to have this property of being \textbf{complete} in the inner product. That is, whenever a sequence of vectors accumulate, that sequence will in fact \textbf{converge}\index{Convergence} to a \textbf{limit}\index{Limit} vector \emph{still in $H$}.
+	
+	\begin{defn}[Real Hilbert Space]
+		A real Hilbert space $H$ is a real inner product space that is \textbf{complete}\index{Complete}\index{Metric!Complete} with respect to its inner product. 
+	\end{defn}
+	\begin{example}
+		The rationals $\mathbb Q$ are not a complete metric space. The reals are (they are called the \textbf{completion} of the rationals). 
+	\end{example}
+	\begin{example}
+		The space of continuous functions is not complete. Consider the sequence of functions:
+		\begin{equation}
+			f_n(x) = \begin{cases}
+    -1 ,& \mathrm{if} ~ x \leq  -1/n \\
+    n x,  &\mathrm{if} ~ -1/n < x < 1/n \\
+	1, & \mathrm{otherwise}
+\end{cases}
+		\end{equation}
+		While each $f_n$ is continuous, the limit is the sign function of $x$, which is \emph{not} continuous. Similar arguments show that the space of smooth functions is also not complete, by considering $f_n (x) = e^{-n \pi x^2}$ approaching the zero function with a jump discontinuity at zero. 
+	\end{example}
+	
+	\todoex{Ex: Being complete is with respect to a metric, not a topology (reals are homeomorphic to incomplete $[0,1]$)}
+	
+	The importance of $L^2$ spaces is that 
+	\begin{theorem}
+		$L^2[a,b]$ is complete, as is $L^2(\mathbb R)$.
+	\end{theorem}
+	\begin{proof}
+		All literature in real analysis and measure theory proves this result after developing the necessary background in proper Lebesgue integration, c.f. \todoadd{Provide a measure theory reference for $L^2$ being complete, like Stein, but probably not Stein tb$\hbar$.}
+	\end{proof}
+	
+% section vector_spaces_of_functions (end)
 
-\section{Operators give a Natural Basis for the Space} % (fold)
-\label{sec:operators_give_a_natural_basis_for_the_space}
+	This will allow us to do analysis on these spaces, and talk about sequences of functions converging to a limit point ``in the $L^2$ norm''. 
+	
+	The two properties of having an inner product as well as having this notion of convergence in a norm are beautifully useful in formulating the original ideas of Fourier. 
 
-% section operators_give_a_natural_basis_for_the_space (end)
+\section{Trigonometric Series} % (fold)
+\label{sec:trigonometric_series}
 
-\section{The Fourier Transform is a Change of Basis} % (fold)
-\label{sec:the_fourier_transform_is_a_change_of_basis}
+	Let us investigate the phenomenon of a wave in a 1-dimensional medium, like a string vibrating in one dimension. At a point $x_0$, the string has some displacement $u(x_0)$. Its neighbors have displacements $u(x_0 + h)$ and $u(x_0 - h)$. 
+	\todofig{Draw A String for the Wave equation}
+	Because of \textbf{Hooke's Law}\index{Hooke's Law} $\mathbf F = k \mathbf x$, the rightward neighbor will exert a force $\mathbf F$ on the string at $x_0$ proportional to the difference in displacement $u(x_0 + h) - u(x_0)$. Similarly, the leftward neighbor will exert a force proportional to $u(x_0 - h) - u(x_0)$. The total force at $x_0$ then is some scalar multiple times the sum of both these contributions:
+	\begin{equation}
+		\mathbf F_{x_0} = k [u(x_0 + h) - u(x_0) + u(x_0 - h) - u(x_0)].
+	\end{equation}
+	The mass constant $k$ between successive neighbors can be related to the total spring constant $K$ by $k = K L / h$. This is a simple exercise. \todoex{Make an exercise for the total spring constant}. 
+	
+	We also know from \textbf{Newton's Second Law}\index{Newton's Second Law} that the force is equal to the mass times the acceleration of the displacement of the string at $x_0$
+	\begin{equation}
+		\mathbf F_{x_0} = m \frac{\partial^2 u}{\partial t^2}.
+	\end{equation}
+	The mass of the particle at $x_0$, because it is only a small section of the string, becomes infinitesimal as $h \rightarrow 0$ and can be expressed as $\rho h$ where $\rho$ is the mass density of the string. Together, then:
+	\begin{equation}
+		\rho h \frac{\partial^2 u}{\partial t^2} = \frac{KL}{h} [u(x_0 + h) + u(x_0 - h) - 2 u(x_0)]
+	\end{equation}
+	This gives rise to the equation:
+	\begin{equation}
+		\frac{\partial^2 u}{\partial t^2} = \frac{KL}{\rho} ~ \frac{u(x_0 + h) + u(x_0 - h) - 2 u(x_0)}{h^2}
+	\end{equation}
+	The constant $KL/\rho$ on the right hand side has units of length squared per second squared, and can be interpreted as a velocity squared $c^2$. The more interesting quantity on the right hand side is what succeeds that. Note that it can be re-written as:
+	\begin{align*}
+		\frac{1}{h} \left[\frac{u(x_0 + h) - u(x_0)}{h}  - \frac{u(x_0) - u(x_0 - h)}{h}\right]
+	\end{align*}
+	As $h \rightarrow 0$ the inside approaches a difference of the derivatives $\frac{\partial u}{\partial x}$ at neighboring points $x_0 + h/2, x_0 - h/2$, so that the whole term becomes the \emph{second derivative} $\partial^2 u/\partial x^2$. The equation for the wave on the string is then:
+	\begin{equation}
+		\frac{1}{c^2} \frac{\partial^2 u}{\partial t^2} = \frac{\partial^2 u}{\partial x^2}
+	\end{equation}
+	This is the \textbf{wave equation}\index{Wave Equation} of central importance across the subfields of physics. 
+	
+	The wave equation in one dimension is important for studying simple vibrations of strings, metal beams, and waves of current in trasmission lines and cavity resonators. However, the higher dimensional generalizations of the wave equation find even more use, especially in studying the propagation of wave energy through physical space. It is worth deriving this as well. The waves propagate through a medium with speed $c$ depending on the properties of the medium. 
+	
+	One way is just to note that now we have $u(x,y)$, and as before we will have that $u(x\pm h, y \pm h)$ will contribute a term that now looks like
+	\begin{equation*}
+		\frac{u(x+h,y) + u(x-h,y) + u(x,y+h) + u(x,y-h) - 4 u(x,y)}{h^2}
+	\end{equation*}
+	\begin{align*}
+		 =  &\frac{u(x+h,y) + u(x-h,y)- 2u(x,y)}{h^2}\\ 
+		 &+ \frac{u(x,y+h) + u(x,y-h) - 2 u(x,y)}{h^2} 
+	\end{align*}
+	\begin{equation*}
+		\rightarrow \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} ~~~~
+	\end{equation*}
+	so that the wave equation in $2$ dimensions is
+	\begin{equation}
+		\frac{1}{c^2} \frac{\partial^2 u}{\partial t^2} = \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}
+	\end{equation}
+	This quantity, $\frac{\partial^2 u}{\partial x^2}$ in one dimension and $\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}$ in two, and more generally
+	\begin{equation*}
+		\sum_{k=1}^n \frac{\partial^2 u}{\partial x_i^2}
+	\end{equation*}
+	in $n$ dimensions, is called the \textbf{Laplacian}\index{Laplacian} of $u$. It is the divergence of the gradient, and so is often denoted $\nabla^2 u$, or otherwise just $\triangle u$. 
+	
+	Now for the 2-dimensional argument, you could ask why we did not take into account diagonal neighbors like $u(x+h, y+h)$. One argument could be that they are not ``directly connected'' to $(x,y)$, but a better answer is that we \emph{can} account for the diagonal neighbors (and associated $\sqrt 2$s pop up because their distance away is not exactly $h$), and in the limit as $h \rightarrow 0$, the finite differences obtained would still converge to the same Laplacian. 
+	\begin{concept}[Laplacian, Intuitively]
+	There are many different finite-difference approximations for the Laplacian, all proportional to the idea:
+		\begin{equation*}
+			\triangle  u ~\propto~ \frac{ \text{sum over } n \text{ neighbors of } u(\text{neighbors}) - n * u(x,y) }{\text{Area}}
+		\end{equation*}
+		In this way, if the average value of $u$ on a small circle around $x$ is greater than the value of $u$ at $x$, the Laplacian is positive, and vice versa gives that the Laplacian is negative. 
+	\end{concept}
+	
+	It is natural for the average behavior of the neighbors at point to ``drive'' the behavior of the point in the next instant. For waves, the mean value of the neighbors of that point drives that point to \emph{accelerate} in that direction. 
+	
+	Similarly, for heat flow, a similar derivation using Newton's law of \emph{cooling}, instead of motion, gives that this Laplacian: the imbalance between the point and its environment, drives the point to simply \emph{move} to stabilize that imbalance:
+	\todoex{Make a heat equation derivation exercise, from Newton's law of COOLING this time}
+	\begin{concept}[Wave and Heat Equations]
+		The motion of waves is governed by the equation
+		\begin{equation*}
+			\frac{1}{c^2} \frac{\partial^2 u}{\partial t^2} = \triangle u
+		\end{equation*}
+		for some constant speed $c$ depending on the properties of the medium.
+		
+		Further, the flow of heat is governed by the equation
+		\begin{equation*}
+			\tau \frac{\partial u}{\partial t} = \triangle u
+		\end{equation*}
+		for some constant $\tau$ depending on the properties of the medium. 
+	\end{concept}
+	
+	Fourier arrived at the idea of Fourier series while studying heat flow. We will look at the example of the vibrating string, pinned down at its edges. 
+	
+	Let us say the string is defined on the interval $[0,1]$. We then have that $u$ satisfies the wave equation, as well as the \textbf{boundary conditions}\index{Boundary Conditions} $u(0)= u(1)= 0$.
 
-% section the_fourier_transform_is_a_change_of_basis (end)
+% section trigonometric_series (end)
 
-\section{Multiplication of Functions} % (fold)
-\label{sec:multiplication_of_functions}
+\section{Spectral Theory on Graphs} % (fold)
+\label{sec:spectral_theory_on_graphs}
+	\index{Graph|(}
 
-% section multiplication_of_functions (end)
+	We begin with the definition of a \textbf{finite graph}
+	\begin{defn}
+		A finite graph $G$ is a finite set of vertices $V = \{v_1, \dots, v_n\}$ together with a set of edges $E = \{e_1, \dots, e_m\}$ such that each edge is an unordered pair of vertices $(v_i, v_j)$ indicating that they are connected.
+	\end{defn}
+	\todofig{Draw a figure of a graph}
+	
+	All of this information can be captured in terms of an $n$ by $n$ matrix called the \textbf{adjacency matrix}\index{Adjacency Matrix}\index{Graph!Adjacency Matrix}. 
+	\begin{defn}[Adjacency Matrix]
+		The adjacency matrix $A$ for a graph $G$ is a matrix whose $i,j$th entry is $1$ if $(v_i,v_j)$ is an edge, and $0$ otherwise.
+	\end{defn}
+	The adjacency matrix acting on a vector with $0$s everywhere except for the $i$th slot will give a vector with $0$s everywhere except for the slots of the \textbf{neighbors}\index{Graph!Neighbors} of $v_i$. That is, all vertices $v_j$ such that $(v_i, v_j)$ is an edge. We denote the set of neighbor vertices to $v_i$ by $N(v_i)$.
+	
+	Note that this matrix is symmetric, and consists of only zeroes and ones. Similarly we define the \textbf{degree matrix}\index{Degree Matrix}\index{Graph!Degree Matrix} as
+	\begin{defn}[Degree Matrix]
+		The degree matrix $D$ for a graph is a diagonal matrix whose $(i,i)$th entry is the \emph{number of neighbors} of $v_i$, that is $|N(v_i)|$
+	\end{defn}
+	
+	Graphs appear throughout modern mathematics and computer science, to the point that we expect that the reader is familiar with them at least at a rudimentary level. The reason we put a focus on graphs in a section that is about Fourier analysis is the following:
+	\begin{concept}[Discrete Approximation]
+		In almost all practical matters of engineering and applied math, manifolds are approximated by graphs. 
+	\end{concept}
+	The reason for why we care about this is that it makes everything finite-dimensional, turning all analysis into algebra and allowing us to not worry about notions of convergence and Hilbert spaces. Because of the immense use of such finite methods in practical engineering, physics, and computer science, we have this topic as a section of its own, not just a mere exercise of example. We will illustrate its applicability to science through a series of examples.
+	\begin{example}[Signal Processing]
+		A signal $f(t)$ on a time interval $t \in [0,1]$ has the interval approximated as a graph $G_n$ of vertices $v_0, \dots, v_n$. $v_k$ represents the point $k/n \in [0,1]$. 
+		
+		$v_0$ is connected only to $v_1$, $v_n$ is connected only to $v_{n-1}$ and otherwise $v_{i}$ is connected to its immediate neighbors $v_{i\pm1}$. The signal is then a function on the set of $n+1$ vertices. 
+	\end{example}
+	Consider the derivation of the wave and heat equations in the preceding chapter. 
+	\begin{example}[Image Processing]
+		A $2D$ image represented by $f(x,y)$ on the interval $[0,1] \times [0,1] = [0,1]^2$ is approximated as a graph $G_n$ of vertices $v_{i,j}$ for $0\leq i, j \leq n$. The vertex $v_{i,j}$ represents the point $(i/n, j/n) \in [0,1]^2$. 
+		
+		As before, each vertex $v_ij$ on the interior is connected to its four nearest neighbors $v_{i\pm 1, j\pm1}$, vertices on the corners are only connected to two such neighbors, and otherwise vertices on the edges are connected to the three such neighbors. Images are then functions on this graph of $(n+1)$ vertices. 
+	\end{example}
+	
+	In these examples, we can form a \textbf{discrete derivative} operator\index{Derivative!Discrete}. 
+	\begin{example}[Discrete Derivative]
+		In the first example, we can form a discrete derivative of a function on these $(n+1)$ vertices as:
+		\begin{equation}
+			\Delta f(v_i) = \begin{cases}
+				\frac{f(v_{i+1}) - f(v_{i})}{(1/n)}, & \text{if } \textit{$i = 0$}\\
+				\frac{f(v_{i}) - f(v_{i-1})}{(1/n)}, & \text{if } \textit{$i = n$}\\
+				\frac{f(v_{i+1}) - f(v_{i-1})}{2 (1/n)}, & \text{otherwise}
+			\end{cases}
+		\end{equation}
+		This derivative is called a \textbf{central difference}\index{Derivative!Central Difference}. Of course we could have also picked just a \textbf{forward difference}\index{Derivative!Forward/Backward Difference}
+		\begin{equation}
+			\Delta f(v_i) = \begin{cases}
+				\frac{f(v_{i+1}) - f(v_{i})}{(1/n)}, & \text{if } \textit{$i < n$}\\
+				\frac{f(v_{i}) - f(v_{i-1})}{(1/n)}, & \text{if } \textit{$i = n$}\\
+			\end{cases}
+		\end{equation}
+		or the other way, as a \textbf{backward difference}. All of these operators are linear and representable as $(n+1)$ by $(n+1)$ matrices acting on the set of functions on the graph, equivalent to\footnote{Note we work over complex vector spaces for the same reason as in the previous section: we can find all the eigenvalues of an operator when working over $\mathbb C$.} $\mathbb C^{n+1}$. Their kernel, just like the regular derivative operator, is one-dimensional: the space of constant functions. 
+		
+		Similarly, in the second example we can form discrete derivatives corresponding to the ``$x$'' and ``$y$'' directions in the same way as before, operating on either the first or the second index of the $v_{i,j}$, respectively. 
+	\end{example}
+	
+	Much like picking a derivative $\partial/\partial q^i$ is coordinate covariant, so is picking a derivative on a graph not a natural thing. We need to pick a sort of ``flow'' on the graph along which our derivative vector field is pointing. On a graph given at random, its not at all obvious if there is any natural way to define ``derivative''. This is further evidence that the coordinate-dependent notion of ``derivative'' is not of central importance in physics. 
+	\todofig{Random scrambled graph ``where's your derivative now, fam?"}
+	
+	On the other hand, there \emph{is} an operator independent of coordinate system that we \emph{can} form: the \textbf{graph Laplacian}\index{Laplacian!On Graphs}. In the previous section, for $1$-dimension we defined the Laplacian to be the sum of the function values at the two neighboring points $x_{i\pm 1}$ minus $2$ times the function value at the point $x_0$ itself, all divided by $h$, the infinitesimal length associated to the point $x_0$. For a $2$-dimensional plane, we defined the Laplacian to be the sum of the function values at the $4$ neighboring points minus $4$ times the value of the function at $(x_0, y_0)$, all divided by $h^2$, the infinitesimal \emph{area} associated to the point $(x_0, y_0)$.
+	
+	We now generalize this to a graph. A given point may have $k$ neighbors. We take the sum of the function $f$ at all $k$ of these neighbors and subtract $k$ times the function value at $f$. As a matrix, this can be seen as:
+	\begin{align}
+		\sum_{v_i \in N(v_0)} [f(v_{i}) -  f(v_0)] &= \sum_{v_i \in N(v_0)} f(v_{i}) - D(v_0) f(v_0)\\ &= (A-D) f
+	\end{align} 
+	This last equality recasts it in terms of the linear operators of the adjacency and degree matrix acting on the vector $f$. 
+	
+	This thing should be proportional (up to the factor of that infinitesimal area associated to each vertex, assuming each vertex has equal area) to the Laplacian as we've defined it before. For this reason, in graph theory we don't care about an overall constant that multiplies our Laplacian, and so there are multiple conventions. Note that the operators $A$ and $D$ are \emph{invariants}, associated to the graph, and so the Laplacian is invariant as well. On any graph, no matter how scrambled-looking it is, there is a good definition for a Laplacian. 
+	\begin{defn}[Laplacian Matrix of a Graph]
+		For a graph $G = (V,E)$ represented by adjacency matrix $A$ giving degree matrix $D$, the Laplacian can be written as 
+		\begin{equation}
+			\triangle = A - D
+		\end{equation}
+		Because we care about the matrix itself and not the constant multiplying it, different parts of literature define it differently as:
+		\begin{itemize}
+			\item (reversed) $\triangle = D-A$
+			\item (normalized) $\triangle = 1 - D^{-1} A$
+			\item (symmetric normalized) $\triangle = 1 - D^{-1/2} A D^{-1/2}$ 
+		\end{itemize}
+	\end{defn}
+	We will use the symmetric normalized, as it is common in mathematical literature. 
+	\todoex{Applications to Molecular Orbital Theory}
+	
+	Regardless of what Laplacian definition we use, the matrix is symmetric. By the spectral theorem, this guarantees us that the eigenvalues are all real and that the eigenvectors span the space of functions on the graph, and are in fact \emph{orthogonal}. This is as powerful a result as we could have ever hoped for, because now, if we write the heat equation as
+	\begin{equation}
+		-\triangle f = \frac{\partial f}{\partial t}.
+	\end{equation}
+	We can expand $f$ in an eigenbasis $h_i$ of eigenvalues $\lambda_i$ determined from the matrix for $\triangle$:
+	\begin{equation}
+		f = \sum_{i=1}^n c_i h_i
+	\end{equation}
+	where $c_i$ is obtained from orthogonality of the eigenbasis, $c_i = \left< h_i | f \right>$ so that:
+	\begin{equation}
+		-\triangle f = \sum_{i=1}^n c_i (-\lambda_i) h_i = \sum_{i=1}^n c_i \lambda_i h_i = \frac{\partial f}{\partial t} = \sum_{i=1}^n c_i \dot h_i.
+	\end{equation}
+	As a vector equation, this implies that components must agree:
+	\begin{equation}
+		- \lambda_i h_i = \dot h_i \Rightarrow h_i(t) = h_i(0) e^{-\lambda t}
+	\end{equation}
+	Thus, we get the full solution to the heat equation:
+	\begin{equation}
+		f(t) = \sum_{i=0}^n c_i e^{-\lambda t} h_i
+	\end{equation}
+	In shorthand then, the diffusion of heat operator can be written as the exponential:
+	\begin{equation*}
+		e^{-t \triangle }
+	\end{equation*}
+	And for this reason we can call the Laplacian the \emph{infinitesimal generator} of diffusion\index{Generator!Of Diffusion}. 
+	
+	One important subset of graphs that is worth focusing on is the set of all \textbf{k-regular}\index{Graph!Regular Graph} graphs. These are graphs such that each vertex $v$ has exactly $k$ neighbors: $\forall v ~ |N(v)|=k$.
+	
+	\begin{obs}
+		The vector $(1, \dots, 1)$ is an eigenvector of $\Delta$ with eigenvalue $0$.
+	\end{obs}
+	The matrix $A$ acting on $(1, 0 \dots, 0)$ gives the vector of $1$s on all neighbors of $v_1$ and $0$s elsewhere. It's easy to see then that $A$ acting on $(1, \dots, 1)$ will give a vector with $|N(v_i)|$ on its $i$th entry. But this is exactly the same as the action of $D$ on $(1, \dots, 1)$, so $A-D$ gives zero on this vector. 
+	
+	The equivalent on manifolds is that the constant function has vanishing Laplacian. 
+	
+	\index{Graph|)}
 
-\section{Waves and Heat} % (fold)
-\label{sec:waves_and_heat}
+% section spectral_theory_on_graphs (end)
 
-% section waves_and_heat (end)
+
+\section{Spectral Theory on $\mathbb R$} % (fold)
+\label{sec:spectral_theory_on_mathbf_r}
+
+% section spectral_theory_on_mathbf_r (end)
+
