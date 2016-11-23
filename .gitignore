@@ -10,3 +10,5 @@
 *.gz
 *.log
 *.ilg
+*.tdo
+*.un~

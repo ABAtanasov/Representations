@@ -20,6 +20,7 @@
 \usepackage[colorinlistoftodos,prependcaption,draft]{todonotes}
 \usepackage{xcolor}
 \usepackage{wasysym}
+\usepackage{varwidth}
 \reversemarginpar
 
 \newcommand{\md}{\text{ \% }}
@@ -187,20 +188,33 @@
 \addcontentsline{toc}{chapter}{\emph{Acknowledgements}}
 
 \begin{large}
-	The authors would like to thank 
-	\begin{itemize}
-		\item John Dell
-		\item Jonathan Osborne
-		\item Vincent Moncrief
-		\item Francesco Iachello
-		\item You Qi
-		\item Walter Goldberger
-		\item James Ellenbogen
-		\item Ted Jacobson
-		\item Liang Jiang
-		\item David Poland
-	\end{itemize}
-	For the valuable conversations and lectures they offered, which led up to the development of this text.
+	
+		
+
+	The authors would like to thank:
+	\vspace{.5cm}
+	\begin{center}
+	\begin{varwidth}{\textwidth}
+			\begin{itemize} 
+				\renewcommand\labelitemi{$\square$}
+				\setlength\itemsep{.2em}
+				\item[$\nabla^2$] John C. Dell
+				\item[$\oiint$] Jonathan A. Osborne
+				\item[$\mathcal U_q(\frak{sl}_2)$] Igor B. Frenkel
+				\item[$\mathcal L_X Y$] Vincent E. Moncrief
+				\item[$\{-,- \}$] Francesco Iachello
+				\item[$\int \frac{d^4 p}{(2\pi)^4}$] Walter D. Goldberger
+				\item[$\left< \mathcal O \mathcal O \mathcal O \mathcal O \right>$] David Poland
+				\item[$\circ - \circ$] You Qi
+				\item[$\frac{j(j+1)}{2}$] James C. Ellenbogen
+				\item[$\omega_i \mathrm d q^i$] Ted A. Jacobson
+		%		\item Liang Jiang
+			\end{itemize}
+	\end{varwidth}
+	\end{center}
+	\vspace{.5cm}
+	For the valuable conversations and lectures that they offered, which led up to the development of this text.
+	
 \end{large}
 
 %Right, blank page
