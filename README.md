@@ -4,7 +4,7 @@
 
 
 
-## Part 0: Prerequisites
+## Prerequisites
 
 ### 1) Old Notions Revisited
 
@@ -12,7 +12,7 @@ First draft completed, need to draw up figures. dwabi
 OK there's a problem with a^i vs v^i vs \mathbf v_i_ (vs possible e_i_) usage in this chapter. I SHOULD BE USING X^i instead of v^i for vector fields :'( Let's fix that though.
 
 
-### 2) New Horizons Developed
+### 2) New Horizons
 
 Close to being done. 
 
@@ -31,7 +31,8 @@ Close to being done.
 ### 3) Differential Geometry
 
 THINGS WE SHOULD HAVE DEFINED EARLIER ON:
-	C^\infty(M), tangent BUNDLES, cotangent BUNDLES
+	C^\infty(M), tangent BUNDLES, cotangent BUNDLES\
+	That 1/k! on the k-form coefficient tensor
 
 Most of the material is written up. Need to explain differential forms more intuitively.
 
@@ -50,28 +51,35 @@ Most of the material is written up. Need to explain differential forms more intu
 ### 4) Harmonics: Fourier Analysis
 
    Alex:
-	I'll take this one, functions are a vector space, blah blah basis for the space
-	
-	Fourier transform is a change of basis... convolutions.. roast Aaron here
+	Start with the discretized unit interval and take the limit, DFT -> Fourier Series
+	Then generalize to the real line
+		-> Fourier transform is a change of basis... 
+	Now go to spectral graph theory 
+		-> 
+	And return to the plane, solving the wave equation/heat equation
+		convolutions.. roast Aaron here
 	
 
 ### 5) Beyond Harmonics: Representation Theory
+ 
+  We begin assuming knowledge of group theory/ intro-level abstract algebra. 
+  	Look at finite groups...
+		Build analogous results to fourier analysis
+	Return to graphs 
+		graphs -> quivers?
+		Representation theory of k[x] = Jordan Normal Form
+	
+	Some statements about compact groups/topological groups?
 
-  Alex: 
-
-    Get to here before September
 
 ## Part 2: Physics
 
 ### 6) SL(2,C), SU(2), SL(2,R).. all of finite dimensional QM basically
 
-  Alex:
-  
-    Dwabi, we'll get to it before august finishes
+  Review how this ties together: rep theory of SO(3) leading to SO(3,1), and spinors (projective representations)
 
   Aaron:
-  
-	Dude put your QI section here, it'll be dope
+	Dude put a QI section here, that would be excellent
 
 ### 7) Classical Mechanics and Sympletic Geometry
 
@@ -79,7 +87,7 @@ Most of the material is written up. Need to explain differential forms more intu
 
     Read up on Legendre Transform, do we want it?
     Feynman Argument for conservation in the Lagrangian viewpoint
-    Yo facetime with me about Symplectic geometry.. 
+    Symplectic geometry: 
       I have a good idea about intuition behind how the symplectic form bundles everything together and lets us go from a hamiltonian to \partial / \partial t -> the arrow of time -> 
     
 
@@ -102,9 +110,8 @@ Most of the material is written up. Need to explain differential forms more intu
 ## Part 3: More Advanced Topics
 
 ### 9) An Introduction to Geometric Quantization
-   Both of us:
-	We gotta research this in late September... It would be a killer ending
-	The idea should be that even though, physically, we can barely grasp quantization at first glance, the mathematics guides us and we shuold try to interpret THAT physically. 
+
+   The idea should be that even though, physically, we can barely grasp quantization at first glance, the mathematics guides us and we shuold try to interpret THAT physically. 
 
 ### 10) Classification of Simple Lie Algebras over C
    Alex:
