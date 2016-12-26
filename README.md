@@ -1,6 +1,6 @@
-# Representations
+# Representations of the Physical Universe
 
-####An upcoming book, by Alex &amp; Aaron
+####An upcoming book
 
 
 
@@ -11,84 +11,104 @@
 First draft completed, need to draw up figures. dwabi
 OK there's a problem with a^i vs v^i vs \mathbf v_i_ (vs possible e_i_) usage in this chapter. I SHOULD BE USING X^i instead of v^i for vector fields :'( Let's fix that though.
 
+#### The Cartesian Coordinate System
+	Begin with an example of a falling ball, the vector for velocity
+#### Linear Algebra and Coordinates
+	Critical to highlight difference between geometric and algebraic vectors
+#### Euclidean vs. Affine Space
+	The inner product is not an invariant 
+#### Nonlinear Coordinates
+	
+#### Einstein's Summation Convention
+	Make clean and short
+
+#### (MOVED) Views of Multilinear Algebra
+#### Exercises
 
 ### 2) New Horizons Developed
 
 Close to being done. 
 
-  Aaron:
-  
-    Fill up the gaps in the Topology section 2.3
-    Stereographic projection of sphere as an example of coordinate charts/atlasses 
-    Writing up the Embeddings vs. Intrinsic Geometry section 2.4
-  Alex:
-	OK SOMEWHERE we need to define:
-		Commutative diagrams, Dual Spaces and functionals
-    Adopting Aaron's work for scalar/vector fields into section 2.5 
+We want a section for defining 
+	Direct sums, Dual Spaces <-> functionals, 
+	and tensor product both INTUITIVELY and FORMALLY
+
+#### The Manifold
+#### Examples of Manifolds
+#### Elementary Topology
+	Gaps in this section
+	Add stereographic projection of sphere as example of coordinate charges
+#### Embedded v.s Intrinsic
+#### Vectors Reimagined
+#### What Follows
+#### Exercises
+
 
 ## Part 1: A Better Language
 
 ### 3) Differential Geometry
 
 THINGS WE SHOULD HAVE DEFINED EARLIER ON:
-	C^\infty(M), tangent BUNDLES, cotangent BUNDLES
 
-Most of the material is written up. Need to explain differential forms more intuitively.
+	C^\infty(M)
 
-  Either of us:
+#### The Derivative and the Boundary
+#### The 1-Form
+#### The Exterior Algebra from the Wedge
+#### Stokes' Theorem
+#### Distance, a Metric
+#### The Hodge Star and the Laplacian
+#### Movement: Lie's Ideas
+#### Exercises
+
 	Finish Stokes' theorem proof.. idk find a good reference, all the groundwork is there
-	
-	
-
-  Alex: 
     Finish some Lie derivative summaries
 
-  Aaron:  
-    Do we want another section on connections here or in GR? 
 
 
 ### 4) Harmonics: Fourier Analysis
 
-   Alex:
-	I'll take this one, functions are a vector space, blah blah basis for the space
-	
-	Fourier transform is a change of basis... convolutions.. roast Aaron here
-	
+#### Discrete, Bounded: Eigenvalues
+	Functions are very cleraly n-component tuples forming a vector space
+#### Continuous, Bounded: Fourier Series
+	Differentiation as a linear operator, finding its eigenvalues gives the fourier transform
+#### Continuous, Unbounded: Fourier Transform
+#### Harmonic Analysis on Higher Euclidean Space
+	Here we derive the Laplacian, study diffusion, image processing, convolution
+	Functions on 2D space as a limit of a 2D grid
+	Laplacian is never obviously derived in any good text so derive it. 
+#### Harmonic Analysis on Graphs
+	Functions on graphs, graph laplacian. 
+	Motivate expanders
+	Conclude with spectral graph theory a la Spielman
+#### Exercises		
+	What about real-valued exponents: c.f. the positive reals
 
 ### 5) Beyond Harmonics: Representation Theory
 
-  Alex: 
-
-    Get to here before September
+  Begin with spectral graph theory motivating representations as generalizations of eigenvalues
 
 ## Part 2: Physics
 
-### 6) SL(2,C), SU(2), SL(2,R).. all of finite dimensional QM basically
+### 6) SL(2,C), SU(2), SL(2,R)... all of finite dimensional QM basically
 
-  Alex:
   
-    Dwabi, we'll get to it before august finishes
-
-  Aaron:
   
-	Dude put your QI section here, it'll be dope
+  QI section
 
-### 7) Classical Mechanics and Sympletic Geometry
+### 7) Classical Mechanics and Symplectic Geometry
 
-  Aaron: 
-
-    Read up on Legendre Transform, do we want it?
+	What is the difference between velocity and momentum 
+	Legendre transform
     Feynman Argument for conservation in the Lagrangian viewpoint
-    Yo facetime with me about Symplectic geometry.. 
-      I have a good idea about intuition behind how the symplectic form bundles everything together and lets us go from a hamiltonian to \partial / \partial t -> the arrow of time -> 
+    Intuition behind how the symplectic form bundles everything together and lets us go from a hamiltonian to \partial / \partial t -> the arrow of time -> 
     
 
 ### 8) Einstein's Gravity
-  Aaron:
-
-    Here be Covariant Derivatives. Motivate Riemann Curvature
+  
+  	Covariant Derivatives. Motivate Riemann Curvature
 	
-	READ WEYLS BOOK it literally derives GR from LOGIC 
+	READ WEYLS BOOK it literally derives GR from symmetry 
 	
 	And then:
 	
@@ -101,11 +121,15 @@ Most of the material is written up. Need to explain differential forms more intu
 
 ## Part 3: More Advanced Topics
 
+### 8) Cohomology and Homology
+
+	Goal is a simple motivation of poincare duality and relating the space of harmonic p-forms to the (co)homology
+
 ### 9) An Introduction to Geometric Quantization
-   Both of us:
-	We gotta research this in late September... It would be a killer ending
+  
 	The idea should be that even though, physically, we can barely grasp quantization at first glance, the mathematics guides us and we shuold try to interpret THAT physically. 
 
 ### 10) Classification of Simple Lie Algebras over C
-   Alex:
-	I got this... You Qi's notes will be the guide
+
+	You Qi's notes, together with Humphreys will be the guide
+	The goal is to introduce, with reasonable proof, the ABCDEFG classification of Lie Algebras
