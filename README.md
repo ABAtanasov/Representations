@@ -4,7 +4,7 @@
 
 
 
-## Part 0: Prerequisites
+## Prerequisites
 
 ### 1) Old Notions Revisited
 
@@ -25,7 +25,7 @@ OK there's a problem with a^i vs v^i vs \mathbf v_i_ (vs possible e_i_) usage in
 #### (MOVED) Views of Multilinear Algebra
 #### Exercises
 
-### 2) New Horizons Developed
+### 2) New Horizons
 
 Close to being done. 
 
@@ -50,7 +50,7 @@ We want a section for defining
 
 THINGS WE SHOULD HAVE DEFINED EARLIER ON:
 
-	C^\infty(M)
+	C^\infty(M), That 1/k! on the k-form coefficient tensor
 
 #### The Derivative and the Boundary
 #### The 1-Form
@@ -68,6 +68,7 @@ THINGS WE SHOULD HAVE DEFINED EARLIER ON:
 
 ### 4) Harmonics: Fourier Analysis
 
+
 #### Discrete, Bounded: Eigenvalues
 	Functions are very cleraly n-component tuples forming a vector space
 #### Continuous, Bounded: Fourier Series
@@ -84,7 +85,18 @@ THINGS WE SHOULD HAVE DEFINED EARLIER ON:
 #### Exercises		
 	What about real-valued exponents: c.f. the positive reals
 
+
 ### 5) Beyond Harmonics: Representation Theory
+ 
+  We begin assuming knowledge of group theory/ intro-level abstract algebra. 
+  	Look at finite groups...
+		Build analogous results to fourier analysis
+	Return to graphs 
+		graphs -> quivers?
+		Representation theory of k[x] = Jordan Normal Form
+	
+	Some statements about compact groups/topological groups?
+
 
   Begin with spectral graph theory motivating representations as generalizations of eigenvalues
 
@@ -92,17 +104,19 @@ THINGS WE SHOULD HAVE DEFINED EARLIER ON:
 
 ### 6) SL(2,C), SU(2), SL(2,R)... all of finite dimensional QM basically
 
-  
+  Review how this ties together: rep theory of SO(3) leading to SO(3,1), and spinors (projective representations)
   
   QI section
+
 
 ### 7) Classical Mechanics and Symplectic Geometry
 
 	What is the difference between velocity and momentum 
 	Legendre transform
     Feynman Argument for conservation in the Lagrangian viewpoint
+
     Intuition behind how the symplectic form bundles everything together and lets us go from a hamiltonian to \partial / \partial t -> the arrow of time -> 
-    
+
 
 ### 8) Einstein's Gravity
   
@@ -126,6 +140,7 @@ THINGS WE SHOULD HAVE DEFINED EARLIER ON:
 	Goal is a simple motivation of poincare duality and relating the space of harmonic p-forms to the (co)homology
 
 ### 9) An Introduction to Geometric Quantization
+
   
 	The idea should be that even though, physically, we can barely grasp quantization at first glance, the mathematics guides us and we shuold try to interpret THAT physically. 
 
