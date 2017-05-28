@@ -1,0 +1,6 @@
+Material to add
+
+
+Chapter 3
+
+Stokes' theorem is not so much a profound result requiring heavy mathematical manipulations to achieve so much as it is an intuitive observation that requires the right language to cast things in. 

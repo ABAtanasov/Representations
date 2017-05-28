@@ -1,6 +1,15 @@
 External information:
 
 
-Font Size? Font family?
+	Font Size:
+	Font Family: 
 
-Dimensions: 6.1 x 1 x 9.2 inches (rough estimate)
+
+	Dimensions: 6.1 x 1 x 9.2 inches (rough estimate)
+
+
+
+Copyright: 
+
+	Copyright \copyright 2016 by Alexander B. Atanasov \& Aaron J. Hillman. 
+	No part of this book may be reproduced in any form or by any means without permission in writing from both authors. All images have been created by hand or in Wolfram Mathematica. This copyright does not extend to the graphs and figures within this work. Anyone who can reproduce these figures is free to do so and use them. 

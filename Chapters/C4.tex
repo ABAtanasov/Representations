@@ -1,11 +1,76 @@
+\documentclass[../master.tex]{subfiles}
+
+\begin{document}
+
 \chapter[Harmonics: Fourier Analysis]{Harmonics:\\ Fourier Analysis}
 
-	This chapter develops the ideas of Fourier analysis, an idea whose reach now extends across mathematics and physics, and moreover has great influence in the engineering disciplines. There is no argument against the fact that it is one of the most powerful tools that mathematics has ever developed, not just for real-world application, and not just for formulating physical theories, but going further and influencing the way mathematics itself is done. 
+	This chapter develops the ideas of Fourier analysis, a framework whose reach now extends across the science and engineering disciplines. There is no arguing the fact that it is one of the most powerful tools that mathematics has ever developed, not just for its wide practical application, and not just for its use in formulating physical theories, but for going further and influencing the way that mathematics itself is thought about and done. 
 	
-	Another mathematical idea that has had similar impact across the scientific fields is linear algebra, the in-depth reach of studying the phenomenon of linearity. Aside from allowing us to go between coordinate representations of physical space and datasets in science (which, as philosophically important as it may be, is not so central in application), linear algebra gives another powerful tool that, as of yet, has not been touched upon: that of the eigenvector. Eigenvectors give us a \emph{natural} way of looking at an object that is represented by a matrix or linear operator, whether that object is the stress tensor of a material (principal axes), a high dimensional dataset (principal-component analysis), or the long-term behavior of a system (eigenvectors for markov chains and stochastic processes). 
+	Another mathematical idea that has had similar impact across the scientific fields is linear algebra: the in-depth study of the phenomenon of linearity. Aside from allowing us to go between points in physical space and tuples of numbers, linear algebra gives another powerful tool that, as of yet, has not been touched upon in this book: the eigenvector. Eigenvectors give a natural way of handling an object, once it is represented by a linear operator on a vector space. When that object is the stress tensor of a material, they describe the principal axes, when it is a high dimensional dataset, they allow for the principal-component analysis, and for markov chains and stochastic processes, they give information about long-term dynamics. 
 	
-	In this section, we will not just reflect on the uses and power of linear algebra and Fourier analysis in engineering, physics, and mathematics, but we will go further and show that they are one and the same: Fourier analysis, viewed through the right lense, is plain linear algebra. This will set a solid stage for which the next chapter will give us the real spectacle: generalizing the ideas of Fourier analysis and linear algebra to get something much more unified and powerful, which it can be said constitutes the backbone of modern mathematics: Representation Theory. 
+	In this section, we will not just reflect on the uses and power of linear algebra and Fourier analysis, but we will go further and show that they are one and the same: Fourier analysis, viewed through the right lense, is plain linear algebra with eigenvalues. This will set the stage on which the next chapter will give us the real performance: generalizing the ideas of Fourier analysis to get something much more unified and powerful, which it can be said to constitute a cornerstone of modern mathematics: representation theory. \\
+	
+	The chapter is organized in stages that will form stepping stones between elementary linear algebra and full-blown analysis. We begin by performing Fourier analysis on $N$ points connected in a discrete ring. Then, taking the limit as $N \to \infty$, we obtain the Fourier series on the circle $S^1$, i.e. the interval $[0,1]$ with periodic boundary conditions. Generalizing this to arbitrary intervals $[-k, k]$, we take another limit as $k \to \infty$ and obtain the Fourier transform on the line. From here, we study higher-dimensional generalizations of these ideas: to $2$-D lattices of points and continuous $n$-D Euclidean space. We conclude by translating these ideas to more general arrangements of $N$ connected points: Fourier analysis on graphs, leading to spectral graph theory. 
 
+\section{Discrete, Bounded: Eigenvalues}
+
+	We begin with the definition of a \textbf{finite graph}\index{Graph}\index{Edge}\index{Vertex}
+	\begin{defn}
+		A finite graph $G$ is a finite set of \textbf{vertices} $V = \{v_1, \dots, v_n\}$ together with a set of \textbf{edges} $E = \{e_1, \dots, e_m\}$ such that each edge is an unordered pair of vertices $(v_i, v_j)$ indicating a connection between two vertices. 
+	\end{defn}
+	
+	Occasionally, we will call the vertices ``points'' on the graph.	
+	
+	For this section, we consider the special case of $N$ vertices connected in a ring by having each vertex joined to two nearest neighbors as below. Denote this graph by $G$.
+
+	\todofig{Illustrate $N$ points connected in a ring}
+	
+	We have considered functions on a manifold $M$, that associate a real or complex number to each point $p \in M$. Here we will consider the simpler, more finite case of functions $f$ that associate to each \emph{vertex} $v \in G$ a (real or complex) number $f(v)$ called the value of $f$ at $v$. The ideas of functions on graphs are in many ways analogous to the notions of functions on manifolds, as we shall see.
+	
+	For this ring with $N$ points, a function can be described entirely in terms of $N$ numbers: the values it takes at each point. 
+	\begin{equation*}
+		f \approx \begin{pmatrix}
+			f(v_1) \\
+			\vdots \\
+			f(v_N)
+		\end{pmatrix}
+	\end{equation*}
+	
+	Here we write `$\approx$' instead of `$=$' because of the same point that was made in chapter $1$. This collection of $N$ numbers certainly \emph{represents} the function $f$, but it is \emph{not} $f$. That is, we can identify the space of real-valued functions on these $N$-points with $\mathbb{R}^N$, and the space of complex-valued functions with $\mathbb C^N$, but this choice requires that we pick a basis. 
+	
+	But what basis have we picked on the function space? Our basis $\{ b_i \}_{i=1}^N$ consists of functions $b_i(v_j)$ that are zero everywhere except for when $i=j$, where $b_i(v_i) = 1$. Then any function $f$ can clearly be written as
+	\begin{equation}
+		f = \sum_i f(v_i) b_i
+	\end{equation}
+	it is easy to see that evaluating this at a vertex $v_j$ makes every $b_i$ vanish except for $i=j$, giving total value $f(v_j)$ as required. This set of basis functions seems to be the obvious one. We will call it the \textbf{position basis}\index{Basis:Position}, taking vernacular from physics. 
+	
+	Although the space of real-valued functions on $G$ is isomorphic \emph{as a vector space} to $\mathbb R^N$, it has much more structure than just an ordinary vector space. We know that we can multiply two functions $f$ and $g$ to obtain a new one $h = f g$ simply by multiplying values pointwise $h(v_i) = f(v_i) g(v_i)$. Since the functions on $G$ are a vector space, we thus have a way to multiply two vectors in the space to get another.
+
+	Moreover, we can define an inner product\index{Inner Product!Of Functions} on this space of functions
+	
+	\begin{defn}[Inner Product of Functions on a $G$]
+		Let $f$, $g$ be to functions defined on $G$. We define an inner product $(\cdot, \cdot)$ on this space by 
+		\begin{equation}
+			(f, g) = \sum_{i=1}^N f(v_i) g(v_i)
+		\end{equation}
+	\end{defn}
+
+\section{Continuous, Bounded: Fourier Series}
+
+\section{Continuous, Unbounded: Fourier Transforms}
+
+\section{Fourier Analysis on Euclidean Spaces}
+
+\section{Fourier Analysis on Graphs: Spectral Graph Theory}
+
+
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
+% Nothing below this section is real
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
 
 
 \section{Vector Spaces of Functions} % (fold)
@@ -369,3 +434,4 @@
 
 % section spectral_theory_on_mathbf_r (end)
 
+\end{document}
