@@ -133,10 +133,8 @@ What about real-valued eigenvalues giving rise to exponential decay eigenforms: 
 	Black holes, let them spin let them be charged. Let there be parallel universe, everything. 
 	Penrose diagrams
 	
-	Expanding universes, redshift, Hubble's thing.. ADM might be too much its ugly af imo (but the preceeding chapter HAS developed the hamiltonian formalism enough)
+	Expanding universes, redshift, Hubble's thing.. ADM might be too much its ugly imo (but the preceeding chapter HAS developed the hamiltonian formalism enough)
 	
-	The cosmological constant: stroke of genius or just a stupid freaking Lambda that Einstein put in.  
-
 ## Part 3: More Advanced Topics (No preferred order)
 
 ### 8) Cohomology and Homology
