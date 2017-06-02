@@ -1,0 +1,113 @@
+\ProvidesPackage{bookstyle}
+
+\usepackage[b5paper, margin = .8in]{geometry}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{cancel}
+\usepackage{braket}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{subfiles}
+\usepackage{epigraph}
+\usepackage{makeidx}
+\usepackage{titlesec}
+\usepackage{xargs}
+\usepackage{tikz-cd}
+\usepackage[T1]{fontenc}
+\usepackage{mathabx}
+\usepackage[english]{babel}
+\usepackage[titletoc]{appendix}
+\usepackage[colorinlistoftodos,prependcaption,draft]{todonotes}
+\usepackage{xcolor}
+\usepackage{wasysym}
+\usepackage{varwidth}
+\usepackage{xcolor}
+\usepackage{titlesec}
+
+\reversemarginpar
+
+
+\geometry{papersize={17 cm, 24.4 cm},margin = .9 in} %Close to standard
+
+
+\newcommand{\md}{\text{ \% }}
+\newcommand{\bld}{\texttextbf}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\noi}{\noindent}
+\newcommand{\1}{\mathbbm{1}}
+\newcommand{\vol}{\text{vol}}
+\newcommand{\re}{\text{re}}
+\newcommand{\im}{\text{im}}
+\def\lacts{\ensuremath{%
+  \reflectbox{\rotatebox[origin=c]{180}{$\circlearrowleft$}}}}
+\def\racts{\ensuremath{%
+    \reflectbox{\rotatebox[origin=c]{180}{$\circlearrowright$}}}}
+
+
+\newcommandx{\todofig}[2][1=inline]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\todochange}[2][1=inline]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\todoref}[2][1=inline]{\todo[linecolor=green,backgroundcolor=green!25,bordercolor=green,#1]{#2}}
+\newcommandx{\todoadd}[2][1=inline]{\todo[linecolor=cyan,backgroundcolor=cyan!25,bordercolor=cyan,#1]{#2}}
+\newcommandx{\todoex}[2][1=inline]{\todo[linecolor=yellow,backgroundcolor=yellow!25,bordercolor=yellow,#1]{#2}}
+
+
+\setcounter{chapter}{0} 
+\setcounter{part}{-1}			%This way we start at Chapter 0
+
+\titleformat{\chapter}[display]
+  {\normalfont\LARGE\bfseries}
+  {Chapter \thechapter}{12pt}{\huge}
+  
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {\thesection}{1em}{}
+
+\lhead{\nouppercase{\rightmark} \nouppercase{\leftmark}}
+  \lfoot{\today}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+
+  \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+  \renewcommand{\sectionmark}[1]{\markright{#1}}
+%
+% \pagestyle{fancy} % enable fancy page style
+% \renewcommand{\headrulewidth}{0pt} % comment if you want the rule
+% \fancyhf{} % clear header and footer
+% \fancyfoot{}
+% \fancyhead[RO,LE]{\thepage}
+% \fancyhead[LO]{\chaptername}
+% \fancyhead[RE]{\chaptername}
+
+\newcommand*{\titlefont}{\fontfamily{pbk}\selectfont}
+
+%\declaretheorem[name=Theorem,numberwithin=section]{thm}
+
+\newtheorem*{nb}{Important Note}		%Don't think we'll use this
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{obs}[theorem]{Observation}
+
+\theoremstyle{definition}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{concept}[theorem]{Concept}
+\newtheorem{view}{View}
+\newtheorem{example}[theorem]{Example}
+
+\renewcommand\thepart{\arabic{part}}
+%so we can have part 0 
+
+\pagenumbering{roman}

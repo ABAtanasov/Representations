@@ -1,139 +1,26 @@
-\documentclass[12pt, twoside, openany]{book} 
-\usepackage[b5paper, margin = .8in]{geometry}
-\usepackage{amsmath,amssymb,amsfonts,amsthm}
-\usepackage{enumitem}
-\usepackage{graphicx}
-\usepackage{cancel}
-\usepackage{braket}
-\usepackage{fancyhdr}
-\usepackage{geometry}
-\usepackage{subfiles}
-\usepackage{epigraph}
-\usepackage{makeidx}
-\usepackage{titlesec}
-\usepackage{xargs}
-\usepackage{tikz-cd}
-\usepackage[T1]{fontenc}
-\usepackage{mathabx}
-\usepackage[english]{babel}
-\usepackage[titletoc]{appendix}
-\usepackage[colorinlistoftodos,prependcaption,draft]{todonotes}
-\usepackage{xcolor}
-\usepackage{wasysym}
-\usepackage{varwidth}
-\reversemarginpar
-
-\newcommand{\md}{\text{ \% }}
-\newcommand{\bld}{\texttextbf}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\D}{\mathbb{D}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\HH}{\mathbb{H}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\B}{\mathbb{B}}
-\newcommand{\F}{\mathbb{F}}
-\newcommand{\M}{\mathcal{M}}
-\newcommand{\A}{\mathcal{A}}
-\newcommand{\noi}{\noindent}
-\newcommand{\1}{\mathbbm{1}}
-\newcommand{\vol}{\text{vol}}
-\newcommand{\re}{\text{re}}
-\newcommand{\im}{\text{im}}
-\def\lacts{\ensuremath{%
-  \reflectbox{\rotatebox[origin=c]{180}{$\circlearrowleft$}}}}
-\def\racts{\ensuremath{%
-    \reflectbox{\rotatebox[origin=c]{180}{$\circlearrowright$}}}}
-
-
-\newcommandx{\todofig}[2][1=inline]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
-\newcommandx{\todochange}[2][1=inline]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
-\newcommandx{\todoref}[2][1=inline]{\todo[linecolor=green,backgroundcolor=green!25,bordercolor=green,#1]{#2}}
-\newcommandx{\todoadd}[2][1=inline]{\todo[linecolor=cyan,backgroundcolor=cyan!25,bordercolor=cyan,#1]{#2}}
-\newcommandx{\todoex}[2][1=inline]{\todo[linecolor=yellow,backgroundcolor=yellow!25,bordercolor=yellow,#1]{#2}}
-
-\usepackage{xcolor}
-\usepackage{titlesec}
-\include{Ch1ABA.tex}
-
-\geometry{papersize={17 cm, 24.4 cm},margin = .9 in} %Close to standard
-
-\setcounter{chapter}{0} 
-\setcounter{part}{-1}			%This way we start at Chapter 0
-
-\titleformat{\chapter}[display]
-  {\normalfont\LARGE\bfseries}
-  {Chapter \thechapter}{12pt}{\huge}
-  
-\titleformat{\section}
-  {\normalfont\Large\bfseries}
-  {\thesection}{1em}{}
-
-\lhead{\nouppercase{\rightmark} \nouppercase{\leftmark}}
-  \lfoot{\today}
-  \renewcommand{\headrulewidth}{0.4pt}
-  \renewcommand{\footrulewidth}{0.4pt}
-
-  \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-  \renewcommand{\sectionmark}[1]{\markright{#1}}
-%
-% \pagestyle{fancy} % enable fancy page style
-% \renewcommand{\headrulewidth}{0pt} % comment if you want the rule
-% \fancyhf{} % clear header and footer
-% \fancyfoot{}
-% \fancyhead[RO,LE]{\thepage}
-% \fancyhead[LO]{\chaptername}
-% \fancyhead[RE]{\chaptername}
-
-\makeindex
-
-
-
-
-\newtheorem*{nb}{Important Note}		%Don't think we'll use this
-\newtheorem{theorem}{Theorem}[chapter]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{prop}[theorem]{Proposition}
-\newtheorem{cor}[theorem]{Corollary}
-\newtheorem{obs}[theorem]{Observation}
-
-
-\theoremstyle{definition}
-\newtheorem{defn}[theorem]{Definition}
-\newtheorem{concept}[theorem]{Concept}
-\newtheorem{view}{View}
-
-\newtheorem{example}[theorem]{Example}
-
-
-%\declaretheorem[name=Theorem,numberwithin=section]{thm}
-
-
-
 % This will be the book itself, all .tex files compiled into one source. For simplicity, as well as to save space, we're going to have each chapter be a .tex on its own
 
-\renewcommand\thepart{\arabic{part}}
-%so we can have part 0 
-
-
-
-
-% Don't forget.. when made into a book odd numbers go on the right, even numbers on the left. This is probably a publisher's issue but it's worth remembering
-
+% Don't forget.. when made into a book, odd numbers go on the right, even numbers on the left. This is probably a publisher's issue but it's worth remembering
 
 % When I say "pages" that means two pages = one physical page front and back
 
-	
+
+\documentclass[12pt, twoside, openany]{book} 
+\usepackage{bookstyle}
+
+\makeindex
 
 %Title Page, left
 
-\title{\textbf{\Huge Representations\\ \large of a\\ \LARGE Physical \LARGE Universe}}
-\author{Alex Atanasov \& Aaron Hillman}
+\title{\begin{titlefont}
+	{\fontsize{1.1cm}{1.1cm}\selectfont R}\Huge{epresentations}\end{titlefont}\vspace{.05in}\\
+	\textbf{\large of the}\vspace{.05in}\\
+	\textbf{\LARGE Physical \LARGE Universe}
+}
+%\author{Alex Atanasov}
 \begin{document}
+\date{}
 \maketitle
-
-\pagenumbering{roman}
 
 \listoftodos
 \newpage
@@ -148,13 +35,12 @@
 
 {
 	\setlength{\parindent}{-2em}
-	Copyright \copyright 2016 by Alexander B. Atanasov \& Aaron J. Hillman. 
-	No part of this book may be reproduced in any form or by any means without permission in writing from both authors. All images have been created by hand or in Wolfram Mathematica. This copyright does not extend to the graphs and figures within this work. Anyone who can reproduce these figures is free to do so and use them. 
+	Copyright \copyright 2017 by Alexander B. Atanasov
+	No part of this book may be reproduced in any form or by any means without permission in writing from the authors. All images have been created by hand or in Wolfram Mathematica. This copyright does not extend to the graphs and figures within this work. Anyone who can reproduce these figures is free to do so and use them. 
 	
 	\begin{center}
 		\vspace*{2cm} \emph{Other copyright information will be put here by the publisher.}
-	\end{center}
-	
+	\end{center}	
 }
 
 
@@ -174,9 +60,6 @@
 %Right, blank (or include quote)
 \newpage
 
-
-
-
 %Left, begin ToC, around 2-3 pages
 
 \tableofcontents
@@ -187,9 +70,6 @@
 \addcontentsline{toc}{chapter}{\emph{Acknowledgements}}
 
 \begin{large}
-	
-		
-
 	The authors would like to thank:
 	\vspace{.5cm}
 	\begin{center}
@@ -197,22 +77,22 @@
 			\begin{itemize} 
 				\renewcommand\labelitemi{$\square$}
 				\setlength\itemsep{.2em}
-				\item[$\nabla^2$] John C. Dell
+				\item[$\nabla$] John C. Dell
 				\item[$\oiint$] Jonathan A. Osborne
-				\item[$\mathcal U_q(\frak{sl}_2)$] Igor B. Frenkel
+				\item[$\frac{j(j+1)\hbar^2}{2}$] James C. Ellenbogen
+				\item[$\left< \sigma \sigma \epsilon \epsilon \right>$] David Poland
+				\item[$\mathcal M(r, k)$] Igor B. Frenkel
+				\item[$\mathcal U_q (\frak{sl}_2)$] You Qi
 				\item[$\mathcal L_X Y$] Vincent E. Moncrief
 				\item[$\{-,- \}$] Francesco Iachello
-				\item[$\int \frac{d^4 p}{(2\pi)^4}$] Walter D. Goldberger
-				\item[$\left< \mathcal O \mathcal O \mathcal O \mathcal O \right>$] David Poland
-				\item[$\circ - \circ$] You Qi
-				\item[$\frac{j(j+1)}{2}$] James C. Ellenbogen
-				\item[$\omega_i \mathrm d q^i$] Ted A. Jacobson
+				\item[$\int \frac{d^4 \ell}{(2\pi)^4}$] Walter D. Goldberger
+				\item[$\omega_i \, \mathrm d q^i$] Ted A. Jacobson
 		%		\item Liang Jiang
 			\end{itemize}
 	\end{varwidth}
 	\end{center}
 	\vspace{.5cm}
-	For the valuable conversations and lectures that they offered, which led up to the development of this text.
+	For the valuable conversations, lectures, and research opportunities that they offered, which led up to the development of this text.
 	
 \end{large}
 
@@ -226,25 +106,22 @@
 \part{Prerequisite Material}
 
 %Chapter 1: Old Notions Revisited
-%\subfile{chapters/C1}
+\subfile{chapters/C1}
 
 %Chapter 2: New Horizons
-%\subfile{chapters/C2}
+\subfile{chapters/C2}
 
-
-%Chapter 3: Differential Geometry (large chapter)
 
 
 \part{A Language for Nature}\thispagestyle{empty}
 
-%\subfile{chapters/C3}
+%Chapter 3: Differential Geometry (large chapter)
+\subfile{chapters/C3}
 
 %Chapter 4: Fourier Analysis
-
 \subfile{chapters/C4}
 
 %Chapter 5: Representation Theory (large chapter)
-
 \subfile{chapters/C5}
 
 \part{Physics}\thispagestyle{empty}
@@ -263,15 +140,15 @@
 %Chapter 9: Quantization (medium chapter)
 \chapter[An Introduction to Quantization]{An Introduction to \\Quantization}
 
-%Chapter 10: Classification of Complex Simple Lie Algebras (large chapter, but hopefully not too large)
+%Chapter 10: Classification of Complex Simple Lie Algebras (large chapter)
 \chapter[Classification of Simple Lie Algebras over $\mathbb C$]{Classification of\\ Simple Lie Algebras over $\mathbb{C}$}
 
 \chapter*{Conclusion}\thispagestyle{empty}
 \addcontentsline{toc}{chapter}{\emph{Conclusion}}
 
 
-
- \subfile{Chapters/Appendices}
+%Appendix Chapters
+\subfile{Chapters/Appendices}
 
 %Right, Notation
 \chapter*{Notation}\thispagestyle{empty}
@@ -284,7 +161,6 @@
 
 %Index, 
 \printindex
-
 
 \end{document} 
 
