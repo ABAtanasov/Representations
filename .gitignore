@@ -12,4 +12,6 @@
 *.ilg
 *.tdo
 *.un~
+*.blend#
+Thumbs.db
 Chapters/*.pdf
