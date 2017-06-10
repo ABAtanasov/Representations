@@ -1,5 +1,8 @@
 Material to add
 
+Preface:
+
+"I hope in this book to be able to provide material that anyone, at any stage of their mathematical career, might find interesting."
 
 Chapter 3
 

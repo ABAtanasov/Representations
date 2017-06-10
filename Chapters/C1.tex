@@ -1,5 +1,5 @@
+%!TEX root = /Users/Alex/Work/Representations/Master.tex
 \documentclass[../master.tex]{subfiles}
-
 
 \begin{document}
 
@@ -9,25 +9,33 @@
 \section{The Cartesian Coordinate System} % (fold)
 \label{sec:Cartesian}
 	
-	One of the most important revolutions in mathematics and physics was brought about from an idea of the seventeenth century mathematician and philosopher Ren\'{e} Descartes. The idea was that any point $P$ in the Euclidean plane could be represented by a pair of numbers $(x,y)$. The numbers themselves represented distances along two perpendicular axes that met at a point $(0,0)$, called the origin. By introducing this concept, he had done something amazing. He had related the \emph{geometry} of the plane to the \emph{algebra} of variables and equations. Algebra could be \emph{represented} geometrically, and conversely geometric problems could be solved by going into the realm of algebra.
+	One of the most revolutionary ideas in mathematics and physics draws its name from the seventeenth century philosopher Ren\'{e} Descartes. The idea is simple: any point $P$ in the Euclidean plane can be represented by a pair of real numbers $(x,y)$ in a one-to-one correspondence. The numbers themselves represent distances along two perpendicular axes that meet at a special point, $O$, called the \textbf{origin}\index{origin} and corresponding to $(0,0)$. This construction gives the \textbf{cartesian coordinate system}\index{coordinate system!Cartesian}, which does something amazing: it relates the \underline{geometry} of the plane to the \underline{algebra} of variables and equations. Algebra could be represented geometrically, and conversely geometric problems could be solved by transforming them into algebraic ones. The two great classical branches of mathematics, the study of space and the study of quantity, have been joined.
 	
 	\todofig{Insert 2D Plane with Coordinates}
 	
-	Coordinates soon became more than just pairs of numbers $(x,y)$. Their use was extended to 3D space, and later to arbitrarily high dimensions. They would subsequently be used to lay the foundations for modern physics and mathematics. Linear algebra, multivariable calculus, and all the connections between algebra and geometry begin with the concept of a coordinate.
+	If the above construction seems obvious to the reader, it should be the same type of obviousness that would strike one when staring at a wheel, perplexed by how such a simple concept went undiscovered for so long in so many cultures. It should speak to the nontrivial character of the Cartesian coordinate system that Descartes himself did not discover the full picture as we know it today. He introduced a variant where distances were measured from a \emph{single} reference axis. It took many years before the idea to add a second perpendicular axis took root, and for the modern treatment to be established.
 	
-	Since then, the use of coordinate systems has proven indispensable to physicists and mathematicians throughout history. Newton used Descarte's coordinate system to formulate his infinitesimal calculus. Maxwell used it to analyze electromagnetic fields, discovering mathematically that light is a wave in the electromagnetic field. Einstein, going further, made use of coordinate systems to formulate his theory of gravitation. Today, physicists and engineers do their calculations within the frame of coordinate systems. In mathematics, Descarte's idea planted the roots for what would turn into the modern field of algebraic geometry. \\
+	\todofig{Categorical diagram of the concepts \textbf{POINT} $\leftrightarrow$ \textbf{ASSIGNING SPECIFIC VALUE TO $(x,y)$}, \textbf{CURVE} $\leftrightarrow$ \textbf{EQUATION RELATING VALUES OF $(x, y)$}, \textbf{PLANE} $\leftrightarrow$ \textbf{ALL POSSIBLE VALUES OF $(x, y)$}, \textbf{GEOMETRY} $\leftrightarrow$ \textbf{ALGEBRA}  }
 	
-	When studying a geometric phenomenon in some $n$-dimensional space, say $\mathbb{R}^n$, we pick an origin and axes to form our coordinate system. For a ball falling, we could set the origin at some point on the ground, and pick one axis parallel to the ground, and one perpendicular. We can decide to measure the axes in meters, or we could decide to do it in feet (nothing stops us from making bad choices). The physical point $P$ where the ball lies is represented by $(x,y)=(0~ \mathrm m,10~ \mathrm m)$. The coordinate $y$ is a natural choice of coordinate, as it corresponds to our intuitive notion of height. 
+	Coordinates soon extended beyond just being pairs of numbers $(x,y)$. Their use applied just as well to describing points in 3D space in reference to a fixed origin by a triple of coordinates $(x,y,z)$. Soon enough after, they were generalized to arbitrarily high dimensions: any point in $n$ dimensional space could be represented by an \textbf{$n$-tuple}\index{vector!as a tuple} $(x_1, x_2, \dots, x_n)$. Despite some controversy at the time of their invention, these tuples of numbers would subsequently be used to lay the foundations for modern physics and mathematics. Modern linear algebra, multivariable calculus, and the myriad of connections between algebra and geometry begin with the concept of a coordinate.
+	
+	Since then, the use of coordinate systems has proven indispensable to scientists and mathematicians throughout history. Newton used Descartes' ideas to formulate his infinitesimal calculus. Maxwell used it to analyze electromagnetic fields, discovering mathematically that light is a wave in the electromagnetic field. Einstein, going further, made use of coordinate systems on a four dimensional space of three dimensions for physical space and one for time to formulate his theory of relativity and gravitation. Today, physicists and engineers base their calculations in the frames of coordinate systems. In mathematics, Descartes' idea planted the roots for what would turn into the modern field of algebraic geometry. \\
+	
+	When studying a geometry in some $n$-dimensional space, we pick an origin and set of axes to form a coordinate system. Once a cartesian coordinate system has been set, can represent any point as a tuple of $n$ real numbers. Because of this, $n$-dimensional space is frequently just referred to as $\mathbb{R}^n$.
+
+
+	
+	For a ball falling, we could set the origin at some point on the ground, and pick one axis parallel to the ground, ``distance'', and one perpendicular, ``height''. We can decide to measure the axes in meters, or we could decide to measure in feet (nothing stops us from making bad choices of coordinates). The physical point $P$ where the ball lies is represented by $(x,y)=(0\, \mathrm m,10\, \mathrm m)$. %The coordinate $y$ is a natural choice of coordinate, as it corresponds to our intuitive notion of height. 
 	
 	\todofig{Insert Ball Falling}
 	
-	We can now study $y$, free of geometry, as just a function which we can do arithmetic and calculus on. If we are given an equations of motion, say 
+	We can now study $y$, free of geometry, as just a function on which we can do arithmetic and calculus. If we are given equations of motion, say 
 	\begin{equation*}
-		\frac{d^2y}{dt^2} = -g, \hspace{5mm} \frac{d^2x}{dt^2} = 0
+		\frac{d^2y}{dt^2} = -g \, \mathrm{m/s^2}, \hspace{5mm} \frac{d^2x}{dt^2} = 0 \, \mathrm{m/s^2}
 	\end{equation*} 
 	with initial conditions,
 	\begin{equation*}
-		\frac{dy}{dt}=0, \hspace{5mm} \frac{dx}{dt}=0
+		x = 0 \,\mathrm m,~ y = 10 \,\mathrm m \hspace{5mm} \frac{dy}{dt} = \frac{dx}{dt}=0 \, \mathrm{m/s}
 	\end{equation*}
 	 then we can perform our well-known kinetic calculations for the system, and see how the system evolves in the \emph{time} direction. **A recurring theme will be that dynamics of a system in $n$-dimensional space can be thought of just a special type of geometry in $n+1$ dimensional space, putting time as an added dimension**.\\
 	
@@ -54,15 +62,15 @@
 	\section{Linear Algebra \& Coordinates} 
 	\label{sec:Linear Algebra & Coordinates}% (fold)
 	
-	\index{Linear Algebra|(}
+	\index{linear algebra|(}
 	
 	The traditional concept of a coordinate system, a series of perpendicular lines that together associate ordered tuples of numbers to each point in $n$-dimensional space, is not representative of all coordinate systems. For one, we do not need the requirement that the lines be perpendicular. Our coordinate system could instead look like this:
 	
 	\todofig{Graphic of non-perp lines and representing a point like that}
 	
-	In the language of linear algebra: once we choose an origin, choosing a set of coordinate axes is the same as choosing a basis for the space (a coordinate basis). For any point in space, we can relate coordinates $x_i'$ in the new system in terms of coordinates $x_i$ in the old system by matrix multiplication: $x_i' = \sum_{j=1}^n \mathbf A_{ij} x_j$. This is exactly what's called a change of basis in linear algebra. Transformations between coordinate bases are exactly the invertible \textbf{linear transformations} \index{Linear Algebra!Linear Transformation}.
+	In the language of linear algebra: once we choose an origin, choosing a set of coordinate axes is the same as choosing a basis for the space (a coordinate basis). For any point in space, we can relate coordinates $x_i'$ in the new system in terms of coordinates $x_i$ in the old system by matrix multiplication: $x_i' = \sum_{j=1}^n \mathbf A_{ij} x_j$. This is exactly what's called a change of basis in linear algebra. Transformations between coordinate bases are exactly the invertible \textbf{linear transformations} \index{linear algebra!linear transformation}.
 	
-	As in linear algebra, we need our coordinate system to both \textbf{span}\index{Linear Algebra!Span} the space so that we can represent any point, and be \textbf{linearly independent}\index{Linear Algebra!Linear Independence} so that every point that we can represent in our coordinate system will have a unique representation. That's all that a basis is: it specifies a good coordinate system. 
+	As in linear algebra, we need our coordinate system to both \textbf{span}\index{linear algebra!span} the space so that we can represent any point, and be \textbf{linearly independent}\index{linear algebra!linear independence} so that every point that we can represent in our coordinate system will have a unique representation. That's all that a basis is: it specifies a good coordinate system. 
 	
 	\begin{defn}
 		A set of vectors is said to span a space $\mathbb{R}^n$ if every point $P$ can be represented as $a_1 \mathbf v_1 + \dots a_n \mathbf v_n$
@@ -98,7 +106,7 @@
 	
 	A geometric vector like $u$ is \emph{not} a list of numbers. Once we pick a basis, $u$ can be \emph{represented by} a list of numbers, but if we change into a different basis, those numbers all have to change as well. This exact same idea will be the reason why a tensor is \emph{not} just a multi-dimensional array (like the ones encountered in computer science). It can be \emph{represented by} a multi-dimensional array once a coordinate system is chosen, but the numbers in each entry will differ depending on the coordinate system we pick. 
 	
-	This is very confusing (and will also be part of the reason why it's so hard to understand tensors as an undergraduate). In most math courses, we can freely call any list of numbers a `vector'. After all, you can add lists and scale them so they do form a `vector space'. This is a really unfortunate linguistic degeneracy in mathematics terminology. The type of vectors that we see in physics (acceleration, force, electric field, etc.) are \emph{geometric vectors}\index{Vector!Geometric} that have nothing \emph{a priori} to do with lists of numbers until we represent them as such by using coordinate systems. On the other hand, abstract structures that we can add and multiply by scalars are \emph{algebraic vectors}, and lists are an example of that. To avoid confusing lists of numbers with the geometric vectors in the physical world, we will call lists of numbers \emph{tuples}\index{Vector!As a Tuple} rather than vectors.
+	This is very confusing (and will also be part of the reason why it's so hard to understand tensors as an undergraduate). In most math courses, we can freely call any list of numbers a `vector'. After all, you can add lists and scale them so they do form a `vector space'. This is a really unfortunate linguistic degeneracy in mathematics terminology. The type of vectors that we see in physics (acceleration, force, electric field, etc.) are \emph{geometric vectors}\index{vector!geometric} that have nothing \emph{a priori} to do with lists of numbers until we represent them as such by using coordinate systems. On the other hand, abstract structures that we can add and multiply by scalars are \emph{algebraic vectors}, and lists are an example of that. To avoid confusing lists of numbers with the geometric vectors in the physical world, we will call lists of numbers \emph{tuples}\index{vector!as a tuple} rather than vectors.
 	
 	So returning to the geometric vector $\mathbf u$, a more careful way to write it would be:
 	
@@ -207,7 +215,7 @@
 	\end{equation*}
 	Indeed, $\mathbf v_1 + \mathbf v_2 = \sqrt 2 \mathbf v_1' + 0 \mathbf v_2'$.\\
 	
-	That is the central idea. If we \emph{vary}\index{Covariance} the \underline{basis} $\mathbf v_i$ to a different basis, $\mathbf v_i'$, then the \underline{coordinates} $a_i'$ will vary \index{Contravariance} the \emph{other} way, so that the geometric vector
+	That is the central idea. If we \emph{vary}\index{covariance} the \underline{basis} $\mathbf v_i$ to a different basis, $\mathbf v_i'$, then the \underline{coordinates} $a_i'$ will vary \index{contravariance} the \emph{other} way, so that the geometric vector
 	\begin{equation*}
 		\mathbf u = a_1 \mathbf v_1 + \dots + a_n \mathbf v_n = a_1' \mathbf v_1' + \dots + a_n' \mathbf v_n'
 	\end{equation*} is \emph{invariant} regardless of coordinate choice.
@@ -244,18 +252,18 @@
 	\end{equation*}
 	as desired. \todoex{EXERCISE: PROVE IT HAS TO BE A INVERSE}
 	
-	We say that the basis vectors $\mathbf v_i$ \textbf{co-vary}\index{Vector!Covariant} and the coordinates $a_i$ \textbf{contra-vary}\index{Vector!Contravariant} with the change of basis. The idea, although it sounds simple, is rather hard to get the feel of. It's worth thinking a good bit about how coordinates and bases need to vary in opposite ways so that the physical object represented by the coordinates stays the same regardless of how we look at it. 
+	We say that the basis vectors $\mathbf v_i$ \textbf{co-vary}\index{vector!covariant} and the coordinates $a_i$ \textbf{contra-vary}\index{vector!contravariant} with the change of basis. The idea, although it sounds simple, is rather hard to get the feel of. It's worth thinking a good bit about how coordinates and bases need to vary in opposite ways so that the physical object represented by the coordinates stays the same regardless of how we look at it. 
 	
 	\todofig{This will be a caption for a sketch of a 3-D rotation}
 	
 	 When you rotate your character in a video game (and in real life too, by the way), the world rotates \emph{contrary} to the direction that you've rotated in. That's because the coordinates of what you see have \emph{contra-varied} while your basis vectors, given by the direction you face have \emph{co-varied}. The end result is that despite changing your coordinate system, physics stays the same: invariant. The universe did not rotate itself just because you did. This extends beyond just rotations to \emph{all} linear transformations point. \\
 	
-	\index{Linear Algebra|)}
+	\index{linear algebra|)}
 	
 	\section{The Notion of Length on Vector Spaces} % (fold)
 	\label{sec:the_notion_of_length_on_vector_spaces}
 	
-	Let us consider the property of orthogonality\index{Vector!Orthogonality}. It's well known that for geometric vectors, there's more that we can do than just add, scale, and transform them: we can take dot products\footnote{Of course in 3-D we can also take a cross product. This will be discussed in the following chapters.} between them. When we have two geometric vectors in space, their dot product is a well defined number. If it is zero, then the vectors are orthogonal to one another. From the dot product and the magnitudes, it is possible to calculate the angle between two given vectors. 
+	Let us consider the property of orthogonality\index{vector!orthogonality}. It's well known that for geometric vectors, there's more that we can do than just add, scale, and transform them: we can take dot products\footnote{Of course in 3-D we can also take a cross product. This will be discussed in the following chapters.} between them. When we have two geometric vectors in space, their dot product is a well defined number. If it is zero, then the vectors are orthogonal to one another. From the dot product and the magnitudes, it is possible to calculate the angle between two given vectors. 
 	
 	When vectors are represented in terms of tuples of numbers, the dot product was taught to us as ``multiply component by component, and then sum that up". This is not, in general, what the dot product really is. Consider a basis transformation as below:
 	\begin{align*}
@@ -274,10 +282,10 @@
 	
 	The failure of the dot product to be invariant is intimately related to the fact that transformations can change lengths. This should not be too surprising. After all, the length of a vector is defined by the square root of its dot product with itself. If the dot product we learned is not invariant under general coordinate transformations, what is the right way to measure length? 
 	
-	It is here that there is a big subtlety. A vector space on its own does not have a notion of length. We've just seen choosing different bases would give rise to different length scales and notions of ``perpendicular'' as well. Endowing a vector space with a way to universally tell what the length of a vector is, or whether two vectors are perpendicular is actually adding \emph{extra structure} to the space. It picks a whole class of specific coordinate systems and says ``these are the orthogonal reference frames; the others are skewed and stretched perspectives''. This allows us to measure length using an invariant \emph{inner product}\index{Inner Product}. 
+	It is here that there is a big subtlety. A vector space on its own does not have a notion of length. We've just seen choosing different bases would give rise to different length scales and notions of ``perpendicular'' as well. Endowing a vector space with a way to universally tell what the length of a vector is, or whether two vectors are perpendicular is actually adding \emph{extra structure} to the space. It picks a whole class of specific coordinate systems and says ``these are the orthogonal reference frames; the others are skewed and stretched perspectives''. This allows us to measure length using an invariant \emph{inner product}\index{inner product}. 
 	\todoadd{I wanna really elaborate how an inner product \emph{picks} a frame to be orthogonal, promoting it above all the others.}
 	
-	Euclidean space, as well as the world in which we live in, both have an natural way to measure length between two points that is invariant of the coordinate system used. A vector space on its own does not, and so it is called an \emph{affine space}\index{Affine Space}. In affine space, although there are notions like ``parallel'', there is not a notion of distance. Adding an inner product to affine space gives rise to Euclidean space\index{Euclidean Space}.
+	Euclidean space, as well as the world in which we live in, both have an natural way to measure length between two points that is invariant of the coordinate system used. A vector space on its own does not, and so it is called an \emph{affine space}\index{affine space}. In affine space, although there are notions like ``parallel'', there is not a notion of distance. Adding an inner product to affine space gives rise to Euclidean space\index{euclidean space}.
 	
 	\todofig{Insert graphic here, with an affine transformation of the plane}
 	\todoadd{Caption something like ``If Euclid's space allowed for not just rotations/translations but also general linear transformations like this, being perpendicular would be a coordinate-dependent idea. Note parallel lines, on the other hand, stay parallel, so affine space \emph{does} have a notion of parallel''}
@@ -404,7 +412,7 @@
 	\section{Einstein's Summation Convention} % (fold)
 	\label{sec:einstein's_summation_convention}
 	
-	Row tuples, column tuples, matrices representing basis transformations (old to new and new to old), co-variance and contra-variance. These ideas have constituted the entirety of this first chapter, and although hopefully they have not been too difficult conceptually, the matrix manipulation even at this early level is already a pain. We have to write everything in terms of tuples, and we need to arbitrarily decide which ones are rows and which ones are columns, and which matrices are transposed so that all the matrix multiplications make sense, as defined in linear algebra. A young physicist named Albert Einstein used a convention\index{Summation Convention} of writing all these equations so that we did not have to explicitly write out tuples of abstract basis vectors and coordinates.
+	Row tuples, column tuples, matrices representing basis transformations (old to new and new to old), co-variance and contra-variance. These ideas have constituted the entirety of this first chapter, and although hopefully they have not been too difficult conceptually, the matrix manipulation even at this early level is already a pain. We have to write everything in terms of tuples, and we need to arbitrarily decide which ones are rows and which ones are columns, and which matrices are transposed so that all the matrix multiplications make sense, as defined in linear algebra. A young physicist named Albert Einstein used a convention\index{summation convention} of writing all these equations so that we did not have to explicitly write out tuples of abstract basis vectors and coordinates.
 	
 	The first step is to avoid explicitly writing out row tuples and column tuples. To do this, instead of writing out a whole tuple to represent a vector like $(v_1, \dots, v_n)$ we will simply write $v_i$. $v_i$ should be viewed as the whole vector, rather than a specific $ith$ component of $\mathbf v$. The index $i$ is \emph{free} and can be anything. 
 	
@@ -416,12 +424,12 @@
 		\mathbf u = \sum_{i} a^i \mathbf v_i
 	\end{equation}
 	
-	For another example, the gradient\index{Gradient Operator} operator was written $\nabla = (\partial/\partial x_1, \dots, \partial/\partial x_n)$ and is now written simply as $\partial/\partial x^i$ (adopting upper indices for $x^i$ since coordinates contra-vary). This means that Equation~\eqref{eq:partial_transform} can be written as
+	For another example, the gradient\index{gradient operator} operator was written $\nabla = (\partial/\partial x_1, \dots, \partial/\partial x_n)$ and is now written simply as $\partial/\partial x^i$ (adopting upper indices for $x^i$ since coordinates contra-vary). This means that Equation~\eqref{eq:partial_transform} can be written as
 	\begin{equation}\label{eq:partial_transform2}
 		\frac{\partial}{\partial {x'}^i} = \sum_{j} \frac{\partial x^j}{\partial {x'}^i} \frac{\partial}{\partial x^j}.
 	\end{equation}
 	
-	Since $i$ is free to be anything (while $j$ is bound since it is being summed over), this equation holds for every $i$ in $1,\dots, n$ and so is indeed an equation relating two \emph{vectors} on both sides. Note also that this means the transformation matrix can be written as $\frac{\partial x^j}{\partial {x'}^i}$. By writing just a summation and not any explicit matrices, we avoid having to worry about unnecessary troubles like transposes, etc. Note also that this matrix has both upper and lower indices so that the upper index in $\frac{\partial x^j}{\partial {x'}^i}$ gets multiplied with the lower index $\frac{\partial}{\partial x^j}$ to cancel out, and all that remains is the lower index $i$. All the trouble of seeing what's covariant, what's contravariant, and what's invariant is washed away into just seeing how the upper indices and lower indices\index{Indices!Upper \& Lower} cancel out in the end.
+	Since $i$ is free to be anything (while $j$ is bound since it is being summed over), this equation holds for every $i$ in $1,\dots, n$ and so is indeed an equation relating two \emph{vectors} on both sides. Note also that this means the transformation matrix can be written as $\frac{\partial x^j}{\partial {x'}^i}$. By writing just a summation and not any explicit matrices, we avoid having to worry about unnecessary troubles like transposes, etc. Note also that this matrix has both upper and lower indices so that the upper index in $\frac{\partial x^j}{\partial {x'}^i}$ gets multiplied with the lower index $\frac{\partial}{\partial x^j}$ to cancel out, and all that remains is the lower index $i$. All the trouble of seeing what's covariant, what's contravariant, and what's invariant is washed away into just seeing how the upper indices and lower indices\index{indices!upper \& lower} cancel out in the end.
 	
 	Sometimes in the mathematics literature in places where co- and contra-variance are of lesser importance, upper and lower indices are ignored and the notation describing something like a matrix-vector multiplication looks like this:
 	\begin{equation*}

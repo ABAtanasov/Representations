@@ -1,6 +1,6 @@
 # Representations of the Physical Universe
 
-####An upcoming book
+### An upcoming book
 
 
 
@@ -8,11 +8,14 @@
 
 ### 1) Old Notions Revisited
 
-First draft completed, need to draw up figures. dwabi
-OK there's a problem with a^i vs v^i vs \mathbf v_i_ (vs possible e_i_) usage in this chapter. I SHOULD BE USING X^i instead of v^i for vector fields :'( Let's fix that though.
+First draft completed, need to draw up figures.
+
+OK there's a problem with a^i vs v^i vs \mathbf v_i_ (vs possible e_i or b_i) usage in this chapter. I SHOULD BE USING X^i instead of v^i for vector fields. Fix this.
 
 #### The Cartesian Coordinate System
-Begin with an example of a falling ball, the vector for velocity
+Begin with an example of a falling ball in 3D, the vector for velocity
+
+
 #### Linear Algebra and Coordinates
 Critical to highlight difference between geometric and algebraic vectors
 #### Euclidean vs. Affine Space

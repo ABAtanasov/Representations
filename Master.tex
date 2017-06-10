@@ -1,8 +1,8 @@
-% This will be the book itself, all .tex files compiled into one source. For simplicity, as well as to save space, we're going to have each chapter be a .tex on its own
+% This will be the book itself, all .tex files compiled into one source. For modularity each chapter is a .tex document of its own in the Chapters dir
 
-% Don't forget.. when made into a book, odd numbers go on the right, even numbers on the left. This is probably a publisher's issue but it's worth remembering
+% Don't forget: when made into a book, odd numbers go on the right, even numbers on the left.
 
-% When I say "pages" that means two pages = one physical page front and back
+% When I write "pages" that means two pages = one physical page front and back
 
 
 \documentclass[12pt, twoside, openany]{book} 
@@ -53,7 +53,7 @@
 \thispagestyle{empty}
 
 \begin{center}
-	\vspace*{4cm}{\emph{Dedicated to $\otimes$,\\ we'll decide at the end}}
+	\vspace*{4cm}{\emph{Dedicated to $\otimes$,\\ $\dots$}}
 \end{center}
 
 
@@ -79,7 +79,7 @@
 				\setlength\itemsep{.2em}
 				\item[$\nabla$] John C. Dell
 				\item[$\oiint$] Jonathan A. Osborne
-				\item[$\frac{j(j+1)\hbar^2}{2}$] James C. Ellenbogen
+				\item[$\frac{j(j+1)\hbar^2}{2 m_e R^2}$] James C. Ellenbogen
 				\item[$\left< \sigma \sigma \epsilon \epsilon \right>$] David Poland
 				\item[$\mathcal M(r, k)$] Igor B. Frenkel
 				\item[$\mathcal U_q (\frak{sl}_2)$] You Qi
@@ -87,7 +87,6 @@
 				\item[$\{-,- \}$] Francesco Iachello
 				\item[$\int \frac{d^4 \ell}{(2\pi)^4}$] Walter D. Goldberger
 				\item[$\omega_i \, \mathrm d q^i$] Ted A. Jacobson
-		%		\item Liang Jiang
 			\end{itemize}
 	\end{varwidth}
 	\end{center}
