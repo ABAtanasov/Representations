@@ -10,22 +10,18 @@
 
 First draft completed, need to draw up figures.
 
-OK there's a problem with a^i vs v^i vs \mathbf v_i_ (vs possible e_i or b_i) usage in this chapter. I SHOULD BE USING X^i instead of v^i for vector fields. Fix this.
-
 #### The Cartesian Coordinate System
-Begin with an example of a falling ball in 3D, the vector for velocity
-
 
 #### Linear Algebra and Coordinates
-Critical to highlight difference between geometric and algebraic vectors
+
 #### Euclidean vs. Affine Space
-The inner product is not an invariant 
+The naive inner product is not an invariant 
+
 #### Nonlinear Coordinates
 	
 #### Einstein's Summation Convention
 Make clean and short
 
-#### Multilinear Algebra: Views
 #### Exercises
 
 ### 2) New Horizons
@@ -43,6 +39,9 @@ Gaps in this section
 Add stereographic projection of sphere as example of coordinate charges
 #### Embedded v.s Intrinsic
 #### Vectors Reimagined
+
+#### Multilinear Algebra: Views
+
 #### What Follows
 #### Exercises
 
@@ -83,7 +82,7 @@ Laplacian is never obviously derived in any good text so derive it.
 #### Harmonic Analysis on Graphs
 Functions on graphs, graph laplacian. 
 Motivate expanders
-Conclude with spectral graph theory a la Spielman
+Conclude with spectral graph theory
 #### Exercises		
 What about real-valued eigenvalues giving rise to exponential decay eigenforms: c.f. the positive reals
 
