@@ -5,11 +5,11 @@
 
 
 
-\chapter{Old Notions Revisited}\thispagestyle{empty}
+\chapter{Old Grounds, Revisited}\thispagestyle{empty}
 \section{The Cartesian Coordinate System} % (fold)
 \label{sec:Cartesian}
 	
-	One of the most revolutionary ideas in mathematics and physics draws its name from the seventeenth century philosopher Ren\'{e} Descartes. The idea is simple: any point $P$ in the Euclidean plane can be represented by a pair of real numbers $(x,y)$ in a one-to-one correspondence. The numbers themselves represent distances along two perpendicular axes that meet at a special point, $O$, called the \textbf{origin}\index{origin} and corresponding to $(0,0)$. This construction gives the \textbf{cartesian coordinate system}\index{coordinate system!Cartesian}, which does something amazing: it relates the \underline{geometry} of the plane to the \underline{algebra} of variables and equations. Algebra could be represented geometrically, and conversely geometric problems could be solved by transforming them into algebraic ones. The two great classical branches of mathematics, the study of space and the study of quantity, have been joined.
+	One of the most revolutionary ideas in mathematics and physics draws its name from the seventeenth century philosopher Ren\'{e} Descartes. The idea is simple: any point $P$ in the 2D plane can be represented by a pair of real numbers $(x,y)$ in a one-to-one correspondence. The paired numbers represent distances along two perpendicular axes that meet at a special point, $O$, called the \textbf{origin}\index{origin} and correspond to $(0,0)$. This construction gives a \textbf{Cartesian coordinate system}\index{coordinate system!Cartesian} for the Euclidean plane, which does something amazing: it relates the \underline{geometry} of the plane to the \underline{algebra} of variables and equations. Algebra could be represented geometrically, and conversely geometric problems could be solved by transforming them into algebraic ones. The two great classical branches of mathematics, the study of space and the study of quantity, have been joined.
 	
 	\todofig{Insert 2D Plane with Coordinates}
 	
@@ -19,43 +19,42 @@
 	
 	Coordinates soon extended beyond just being pairs of numbers $(x,y)$. Their use applied just as well to describing points in 3D space in reference to a fixed origin by a triple of coordinates $(x,y,z)$. Soon enough after, they were generalized to arbitrarily high dimensions: any point in $n$ dimensional space could be represented by an \textbf{$n$-tuple}\index{vector!as a tuple} $(x_1, x_2, \dots, x_n)$. Despite some controversy at the time of their invention, these tuples of numbers would subsequently be used to lay the foundations for modern physics and mathematics. Modern linear algebra, multivariable calculus, and the myriad of connections between algebra and geometry begin with the concept of a coordinate.
 	
-	Since then, the use of coordinate systems has proven indispensable to scientists and mathematicians throughout history. Newton used Descartes' ideas to formulate his infinitesimal calculus. Maxwell used it to analyze electromagnetic fields, discovering mathematically that light is a wave in the electromagnetic field. Einstein, going further, made use of coordinate systems on a four dimensional space of three dimensions for physical space and one for time to formulate his theory of relativity and gravitation. Today, physicists and engineers base their calculations in the frames of coordinate systems. In mathematics, Descartes' idea planted the roots for what would turn into the modern field of algebraic geometry. \\
+	Since then, the use of coordinate systems has proven indispensable to scientists and mathematicians throughout history. Newton used Descartes' ideas to formulate his infinitesimal calculus. Maxwell used it to analyze electromagnetic fields, discovering mathematically that light is a wave in the electromagnetic field. Einstein, going further, made use of coordinate systems on a four dimensional space of three dimensions for physical space and one for time to formulate his theory of relativity and gravitation. Today, physicists and engineers base their calculations in the frames of coordinate systems. In mathematics, Descartes' idea planted the roots for what would turn into the modern field of algebraic geometry. 
 	
-	When studying a geometry in some $n$-dimensional space, we pick an origin and set of axes to form a coordinate system. Once a cartesian coordinate system has been set, can represent any point as a tuple of $n$ real numbers. Because of this, $n$-dimensional space is frequently just referred to as $\mathbb{R}^n$.
-
-
+	When studying a geometry in some $n$-dimensional space, we pick an origin and set of axes to form a coordinate system. Once a Cartesian coordinate system has been set, can represent any point as a tuple of $n$ real numbers. Because of this, $n$-dimensional space is frequently just denoted by $\mathbb{R}^n$, the set of $n$-tuples of real numbers. It is the aim of this chapter to illustrate, in as much clarity as possible, why these two concepts are different. \\
 	
-	For a ball falling, we could set the origin at some point on the ground, and pick one axis parallel to the ground, ``distance'', and one perpendicular, ``height''. We can decide to measure the axes in meters, or we could decide to measure in feet (nothing stops us from making bad choices of coordinates). The physical point $P$ where the ball lies is represented by $(x,y)=(0\, \mathrm m,10\, \mathrm m)$. %The coordinate $y$ is a natural choice of coordinate, as it corresponds to our intuitive notion of height. 
+	We'll begin this illustration with an example. Let's visualize the simple picture of a ball falling. we could set the origin at some point on the ground, and pick one axis parallel to the ground, ``distance'', and one perpendicular, ``height''. We can decide to measure the axes in meters, or we could decide to measure in feet (nothing stops us from making bad choices of coordinates). The physical point $P$ where the ball lies is represented by $(x,y)=(0\, \mathrm m,10\, \mathrm m)$.
 	
 	\todofig{Insert Ball Falling}
 	
-	We can now study $y$, free of geometry, as just a function on which we can do arithmetic and calculus. If we are given equations of motion, say 
+	We can now study motion of the ball, free of geometry, as just two functions $x(t)$ and $y(t)$ on which we can do arithmetic and calculus. If we are given \textbf{equations of motion}\index{equation of motion (EOM)} corresponding to gravitational acceleration downwards: 
 	\begin{equation*}
 		\frac{d^2y}{dt^2} = -g \, \mathrm{m/s^2}, \hspace{5mm} \frac{d^2x}{dt^2} = 0 \, \mathrm{m/s^2}
 	\end{equation*} 
 	with initial conditions,
 	\begin{equation*}
-		x = 0 \,\mathrm m,~ y = 10 \,\mathrm m \hspace{5mm} \frac{dy}{dt} = \frac{dx}{dt}=0 \, \mathrm{m/s}
+		x(0) = 0 \,\mathrm m,~ y(0) = 10 \,\mathrm m \hspace{5mm} \frac{dx}{dt}(0) = 10 \, \mathrm{m/s} \hspace{3mm} \frac{dy}{dt}(0) = 0 \mathrm{m/s}
 	\end{equation*}
-	 then we can perform our well-known kinetic calculations for the system, and see how the system evolves in the \emph{time} direction. **A recurring theme will be that dynamics of a system in $n$-dimensional space can be thought of just a special type of geometry in $n+1$ dimensional space, putting time as an added dimension**.\\
+	 then we can perform our well-known kinetic calculations for the system, and see how the system evolves in the time direction\footnote{One might ask ``what is the difference between dynamics and geometry?'', and indeed, when time is introduced as an additional dimension later in the book, we can view dynamics of an $n$ dimensional system as simply a special case of geometry in $n+1$ dimensions: $n$ space and $1$ time.}. In this case we get explicitly:
+	 \begin{equation*}
+	 	\mathrm x(t) = 10 t \; \mathrm m, \hspace{4mm} y(t) = - \frac{g}{2}t^2 \; \mathrm m
+	 \end{equation*}
+	 This solution to the equations of motion describes exactly how the coordinates representing the position of the ball change in time. Thus, this can be used to predict the motion of the ball itself. By use of coordinates, this problem of geometric evolution is recast as a calculus problem on real-valued functions of time, and this can be easily solved.
+	 
+	 But the coordinate system that we chose\textemdash apart from being easy to do calculations in\textemdash was arbitrary. We could have just as well worked in a $45^\degree$ rotated frame, and done the same calculations, with accelerations now being present along the directions of both axes. If we solved this, we would have gotten different-looking equations for the different coordinates $x'(t), y'(t)$, but they would correspond to the exact same \emph{dynamics of motion}.
 	
-	Because the purpose of this text is to study the ways in which geometry, algebra, and physics connect, it is worthwhile to dwell on the \emph{philosophy} behind coordinate systems.
+	 \todofig{Two different frames: the original and one rotated 45 clockwise, showing acceleration pointing the same way but different $\ddot x, \ddot y$}
 	
-	The ball will fall from 10 meters, according to the force of gravity. That is the way the world works. It doesn't matter what coordinate system we set up to do that calculation, we should get the \emph{exact same result}. Plainly: nature doens't \emph{care} what coordinate system we use. This fact, obvious as it may be, is worth thinking about: No matter what coordinate system we use, the equation of motion should give the same dynamics. The laws of physics should be \emph{independent of any coordinate system}.
+	The ball will fall down towards the ground according to the force of gravity. That is the way the world works. It doesn't matter what coordinate system we set up to do that calculation, we should get the exact same result. Plainly, Nature doesn't \emph{care} what coordinate system we use: the events that happen in the natural world are independent of the languages that humans use to describe them. This fact, obvious as it may be, plays tremendous importance in modern physics and will be central to the rest of this book.
 	
-	Newton's law $\mathbf F = m \mathbf a$ relates the force vector to the acceleration vector. The vector representing the force $\mathbf F$ that you apply on a surface is an object independent of coordinate system, and so is the resulting acceleration vector. The \emph{components} of these vectors ($F_x, F_y, F_z$) and ($a_x, a_y, a_z$), however, depend on what you have chosen for the $x,y,z$ axes. These components \emph{represent} a real physical vector, but only once we pick a coordinate system. If we were to pick a different coordinate system, the numbers representing the vector would change. 
+	As obvious as this fact may be from the physical viewpoint, it gives rise to an extremely strong constraint on the mathematical language that we use to describe the world. \textbf{FINISH HERE}
 	
-	When we write an equation describing a physical law, it should be valid regardless of the coordinate system we use. $\mathbf F = m \mathbf a$ will always be true whether we rotate our frame of reference or not. On the other hand, if Newton's law of motion \emph{only} said that the \emph{first} `$x$' component of the Force was equal to the \emph{first} `$x$' component of the acceleration, and said nothing about the other $2$ components, then in different coordinate systems since `$x$' means different things, we would get totally different equations of motion. No physical law will ever say something just about the first or just about the second components of two vectors: it must equate the entirety of the two vectors. 
+	\todofig{``independence of the physical universe on coordinate representation" Duality diagram physics $\leftrightarrow$ math between something obvious and a profound symmetry principle}
 	
+	It is funny that coordinate systems, which appear in almost every serious calculation in physics and could be considered the most powerful tool yet developed, must necessarily be so arbitrary. There is no canonical ``God-given'' frame of reference to choose, but to do any calculations, we must nonetheless choose \emph{one}. If this strikes the reader as alien and strange, an esoteric quality reserved to only mathematics, they should turn their mind to the nature of language itself. It is no less arbitrary in its many forms, and no less crucial for developing a deep understanding of the workings of the world. In an even more similar way, the different scales and tunings that form the basis for various forms music around the world are just as arbitrary. No one scale can be demonstrated to be \emph{the} god given one, there are only those that are easier to work with than others.
 	
-	As another example if the equation for work looked like $F_x dx = dW$, then would give different results in different coordinate systems, because it puts emphasis on just one of the three components (the first `$x$' coordinate) over the others. While in some coordinate system $dx$ may point in the direction of the displacement and be nonzero, there may be a different coordinate system where $dx=0$, making the work done zero. So the equation for work would be coordinate dependent: it would be wrong. The need for such invariance is why the true formula uses all three spacial dimensions and looks like:
-	
-	\begin{equation*}
-		\mathbf F \cdot  d \mathbf r = F_x dx + F_y dy + F_z dz = d W.
-	\end{equation*}
-	
-	 Although it isn't obvious yet that this is a quantity that is invariant regardless of the coordinate system used, at the very least it doesn't put one component above any of the others.
-
+	However, unlike in introductory classes on physics and engineering, where the goal is to become proficient at doing calculations in various coordinate systems to make predictions, this text will take the next steps and look at the ``meta-theory'' behind this. We will ask how the laws of physics can be formulated so that they are independent of the coordinates we use. Doing this will give us significantly greater insight into the nature of physical laws and their underlying \ul{coordinate freedom}.
+	Such an understanding will in turn lead to a significantly deeper appreciation of the role that symmetry plays in physics, and ultimately will lead us to understanding more about the physical universe than we ever could before.
 	
 	% section Descartes (end)
 	
@@ -63,220 +62,392 @@
 	\label{sec:Linear Algebra & Coordinates}% (fold)
 	
 	\index{linear algebra|(}
-	
-	The traditional concept of a coordinate system, a series of perpendicular lines that together associate ordered tuples of numbers to each point in $n$-dimensional space, is not representative of all coordinate systems. For one, we do not need the requirement that the lines be perpendicular. Our coordinate system could instead look like this:
-	
-	\todofig{Graphic of non-perp lines and representing a point like that}
-	
-	In the language of linear algebra: once we choose an origin, choosing a set of coordinate axes is the same as choosing a basis for the space (a coordinate basis). For any point in space, we can relate coordinates $x_i'$ in the new system in terms of coordinates $x_i$ in the old system by matrix multiplication: $x_i' = \sum_{j=1}^n \mathbf A_{ij} x_j$. This is exactly what's called a change of basis in linear algebra. Transformations between coordinate bases are exactly the invertible \textbf{linear transformations} \index{linear algebra!linear transformation}.
-	
-	As in linear algebra, we need our coordinate system to both \textbf{span}\index{linear algebra!span} the space so that we can represent any point, and be \textbf{linearly independent}\index{linear algebra!linear independence} so that every point that we can represent in our coordinate system will have a unique representation. That's all that a basis is: it specifies a good coordinate system. 
-	
-	\begin{defn}
-		A set of vectors is said to span a space $\mathbb{R}^n$ if every point $P$ can be represented as $a_1 \mathbf v_1 + \dots a_n \mathbf v_n$
-	\end{defn}
-	
-	\begin{defn}
-		A set of vectors $\{\mathbf v_1, \dots , \mathbf v_k \}$ is called linearly independent if there is only one way to represent the zero vector $\mathbf 0$ as a combination of them, namely as $\mathbf 0 = 0v_1 + \dots + 0 v_k$.
-	\end{defn}
-	
-	This second definition is the same as saying every point that we can represent in our system has a unique representation. Let's make this clear. If there were two ways to represent a point $P$: as \begin{equation*}
-		a_1 \mathbf v_1 + \dots + a_n \mathbf v_n
-	\end{equation*} 
-	and 
-	\begin{equation*}
-		b_1 \mathbf v_1 + \dots + b_n \mathbf v_n
-	\end{equation*} 
-	then subtracting these two different combinations would give a nonzero way to represent zero.  Conversely, if there were a nonzero combination of vectors summing to zero, then we could add that combination to the coordinate representation of any point and get a \emph{different} representation of the same point. So coordinate representations for all vectors are unique as long as long as there is only one representation for zero the one where each component equals zero.
-	
-	Intuitively, linear independence means that there is no superfluous information in the set of vectors.  We cannot linearly combine vectors in some subset to get another vector in the set; each vector is adding its own unique additional piece of information, making the set able to span in an additional direction.
-	
-	Bases that don't span, or are not linearly independent, would lead to coordinate systems like these:
-	
-	\todofig{Show a 2-D basis in a 3-D space, and a basis of 3 vectors in 2-D space}
 
-	Very often in mathematics, we ask ``does a solution exist?'', and ``if there is a solution, is it unique?''. These two questions are dual to one another. If a set of vectors spans the space, then there \emph{exists} a way to represent any point (at least one way to represent any point). If a set of vectors is linearly independent, then \emph{if} you can represent a point, that representation is \emph{unique} (no more than one way to represent any point).
+	\begin{center}
+		\small{\emph{This section assumes some base knowledge of linear algebra. As such, it should be taken as a review and expansion, rather than an introduction.}}
+	\end{center}
 	
-	Now to stress the same idea again: because points in $\mathbb R^n$ and vectors are essentially the same thing, the idea that points in space are invariant of a coordinate system applies just as well to vectors. If we choose a basis for our vector space $\mathbf v_1, \dots \mathbf v_n$, then we can express any vector $\mathbf u$ by a unique combination $\mathbf u = a_1 \mathbf v_1 + \dots + a_n \mathbf v_n$. We then say that in this basis, we can represent $\mathbf u$ by a list of numbers. Often, it is written:
+	To begin this refined understanding of the nature of coordinates, let us go to the familiar setting of 3D Euclidean space (read: the physical world as we know it). A Cartesian coordinate system on this space requires a choice of origin, and a choice of axes. The first choice is relatively easy and uninteresting, and comes down to simply marking one point in the space as distinct. The choice of axes, however, is far more interesting, and gives rise to \textbf{linear algebra}\index{linear algebra} and \textbf{bases}\index{basis} on this space.
+	
+	Given an origin, a choice of axis to measure lengths along consists of picking a \emph{direction} for the axis and a \emph{magnitude} for the length that it measures. You should recognize that these two properties are exactly what define a vector in Euclidean space. To each axis is associated a special vector, $\mathbf e$, corresponding to moving a unit direction along this axis.
+	
+	\todofig{Draw three axes in 3D with corresponding basis vectors}
+	
+	Note that we place no requirement that the axes be perpendicular, only that they specify a valid coordinate system. Since we see that specifying an axis is in fact the same as specifying a vector corresponding to moving $+1$ unit along that axis, from now on we will work with vectors. What does it mean for three vectors $\mathbf e_1, \mathbf e_2, \mathbf e_3$ to specify a valid coordinate system in 3D? 
+	
+	A valid coordinate system for 3D space one that associates to \underline{each} point in 3D space a \underline{unique} set of three real numbers that characterize it. This is the same in any dimension.
+	
+	In the language of linear algebra, we need our coordinate system's associated vectors to both \underline{\textbf{span}}\index{linear algebra!span} the space so that we can represent any point, and be \underline{\textbf{linearly independent}}\index{linear algebra!linear independence} so that every point will have unique representation in our coordinate system. That's all that a basis is: it specifies a set of axes for a valid coordinate system.
+	
+	\begin{defn}
+		A set of vectors $\{ \mathbf e_1, \dots, \mathbf e_n \}$ is said to span a space if every point $P$ in the space can be represented as a linear combination $a_1 \mathbf e_1 + \dots a_n \mathbf e_n$
+	\end{defn}
+	
+	\begin{defn}
+		A set of vectors $\{\mathbf e_1, \dots , \mathbf e_n \}$ is said to be linearly independent if there is only one way to represent the zero vector $\mathbf 0$ as a combination of them, namely as $\mathbf 0 = 0\,\mathbf e_1 + \dots + 0\,\mathbf e_n$.
+	\end{defn}
+	
+	This second definition is the same as saying every vector that we can represent in our system has a unique representation. Let's make this clear. If there were two ways to write a vector $\mathbf v$, as:
 	\begin{equation*}
-		\mathbf u = \begin{pmatrix} a_1 \\ \vdots \\a_n	\end{pmatrix}.
+		\begin{aligned}
+			a_1 \mathbf e_1 + &\dots + a_n \mathbf e_n = \mathbf v\\
+			& \quad \mathrm{and}\\
+			b_1 \mathbf e_1 + &\dots + b_n \mathbf e_n = \mathbf v
+		\end{aligned}
 	\end{equation*}
+	then subtracting these two different combinations would give a nonzero way to represent zero, contradicting linear independence:
+	\begin{equation*}
+		(a_1 - b_1) \mathbf e_1 + \dots + (a_n - b_n) \mathbf e_n = \mathbf 0.
+	\end{equation*}
+	Conversely, if there were a nonzero combination of vectors summing to zero, then we could add that combination to the coordinate representation of any point and get a \emph{different} representation of the same point, contradicting uniqueness. So \ul{coordinate representations for all vectors are unique as long as there is only one representation for $\mathbf 0$}, namely the one where each component equals zero.
 	
-	But in some sense, writing this as an equality is wrong. The vector $\mathbf u$ is something physical: a velocity, a force, the flow of water. It doesn't depend on the coordinate system. On the other hand, the right hand side is just a list of numbers that depend entirely on the coordinate system chosen. If we change coordinate systems, the right hand side changes. Because $\mathbf u$ exists (say, in the real world) independently of coordinates used, it does not change.
+	Intuitively, having a set of vector span a space means that this set has enough information to describe every point in the space. Linear independence, on the other hand, means that there is no superfluous information in the set of vectors.  We cannot linearly combine vectors in some subset to get another vector in the set; each vector is adding its own unique additional piece of information, making the set able to span in a new direction. 
 	
-	A geometric vector like $u$ is \emph{not} a list of numbers. Once we pick a basis, $u$ can be \emph{represented by} a list of numbers, but if we change into a different basis, those numbers all have to change as well. This exact same idea will be the reason why a tensor is \emph{not} just a multi-dimensional array (like the ones encountered in computer science). It can be \emph{represented by} a multi-dimensional array once a coordinate system is chosen, but the numbers in each entry will differ depending on the coordinate system we pick. 
+	Bases that don't span, or are not linearly independent would lead to coordinate systems like these:
 	
-	This is very confusing (and will also be part of the reason why it's so hard to understand tensors as an undergraduate). In most math courses, we can freely call any list of numbers a `vector'. After all, you can add lists and scale them so they do form a `vector space'. This is a really unfortunate linguistic degeneracy in mathematics terminology. The type of vectors that we see in physics (acceleration, force, electric field, etc.) are \emph{geometric vectors}\index{vector!geometric} that have nothing \emph{a priori} to do with lists of numbers until we represent them as such by using coordinate systems. On the other hand, abstract structures that we can add and multiply by scalars are \emph{algebraic vectors}, and lists are an example of that. To avoid confusing lists of numbers with the geometric vectors in the physical world, we will call lists of numbers \emph{tuples}\index{vector!as a tuple} rather than vectors.
+	\todofig{Show a 2-D basis in a 3-D space, and a basis of 3 vectors in a 2-D subspace}
+
+	Once an origin is chosen, each point in 3D space becomes a vector relative to that origin. Therefore, the idea that points in space are independent of the coordinate system used to describe them applies to vectors just as well. If we choose a basis for our vector space $\mathbf e_1, \dots, \mathbf e_n$, then we can express any vector $\mathbf v$ by a unique combination $\mathbf v = a_1 \mathbf e_1 + \dots + a_n \mathbf e_n$. We then say that in this basis, we can represent $\mathbf v$ by a list of numbers. Often, it is written:
+	\begin{equation*}
+		\mathbf v = \begin{pmatrix} a_1 \\ \vdots \\a_n	\end{pmatrix}.
+	\end{equation*}
+	but writing this as an equality is wrong. 
 	
-	So returning to the geometric vector $\mathbf u$, a more careful way to write it would be:
+	The vector $\mathbf v$ is something physical: a point relative to an fixed origin. As an example, if we chose a stationary frame as an origin, $\mathbf v$ will now represent a physical velocity: the flow of water, the rush of air, the motion of the sun's core relative to Venus. It is purely geometric and has \emph{absolutely nothing to do with numbers} until a coordinate system is chosen. On the other hand, the right hand side by itself is just a list of numbers entirely dependent on the coordinate system. If we change coordinate systems, the right hand side changes. $\mathbf v$ does not.
 	
-	\begin{equation}\label{eq:RepU}
-		\mathbf u = \begin{pmatrix}
-			\mathbf v_1  \dots \mathbf v_n
-		\end{pmatrix}\begin{pmatrix} a_1 \\ \vdots \\a_n	\end{pmatrix} = a_1 \mathbf v_1 + \dots + a_n \mathbf v_n.
+	A geometric vector, $\mathbf v$ is \emph{not} a list of numbers. Once we pick a basis, $u$ can be \emph{represented by} a list of numbers, but if we change into a different basis, those numbers all have to change as well. Later, this exact same idea will be what distinguishes a physical tensor from a multi-dimensional array (like the ones encountered in computer science). It can be \emph{represented by} a multi-dimensional array once a coordinate system is chosen, but the numbers in each entry will differ depending on the coordinate system we pick. 
+	
+	\emph{``Hold on''} you may say \emph{``the definition of vector isn't something that has magnitude and direction. Vectors simply need to be able to be added and scaled. You can definitely add and scale lists of $n$ numbers, so aren't they vectors in that sense?''}
+	
+	You're completely right, and this is the main source of confusion in understanding this topic. 
+	In most courses, we can freely call any list of numbers a `vector'. After all, you can add lists and scale them so they do form a `vector space', as you point out. This boils down to a really unfortunate linguistic degeneracy in mathematics terminology. The type of vectors that we see in physics (acceleration, force, electric field, etc.) are \textbf{geometric vectors}\index{vector!geometric} that have nothing \emph{a priori} to do with lists of numbers until we represent them as such by using coordinate systems. On the other hand, abstract structures that we can add and multiply by scalars are \textbf{algebraic vectors}\index{vector!algebraic}, and lists of numbers are an example of that. Geometric vectors are also an example of algebraic vectors, since they, too, can be added and scaled. 
+	
+	\todofig{Figure, showing geometric vectors and tuples of numbers as extending the abstract algebraic vectors, and an arrow from tuples to geometric labelled ``representation in a coordinate system''}
+	
+	To avoid confusing lists of numbers with the geometric vectors in the physical world, we will refer to the former as \textbf{tuples}\index{vector!as a tuple} rather than vectors.
+	
+	%TODO: Turn this^ into a dialogue bullet?
+	
+	So, returning to the geometric vector $\mathbf v$, a correct way to write it would be (using standard matrix multiplication convention):
+	
+	\begin{equation}\label{eq:Repv1}
+		\mathbf v = \begin{pmatrix}
+			\mathbf e_1  \dots \mathbf e_n
+		\end{pmatrix}
+		\begin{pmatrix}
+			a_1 \\ \vdots \\a_n
+		\end{pmatrix} 
+		= a_1 \mathbf e_1 + \dots + a_n \mathbf e_n.
 	\end{equation}	
-	Once we pick a basis, that column of coordinates means something. If we denote our basis $\{\mathbf v_1, \dots, \mathbf v_n \}$ by $B$, then we will use the notation 
-	\begin{equation*}
-		\mathbf u = \begin{pmatrix} a_1 \\ \vdots \\a_n	\end{pmatrix}_B = a_1 \mathbf v_1 + \dots + a_n \mathbf v_n.
-	\end{equation*}
+	Once we pick a basis, that column of coordinates means something. If we denote our basis $\{\mathbf e_1, \dots, \mathbf e_n \}$ by $B$, then we will use the notation of square brackets to mean not just a column of numbers, but a full combination of the vectors in $B$:
+	\begin{equation}\label{eq:Repv2}
+		\begin{bmatrix} a_1 \\ \vdots \\a_n	\end{bmatrix}_B := \begin{pmatrix}
+			\mathbf e_1  \dots \mathbf e_n
+		\end{pmatrix}
+		\begin{pmatrix}
+			a_1 \\ \vdots \\a_n
+		\end{pmatrix} = a_1 \mathbf e_1 + \dots + a_n \mathbf e_n.
+	\end{equation}
 	
+	Now we can begin working towards the goal of understanding coordinate independence of physics by first understanding how coordinates transform as we go from one basis to another. Changes of basis in linear algebra are infamously frustrating to students, because one never knows when to apply a transformation or its inverse. In the following discusion, we will use notation as a tool to make this as painless as possible. 
 	
-	Let us do a very simple example to start. In the 2-D plane, say we have our original basis $\mathbf v_1, \mathbf v_2$ and we rotate it by $\pi/4$ radians to get a new basis. Say we have a point $P$ whose coordinate representation was $\mathbf v_1 + \mathbf v_2$, or $\begin{pmatrix} 1 \\ 1 \end{pmatrix}$ in the original basis.
+	Let us do a very simple example to start. In the 2-D plane, say we have our original basis $\mathbf e_1, \mathbf e_2$ and we rotate by $\pi/4$ radians to get a new basis. Say we have the vector $\mathbf v = \mathbf e_1 + \mathbf e_2$, i.e. with coordinate representation $\begin{pmatrix} 1 \\ 1 \end{pmatrix}$ in the original basis.
 	
 	Now our new basis is the old one rotated by $\pi/4$ so 
-	\begin{align*}
-		\mathbf v_1' &= ~~ \frac{\sqrt 2}{2} \mathbf v_1 + \frac{\sqrt 2}{2} \mathbf v_2\\
-		\mathbf v_2' &= - \frac{\sqrt 2}{2}\mathbf v_1 + \frac{\sqrt 2}{2}\mathbf v_2.
-	\end{align*}
 	\todofig{elementary transform with $1/\sqrt{2}$s}
-	
-	
-	As a matrix transform, we can write this as\footnote{The tuple of basis vectors $\mathbf v_i$ is written as a row rather than a column to be consistent with Equation~\eqref{eq:RepU}. Then the coordinates are represented in a column. Because of the way we do matrix multiplication, then the matrix acts on the right. It's an issue of styling and indexing, and not physically meaningful. If we were to write this coordinate transform using columns \& not rows, we'd get a matrix that's the transpose of the one above, and matrix transposes would appear in subsequent equations, making them less tidy.}:
+	\begin{align*}
+		\mathbf e_1' &= ~~ \frac{\sqrt 2}{2} \mathbf e_1 + \frac{\sqrt 2}{2} \mathbf e_2\\
+		\mathbf e_2' &= - \frac{\sqrt 2}{2}\mathbf e_1 + \frac{\sqrt 2}{2}\mathbf e_2.
+	\end{align*}
+	Using matrices, this can be written compactly as\footnote{The tuple of basis vectors $\mathbf e_i$ is written as a row rather than a column to be consistent with Equation~\eqref{eq:Repv1}. Then the coordinates are represented in a column. Because of the way we do matrix multiplication, then the matrix must act on the right. It's an issue of styling and indexing, and not physically meaningful. % If we were to write this coordinate transform using columns \& not rows, we'd get a matrix that's the transpose of the one above, and matrix transposes would appear in subsequent equations, making them less tidy.
+	}:
 	\begin{equation*}
 		\begin{pmatrix}
-			\mathbf v_1' & \mathbf v_2'
+			\mathbf e_1' & \mathbf e_2'
 		\end{pmatrix}
 		= 
 		\begin{pmatrix}
-			\mathbf v_1 & \mathbf v_2
+			\mathbf e_1 & \mathbf e_2
 		\end{pmatrix}
 		\begin{pmatrix}
 					 \frac{\sqrt 2}{2} &  -\frac{\sqrt 2}{2} \\
 					 \frac{\sqrt 2}{2} &  \frac{\sqrt 2}{2}
-		\end{pmatrix}
+		\end{pmatrix}.
 	\end{equation*}
-	This relates the actual basis vectors themselves. On the other hand, if we wanted to see the \emph{coordinates} representing $\mathbf v_1'$ and $\mathbf v_1'$, then in the new basis they would simply be represented in coordinates as: 
+	This transformation relates the actual basis vectors themselves. On the other hand, if we wanted to know the \emph{coordinate representations} of the vectors $\mathbf e_1'$ and $\mathbf e_2'$, then in the new basis they would obviously be represented in coordinates as: 
 	\begin{equation*}
-		\mathbf v_1' = \begin{pmatrix}
+		\mathbf e_1' = \begin{bmatrix}
 			1 \\ 0
-		\end{pmatrix}_{\mathrm{new}}, ~
-		\mathbf v_2' = \begin{pmatrix}
+		\end{bmatrix}_{\mathrm{new}} \hspace{0.3in}
+		\mathbf e_2' = \begin{bmatrix}
 			0 \\ 1
-		\end{pmatrix}_{\mathrm{new}}
+		\end{bmatrix}_{\mathrm{new}}
 	\end{equation*}
-	
-	and in the old basis they'd be represented as:
+	while in the old basis their representations are:
 	
 	\begin{equation*}
-		\mathbf v_1' = \begin{pmatrix}
+		\hspace{.3in}\mathbf e_1' = \begin{bmatrix}
 			\frac{\sqrt 2}{2} \\ \frac{\sqrt 2}{2}
-		\end{pmatrix}_{\mathrm{old}}, ~
-		\mathbf v_2' = \begin{pmatrix}
+		\end{bmatrix}_{\mathrm{old}} \hspace{0.3in}
+		\mathbf e_2' = \begin{bmatrix}
 			-\frac{\sqrt 2}{2} \\ \frac{\sqrt 2}{2}
-		\end{pmatrix}_{\mathrm{old}}
+		\end{bmatrix}_{\mathrm{old}}.
 	\end{equation*}
 		
-	If we know that we can describe a point as $\begin{pmatrix}
-					x \\ y
-		\end{pmatrix}_{\text{new}}$
+	If we know that we can describe a point as \small{$\begin{bmatrix}
+					x' \\ y'
+		\end{bmatrix}_{\text{new}}$}
 	in the new basis, then we can easily get its description in the old basis as:
-	\begin{equation}\label{eq:ContravariantTransform}
+	\begin{equation*}
 		\begin{aligned}
-			\begin{pmatrix}
-						x \\ y
-			\end{pmatrix}_{\mathrm{new}} 
-			&= x \mathbf v_1' + y \mathbf v_2' \\
-			&= x \begin{pmatrix}
+			\begin{bmatrix}
+						x' \\ y'
+			\end{bmatrix}_{\mathrm{new}} 
+			&= x' \mathbf e_1' + y' \mathbf e_2' \\
+			&= x' \begin{bmatrix}
 				\frac{\sqrt 2}{2} \\ \frac{\sqrt 2}{2}
-			\end{pmatrix}_{\mathrm{old}} 
-			+ y \begin{pmatrix}
+			\end{bmatrix}_{\mathrm{old}} 
+			+ y' \begin{bmatrix}
 				-\frac{\sqrt 2}{2} \\ \frac{\sqrt 2}{2}
-			\end{pmatrix}_{\mathrm{old}}
-			\\ &=\left( \begin{pmatrix}
+			\end{bmatrix}_{\mathrm{old}}
+			\\ &=\left[ \begin{pmatrix}
 				 \frac{\sqrt 2}{2} &  -\frac{\sqrt 2}{2} \\
 				 \frac{\sqrt 2}{2} &  \frac{\sqrt 2}{2}
 			\end{pmatrix}_{\mathrm{old} \leftarrow \mathrm{new}}
 			\begin{pmatrix}
-						x \\ y
-			\end{pmatrix}_{\mathrm{new}} \right)_{\mathrm{old}} 
+						x' \\ y'
+			\end{pmatrix} \right]_{\mathrm{old}} 
 		\end{aligned}
-	\end{equation}
-	
-	% Note carefully that the matrix letting us go from new to old coordinates is the \emph{transpose}\index{Matrix!Transpose} of the one relating the basis vectors themselves. Since we do our calculations with coordinates, it is this matrix that we care more about.
-	This is the same matrix that related the basis vectors. We'll call it $\mathbf A$. $\mathbf A$ takes the new coordinate representations $(x,y)$ and tells us how they'd look like in the \emph{old} basis. 
-
-	
-	So then it is the \emph{inverse} $\mathbf A^{-1}$ that tells us how our old coordinate representations of a point $P$ will look like in our new basis.
-	
-	For our point $P$, represented as $(1,1)$ in our original basis, in the new basis, we would have:
+	\end{equation*}
+	This is the same matrix that related the basis vectors. It's not too hard to see why, and in fact it's just associativity:
 	\begin{equation*}
-		P = \begin{pmatrix}
+		\begin{aligned}
+			\begin{bmatrix}
+						x' \\ y'
+			\end{bmatrix}_{\mathrm{new}} 
+			& = \begin{pmatrix}
+				\mathbf e_1' & \mathbf e_2'
+			\end{pmatrix} 
+			\begin{pmatrix}
+				x'\\
+				y'
+			\end{pmatrix}\\
+			 &= \begin{pmatrix}
+				\mathbf e_1 & \mathbf e_2
+			\end{pmatrix} \begin{pmatrix}
+					 \frac{\sqrt 2}{2} &  -\frac{\sqrt 2}{2} \\
+					 \frac{\sqrt 2}{2} &  \frac{\sqrt 2}{2}
+				\end{pmatrix}
+			\begin{pmatrix}
+				x'\\
+				y'
+			\end{pmatrix}\\
+			& = \left[ \begin{pmatrix}
+					 \frac{\sqrt 2}{2} &  -\frac{\sqrt 2}{2} \\
+					 \frac{\sqrt 2}{2} &  \frac{\sqrt 2}{2}
+				\end{pmatrix}_{\mathrm{old} \leftarrow \mathrm{new}}
+				\begin{pmatrix}
+					x'\\
+					y'
+				\end{pmatrix}
+			 \right]_{\mathrm{old}}.
+		\end{aligned}
+	\end{equation*}
+	This also means that given a coordinate tuple $\begin{pmatrix}x\\y\end{pmatrix}$ in the old basis, we can get the coordinates in the new basis by going the \underline{other way} and inverting:
+	\begin{equation*}
+		\begin{aligned}
+			\begin{bmatrix}
+				x\\
+				y
+			\end{bmatrix}_{\mathrm{old}}
+			&= \left[ \begin{pmatrix}
+					 \frac{\sqrt 2}{2} &  -\frac{\sqrt 2}{2} \\
+					 \frac{\sqrt 2}{2} &  \frac{\sqrt 2}{2}
+				\end{pmatrix}_{\mathrm{old} \leftarrow \mathrm{new}}
+				\begin{pmatrix}
+					x'\\
+					y'
+				\end{pmatrix}
+			 \right]_{\mathrm{old}}\\ \Rightarrow 
+			 \begin{pmatrix}
+			 	x'\\
+				y'
+			 \end{pmatrix} 
+			 &= \begin{pmatrix}
+					 \frac{\sqrt 2}{2} &  -\frac{\sqrt 2}{2} \\
+					 \frac{\sqrt 2}{2} &  \frac{\sqrt 2}{2}
+			\end{pmatrix}^{-1}_{\mathrm{new} \leftarrow \mathrm{old}}
+			\begin{pmatrix}
+				x\\
+				y
+			\end{pmatrix}.
+		\end{aligned}
+	\end{equation*}
+	For our vector $\mathbf v$, represented as $(1,1)$ in our original basis, in the new basis, we would have:
+	\begin{equation*}
+		\mathbf v = \begin{bmatrix}
 			1 \\ 1
-		\end{pmatrix}_{\mathrm{old}}
-		= \left( \begin{pmatrix}
+		\end{bmatrix}_{\mathrm{old}}
+		= \left[ \begin{pmatrix}
 			 \frac{\sqrt 2}{2} &  -\frac{\sqrt 2}{2} \\
 			 \frac{\sqrt 2}{2} &  \frac{\sqrt 2}{2}
-		\end{pmatrix}^{-1}_{\mathrm{new} \leftarrow \mathrm{old}} 		\begin{pmatrix}
+		\end{pmatrix}^{-1}_{\mathrm{new} \leftarrow \mathrm{old}} 
+		\begin{pmatrix}
 			1 \\ 1
-		\end{pmatrix}_{\mathrm{old}}\right)_\mathrm{new}
-		= \begin{pmatrix}
+		\end{pmatrix}\right]_\mathrm{new}
+		= \begin{bmatrix}
 			\sqrt 2 \\ 0
-		\end{pmatrix}_{\mathrm{new}}
+		\end{bmatrix}_{\mathrm{new}}.
 	\end{equation*}
-	Indeed, $\mathbf v_1 + \mathbf v_2 = \sqrt 2 \mathbf v_1' + 0 \mathbf v_2'$.\\
-	
-	That is the central idea. If we \emph{vary}\index{covariance} the \underline{basis} $\mathbf v_i$ to a different basis, $\mathbf v_i'$, then the \underline{coordinates} $a_i'$ will vary \index{contravariance} the \emph{other} way, so that the geometric vector
+	Indeed, $\mathbf e_1 + \mathbf e_2 = \sqrt 2 \mathbf e_1' + 0 \mathbf e_2'$.\\
+			
+	Now, in the general $n$-dimensional case, we start with a basis $\mathbf e_1, \dots, \mathbf e_n$. Now let's make a general transformation into a new basis so that:
 	\begin{equation*}
-		\mathbf u = a_1 \mathbf v_1 + \dots + a_n \mathbf v_n = a_1' \mathbf v_1' + \dots + a_n' \mathbf v_n'
-	\end{equation*} is \emph{invariant} regardless of coordinate choice.
-	
-	Let's make this precise in the general case. If we start with a set of basis vectors $\{\mathbf v_1, \dots, \mathbf v_n\}$ and we make the linear transformation to a new basis $\{\mathbf v_1', \dots, \mathbf v_n' \}$ so that, as before:
-	\begin{equation}\label{eq:CovariantTransform2}
-		(\mathbf v_1', \dots, \mathbf v_n') = (\mathbf v_1, \dots, \mathbf v_n ) \mathbf A
+		\begin{aligned}
+			\mathbf e_1' &= A_{11} \mathbf e_1 + A_{21} \mathbf e_2 +\dots + A_{n1} \mathbf e_n\\
+			\mathbf e_2' &= A_{12} \mathbf e_2 + A_{22} \mathbf e_2 +\dots + A_{n2} \mathbf e_n\\
+			& \hspace{1in}\vdots\\
+			\mathbf e_n' &= A_{1n} \mathbf e_1 + A_{2n} \mathbf e_2 +\dots + A_{nn} \mathbf e_n,
+		\end{aligned}
+	\end{equation*}
+	or in matrix form:
+	\begin{equation}\label{eq:CovariantTransform}
+		\begin{aligned}
+			\begin{pmatrix}
+				\mathbf e'_1 & \dots & \mathbf e'_n
+			\end{pmatrix} 
+			&= 
+			\begin{pmatrix}
+				\mathbf e_1 & \dots & \mathbf e_n
+			\end{pmatrix}
+			\mathbf A_{(\mathrm{old}\rightarrow\mathrm{new})},
+		\end{aligned}
 	\end{equation}
-	then since the vector $\mathbf u$ should not change when we change our basis, we must have: 
-	\begin{equation}\label{eq:ContravariantTransform2}
-		\begin{pmatrix}
-			a_1' \\ \vdots \\ a_n'
-		\end{pmatrix}
-		= 
-		\mathbf{A}^{-1}
-		\begin{pmatrix}
-			a_1 \\ \vdots \\ a_n
-		\end{pmatrix}
-	\end{equation}
-	so that 
 	\begin{equation*}
-		(\mathbf v_1', \dots, \mathbf v_n') 
+		\mathbf A =
 		\begin{pmatrix}
-			a_1' \\ \vdots \\ a_n'
+			A_{11} & \dots & A_{1n}\\
+			\vdots & \ddots & \vdots\\
+			A_{n1} & \dots & A_{nn}\\
+		\end{pmatrix}.
+	\end{equation*}
+	
+	As before, we see that $\mathbf A$ is the transformation taking the \underline{old} basis $\mathbf e_i$ to the \underline{new} one $\mathbf e'_i$. $\mathbf A$ also takes the \underline{new} coordinate representations and tells us how they'd look like in the \underline{old} basis (note the reversal).
+	\begin{equation*}
+		\begin{aligned}
+			\begin{bmatrix}
+				a'_1\\
+				\vdots\\
+				a'_n
+			\end{bmatrix}_{\mathrm{new}}
+			&=
+			\begin{pmatrix}
+				\mathbf e'_1 & \dots & \mathbf e'_n
+			\end{pmatrix}
+			\begin{pmatrix}
+				a'_1\\
+				\vdots\\
+				a'_n
+			\end{pmatrix}\\
+			&=
+			\begin{pmatrix}
+				\mathbf e_1 & \dots & \mathbf e_2
+			\end{pmatrix} 
+			\mathbf A
+			\begin{pmatrix}
+				a'_1\\
+				\vdots\\
+				a'_n
+			\end{pmatrix}\\
+			&=
+			\left[\mathbf A_{(\mathrm{old} \leftarrow \mathrm{new})}
+			\begin{pmatrix}
+				a'_1\\
+				\vdots\\
+				a'_n
+			\end{pmatrix}
+			\right]_{\mathrm{old}}\\
+			& = \begin{bmatrix}
+				a_1\\
+				\vdots\\
+				a_n
+			\end{bmatrix}_{\mathrm{old}}.
+		\end{aligned}
+	\end{equation*}
+	Note how when $\mathbf A$ acts from the right on the $\mathbf e_i$, it takes the \ul{old basis to the new basis}. On the other hand when it acts on the coordinate tuple, from the left, it took it from \ul{new coordinate old coordinate}. For this reason we can label $\mathbf A$ as $\mathbf A_{(\mathrm{old} \leftrightarrow \mathrm{new})}$ and the side on which it acts (basis vectors vs. coordinate tuples) automatically tells us whether it transforms those quantities from old to new or vice-versa.
+	
+	So then it is the \emph{inverse} $\mathbf A^{-1}$ that tells us how our old coordinates for a vector $\mathbf v$ will look like in our new basis.
+	\begin{equation}\label{eq:ContravariantTransform}
+		\begin{pmatrix}
+			a_1\\
+			\vdots\\
+			a_n
 		\end{pmatrix} 
-		= (\mathbf v_1, \dots, \mathbf v_n ) \mathbf A \mathbf A^{-1} 
+		= \mathbf A_{(\mathrm{old} \leftarrow \mathrm{new})} 
 		\begin{pmatrix}
-			a_1 \\ \vdots \\ a_n
-		\end{pmatrix}
-		= (\mathbf v_1, \dots, \mathbf v_n ) 
+			a_1'\\
+			\vdots\\
+			a_n'
+		\end{pmatrix} \Rightarrow 
 		\begin{pmatrix}
-			a_1 \\ \vdots \\ a_n
+			a_1'\\
+			\vdots\\
+			a_n'
+		\end{pmatrix} = 
+		 \mathbf A^{-1}_{(\mathrm{new} \leftarrow \mathrm{old})}
+		\begin{pmatrix}
+			a_1\\
+			\vdots\\
+			a_n
 		\end{pmatrix}
+	\end{equation}
+
+	From looking at equations~\eqref{eq:CovariantTransform} and~\eqref{eq:ContravariantTransform}, we see the central idea. For any vector $\mathbf v$, if we \emph{vary}\index{covariance} the \underline{basis} $\mathbf e_i$ to a different basis, $\mathbf e_i'$, then the \underline{coordinates} $a_i$ will vary \index{contravariance} the \emph{other} way to $a_i'$, so that the geometric vector
+	\begin{equation*}
+		\mathbf v = a_1 \mathbf e_1 + \dots + a_n \mathbf e_n = a_1' \mathbf e_1' + \dots + a_n' \mathbf e_n'
+	\end{equation*} is \emph{invariant} regardless of coordinate choice:
+	\begin{equation*}
+		\begin{aligned}
+			(\mathbf e_1', \dots, \mathbf e_n') 
+			\begin{pmatrix}
+				a_1' \\ \vdots \\ a_n'
+			\end{pmatrix} 
+			= (\mathbf e_1, \dots, \mathbf e_n ) & \mathbf A \mathbf A^{-1} 
+			\begin{pmatrix}
+				a_1 \\ \vdots \\ a_n
+			\end{pmatrix}
+			= (\mathbf e_1, \dots, \mathbf e_n ) 
+			\begin{pmatrix}
+				a_1 \\ \vdots \\ a_n
+			\end{pmatrix} = \mathbf v
+		\end{aligned}
 	\end{equation*}
-	as desired. \todoex{EXERCISE: PROVE IT HAS TO BE A INVERSE}
+
+	We say that the basis vectors $\mathbf e_i$ \textbf{co-vary}\index{vector!covariant} and the coordinates $a_i$ \textbf{contra-vary}\index{vector!contravariant} with the change of basis. The idea, although it sounds simple, is rather hard to get the feel of. It's worth thinking a good bit about how coordinates and bases need to vary in opposite ways so that the physical object represented by the coordinates stays the same regardless of how we look at it. 
 	
-	We say that the basis vectors $\mathbf v_i$ \textbf{co-vary}\index{vector!covariant} and the coordinates $a_i$ \textbf{contra-vary}\index{vector!contravariant} with the change of basis. The idea, although it sounds simple, is rather hard to get the feel of. It's worth thinking a good bit about how coordinates and bases need to vary in opposite ways so that the physical object represented by the coordinates stays the same regardless of how we look at it. 
+	\todofig{This will be a caption for a sketch of a 3D (2D?) rotation}
 	
-	\todofig{This will be a caption for a sketch of a 3-D rotation}
-	
-	 When you rotate your character in a video game (and in real life too, by the way), the world rotates \emph{contrary} to the direction that you've rotated in. That's because the coordinates of what you see have \emph{contra-varied} while your basis vectors, given by the direction you face have \emph{co-varied}. The end result is that despite changing your coordinate system, physics stays the same: invariant. The universe did not rotate itself just because you did. This extends beyond just rotations to \emph{all} linear transformations point. \\
+	 When you rotate your character in a video game (and in real life too, by the way), the world rotates \emph{contrary} to the direction that you've rotated in. That's because the coordinates of what you see have \emph{contra-varied} while your basis vectors, given by the direction you face have \emph{co-varied}. The end result is that despite changing your coordinate system, physics stays the same: invariant. The universe did not rotate itself just because you did. This extends beyond just rotations to \emph{all} linear transformations. As an example: if you applied a scaling transformation ($\times 100$) to change your units of length: $\mathrm {cm} \to \mathrm m$, the coordinates corresponding to those lengths would change in the opposite way, $100 \to 1$, ($\div 100$) to represent the same distance. \\
 	
 	\index{linear algebra|)}
 	
 	\section{The Notion of Length on Vector Spaces} % (fold)
 	\label{sec:the_notion_of_length_on_vector_spaces}
 	
-	Let us consider the property of orthogonality\index{vector!orthogonality}. It's well known that for geometric vectors, there's more that we can do than just add, scale, and transform them: we can take dot products\footnote{Of course in 3-D we can also take a cross product. This will be discussed in the following chapters.} between them. When we have two geometric vectors in space, their dot product is a well defined number. If it is zero, then the vectors are orthogonal to one another. From the dot product and the magnitudes, it is possible to calculate the angle between two given vectors. 
+	Let us consider the property of orthogonality\index{vector!orthogonality}. It's well known that for geometric vectors, there's more that we can do than just add, scale, and transform them: we can take dot products\footnote{And in 3-D we can also take a cross product. This operation, and generalizations, will be discussed in the following chapters.} between them. When we have two geometric vectors in space, their dot product is a well defined number. If it is zero, then the vectors are orthogonal to one another. From the dot product and the magnitudes, it is possible to calculate the angle between two given vectors. 
 	
 	When vectors are represented in terms of tuples of numbers, the dot product was taught to us as ``multiply component by component, and then sum that up". This is not, in general, what the dot product really is. Consider a basis transformation as below:
 	\begin{align*}
-		\mathbf v_1' &= 2 \mathbf v_1 + \mathbf v_2 \\
-		\mathbf v_2' &=  \mathbf v_1 + 2 \mathbf v_2.
+		\mathbf e_1' &= 2 \mathbf e_1 + \mathbf e_2 \\
+		\mathbf e_2' &=  \mathbf e_1 + 2 \mathbf e_2.
 	\end{align*}
-	It's easy to compute the inverse of this matrix and see how the new coordinates should work, but it worthwhile looking at this geometrically. It is not a rotation, but more of a ``stretching''. Notice that while in our original perspective, if we viewed $\mathbf v_1$ and $\mathbf v_2$ as orthogonal vectors, in the \emph{new} perspective, they are \emph{no longer} orthogonal. This is very important: linear transformations in general do not preserve orthogonality.
+	It's easy to compute the inverse of this matrix and see how the new coordinates should work, but it worthwhile looking at this geometrically. It is not a rotation, but more of a ``stretching''. Notice that while in our original perspective, if we viewed $\mathbf e_1$ and $\mathbf e_2$ as orthogonal vectors, in the \emph{new} perspective, they are \emph{no longer} orthogonal. This is very important: linear transformations in general do not preserve orthogonality.
 	
 	\todofig{Graphic of orthogonality being changed under affine transform}
 	
-	In particular, this linear transformation has \emph{stretched} our vector space and changed the notion of distance. Even though rotations keep distances preserved, general linear transformations don't care about a notion of distance. 
+	This linear transformation has stretched our vector space and changed the notion of distance. While rotations keep distances preserved, more general linear transformations don't care about a notion of distance. 
 	
-	If we were to take the ``dot product" $\mathbf v_1' \cdot \mathbf v_2'$ just by multiplying corresponding coordinates and summing them up, then in the new basis we'd get zero, but in the original basis we would \emph{not}. This dot product actually changes depending on the coordinate system that we use! In some sense, this is expected: all we're doing is multiplying contravariant coordinates together and summing them up. The result should be contravariant as well (in fact doubly contravariant).
+	If we were to take the ``dot product" $\mathbf e_1' \cdot \mathbf e_2'$ just by multiplying corresponding coordinates and summing them up, then in the new basis we'd get zero, but in the original basis we would \emph{not}. This dot product actually changes depending on the coordinate system that we use! In some sense, this is expected: all we're doing is multiplying contravariant coordinates together and summing them up. The result should be contravariant as well (in fact doubly contravariant).
 	
 	% But then does that mean that the state of being orthogonal is coordinate-dependent? Two vectors can be orthogonal in one coordinate system and not in another? Immediately, you should say ``No, the state of being perpendicular is a real-world observation that doesn't depend on what coordinate system you use.'' So what is going on? The only possibility is that we're not doing the dot product right. We can't just multiply the contravariant coordinates: we need to make use of both the coordinates and the vectors.
 	
@@ -300,7 +471,7 @@
 	%
 	% In the succeeding chapter, we will study how to define these \emph{inner products}\index{Inner Product} on vectors. To obtain the invariant scalar from the contravariant coordinates, we will need to introduce a doubly-covariant quantity called the \emph{metric tensor}\index{Metric Tensor}.
 	%
-	%  As soon as we define a product operation between vectors $\mathbf v \cdot \mathbf w$, we have added structure to our vector space. An inner product makes it so that not all bases of vectors are equal. There are bases where the basis vectors satisfy $v_i \cdot v_j = 0$ unless $i = j$, meaning the basis vectors are all orthogonal. The orthogonal bases are special among the set of all bases. Not all linear transformations, therefore, will preserve orthogonal bases: only orthogonal ones will.
+	%  As soon as we define a product operation between vectors $\mathbf v \cdot \mathbf w$, we have added structure to our vector space. An inner product makes it so that not all bases of vectors are equal. There are bases where the basis vectors satisfy $e_i \cdot e_j = 0$ unless $i = j$, meaning the basis vectors are all orthogonal. The orthogonal bases are special among the set of all bases. Not all linear transformations, therefore, will preserve orthogonal bases: only orthogonal ones will.
 	%
 
 	% section the_notion_of_length_on_vector_spaces (end)
@@ -308,7 +479,7 @@
 	\section[Nonlinear Coordinate Systems are Locally Linear]{Nonlinear Coordinate Systems are\\ Locally Linear}% (fold)
 	\label{sec:nonlinear_coordinate_systems_are_locally_linear}
 	
-	Perhaps you may be wondering why we've spent so much time on changing between coordinate systems represented by basis vectors centered at a fixed origin. Consider the change between cartesian and polar coordinates. What does this have to do with the linear changes of coordinates that we've been discussing?
+	Perhaps you may be wondering why we've spent so much time on changing between coordinate systems represented by basis vectors centered at a fixed origin. Consider the change between Cartesian and polar coordinates. What does this have to do with the linear changes of coordinates that we've been discussing?
 	
 	We could use something like a polar system of $(r,\theta)$ or a spherical system $(r, \phi, \theta)$. These coordinate systems are not representable in terms of axes, but instead look like this:
 	
@@ -316,7 +487,7 @@
 	
 	This is an example of a non-linear coordinate transformation. They are more commonly referred to as \textbf{curvilinear}. Whereas linear ones map lines to lines, curvilinear ones more generally map lines to curves. The idea for making sure that the equations of physics still stay true for non-linear coordinate transformations is to note that just like a curve locally looks like a line, a \emph{non-linear} transformation locally looks like a \emph{linear} one. The linear transformation that it locally looks like is called the \textbf{Jacobian} \index{Jacobian} $J$. If the laws of physics are invariant under linear transformations locally at each point, then \emph{globally}, they will be invariant under non-linear ones as well. That is why we cared about studying covariance and contravariance for linear transformations: more complicated cases can be reduced to their local linear behavior.
 	
-	As an example, consider going from a cartesian to a polar coordinate system. We have $x = r \cos \theta$ and $y = r \sin \theta$. Certainly, this is not a linear transformation of coordinates. There is sinusoidal dependence on $\theta$ in this transformation. Physics and geometry, however, do not have laws in terms of absolute coordinates (it doesn't make sense to say ``That object is located at 50 meters'') but only in terms of relative distances (you'd instead say ``That object is located 50 meters \emph{relative to} me"). It is the changes over relative distances between points that we care about, and these are obtained by integrating the \emph{infinitesimal} changes at each point. 
+	As an example, consider going from a Cartesian to a polar coordinate system. We have $x = r \cos \theta$ and $y = r \sin \theta$. Certainly, this is not a linear transformation of coordinates. There is sinusoidal dependence on $\theta$ in this transformation. Physics and geometry, however, do not have laws in terms of absolute coordinates (it doesn't make sense to say ``That object is located at 50 meters'') but only in terms of relative distances (you'd instead say ``That object is located 50 meters \emph{relative to} me"). It is the changes over relative distances between points that we care about, and these are obtained by integrating the \emph{infinitesimal} changes at each point. 
 	
 	So although $x,y$ do not depend linearly on theta, through the use of the chain rule, we have a local linear relationship in their infinitesimal changes:
 	\begin{align*}
@@ -403,9 +574,9 @@
 	 	\frac{\partial}{\partial x_1} \\	\vdots \\ \frac{\partial}{\partial x_n}
 	 \end{pmatrix}_{\text{old}}
 	\end{equation}
-	If you look carefully, you will see that this accordingly mirrors the covariant change of vectors in Equation~\eqref{eq:CovariantTransform2}. So while the infinitesimal changes in the coordinates themselves are contravariant, just like the linear coordinates themseles, the \emph{differential operators} corresponding to changes in these coordinates become \emph{covariant}, just like the vectors $\mathbf v_i$ in the linear case. This is the first correspondence that will hint that our basis vectors $\mathbf v_i$ actually \emph{correspond} to the differential operators $\frac{\partial}{\partial x_i}$.
+	If you look carefully, you will see that this accordingly mirrors the covariant change of vectors in Equation~\eqref{eq:CovariantTransform2}. So while the infinitesimal changes in the coordinates themselves are contravariant, just like the linear coordinates themseles, the \emph{differential operators} corresponding to changes in these coordinates become \emph{covariant}, just like the vectors $\mathbf e_i$ in the linear case. This is the first correspondence that will hint that our basis vectors $\mathbf e_i$ actually \emph{correspond} to the differential operators $\frac{\partial}{\partial x_i}$.
 	
-	Indeed, as we begin to move away from 3-D and $n$-D Euclidean space, we will see why the old notions of unit vectors $\mathbf{\hat i}, \mathbf{\hat j}, \mathbf{\hat k}$ are better viewed as the operators $\frac{\partial}{\partial x}, \frac{\partial}{\partial y},$ and $ \frac{\partial}{\partial z}$, and in general $\mathbf v_i \rightarrow \frac{\partial}{\partial x_i}$. This change of notation will allow us to easily pass onto far more general spaces than the Euclidean ones we've gotten used to. 
+	Indeed, as we begin to move away from 3-D and $n$-D Euclidean space, we will see why the old notions of unit vectors $\mathbf{\hat i}, \mathbf{\hat j}, \mathbf{\hat k}$ are better viewed as the operators $\frac{\partial}{\partial x}, \frac{\partial}{\partial y},$ and $ \frac{\partial}{\partial z}$, and in general $\mathbf e_i \rightarrow \frac{\partial}{\partial x_i}$. This change of notation will allow us to easily pass onto far more general spaces than the Euclidean ones we've gotten used to. 
 	
 	% section nonlinear_coordinate_systems_are_locally_linear (end)
 	
@@ -414,14 +585,14 @@
 	
 	Row tuples, column tuples, matrices representing basis transformations (old to new and new to old), co-variance and contra-variance. These ideas have constituted the entirety of this first chapter, and although hopefully they have not been too difficult conceptually, the matrix manipulation even at this early level is already a pain. We have to write everything in terms of tuples, and we need to arbitrarily decide which ones are rows and which ones are columns, and which matrices are transposed so that all the matrix multiplications make sense, as defined in linear algebra. A young physicist named Albert Einstein used a convention\index{summation convention} of writing all these equations so that we did not have to explicitly write out tuples of abstract basis vectors and coordinates.
 	
-	The first step is to avoid explicitly writing out row tuples and column tuples. To do this, instead of writing out a whole tuple to represent a vector like $(v_1, \dots, v_n)$ we will simply write $v_i$. $v_i$ should be viewed as the whole vector, rather than a specific $ith$ component of $\mathbf v$. The index $i$ is \emph{free} and can be anything. 
+	The first step is to avoid explicitly writing out row tuples and column tuples. To do this, instead of writing out a whole tuple to represent a vector like $(e_1, \dots, e_n)$ we will simply write $e_i$. $e_i$ should be viewed as the whole vector, rather than a specific $ith$ component of $\mathbf v$. The index $i$ is \emph{free} and can be anything. 
 	
-	The reason it is preferable to view $v_i$ as the whole vector rather than a specific $i$th component of it is because of the same reason given at the end of Section~\ref{sec:Cartesian}, that we never care about just a specific component, but rather the vector as a whole. 
+	The reason it is preferable to view $e_i$ as the whole vector rather than a specific $i$th component of it is because of the same reason given at the end of Section~\ref{sec:Cartesian}, that we never care about just a specific component, but rather the vector as a whole. 
 	
-	The second step is to be able to differentiate between \emph{covariant} quantities and contravariant quantities. The convention is this: if the quantity is covariant, like a basis vector, then write its index \emph{downstairs}: $\mathbf v_i$. On the other hand, of a quantity is contravariant (like a component of a vector) then write its index \emph{upstairs} as $v^i$ instead\footnote{If you are worried that this will be confused with exponentiation, don't be. In practice, such confusion almost never arises.}. Then we can write Equation~\eqref{eq:RepU} as 
+	The second step is to be able to differentiate between \emph{covariant} quantities and contravariant quantities. The convention is this: if the quantity is covariant, like a basis vector, then write its index \emph{downstairs}: $\mathbf e_i$. On the other hand, of a quantity is contravariant (like a component of a vector) then write its index \emph{upstairs} as $v^i$ instead\footnote{If you are worried that this will be confused with exponentiation, don't be. In practice, such confusion almost never arises.}. Then we can write Equation~\eqref{eq:Repv1} as 
 	
 	\begin{equation}
-		\mathbf u = \sum_{i} a^i \mathbf v_i
+		\mathbf v = \sum_{i} a^i \mathbf e_i
 	\end{equation}
 	
 	For another example, the gradient\index{gradient operator} operator was written $\nabla = (\partial/\partial x_1, \dots, \partial/\partial x_n)$ and is now written simply as $\partial/\partial x^i$ (adopting upper indices for $x^i$ since coordinates contra-vary). This means that Equation~\eqref{eq:partial_transform} can be written as
@@ -433,7 +604,7 @@
 	
 	Sometimes in the mathematics literature in places where co- and contra-variance are of lesser importance, upper and lower indices are ignored and the notation describing something like a matrix-vector multiplication looks like this:
 	\begin{equation*}
-		(\mathbf A \mathbf v)_i = \sum_{j} \mathbf A_{ij} \mathbf v_j.
+		(\mathbf A \mathbf v)_i = \sum_{j} \mathbf A_{ij} \mathbf e_j.
 	\end{equation*}
 	That is, the $i$th component of the product $\mathbf A \mathbf v$ is the sum over $j$ of the $ij$th component of $\mathbf A$ with the $j$th component of $\mathbf v$. For a matrix-matrix multiplication this would look like
 	\begin{equation*}
@@ -443,12 +614,12 @@
 	
 	Einstein took the bold, but ultimately brilliant step of making the convention that if we ever write an index twice, that \emph{automatically means} that we are summing over it (unless we explicitly say we aren't). The above equations, in Einstein's scheme, now become
 	\begin{align*}
-		(\mathbf A \vec v)_i & =  \mathbf A_{ij} \vec v_j \\
+		(\mathbf A \vec v)_i & =  \mathbf A_{ij} \vec e_j \\
 		(\mathbf A \mathbf{B})_{ik} & = \mathbf A_{ij} \mathbf B_{jk}.
 	\end{align*}
-	A dot product between $\mathbf v$ and itself would simply be $\mathbf v\cdot \mathbf v = v_i v_i$ in Einstein's convention. Note since $i$ is an index that is summed over (and doesn't appear in the end result), we could just as well replace it by any symbol $v_i v_i = v_j v_j = v_{\ddot \smile} v_{\ddot \smile} = \mathbf v \cdot \mathbf v$.
+	A dot product between $\mathbf v$ and itself would simply be $\mathbf v\cdot \mathbf v = e_i e_i$ in Einstein's convention. Note since $i$ is an index that is summed over (and doesn't appear in the end result), we could just as well replace it by any symbol $e_i e_i = e_j e_j = e_{\ddot \smile} e_{\ddot \smile} = \mathbf v \cdot \mathbf v$.
 	
-	Now returning back to co-variance and contra-variance, this scheme makes every equation in the chapter shockingly short. Equation~\eqref{eq:RepU} becomes $\mathbf u = a^i \mathbf v_i$, Equation~\eqref{eq:CovariantTransform2} becomes $\mathbf v_i' = A^j_i \mathbf v_j$, Equation~\eqref{eq:ContravariantTransform2} becomes $a_i' = (A^{-1})^j_i a_j$. Equation~\eqref{eq:partial_transform2} is further reduced to just 
+	Now returning back to co-variance and contra-variance, this scheme makes every equation in the chapter shockingly short. Equation~\eqref{eq:Repv1} becomes $\mathbf v = a^i \mathbf e_i$, Equation~\eqref{eq:CovariantTransform2} becomes $\mathbf e_i' = A^j_i \mathbf e_j$, Equation~\eqref{eq:ContravariantTransform2} becomes $a_i' = (A^{-1})^j_i a_j$. Equation~\eqref{eq:partial_transform2} is further reduced to just 
 	\begin{equation}\label{eq:covariant_einstein}
 		\frac{\partial}{\partial {x'}^i} = \frac{\partial x^j}{\partial {x'}^i} \frac{\partial}{\partial x^j}.
 	\end{equation}

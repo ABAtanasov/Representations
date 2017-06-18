@@ -1,0 +1,49 @@
+% --------------------------------------------------------------------
+% Chapter 1.1
+% --------------------------------------------------------------------
+	
+	Newton's law $\mathbf F = m \mathbf a$ relates the force vector to the acceleration vector. The vector representing the force $\mathbf F$ that you apply on a surface is an object independent of coordinate system, and so is the resulting acceleration vector. The \emph{components} of these vectors ($F_x, F_y, F_z$) and ($a_x, a_y, a_z$), however, depend on what you have chosen for the $x,y,z$ axes. These components \emph{represent} a real physical vector, but only once we pick a coordinate system. If we were to pick a different coordinate system, the numbers representing the vector would change. 
+	
+	When we write an equation describing a physical law, it should be valid regardless of the coordinate system we use. $\mathbf F = m \mathbf a$ will always be true whether we rotate our frame of reference or not. On the other hand, if Newton's law of motion \emph{only} said that the \emph{first} `$x$' component of the Force was equal to the \emph{first} `$x$' component of the acceleration, and said nothing about the other $2$ components, then in different coordinate systems since `$x$' means different things, we would get totally different equations of motion. No physical law will ever say something just about the first or just about the second components of two vectors: it must equate the entirety of the two vectors. 
+	
+	
+	As another example if the equation for work looked like $F_x dx = dW$, then would give different results in different coordinate systems, because it puts emphasis on just one of the three components (the first `$x$' coordinate) over the others. While in some coordinate system $dx$ may point in the direction of the displacement and be nonzero, there may be a different coordinate system where $dx=0$, making the work done zero. So the equation for work would be coordinate dependent: it would be wrong. The need for such invariance is why the true formula uses all three spacial dimensions and looks like:
+	
+	\begin{equation*}
+		\mathbf F \cdot  d \mathbf r = F_x dx + F_y dy + F_z dz = d W.
+	\end{equation*}
+	
+	 Although it isn't obvious yet that this is a quantity that is invariant regardless of the coordinate system used, at the very least it doesn't put one component above any of the others.
+	 
+	 \hline
+	 
+	 Because the purpose of this text is to study the ways in which geometry, algebra, and physics connect, it is worthwhile to dwell on the \emph{philosophy} behind coordinate systems.
+	
+% --------------------------------------------------------------------
+% Chapter 1.2
+% --------------------------------------------------------------------
+
+ 	The traditional concept of a coordinate system, a series of perpendicular lines that together associate ordered tuples of numbers to each point in $n$-dimensional space, is not representative of all coordinate systems. For one, we do not need the requirement that the lines be perpendicular. Our coordinate system could instead look like this:
+
+ 	\todofig{Graphic of non-perp lines and representing a point like that}
+	
+% --------------------------------------------------------------------
+
+	In the language of linear algebra: once we choose an origin, choosing a set of coordinate axes is the same as choosing a basis for the space (a coordinate basis). For any point in space, we can relate coordinates $x_i'$ in the new system in terms of coordinates $x_i$ in the old system by matrix multiplication: $x_i' = \sum_{j=1}^n \mathbf A_{ij} x_j$. This is exactly what's known as a change of basis. Transformations between coordinate bases are exactly the invertible \textbf{linear transformations}\index{linear algebra!linear transformation}.
+
+% --------------------------------------------------------------------
+	
+	Very often in mathematics, we ask ``does a solution exist?'', and ``if there is a solution, is it unique?''. These two questions are dual to one another. If a set of vectors spans the space, then there \emph{exists} a way to represent any point (at least one way to represent any point). If a set of vectors is linearly independent, then \emph{if} you can represent a point, that representation is \emph{unique} (no more than one way to represent any point).
+	
+% --------------------------------------------------------------------
+	
+	Now to stress the same idea again: because points in $\mathbb R^n$ and vectors are essentially the same thing, the idea that points in space are invariant of a coordinate system applies just as well to vectors. If we choose a basis for our vector space $\mathbf v_1, \dots \mathbf v_n$, then we can express any vector $\mathbf u$ by a unique combination $\mathbf u = a_1 \mathbf v_1 + \dots + a_n \mathbf v_n$. We then say that in this basis, we can represent $\mathbf u$ by a list of numbers. Often, it is written:
+
+% --------------------------------------------------------------------
+% Chapter 2
+% --------------------------------------------------------------------
+
+
+% --------------------------------------------------------------------
+% Chapter 3
+% --------------------------------------------------------------------

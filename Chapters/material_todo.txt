@@ -1,0 +1,27 @@
+Material TODO
+
+Preface:
+
+"This book is not an exercise is mathematical writing, but in pedagogy and personal reflection"
+
+"I hope in this book to be able to provide material that anyone, at any stage of their mathematical career, might find interesting."
+
+Chapter 1
+
+	Coordinate systems are also known as reference frames in the physical sciences
+	
+	Rather than giving worked examples of such calculations, as you could find in an book on engineering, introductory physics, and graphics, we believe there is little we can contribute to this area. Instead, 
+
+
+	1.3 
+	
+	idea: Usually we think distance is given -> a dot product arises
+		  The table of dot products in our basis is given -> gives us distance
+	say something like:
+	"We think of distance on a space giving rise to this matrix of dot products between the basis vectors, but here have gone the other way. We say that once we chose a matrix for these dot products in one basis, it is THEN that we have defined a way to measure distances on the space. This table of numbers is then what we call our METRIC that will define an inner product. Transforming into a different basis will appropriately change the numbers in the table. This is our first example of a SYMMETRIC COVARIANT TENSOR OF RANK 2"
+	You can additionally mention that this also lets us measure volumes (the determinant of the metric is the volume)
+	Exersize on areas an volumes using the metric
+
+Chapter 3
+
+Stokes' theorem is not so much a profound result requiring heavy mathematical manipulations to achieve so much as it is an intuitive observation that requires the right language to cast things in. 
