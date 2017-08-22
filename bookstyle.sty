@@ -96,6 +96,13 @@
 
 %\declaretheorem[name=Theorem,numberwithin=section]{thm}
 
+
+\newtheoremstyle{break}
+  {\topsep}{\topsep}%
+  {\itshape}{}%
+  {\bfseries}{}%
+  {\newline}{}%
+\theoremstyle{break}
 \newtheorem*{nb}{Important Note}		%Don't think we'll use this
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -107,7 +114,11 @@
 \newtheorem{defn}[theorem]{Definition}
 \newtheorem{concept}[theorem]{Concept}
 \newtheorem{view}{View}
+\theoremstyle{break}
+\theoremstyle{definition}
 \newtheorem{example}[theorem]{Example}
+
+
 \newtheorem{dialogue}[theorem]{Dialogue}
 
 

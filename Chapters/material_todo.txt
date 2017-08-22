@@ -20,7 +20,7 @@ Chapter 1
 	say something like:
 	"We think of distance on a space giving rise to this matrix of dot products between the basis vectors, but here have gone the other way. We say that once we chose a matrix for these dot products in one basis, it is THEN that we have defined a way to measure distances on the space. This table of numbers is then what we call our METRIC that will define an inner product. Transforming into a different basis will appropriately change the numbers in the table. This is our first example of a SYMMETRIC COVARIANT TENSOR OF RANK 2"
 	You can additionally mention that this also lets us measure volumes (the determinant of the metric is the volume)
-	Exersize on areas an volumes using the metric
+	Exercise on areas an volumes using the metric
 
 Chapter 3
 

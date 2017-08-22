@@ -38,6 +38,16 @@
 % --------------------------------------------------------------------
 	
 	Now to stress the same idea again: because points in $\mathbb R^n$ and vectors are essentially the same thing, the idea that points in space are invariant of a coordinate system applies just as well to vectors. If we choose a basis for our vector space $\mathbf v_1, \dots \mathbf v_n$, then we can express any vector $\mathbf u$ by a unique combination $\mathbf u = a_1 \mathbf v_1 + \dots + a_n \mathbf v_n$. We then say that in this basis, we can represent $\mathbf u$ by a list of numbers. Often, it is written:
+	
+% --------------------------------------------------------------------
+% Chapter 1.3
+% --------------------------------------------------------------------
+
+	But then does that mean that the state of being orthogonal is coordinate-dependent? Two vectors can be orthogonal in one coordinate system and not in another? Immediately, you should say ``No, the state of being perpendicular is a real-world observation that doesn't depend on what coordinate system you use.'' So what is going on? The only possibility is that we're not doing the dot product right. We can't just multiply the contravariant coordinates: we need to make use of both the coordinates and the vectors.
+
+	The failure of the dot product to be invariant is intimately related to the fact that transformations can change lengths. This should not be too surprising. After all, the length of a vector is defined by the square root of its dot product with itself. If the dot product we learned is not invariant under general coordinate transformations, what is the right way to measure length?
+
+	It is here that there is a big subtlety. A vector space on its own does not have a notion of length. We've just seen choosing different bases would give rise to different length scales and notions of ``perpendicular'' as well. Endowing a vector space with a way to universally tell what the length of a vector is, or whether two vectors are perpendicular is actually adding \emph{extra structure} to the space. It picks a whole class of specific coordinate systems and says ``these are the orthogonal reference frames; the others are skewed and stretched perspectives''. This allows us to measure length using an invariant \emph{inner product}\index{inner product}.
 
 % --------------------------------------------------------------------
 % Chapter 2
