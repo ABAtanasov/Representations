@@ -12,6 +12,7 @@
 *.ilg
 *.tdo
 *.un~
+*.DS_Store
 *.blend#
 Thumbs.db
 Chapters/*.pdf
